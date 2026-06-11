@@ -1,0 +1,6 @@
+{
+  "name": "Nature AI",
+  "description": "Expert-level ecological multi-vision AI tracking and diagnostic platform.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
