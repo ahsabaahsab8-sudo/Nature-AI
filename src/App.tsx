@@ -17,38 +17,78 @@ import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsOfService from './components/TermsOfService';
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState<'main' | 'premium-features' | 'developer-core' | 'privacy-policy' | 'terms-of-service'>('main');
+  const [currentPage, setCurrentPage] = React.useState<'main' | 'premium-features' | 'developer-core' | 'privacy-policy' | 'terms-of-service'>('main');
+
+  React.useEffect(() => {
+    const handleNavigation = () => {
+      const path = window.location.pathname.replace(/^\/|\/$/g, '');
+      const hash = window.location.hash.replace('#', '');
+      const route = path || hash;
+
+      if (route === 'privacy-policy') {
+        setCurrentPage('privacy-policy');
+      } else if (route === 'terms-of-service') {
+        setCurrentPage('terms-of-service');
+      } else if (route === 'developer-core') {
+        setCurrentPage('developer-core');
+      } else if (route === 'premium-features') {
+        setCurrentPage('premium-features');
+      } else {
+        setCurrentPage('main');
+      }
+    };
+
+    handleNavigation();
+
+    window.addEventListener('popstate', handleNavigation);
+    window.addEventListener('hashchange', handleNavigation);
+
+    return () => {
+      window.removeEventListener('popstate', handleNavigation);
+      window.removeEventListener('hashchange', handleNavigation);
+    };
+  }, []);
 
   const openPremiumFeatures = () => {
+    window.history.pushState(null, '', '/premium-features');
     setCurrentPage('premium-features');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const openDeveloperCore = () => {
+    window.history.pushState(null, '', '/developer-core');
     setCurrentPage('developer-core');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const openPrivacyPolicy = () => {
+    window.history.pushState(null, '', '/privacy-policy');
     setCurrentPage('privacy-policy');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const openTermsOfService = () => {
+    window.history.pushState(null, '', '/terms-of-service');
     setCurrentPage('terms-of-service');
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleBack = () => {
+    window.history.pushState(null, '', '/');
+    setCurrentPage('main');
+    window.scrollTo({ top: 0 });
   };
 
   return (
     <div className="relative w-full min-h-screen bg-cream text-charcoal font-sans selection:bg-moss selection:text-cream">
       {currentPage === 'premium-features' ? (
-        <PremiumFeatures onBack={() => { setCurrentPage('main'); window.scrollTo({ top: 0 }); }} />
+        <PremiumFeatures onBack={handleBack} />
       ) : currentPage === 'developer-core' ? (
-        <DeveloperCore onBack={() => { setCurrentPage('main'); window.scrollTo({ top: 0 }); }} />
+        <DeveloperCore onBack={handleBack} />
       ) : currentPage === 'privacy-policy' ? (
-        <PrivacyPolicy onBack={() => { setCurrentPage('main'); window.scrollTo({ top: 0 }); }} />
+        <PrivacyPolicy onBack={handleBack} />
       ) : currentPage === 'terms-of-service' ? (
-        <TermsOfService onBack={() => { setCurrentPage('main'); window.scrollTo({ top: 0 }); }} />
+        <TermsOfService onBack={handleBack} />
       ) : (
         <>
           <div className="noise-overlay"></div>
