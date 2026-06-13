@@ -65,6 +65,25 @@ async function startServer() {
     res.send("google.com, pub-3542857199729042, DIRECT, f08c47fec0942fa0");
   });
 
+  // Serve assetlinks.json directly to bypass any catch-all routing
+  app.get("/.well-known/assetlinks.json", (req, res) => {
+    res.setHeader("Content-Type", "application/json");
+    res.send(JSON.stringify([
+      {
+        "relation": [
+          "delegate_permission/common.handle_all_urls"
+        ],
+        "target": {
+          "namespace": "android_app",
+          "package_name": "com.nature.ai",
+          "sha256_cert_fingerprints": [
+            "71:C7:52:0A:AA:34:08:9D:74:DA:A8:91:FF:30:EC:1D:5A:1A:71:DD:66:BE:F9:23:AA:48:AD:F0:DE:A6:0A:45"
+          ]
+        }
+      }
+    ], null, 2));
+  });
+
   // Vite middleware for development
   if (process.env.NODE_ENV !== "production") {
     const vite = await createViteServer({
