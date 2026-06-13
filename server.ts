@@ -65,6 +65,12 @@ async function startServer() {
     res.send("google.com, pub-3542857199729042, DIRECT, f08c47fec0942fa0");
   });
 
+  // Serve ads.txt directly to bypass any catch-all routing
+  app.get("/ads.txt", (req, res) => {
+    res.setHeader("Content-Type", "text/plain");
+    res.send("google.com, pub-3542857199729042, DIRECT, f08c47fec0942fa0");
+  });
+
   // Serve assetlinks.json directly to bypass any catch-all routing
   app.get("/.well-known/assetlinks.json", (req, res) => {
     res.setHeader("Content-Type", "application/json");
