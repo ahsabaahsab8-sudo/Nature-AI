@@ -159,6 +159,9 @@ export default function PremiumFeatures({ onBack }: PremiumFeaturesProps) {
           <img 
             src="https://i.postimg.cc/hjNkSz60/Chat-GPT-Image-Jun-10-2026-02-01-53-AM.png" 
             alt="Hand holding growing biological seedling, representative of Nature AI deep multi-vision ecosystem diagnostics" 
+            onError={(e) => {
+              (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1530968464165-7a1861cbaf9f?auto=format&fit=crop&w=1200&q=80";
+            }}
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
