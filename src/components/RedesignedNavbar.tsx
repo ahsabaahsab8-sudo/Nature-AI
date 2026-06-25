@@ -9,6 +9,7 @@ interface RedesignedNavbarProps {
   onSystemCore: () => void;
   onPremiumMode: () => void;
   onFishIdentify: () => void;
+  onBirdIdentify: () => void;
 }
 
 export const RedesignedNavbar: React.FC<RedesignedNavbarProps> = ({
@@ -18,6 +19,7 @@ export const RedesignedNavbar: React.FC<RedesignedNavbarProps> = ({
   onGlobalReach,
   onSystemCore,
   onFishIdentify,
+  onBirdIdentify,
   onPremiumMode,
 }) => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -67,6 +69,12 @@ export const RedesignedNavbar: React.FC<RedesignedNavbarProps> = ({
             className="px-3.5 py-2 text-cyan-300 hover:text-cyan-200 transition-all cursor-pointer uppercase text-[10px] tracking-widest flex items-center gap-1"
           >
             Identify Fish <span className="text-[9px] bg-cyan-400/20 text-cyan-200 border border-cyan-400/30 px-1.5 py-0.5 rounded font-mono uppercase font-bold">AI 🐠</span>
+          </button>
+          <button
+            onClick={onBirdIdentify}
+            className="px-3.5 py-2 text-indigo-300 hover:text-indigo-200 transition-all cursor-pointer uppercase text-[10px] tracking-widest flex items-center gap-1"
+          >
+            Identify Bird <span className="text-[9px] bg-indigo-400/20 text-indigo-200 border border-indigo-400/30 px-1.5 py-0.5 rounded font-mono uppercase font-bold">AI 🦅</span>
           </button>
           <button
             onClick={onGlobalReach}
@@ -144,6 +152,15 @@ export const RedesignedNavbar: React.FC<RedesignedNavbarProps> = ({
                 <span className="text-[9px] bg-cyan-400/20 text-cyan-200 border border-cyan-400/30 px-2 py-0.5 rounded font-mono uppercase font-bold">AI</span>
               </span>
             </button>
+            <button 
+              onClick={() => handleMobileClick(onBirdIdentify)}
+              className="text-2xl font-semibold text-indigo-300 hover:text-indigo-200 text-left py-1.5 border-b border-white/5 flex justify-between items-center"
+            >
+              <span className="flex items-center gap-2">
+                Identify Bird
+                <span className="text-[9px] bg-indigo-400/20 text-indigo-200 border border-indigo-400/30 px-2 py-0.5 rounded font-mono uppercase font-bold">AI</span>
+              </span>
+            </button>
 
             <button 
               onClick={() => handleMobileClick(onGlobalReach)}
@@ -172,4 +189,3 @@ export const RedesignedNavbar: React.FC<RedesignedNavbarProps> = ({
     </>
   );
 };
-
