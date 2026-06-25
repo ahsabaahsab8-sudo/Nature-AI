@@ -1,288 +1,639 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'motion/react';
 import { FadingVideo } from './FadingVideo';
+import { Sparkle, Sparkles, Home, ArrowRight, Waves, Bird } from 'lucide-react';
+import gsap from 'gsap';
 
-// 1. Plant Scanning Screen (Flora)
-const PlantScanningScreen: React.FC = () => {
-  const plants = [
-    { name: 'Monstera Deliciosa', type: 'Swiss Cheese Plant', match: '98%', status: 'Healthy', icon: '🌿', light: 'Indirect Bright', temp: '18-27°C' },
-    { name: 'Ficus Lyrata', type: 'Fiddle Leaf Fig', match: '95%', status: 'Dry Soil', icon: '🍃', light: 'Direct Bright', temp: '16-24°C' },
-    { name: 'Dracaena Marginata', type: 'Dragon Tree', match: '92%', status: 'Excellent', icon: '🌴', light: 'Low/Medium', temp: '15-25°C' },
+// THE CENTERPIECE: Plant Scanning Screen
+const PlantScanningScreen: React.FC<{ onOpenPremium?: () => void }> = ({ onOpenPremium }) => {
+  const scanLineRef = useRef<HTMLDivElement>(null);
+  const plantImgRef = useRef<HTMLDivElement>(null);
+  const [speciesIndex, setSpeciesIndex] = useState(0);
+
+  const plantSpecies = [
+    { 
+      name: 'Monstera Deliciosa', 
+      bg: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAEa7N12m3PQLR1nHza7RevizsifJ1EF8M_BEYiddsAk29glyfO_OpNzL6WBA0rjRV34WrTif8pvdCRPf-sBs1qN6mmOZ1rOu1dZp34Cb4ymd6y914eWcqsj9kVCtHiNxdUN2ANYWiI6Dz2ufnxIv0fXvaV7tFjSUqULN-0Vry9apEpZtwOJ-Jngj3MCb9zgXfpnTjNu1ymW-UZ6a1ZpZvmN9wKO9AVO7ESb0ElVMB4nC_G0vuj_0zx1AowMyTzllCvrDOREMtn8Ck',
+      img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDR8Ejqaraqmd3VgRgtOM-jOmCSfxoFSxGKuge5OajzsltbyMcT8q1dYy5to81kfgLHCJCFK0xRNrFR0WwbHoU5OvBflo7l46Z1nPHBBBQn9Ys6Z-50l7L8G9OpqB6-slqAiZihW56mh4ZT6u-nXm-rgEno8p98mO78Un9pbTfQFxVs32vya7l1reoMA6z-1MhCh3v93EF8gVehFeErWIAvULjModIe8_6Pw_q2K1HYGuPp5GkBjM4Idq0sfoA-FiXK_Q2AQVupzaI' 
+    },
+    { 
+      name: 'Ficus Lyrata', 
+      bg: 'https://images.unsplash.com/photo-1597055181300-e3633a207518?q=80&w=600&auto=format&fit=crop',
+      img: 'https://images.unsplash.com/photo-1597055181300-e3633a207518?q=80&w=600&auto=format&fit=crop' 
+    },
+    { 
+      name: 'Dracaena Marginata', 
+      bg: 'https://images.unsplash.com/photo-1545241047-6083a3684587?q=80&w=600&auto=format&fit=crop',
+      img: 'https://images.unsplash.com/photo-1545241047-6083a3684587?q=80&w=600&auto=format&fit=crop' 
+    }
   ];
-  const [idx, setIdx] = useState(0);
-  const [scanning, setScanning] = useState(false);
-  const current = plants[idx];
 
-  const handleNext = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    if (scanning) return;
-    setScanning(true);
-    setTimeout(() => {
-      setIdx((prev) => (prev + 1) % plants.length);
-      setScanning(false);
-    }, 1200);
+  useEffect(() => {
+    if (scanLineRef.current) {
+      gsap.killTweensOf(scanLineRef.current);
+      gsap.fromTo(scanLineRef.current,
+        { top: '0%' },
+        { top: '100%', repeat: -1, yoyo: true, duration: 2.2, ease: 'sine.inOut' }
+      );
+    }
+    if (plantImgRef.current) {
+      gsap.killTweensOf(plantImgRef.current);
+      gsap.fromTo(plantImgRef.current,
+        { scale: 1 },
+        { scale: 1.12, repeat: -1, yoyo: true, duration: 3, ease: 'sine.inOut' }
+      );
+    }
+  }, [speciesIndex]);
+
+  const handleNext = () => {
+    setSpeciesIndex((prev) => (prev + 1) % plantSpecies.length);
   };
 
   return (
-    <div className="w-full max-w-[200px] sm:max-w-[210px] h-[310px] rounded-[2rem] bg-black/95 border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.5)] p-3 flex flex-col justify-between relative overflow-hidden select-none mx-auto">
-      {/* Laser scan line */}
-      {scanning && (
-        <div className="absolute left-0 right-0 h-0.5 bg-green-400 shadow-[0_0_12px_#4ade80] animate-[scan_1.2s_ease-in-out_infinite] z-20" />
-      )}
-
-      {/* Top phone bar */}
-      <div className="flex justify-between items-center text-[7px] text-white/40 font-mono tracking-wider uppercase">
-        <span>02:08 UTC</span>
-        <div className="w-8 h-3 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-[6px] text-green-400 font-bold scale-90">
-          ● LENS
-        </div>
-        <span>5G 📶</span>
+    <div 
+      className="relative flex h-[390px] w-full max-w-[250px] flex-col bg-gradient-to-br from-[#101a14] to-[#040d08] rounded-[1.75rem] border-4 border-white/10 shadow-2xl overflow-hidden mx-auto justify-between transition-all duration-300"
+    >
+      {/* TopAppBar */}
+      <div className="absolute top-2.5 right-3 z-20">
+        <button 
+          onClick={handleNext}
+          className="px-2 py-0.5 hover:opacity-85 transition-opacity cursor-pointer"
+        >
+          <span className="text-[#13ec5b] text-[10px] font-bold tracking-wide font-sans">Skip</span>
+        </button>
       </div>
 
-      {/* Scanner viewfinder box */}
-      <div className="flex-1 my-1.5 rounded-[1rem] bg-white/[0.02] border border-white/5 relative flex flex-col items-center justify-center p-2 group transition-all">
-        {/* Corners brackets */}
-        <div className="absolute top-2 left-2 w-2.5 h-2.5 border-t-2 border-l-2 border-green-400/50 rounded-tl" />
-        <div className="absolute top-2 right-2 w-2.5 h-2.5 border-t-2 border-r-2 border-green-400/50 rounded-tr" />
-        <div className="absolute bottom-2 left-2 w-2.5 h-2.5 border-b-2 border-l-2 border-green-400/50 rounded-bl" />
-        <div className="absolute bottom-2 right-2 w-2.5 h-2.5 border-b-2 border-r-2 border-green-400/50 rounded-br" />
+      {/* Upper Camera Port (50% height) */}
+      <div className="relative w-full h-[52%] bg-black overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center transition-all duration-700 ease-in-out" 
+          style={{ backgroundImage: `url("${plantSpecies[speciesIndex].bg}")` }}
+        >
+          <div className="absolute inset-0 bg-black/20"></div>
+          
+          {/* Circular crop area */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="relative w-24 h-24 border border-white/25 rounded-full flex items-center justify-center overflow-hidden bg-black/20">
+              {/* Scan corners */}
+              <div className="absolute top-1 left-1 w-3 h-3 border-t-2 border-l-2 border-[#13ec5b] rounded-tl-sm"></div>
+              <div className="absolute top-1 right-1 w-3 h-3 border-t-2 border-r-2 border-[#13ec5b] rounded-tr-sm"></div>
+              <div className="absolute bottom-1 left-1 w-3 h-3 border-b-2 border-l-2 border-[#13ec5b] rounded-bl-sm"></div>
+              <div className="absolute bottom-1 right-1 w-3 h-3 border-b-2 border-r-2 border-[#13ec5b] rounded-br-sm"></div>
+              
+              {/* Inner animated crop */}
+              <div className="w-18 h-18 rounded-full border border-[#13ec5b]/30 overflow-hidden relative">
+                <div 
+                  ref={plantImgRef}
+                  className="w-full h-full bg-cover bg-center transition-all duration-700" 
+                  style={{ backgroundImage: `url("${plantSpecies[speciesIndex].img}")` }}
+                ></div>
+              </div>
 
-        {/* Big plant icon representation */}
-        <div className={`text-4xl transition-all duration-300 ${scanning ? 'animate-pulse scale-90 blur-[2px]' : 'scale-100'}`}>
-          {current.icon}
-        </div>
-
-        {/* Viewfinder Overlay labels */}
-        <div className="absolute bottom-1.5 left-2 right-2 flex justify-between items-center text-[6px] font-mono text-white/50">
-          <span>MAG: 1.4X</span>
-          <span>AF-C AUTO</span>
-        </div>
-      </div>
-
-      {/* Info Output Card */}
-      <div className="bg-white/[0.04] border border-white/10 rounded-[0.8rem] p-2 flex flex-col gap-0.5">
-        {scanning ? (
-          <div className="h-8 flex flex-col items-center justify-center gap-1">
-            <div className="w-3 h-3 border-2 border-green-400 border-t-transparent rounded-full animate-spin" />
-            <span className="text-[7px] font-mono tracking-widest text-green-400 uppercase">Analyzing Flora...</span>
-          </div>
-        ) : (
-          <div className="flex flex-col">
-            <div className="flex justify-between items-center">
-              <span className="text-[9px] font-bold text-white truncate max-w-[110px]">{current.name}</span>
-              <span className="text-[7px] font-mono bg-green-500/20 text-green-400 px-1 rounded border border-green-500/30 font-bold">{current.match}</span>
-            </div>
-            <span className="text-[7px] text-white/50 leading-tight">{current.type}</span>
-            
-            <div className="grid grid-cols-2 gap-1 mt-1 pt-1 border-t border-white/5 text-[6px] text-white/40 font-mono">
-              <div>Light: <span className="text-white/80">{current.light}</span></div>
-              <div>Temp: <span className="text-white/80">{current.temp}</span></div>
+              {/* Scanning laser scan line */}
+              <div 
+                ref={scanLineRef}
+                className="absolute left-0 w-full h-[2px] bg-[#13ec5b] shadow-[0_0_10px_#13ec5b] z-20 pointer-events-none"
+                style={{ top: '50%' }}
+              ></div>
             </div>
           </div>
-        )}
+
+          {/* Floating glass label */}
+          <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-[92%] z-10 text-center">
+            <div className="backdrop-blur-md bg-black/60 border border-white/10 rounded-full py-0.5 px-2 flex items-center justify-center gap-1">
+              <span className="w-1 h-1 bg-[#13ec5b] rounded-full animate-pulse"></span>
+              <span className="text-white text-[7px] font-bold tracking-wider uppercase whitespace-nowrap">
+                SCANNING... <span className="text-[#13ec5b] font-mono">{plantSpecies[speciesIndex].name}</span>
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
 
-      {/* Action button */}
-      <button
-        onClick={handleNext}
-        disabled={scanning}
-        className="w-full mt-1.5 py-1 bg-green-500 text-black font-semibold text-[8px] uppercase tracking-wider rounded-full active:scale-95 hover:bg-green-400 transition-all cursor-pointer flex items-center justify-center gap-1 font-body shadow-[0_2px_8px_rgba(34,197,94,0.3)]"
-      >
-        <span>{scanning ? 'Scanning...' : 'Scan Next Plant'}</span>
-        <span className="text-[9px]">🌿</span>
-      </button>
+      {/* Bottom controls card (48% height) */}
+      <div className="bg-black/80 backdrop-blur-md flex-grow flex flex-col justify-between pt-3 pb-3.5 px-3.5 border-t border-white/5">
+        <div className="text-center">
+          <h4 className="text-white tracking-tight text-xs font-bold font-sans">
+            Identify Any Plant
+          </h4>
+          <p className="text-white/60 text-[9px] leading-tight max-w-[180px] mx-auto font-sans mt-0.5">
+            Take a photo and let our AI instantly tell you the species and health index.
+          </p>
+        </div>
+
+        <div>
+          {/* Indicators */}
+          <div className="flex w-full flex-row items-center justify-center gap-1 pb-2">
+            {plantSpecies.map((_, idx) => (
+              <div 
+                key={idx}
+                className={`h-0.5 transition-all duration-500 rounded-full ${idx === speciesIndex ? 'w-3 bg-[#13ec5b]' : 'w-1 bg-white/20'}`}
+              ></div>
+            ))}
+          </div>
+
+          {/* Action Button */}
+          <button 
+            onClick={handleNext}
+            className="w-full py-1.5 bg-[#13ec5b] hover:bg-[#13ec5b]/90 text-black font-bold text-[10px] rounded-lg flex items-center justify-center gap-1 transition-all cursor-pointer"
+          >
+            <span>Scan Next</span>
+            <ArrowRight className="w-3 h-3" />
+          </button>
+
+          {/* Bottom Tab Bar Mock */}
+          <div className="mt-2.5 pt-1.5 border-t border-white/5 flex justify-around items-center">
+            <button className="flex flex-col items-center gap-0.5 text-white/40 hover:text-white transition-colors bg-transparent border-0 p-0 cursor-pointer">
+              <Home className="w-3 h-3" />
+              <span className="text-[6px] font-mono uppercase tracking-wider">Home</span>
+            </button>
+            <button className="flex flex-col items-center gap-0.5 text-[#13ec5b] bg-transparent border-0 p-0">
+              <div className="w-4 h-4 rounded-full bg-[#13ec5b]/10 flex items-center justify-center">
+                <Sparkle className="w-2.5 h-2.5" />
+              </div>
+            </button>
+            <button 
+              onClick={onOpenPremium}
+              className="flex flex-col items-center gap-0.5 text-[#13ec5b] bg-transparent border-0 p-0 cursor-pointer font-bold"
+            >
+              <Sparkles className="w-3 h-3 animate-pulse" />
+              <span className="text-[6px] font-mono uppercase tracking-wider text-[#13ec5b]">Premium</span>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
 
-// 2. Insect Scanning Screen (Microfauna)
-const InsectScanningScreen: React.FC = () => {
-  const insects = [
-    { name: 'Monarch Butterfly', class: 'Danaus plexippus', match: '99%', status: 'Migratory', icon: '🦋', habitat: 'Fields & Meadows', rarity: 'Vulnerable' },
-    { name: 'Honeybee', class: 'Apis mellifera', match: '97%', status: 'Active Pollinator', icon: '🐝', habitat: 'Flowering Gardens', rarity: 'Common' },
-    { name: 'Ladybug', class: 'Coccinellidae', match: '94%', status: 'Aphid Predator', icon: '🐞', habitat: 'Crop Leaves', rarity: 'Common' },
-  ];
-  const [idx, setIdx] = useState(0);
-  const [scanning, setScanning] = useState(false);
-  const current = insects[idx];
+// THE CENTERPIECE: Insect Scanning Screen
+const InsectScanningScreen: React.FC<{ onOpenPremium?: () => void }> = ({ onOpenPremium }) => {
+  const scanLineRef = useRef<HTMLDivElement>(null);
+  const insectImgRef = useRef<HTMLDivElement>(null);
+  const [speciesIndex, setSpeciesIndex] = useState(0);
 
-  const handleNext = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    if (scanning) return;
-    setScanning(true);
-    setTimeout(() => {
-      setIdx((prev) => (prev + 1) % insects.length);
-      setScanning(false);
-    }, 1200);
+  const insectSpecies = [
+    { 
+      name: 'Monarch Butterfly', 
+      img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAzCL0xPFY-LYpoeCZNv0Pa-MvZ1ZAUXy9Io2IpASGDA7CsyRRYV6HB3_GLZxJEOXeGNyODZYpYNP29onPRJyPRRM_dvTUzMOq_0OuhCuM9CxaOdvP1dxEhGIK-84f6Pdsf7NeD0RCzrL_HOA0hawapqlUNIFotqJXYTScWMxh7NVxD4Xwd1TzIytjoZtmNRc8XR0kvMRrSUpxivZuEqoa3ytdMY9Azwyl3ec5CtStj71cPolmgLegjVLdlfGDCuVAR5nggK1zOe5w' 
+    },
+    { 
+      name: 'Honeybee', 
+      img: 'https://images.unsplash.com/photo-1587049352846-4a222e784d38?q=80&w=600&auto=format&fit=crop' 
+    },
+    { 
+      name: 'Ladybug', 
+      img: 'https://images.unsplash.com/photo-1481819613568-3701ccd2f15a?q=80&w=600&auto=format&fit=crop' 
+    }
+  ];
+
+  useEffect(() => {
+    if (scanLineRef.current) {
+      gsap.killTweensOf(scanLineRef.current);
+      gsap.fromTo(scanLineRef.current,
+        { top: '0%' },
+        { top: '100%', repeat: -1, yoyo: true, duration: 2.2, ease: 'sine.inOut' }
+      );
+    }
+    if (insectImgRef.current) {
+      gsap.killTweensOf(insectImgRef.current);
+      gsap.fromTo(insectImgRef.current,
+        { scale: 1 },
+        { scale: 1.15, repeat: -1, yoyo: true, duration: 3, ease: 'sine.inOut' }
+      );
+    }
+  }, [speciesIndex]);
+
+  const handleNext = () => {
+    setSpeciesIndex((prev) => (prev + 1) % insectSpecies.length);
   };
 
   return (
-    <div className="w-full max-w-[200px] sm:max-w-[210px] h-[310px] rounded-[2rem] bg-black/95 border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.5)] p-3 flex flex-col justify-between relative overflow-hidden select-none mx-auto">
-      {/* Laser scan line */}
-      {scanning && (
-        <div className="absolute left-0 right-0 h-0.5 bg-amber-400 shadow-[0_0_12px_#fbbf24] animate-[scan_1.2s_ease-in-out_infinite] z-20" />
-      )}
-
-      {/* Top phone bar */}
-      <div className="flex justify-between items-center text-[7px] text-white/40 font-mono tracking-wider uppercase">
-        <span>02:08 UTC</span>
-        <div className="w-8 h-3 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-[6px] text-amber-400 font-bold scale-90">
-          ● TARGET
-        </div>
-        <span>5G 📶</span>
+    <div 
+      className="relative flex h-[390px] w-full max-w-[250px] flex-col bg-gradient-to-b from-[#1c180a] to-[#0a0804] rounded-[1.75rem] border-4 border-white/10 shadow-2xl overflow-hidden mx-auto justify-between transition-all duration-300"
+    >
+      {/* TopAppBar */}
+      <div className="absolute top-2.5 right-3 z-20">
+        <button 
+          onClick={handleNext}
+          className="px-2 py-0.5 hover:opacity-85 transition-opacity cursor-pointer"
+        >
+          <span className="text-[#d4b411] text-[10px] font-bold tracking-wide font-sans">Skip</span>
+        </button>
       </div>
 
-      {/* Scanner viewfinder box */}
-      <div className="flex-1 my-1.5 rounded-[1rem] bg-white/[0.02] border border-white/5 relative flex flex-col items-center justify-center p-2 group transition-all">
-        {/* Radar concentric circles */}
-        <div className="absolute inset-2 border border-white/[0.03] rounded-full animate-[ping_3s_infinite_linear]" />
-        
-        {/* Corners brackets */}
-        <div className="absolute top-2 left-2 w-2.5 h-2.5 border-t-2 border-l-2 border-amber-400/50 rounded-tl" />
-        <div className="absolute top-2 right-2 w-2.5 h-2.5 border-t-2 border-r-2 border-amber-400/50 rounded-tr" />
-        <div className="absolute bottom-2 left-2 w-2.5 h-2.5 border-b-2 border-l-2 border-amber-400/50 rounded-bl" />
-        <div className="absolute bottom-2 right-2 w-2.5 h-2.5 border-b-2 border-r-2 border-amber-400/50 rounded-br" />
+      {/* Upper Camera Port (50% height) */}
+      <div className="relative w-full h-[52%] bg-black overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center transition-all duration-700 ease-in-out" 
+          style={{ backgroundImage: `url("${insectSpecies[speciesIndex].img}")` }}
+        >
+          <div className="absolute inset-0 bg-black/20"></div>
+          
+          {/* Scanning Box */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="relative w-24 h-24 border border-white/25 rounded-full flex items-center justify-center overflow-hidden bg-black/20">
+              <div className="absolute top-1 left-1 w-3 h-3 border-t-2 border-l-2 border-[#d4b411] rounded-tl-sm"></div>
+              <div className="absolute top-1 right-1 w-3 h-3 border-t-2 border-r-2 border-[#d4b411] rounded-tr-sm"></div>
+              <div className="absolute bottom-1 left-1 w-3 h-3 border-b-2 border-l-2 border-[#d4b411] rounded-bl-sm"></div>
+              <div className="absolute bottom-1 right-1 w-3 h-3 border-b-2 border-r-2 border-white rounded-br-sm"></div>
+              
+              {/* Inner animated crop */}
+              <div className="w-18 h-18 rounded-full border border-[#d4b411]/30 overflow-hidden relative">
+                <div 
+                  ref={insectImgRef}
+                  className="w-full h-full bg-cover bg-center transition-all duration-700" 
+                  style={{ backgroundImage: `url("${insectSpecies[speciesIndex].img}")` }}
+                ></div>
+              </div>
 
-        {/* Insect icon representation */}
-        <div className={`text-4xl transition-all duration-300 ${scanning ? 'animate-pulse scale-90 blur-[2px]' : 'scale-100'}`}>
-          {current.icon}
-        </div>
-
-        {/* Viewfinder Overlay labels */}
-        <div className="absolute bottom-1.5 left-2 right-2 flex justify-between items-center text-[6px] font-mono text-white/50">
-          <span>GRID: 6x6</span>
-          <span>TRACKING ON</span>
-        </div>
-      </div>
-
-      {/* Info Output Card */}
-      <div className="bg-white/[0.04] border border-white/10 rounded-[0.8rem] p-2 flex flex-col gap-0.5">
-        {scanning ? (
-          <div className="h-8 flex flex-col items-center justify-center gap-1">
-            <div className="w-3 h-3 border-2 border-amber-400 border-t-transparent rounded-full animate-spin" />
-            <span className="text-[7px] font-mono tracking-widest text-amber-400 uppercase">Analyzing Insect...</span>
-          </div>
-        ) : (
-          <div className="flex flex-col">
-            <div className="flex justify-between items-center">
-              <span className="text-[9px] font-bold text-white truncate max-w-[110px]">{current.name}</span>
-              <span className="text-[7px] font-mono bg-amber-500/20 text-amber-300 border border-amber-500/30 px-1 rounded border border-amber-500/30 font-bold">{current.match}</span>
-            </div>
-            <span className="text-[7px] text-white/50 italic leading-tight">{current.class}</span>
-            
-            <div className="grid grid-cols-2 gap-1 mt-1 pt-1 border-t border-white/5 text-[6px] text-white/40 font-mono">
-              <div>Habitat: <span className="text-white/80">{current.habitat}</span></div>
-              <div>Rarity: <span className="text-white/80">{current.rarity}</span></div>
+              {/* Horizontal Scanning Line */}
+              <div 
+                ref={scanLineRef}
+                className="absolute left-0 w-full h-[2px] bg-[#d4b411] shadow-[0_0_10px_rgba(212,180,17,0.8)] z-10 pointer-events-none"
+                style={{ top: '50%' }}
+              ></div>
             </div>
           </div>
-        )}
+
+          {/* Frosted Label */}
+          <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-[92%] z-10 text-center">
+            <div className="backdrop-blur-md bg-black/60 border border-white/10 rounded-full py-0.5 px-2 flex items-center justify-center gap-1">
+              <span className="w-1 h-1 bg-[#d4b411] rounded-full animate-pulse"></span>
+              <span className="text-white text-[7px] font-bold tracking-wider uppercase whitespace-nowrap">
+                Scanning... <span className="font-mono text-white">{insectSpecies[speciesIndex].name}</span>
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
 
-      {/* Action button */}
-      <button
-        onClick={handleNext}
-        disabled={scanning}
-        className="w-full mt-1.5 py-1 bg-amber-400 text-black font-semibold text-[8px] uppercase tracking-wider rounded-full active:scale-95 hover:bg-amber-300 transition-all cursor-pointer flex items-center justify-center gap-1 font-body shadow-[0_2px_8px_rgba(245,158,11,0.3)]"
-      >
-        <span>{scanning ? 'Scanning...' : 'Scan Next Insect'}</span>
-        <span className="text-[9px]">🦋</span>
-      </button>
+      {/* Bottom controls card (48% height) */}
+      <div className="bg-black/80 backdrop-blur-md flex-grow flex flex-col justify-between pt-3 pb-3.5 px-3.5 border-t border-white/5">
+        <div className="text-center">
+          <h4 className="text-white tracking-tight text-xs font-bold font-sans">
+            Identify Any Insect
+          </h4>
+          <p className="text-white/60 text-[9px] leading-tight max-w-[180px] mx-auto font-sans mt-0.5">
+            Discover macro world fauna, chitin structures, and behavior patterns instantly.
+          </p>
+        </div>
+
+        <div>
+          {/* Indicators */}
+          <div className="flex w-full flex-row items-center justify-center gap-1 pb-2">
+            {insectSpecies.map((_, idx) => (
+              <div 
+                key={idx}
+                className={`h-0.5 transition-all duration-500 rounded-full ${idx === speciesIndex ? 'w-3 bg-[#d4b411]' : 'w-1 bg-white/20'}`}
+              ></div>
+            ))}
+          </div>
+
+          {/* Action Button */}
+          <button 
+            onClick={handleNext}
+            className="w-full py-1.5 bg-[#d4b411] hover:bg-[#d4b411]/90 text-black font-bold text-[10px] rounded-lg flex items-center justify-center gap-1 transition-all cursor-pointer"
+          >
+            <span>Scan Next</span>
+            <ArrowRight className="w-3 h-3" />
+          </button>
+
+          {/* Bottom Tab Bar Mock */}
+          <div className="mt-2.5 pt-1.5 border-t border-white/5 flex justify-around items-center">
+            <button className="flex flex-col items-center gap-0.5 text-white/40 hover:text-white transition-colors bg-transparent border-0 p-0 cursor-pointer">
+              <Home className="w-3 h-3" />
+              <span className="text-[6px] font-mono uppercase tracking-wider">Home</span>
+            </button>
+            <button className="flex flex-col items-center gap-0.5 text-[#d4b411] bg-transparent border-0 p-0">
+              <div className="w-4 h-4 rounded-full bg-[#d4b411]/10 flex items-center justify-center">
+                <Sparkle className="w-2.5 h-2.5" />
+              </div>
+            </button>
+            <button 
+              onClick={onOpenPremium}
+              className="flex flex-col items-center gap-0.5 text-[#d4b411] bg-transparent border-0 p-0 cursor-pointer font-bold"
+            >
+              <Sparkles className="w-3 h-3 animate-pulse" />
+              <span className="text-[6px] font-mono uppercase tracking-wider text-clay">Premium</span>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
 
-// 3. Marine & Avian Scanning Screen (Aquatic & Aviation - Fish & Bird)
-const FishBirdScanningScreen: React.FC = () => {
-  const fauna = [
-    { name: 'Clownfish', type: 'Marine / Aquatic', match: '98%', status: 'Active Reef', icon: '🐠', domain: 'Saltwater', range: '1-15m' },
-    { name: 'Hummingbird', type: 'Fauna / Avian', match: '96%', status: 'Nectaring', icon: '🐦', domain: 'Forest/Garden', range: 'Aviation' },
-    { name: 'Blue Tang', type: 'Marine / Aquatic', match: '94%', status: 'Foraging', icon: '🐟', domain: 'Saltwater', range: '2-40m' },
-  ];
-  const [idx, setIdx] = useState(0);
-  const [scanning, setScanning] = useState(false);
-  const current = fauna[idx];
+// THE CENTERPIECE: Fish Scanning Screen
+const FishScanningScreen: React.FC<{ onOpenPremium?: () => void }> = ({ onOpenPremium }) => {
+  const scanLineRef = useRef<HTMLDivElement>(null);
+  const fishImgRef = useRef<HTMLDivElement>(null);
+  const [speciesIndex, setSpeciesIndex] = useState(0);
 
-  const handleNext = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    if (scanning) return;
-    setScanning(true);
-    setTimeout(() => {
-      setIdx((prev) => (prev + 1) % fauna.length);
-      setScanning(false);
-    }, 1200);
+  const fishSpecies = [
+    { 
+      name: 'Clownfish', 
+      img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCZ3x0AOu028UH6GnfE2lJ0oBuR_UYVWE4d32PhRkanuL0Z6JtrokucbPBIDjJiijlApOCNfVWzQh-CxJd34uZiwYXqQYQmt3-uXYGQhyt-CLbRTWKtaSuvZDViSyG5WpMCtgSujasUj-rrMgno7wvEXspBgUz1tHYK-T64mDVjG9Bs3wkDVFobDI4E7i74McLLtET5ky_q8aqQ4CjAFnuiwLMyYgl0c6z-0t013GpS_aayMgLG8_aEgT91OzqQq9ToRSqoE_pW_dI' 
+    },
+    { 
+      name: 'Blue Tang', 
+      img: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=600&auto=format&fit=crop' 
+    },
+    { 
+      name: 'Mandarinfish', 
+      img: 'https://images.unsplash.com/photo-1524704654690-b56c05c78a00?q=80&w=600&auto=format&fit=crop' 
+    }
+  ];
+
+  useEffect(() => {
+    if (scanLineRef.current) {
+      gsap.killTweensOf(scanLineRef.current);
+      gsap.fromTo(scanLineRef.current,
+        { top: '0%' },
+        { top: '100%', repeat: -1, yoyo: true, duration: 2.2, ease: 'sine.inOut' }
+      );
+    }
+    if (fishImgRef.current) {
+      gsap.killTweensOf(fishImgRef.current);
+      gsap.fromTo(fishImgRef.current,
+        { scale: 1 },
+        { scale: 1.15, repeat: -1, yoyo: true, duration: 3, ease: 'sine.inOut' }
+      );
+    }
+  }, [speciesIndex]);
+
+  const handleNext = () => {
+    setSpeciesIndex((prev) => (prev + 1) % fishSpecies.length);
   };
 
   return (
-    <div className="w-full max-w-[200px] sm:max-w-[210px] h-[310px] rounded-[2rem] bg-black/95 border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.5)] p-3 flex flex-col justify-between relative overflow-hidden select-none mx-auto">
-      {/* Laser scan line */}
-      {scanning && (
-        <div className="absolute left-0 right-0 h-0.5 bg-cyan-400 shadow-[0_0_12px_#22d3ee] animate-[scan_1.2s_ease-in-out_infinite] z-20" />
-      )}
-
-      {/* Top phone bar */}
-      <div className="flex justify-between items-center text-[7px] text-white/40 font-mono tracking-wider uppercase">
-        <span>02:08 UTC</span>
-        <div className="w-8 h-3 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-[6px] text-cyan-400 font-bold scale-90">
-          ● SONAR
-        </div>
-        <span>5G 📶</span>
+    <div 
+      className="relative flex h-[390px] w-full max-w-[250px] flex-col bg-gradient-to-b from-[#0a1e30] to-[#030910] rounded-[1.75rem] border-4 border-white/10 shadow-2xl overflow-hidden mx-auto justify-between transition-all duration-300"
+    >
+      {/* TopAppBar */}
+      <div className="absolute top-2.5 right-3 z-20">
+        <button 
+          onClick={handleNext}
+          className="px-2 py-0.5 hover:opacity-85 transition-opacity cursor-pointer"
+        >
+          <span className="text-white/80 hover:text-white text-[10px] font-bold tracking-wide font-sans">Skip</span>
+        </button>
       </div>
 
-      {/* Scanner viewfinder box */}
-      <div className="flex-1 my-1.5 rounded-[1rem] bg-white/[0.02] border border-white/5 relative flex flex-col items-center justify-center p-2 group transition-all">
-        {/* Sonar sweep effect */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(34,211,238,0.03)_0%,transparent_80%)]" />
+      {/* Upper Camera Port (50% height) */}
+      <div className="relative w-full h-[52%] bg-black overflow-hidden animate-pulse-slow">
+        {/* Background underwater */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center transition-all duration-700 ease-in-out opacity-40" 
+          style={{ backgroundImage: `url('https://lh3.googleusercontent.com/aida-public/AB6AXuA8qYQQ8QS3SxcZ3T1wZT9WGIblgdKnWXcDb6YhQnhMuybXgZo2Lfr3UK7QKfj9vNnDQIORrQK_-dRYG9l6JmBco9JO9gh0L3v1fesSY8_f40EqsEPc2orni2ZbqZhu8FB_DqMd1XmwV_W080xs8_FaHYvH7at6j76EgIY8hnW-3ywjF5qstDQUURpgdHg_WATAUQvyIJnwGN05eIVdYRMSfG4xAzsmol04gpzP3FcWreCsxKW3-YWwPguVN2Hm0VHEBYqHqL2ttNE')` }}
+        ></div>
         
-        {/* Corners brackets */}
-        <div className="absolute top-2 left-2 w-2.5 h-2.5 border-t-2 border-l-2 border-cyan-400/50 rounded-tl" />
-        <div className="absolute top-2 right-2 w-2.5 h-2.5 border-t-2 border-r-2 border-cyan-400/50 rounded-tr" />
-        <div className="absolute bottom-2 left-2 w-2.5 h-2.5 border-b-2 border-l-2 border-cyan-400/50 rounded-bl" />
-        <div className="absolute bottom-2 right-2 w-2.5 h-2.5 border-b-2 border-r-2 border-cyan-400/50 rounded-br" />
-
-        {/* Fauna icon representation */}
-        <div className={`text-4xl transition-all duration-300 ${scanning ? 'animate-pulse scale-90 blur-[2px]' : 'scale-100'}`}>
-          {current.icon}
-        </div>
-
-        {/* Viewfinder Overlay labels */}
-        <div className="absolute bottom-1.5 left-2 right-2 flex justify-between items-center text-[6px] font-mono text-white/50">
-          <span>RANGE: AUTO</span>
-          <span>SONAR ACTIVE</span>
-        </div>
-      </div>
-
-      {/* Info Output Card */}
-      <div className="bg-white/[0.04] border border-white/10 rounded-[0.8rem] p-2 flex flex-col gap-0.5">
-        {scanning ? (
-          <div className="h-8 flex flex-col items-center justify-center gap-1">
-            <div className="w-3 h-3 border-2 border-cyan-400 border-t-transparent rounded-full animate-spin" />
-            <span className="text-[7px] font-mono tracking-widest text-cyan-400 uppercase">Analyzing Fauna...</span>
-          </div>
-        ) : (
-          <div className="flex flex-col">
-            <div className="flex justify-between items-center">
-              <span className="text-[9px] font-bold text-white truncate max-w-[110px]">{current.name}</span>
-              <span className="text-[7px] font-mono bg-cyan-500/20 text-cyan-300 border border-cyan-300/30 px-1 rounded border border-cyan-300/30 font-bold">{current.match}</span>
-            </div>
-            <span className="text-[7px] text-white/50 leading-tight">{current.type}</span>
+        {/* Scanning circle area */}
+        <div className="absolute inset-0 flex items-center justify-center z-10">
+          <div className="relative w-24 h-24 border border-white/25 rounded-full flex items-center justify-center overflow-hidden bg-black/20">
+            <div className="absolute top-1 left-1 w-3 h-3 border-t-2 border-l-2 border-[#0d7ff2] rounded-tl-sm"></div>
+            <div className="absolute top-1 right-1 w-3 h-3 border-t-2 border-r-2 border-[#0d7ff2] rounded-tr-sm"></div>
+            <div className="absolute bottom-1 left-1 w-3 h-3 border-b-2 border-l-2 border-[#0d7ff2] rounded-bl-sm"></div>
+            <div className="absolute bottom-1 right-1 w-3 h-3 border-b-2 border-r-2 border-white rounded-br-sm"></div>
             
-            <div className="grid grid-cols-2 gap-1 mt-1 pt-1 border-t border-white/5 text-[6px] text-white/40 font-mono">
-              <div>Domain: <span className="text-white/80">{current.domain}</span></div>
-              <div>Range: <span className="text-white/80">{current.range}</span></div>
+            {/* Animating Fish Image */}
+            <div className="w-18 h-18 rounded-full border border-white/20 overflow-hidden relative">
+              <div 
+                ref={fishImgRef}
+                className="w-full h-full bg-cover bg-center transition-all duration-700" 
+                style={{ backgroundImage: `url("${fishSpecies[speciesIndex].img}")` }}
+              ></div>
             </div>
+
+            {/* Horizontal Scanning Line */}
+            <div 
+              ref={scanLineRef}
+              className="absolute left-0 w-full h-[2px] bg-[#0d7ff2] shadow-[0_0_10px_rgba(13,127,242,0.8)] z-25 pointer-events-none"
+              style={{ top: '50%' }}
+            ></div>
           </div>
-        )}
+        </div>
+
+        {/* Floating Label */}
+        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-[92%] z-10 text-center">
+          <div className="backdrop-blur-md bg-white/10 border border-white/20 rounded-full py-0.5 px-2 flex items-center justify-center gap-1">
+            <Waves className="text-white w-2.5 h-2.5 animate-pulse" />
+            <span className="text-white text-[7px] font-bold tracking-wider uppercase whitespace-nowrap">
+              Scanning... <span className="text-white font-mono font-bold">{fishSpecies[speciesIndex].name}</span>
+            </span>
+          </div>
+        </div>
       </div>
 
-      {/* Action button */}
-      <button
-        onClick={handleNext}
-        disabled={scanning}
-        className="w-full mt-1.5 py-1 bg-cyan-400 text-black font-semibold text-[8px] uppercase tracking-wider rounded-full active:scale-95 hover:bg-cyan-300 transition-all cursor-pointer flex items-center justify-center gap-1 font-body shadow-[0_2px_8px_rgba(34,211,238,0.3)]"
-      >
-        <span>{scanning ? 'Scanning...' : 'Scan Next Species'}</span>
-        <span className="text-[9px]">🐠</span>
-      </button>
+      {/* Bottom controls card (48% height) */}
+      <div className="bg-black/80 backdrop-blur-md flex-grow flex flex-col justify-between pt-3 pb-3.5 px-3.5 border-t border-white/5">
+        <div className="text-center">
+          <h4 className="text-white tracking-tight text-xs font-bold font-sans">
+            Identify Any Fish
+          </h4>
+          <p className="text-white/60 text-[9px] leading-tight max-w-[180px] mx-auto font-sans mt-0.5">
+            Capture marine life and explore deep marine bio-networks instantly.
+          </p>
+        </div>
+
+        <div>
+          {/* Indicators */}
+          <div className="flex w-full flex-row items-center justify-center gap-1 pb-2">
+            {fishSpecies.map((_, idx) => (
+              <div 
+                key={idx}
+                className={`h-0.5 transition-all duration-500 rounded-full ${idx === speciesIndex ? 'w-3 bg-[#0d7ff2]' : 'w-1 bg-white/20'}`}
+              ></div>
+            ))}
+          </div>
+
+          {/* Action Button */}
+          <button 
+            onClick={handleNext}
+            className="w-full py-1.5 bg-[#0d7ff2] hover:bg-[#0d7ff2]/90 text-white font-bold text-[10px] rounded-lg flex items-center justify-center gap-1 transition-all cursor-pointer"
+          >
+            <span>Scan Next</span>
+            <ArrowRight className="w-3 h-3" />
+          </button>
+
+          {/* Bottom Tab Bar Mock */}
+          <div className="mt-2.5 pt-1.5 border-t border-white/5 flex justify-around items-center">
+            <button className="flex flex-col items-center gap-0.5 text-white/40 hover:text-white transition-colors bg-transparent border-0 p-0 cursor-pointer">
+              <Home className="w-3 h-3" />
+              <span className="text-[6px] font-mono uppercase tracking-wider">Home</span>
+            </button>
+            <button className="flex flex-col items-center gap-0.5 text-[#0d7ff2] bg-transparent border-0 p-0">
+              <div className="w-4 h-4 rounded-full bg-[#0d7ff2]/10 flex items-center justify-center">
+                <Sparkle className="w-2.5 h-2.5" />
+              </div>
+            </button>
+            <button 
+              onClick={onOpenPremium}
+              className="flex flex-col items-center gap-0.5 text-white/40 hover:text-[#0d7ff2] transition-colors bg-transparent border-0 p-0 cursor-pointer"
+            >
+              <Sparkles className="w-3 h-3" />
+              <span className="text-[6px] font-mono uppercase tracking-wider text-white-40">Premium</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// THE CENTERPIECE: Bird Scanning Screen
+const BirdScanningScreen: React.FC<{ onOpenPremium?: () => void }> = ({ onOpenPremium }) => {
+  const scanLineRef = useRef<HTMLDivElement>(null);
+  const birdImgRef = useRef<HTMLDivElement>(null);
+  const [speciesIndex, setSpeciesIndex] = useState(0);
+
+  const birdSpecies = [
+    { 
+      name: 'Blue Jay', 
+      img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCPRPOQu7tKyqUYydRZ6dkHPrFBXAcNLY6jZom17W5WC-TegaBeAvYHxRU5lGJEdKZOy-a54ne9UN8HZcYlnc2JhFmhjP4UoUwks4BvsfrZDCsQKNtDYX7gv-BUUftoaAuDvRBSQ7SjiS78ol6GM7Uu6Aw5UM4-ITj7JfoOmh0izAR8iKBJSL8_2hw9u-cVr3joqn8dr7JyzFqnPfz5CbVvfrtBexiy0d8tqrMOzBDL5cL02b-PvcqRBgSqvrwltRyOP0LSqAWhsc0' 
+    },
+    { 
+      name: 'Northern Cardinal', 
+      img: 'https://images.unsplash.com/photo-1551085254-e96b210db58a?q=80&w=600&auto=format&fit=crop' 
+    },
+    { 
+      name: 'American Robin', 
+      img: 'https://images.unsplash.com/photo-1470114716159-e389f8712fb4?q=80&w=600&auto=format&fit=crop' 
+    }
+  ];
+
+  useEffect(() => {
+    if (scanLineRef.current) {
+      gsap.killTweensOf(scanLineRef.current);
+      gsap.fromTo(scanLineRef.current,
+        { top: '0%' },
+        { top: '100%', repeat: -1, yoyo: true, duration: 2.2, ease: 'sine.inOut' }
+      );
+    }
+    if (birdImgRef.current) {
+      gsap.killTweensOf(birdImgRef.current);
+      gsap.fromTo(birdImgRef.current,
+        { scale: 1 },
+        { scale: 1.15, repeat: -1, yoyo: true, duration: 3, ease: 'sine.inOut' }
+      );
+    }
+  }, [speciesIndex]);
+
+  const handleNext = () => {
+    setSpeciesIndex((prev) => (prev + 1) % birdSpecies.length);
+  };
+
+  return (
+    <div 
+      className="relative flex h-[390px] w-full max-w-[250px] flex-col bg-gradient-to-b from-[#0b1c2c] to-[#040a12] rounded-[1.75rem] border-4 border-white/10 shadow-2xl overflow-hidden mx-auto justify-between transition-all duration-300"
+    >
+      {/* TopAppBar */}
+      <div className="absolute top-2.5 right-3 z-20">
+        <button 
+          onClick={handleNext}
+          className="px-2 py-0.5 hover:opacity-85 transition-opacity cursor-pointer bg-transparent border-0"
+        >
+          <span className="text-[#1392ec] text-[10px] font-bold tracking-wide font-sans">Skip</span>
+        </button>
+      </div>
+
+      {/* Upper Camera Port (50% height) */}
+      <div className="relative w-full h-[52%] bg-black overflow-hidden">
+        {/* Camera background */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center transition-all duration-700 ease-in-out opacity-45" 
+          style={{ backgroundImage: `url('https://images.unsplash.com/photo-1444464666168-49d633b86797?q=80&w=600&auto=format&fit=crop')` }}
+        ></div>
+        
+        {/* Scanning circle area */}
+        <div className="absolute inset-0 flex items-center justify-center z-10">
+          <div className="relative w-24 h-24 border border-white/25 rounded-full flex items-center justify-center overflow-hidden bg-black/20">
+            <div className="absolute top-1 left-1 w-3 h-3 border-t-2 border-l-2 border-[#1392ec] rounded-tl-sm"></div>
+            <div className="absolute top-1 right-1 w-3 h-3 border-t-2 border-r-2 border-[#1392ec] rounded-tr-sm"></div>
+            <div className="absolute bottom-1 left-1 w-3 h-3 border-b-2 border-l-2 border-[#1392ec] rounded-bl-sm"></div>
+            <div className="absolute bottom-1 right-1 w-3 h-3 border-b-2 border-r-2 border-white rounded-br-sm"></div>
+            
+            {/* Animating Bird Image */}
+            <div className="w-18 h-18 rounded-full border border-white/20 overflow-hidden relative">
+              <div 
+                ref={birdImgRef}
+                className="w-full h-full bg-cover bg-center transition-all duration-700" 
+                style={{ backgroundImage: `url("${birdSpecies[speciesIndex].img}")` }}
+              ></div>
+            </div>
+
+            {/* Horizontal Scanning Line */}
+            <div 
+              ref={scanLineRef}
+              className="absolute left-0 w-full h-[2px] bg-[#1392ec] shadow-[0_0_10px_rgba(19,146,236,0.8)] z-25 pointer-events-none"
+              style={{ top: '50%' }}
+            ></div>
+          </div>
+        </div>
+
+        {/* Floating Label */}
+        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-[92%] z-10 text-center">
+          <div className="backdrop-blur-md bg-white/10 border border-white/20 rounded-full py-0.5 px-2 flex items-center justify-center gap-1">
+            <Bird className="text-[#1392ec] w-2.5 h-2.5 animate-pulse" />
+            <span className="text-white text-[7px] font-bold tracking-wider uppercase whitespace-nowrap">
+              Scanning... <span className="text-white font-mono font-bold">{birdSpecies[speciesIndex].name}</span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom controls card (48% height) */}
+      <div className="bg-black/80 backdrop-blur-md flex-grow flex flex-col justify-between pt-3 pb-3.5 px-3.5 border-t border-white/5">
+        <div className="text-center">
+          <h4 className="text-white tracking-tight text-xs font-bold font-sans">
+            Identify Any Bird
+          </h4>
+          <p className="text-white/60 text-[9px] leading-tight max-w-[180px] mx-auto font-sans mt-0.5">
+            Identify species, track migrations, and explore aviary networks instantly.
+          </p>
+        </div>
+
+        <div>
+          {/* Indicators */}
+          <div className="flex w-full flex-row items-center justify-center gap-1 pb-2">
+            {birdSpecies.map((_, idx) => (
+              <div 
+                key={idx}
+                className={`h-0.5 transition-all duration-500 rounded-full ${idx === speciesIndex ? 'w-3 bg-[#1392ec]' : 'w-1 bg-white/20'}`}
+              ></div>
+            ))}
+          </div>
+
+          {/* Action Button */}
+          <button 
+            onClick={handleNext}
+            className="w-full py-1.5 bg-[#1392ec] hover:bg-[#1392ec]/90 text-white font-bold text-[10px] rounded-lg flex items-center justify-center gap-1 transition-all cursor-pointer border-0"
+          >
+            <span>Scan Next</span>
+            <ArrowRight className="w-3 h-3" />
+          </button>
+
+          {/* Bottom Tab Bar Mock */}
+          <div className="mt-2.5 pt-1.5 border-t border-white/5 flex justify-around items-center">
+            <button className="flex flex-col items-center gap-0.5 text-white/40 hover:text-white transition-colors bg-transparent border-0 p-0 cursor-pointer">
+              <Home className="w-3 h-3" />
+              <span className="text-[6px] font-mono uppercase tracking-wider">Home</span>
+            </button>
+            <button className="flex flex-col items-center gap-0.5 text-[#1392ec] bg-transparent border-0 p-0">
+              <div className="w-4 h-4 rounded-full bg-[#1392ec]/10 flex items-center justify-center">
+                <Sparkle className="w-2.5 h-2.5" />
+              </div>
+            </button>
+            <button 
+              onClick={onOpenPremium}
+              className="flex flex-col items-center gap-0.5 text-white/40 hover:text-[#1392ec] transition-colors bg-transparent border-0 p-0 cursor-pointer font-bold"
+            >
+              <Sparkles className="w-3 h-3 animate-pulse" />
+              <span className="text-[6px] font-mono uppercase tracking-wider text-[#1392ec]">Premium</span>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
@@ -293,7 +644,7 @@ export const RedesignedCapabilities: React.FC = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
+        staggerChildren: 0.2,
       },
     },
   };
@@ -309,168 +660,144 @@ export const RedesignedCapabilities: React.FC = () => {
   };
 
   return (
-    <section id="capabilities" className="relative w-full min-h-screen bg-black overflow-hidden flex flex-col justify-between py-20 select-none z-10">
-      {/* Self-contained CSS injection for scan animation */}
-      <style>{`
-        @keyframes scan {
-          0%, 100% { top: 10%; }
-          50% { top: 90%; }
-        }
-      `}</style>
-
-      {/* Background Video */}
+    <section id="capabilities" className="relative w-full min-h-screen bg-black overflow-hidden flex flex-col justify-between py-24 select-none z-10">
+      {/* Background Video: full-bleed */}
       <div className="absolute inset-0 z-0 pointer-events-none h-full w-full">
         <FadingVideo
-          src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260622_093722_ccfc7ebf-182f-419f-8a62-2dc02db7dd9d.mp4"
-          className="absolute inset-0 w-full h-full object-cover z-0"
+          src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260418_094631_d30ab262-45ee-4b7d-99f3-5d5848c8ef13.mp4"
+          className="absolute inset-0 w-full h-full object-cover"
         />
       </div>
 
-      {/* Content Area */}
-      <div className="relative z-10 px-6 sm:px-10 md:px-16 lg:px-20 pt-20 pb-10 flex flex-col min-h-screen w-full max-w-7xl mx-auto justify-between">
+      {/* Main Container Layout */}
+      <div className="relative z-10 px-6 md:px-16 lg:px-20 flex-1 flex flex-col justify-between w-full max-w-7xl mx-auto h-full">
         {/* Header */}
-        <div className="mb-auto">
-          <motion.p
-            initial={{ filter: 'blur(10px)', opacity: 0, y: 15 }}
-            whileInView={{ filter: 'blur(0px)', opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-xs sm:text-sm font-body text-white/80 mb-4 uppercase tracking-wider font-light"
-          >
-            // Capabilities & Ecosystems
-          </motion.p>
-          <motion.h2
-            initial={{ filter: 'blur(15px)', opacity: 0, y: 20 }}
-            whileInView={{ filter: 'blur(0px)', opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            className="font-heading italic text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] leading-[1.05] tracking-[-2px] sm:tracking-[-3px] text-white"
-          >
-            Nature AI Lens,
+        <motion.div
+          initial={{ filter: 'blur(10px)', opacity: 0, y: -20 }}
+          whileInView={{ filter: 'blur(0px)', opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+          className="mb-auto mt-6"
+        >
+          <span className="text-sm font-body text-white/80 block mb-6 uppercase tracking-wider font-light">
+            // Multi-Vision Tracker
+          </span>
+          <h2 className="font-heading italic text-white text-6xl md:text-7xl lg:text-[6rem] leading-[0.9] tracking-[-3px]">
+            Ecosystem
             <br />
-            Right at Your Fingertips
-          </motion.h2>
-        </div>
+            diagnosed
+          </h2>
+        </motion.div>
 
-        {/* Cards Grid */}
+        {/* Four cards grid layout with embedded welcoming scanning screens */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 sm:mt-16 w-full"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-16 w-full"
         >
-          {/* Card 1: Plants */}
+          {/* Card 1: AI Scenery (Plant Scanning Screen) */}
           <motion.div
             variants={cardVariants}
-            className="liquid-glass rounded-[1.5rem] p-5 sm:p-6 flex flex-col justify-between hover:bg-white/[0.03] transition-all duration-300 shadow-[0_12px_40px_rgba(0,0,0,0.6)]"
+            className="liquid-glass rounded-[1.5rem] p-6 flex flex-col justify-between hover:bg-white/[0.03] transition-all duration-300"
           >
-            {/* Top Row: Icon + Tags */}
-            <div className="flex justify-between items-start gap-3">
-              <div className="liquid-glass h-10 w-10 rounded-[0.75rem] flex items-center justify-center flex-shrink-0">
-                <span className="text-lg">🌿</span>
+            {/* Top info and badge */}
+            <div className="mb-6 flex justify-between items-start">
+              <div>
+                <h3 className="font-heading italic text-white text-2xl tracking-[-1px] leading-none">
+                  AI Scenery
+                </h3>
+                <p className="mt-1 text-[11px] text-white/60 font-body font-light max-w-[28ch]">
+                  Identify botanical flora instantly.
+                </p>
               </div>
-              <div className="flex flex-wrap gap-1 justify-end max-w-[70%]">
-                {["Flora AI", "Lush Lens", "Care Tracker"].map((tag, idx) => (
-                  <span
-                    key={idx}
-                    className="liquid-glass rounded-full px-2.5 py-0.5 text-[9px] sm:text-[10px] text-white/80 font-body whitespace-nowrap"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
+              <span className="bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-[9px] px-2 py-0.5 rounded-full font-sans uppercase font-bold tracking-widest">
+                Flora
+              </span>
             </div>
 
-            {/* Simulated interactive phone screen */}
-            <div className="my-5 sm:my-6 flex justify-center items-center w-full">
+            {/* Plant Scanning Screen adjusted inside card */}
+            <div className="flex-1 flex items-center justify-center py-4">
               <PlantScanningScreen />
             </div>
-
-            {/* Title & Body */}
-            <div>
-              <h3 className="font-heading italic text-2xl sm:text-3xl tracking-[-1px] leading-tight text-white mb-2">
-                Plant Scanning
-              </h3>
-              <p className="text-[12px] sm:text-sm text-white/70 font-body font-light leading-relaxed max-w-[280px]">
-                Detect species, monitor health conditions, and access tailored care guidelines instantaneously with precision target alignment.
-              </p>
-            </div>
           </motion.div>
 
-          {/* Card 2: Insects */}
+          {/* Card 2: Batch Production (Insect Scanning Screen) */}
           <motion.div
             variants={cardVariants}
-            className="liquid-glass rounded-[1.5rem] p-5 sm:p-6 flex flex-col justify-between hover:bg-white/[0.03] transition-all duration-300 shadow-[0_12px_40px_rgba(0,0,0,0.6)]"
+            className="liquid-glass rounded-[1.5rem] p-6 flex flex-col justify-between hover:bg-white/[0.03] transition-all duration-300"
           >
-            {/* Top Row: Icon + Tags */}
-            <div className="flex justify-between items-start gap-3">
-              <div className="liquid-glass h-10 w-10 rounded-[0.75rem] flex items-center justify-center flex-shrink-0">
-                <span className="text-lg">🦋</span>
+            {/* Top info and badge */}
+            <div className="mb-6 flex justify-between items-start">
+              <div>
+                <h3 className="font-heading italic text-white text-2xl tracking-[-1px] leading-none">
+                  Batch Production
+                </h3>
+                <p className="mt-1 text-[11px] text-white/60 font-body font-light max-w-[28ch]">
+                  Classify macro-fauna taxonomies.
+                </p>
               </div>
-              <div className="flex flex-wrap gap-1 justify-end max-w-[70%]">
-                {["Microfauna", "Radar Scan", "Species DB"].map((tag, idx) => (
-                  <span
-                    key={idx}
-                    className="liquid-glass rounded-full px-2.5 py-0.5 text-[9px] sm:text-[10px] text-white/80 font-body whitespace-nowrap"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
+              <span className="bg-amber-500/10 text-amber-400 border border-amber-500/20 text-[9px] px-2 py-0.5 rounded-full font-sans uppercase font-bold tracking-widest">
+                Microfauna
+              </span>
             </div>
 
-            {/* Simulated interactive phone screen */}
-            <div className="my-5 sm:my-6 flex justify-center items-center w-full">
+            {/* Insect Scanning Screen adjusted inside card */}
+            <div className="flex-1 flex items-center justify-center py-4">
               <InsectScanningScreen />
             </div>
+          </motion.div>
 
-            {/* Title & Body */}
-            <div>
-              <h3 className="font-heading italic text-2xl sm:text-3xl tracking-[-1px] leading-tight text-white mb-2">
-                Insect Identification
-              </h3>
-              <p className="text-[12px] sm:text-sm text-white/70 font-body font-light leading-relaxed max-w-[280px]">
-                Target small wildlife in real-time. Uncover crucial information on habitats, environmental impacts, and global rarity rankings.
-              </p>
+          {/* Card 3: Smart Lighting (Fish Scanning Screen) */}
+          <motion.div
+            variants={cardVariants}
+            className="liquid-glass rounded-[1.5rem] p-6 flex flex-col justify-between hover:bg-white/[0.03] transition-all duration-300"
+          >
+            {/* Top info and badge */}
+            <div className="mb-6 flex justify-between items-start">
+              <div>
+                <h3 className="font-heading italic text-white text-2xl tracking-[-1px] leading-none">
+                  Smart Lighting
+                </h3>
+                <p className="mt-1 text-[11px] text-white/60 font-body font-light max-w-[28ch]">
+                   Capture marine and aquatic species.
+                </p>
+              </div>
+              <span className="bg-sky-500/10 text-sky-400 border border-sky-500/20 text-[9px] px-2 py-0.5 rounded-full font-sans uppercase font-bold tracking-widest">
+                Aquatic
+              </span>
+            </div>
+
+            {/* Fish Scanning Screen adjusted inside card */}
+            <div className="flex-1 flex items-center justify-center py-4">
+              <FishScanningScreen />
             </div>
           </motion.div>
 
-          {/* Card 3: Fish & Birds */}
+          {/* Card 4: Nature AI identify Bird view section (Bird Scanning Screen) */}
           <motion.div
             variants={cardVariants}
-            className="liquid-glass rounded-[1.5rem] p-5 sm:p-6 flex flex-col justify-between hover:bg-white/[0.03] transition-all duration-300 shadow-[0_12px_40px_rgba(0,0,0,0.6)]"
+            className="liquid-glass rounded-[1.5rem] p-6 flex flex-col justify-between hover:bg-white/[0.03] transition-all duration-300"
           >
-            {/* Top Row: Icon + Tags */}
-            <div className="flex justify-between items-start gap-3">
-              <div className="liquid-glass h-10 w-10 rounded-[0.75rem] flex items-center justify-center flex-shrink-0">
-                <span className="text-lg">🐠</span>
+            {/* Top info and badge */}
+            <div className="mb-6 flex justify-between items-start">
+              <div>
+                <h3 className="font-heading italic text-white text-2xl tracking-[-1px] leading-none">
+                  Nature AI identify Bird view section
+                </h3>
+                <p className="mt-1 text-[11px] text-white/60 font-body font-light max-w-[28ch]">
+                   Identify any bird around you instantly.
+                </p>
               </div>
-              <div className="flex flex-wrap gap-1 justify-end max-w-[70%]">
-                {["Aquatic", "Avian Scan", "Sonar Tracker"].map((tag, idx) => (
-                  <span
-                    key={idx}
-                    className="liquid-glass rounded-full px-2.5 py-0.5 text-[9px] sm:text-[10px] text-white/80 font-body whitespace-nowrap"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
+              <span className="bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 text-[9px] px-2 py-0.5 rounded-full font-sans uppercase font-bold tracking-widest">
+                Ornithology
+              </span>
             </div>
 
-            {/* Simulated interactive phone screen */}
-            <div className="my-5 sm:my-6 flex justify-center items-center w-full">
-              <FishBirdScanningScreen />
-            </div>
-
-            {/* Title & Body */}
-            <div>
-              <h3 className="font-heading italic text-2xl sm:text-3xl tracking-[-1px] leading-tight text-white mb-2">
-                Fish & Bird Tracking
-              </h3>
-              <p className="text-[12px] sm:text-sm text-white/70 font-body font-light leading-relaxed max-w-[280px]">
-                Scan through marine depths or skies. Fully integrated sonar tracking technology provides accurate class categorization and habitat depths.
-              </p>
+            {/* Bird Scanning Screen adjusted inside card */}
+            <div className="flex-1 flex items-center justify-center py-4">
+              <BirdScanningScreen />
             </div>
           </motion.div>
         </motion.div>
