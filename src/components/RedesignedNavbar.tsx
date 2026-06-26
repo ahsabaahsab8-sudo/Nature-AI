@@ -45,46 +45,46 @@ export const RedesignedNavbar: React.FC<RedesignedNavbarProps> = ({
         </div>
 
         {/* Center: high-visibility original premium glass pill */}
-        <div className="hidden lg:flex items-center gap-1.5 liquid-glass rounded-full px-2 py-1.5 pointer-events-auto shadow-[0_8px_32px_rgba(0,0,0,0.6)] text-xs font-semibold tracking-wider font-body">
+        <div className="hidden lg:flex items-center gap-1 liquid-glass rounded-full px-2 py-1.5 pointer-events-auto shadow-[0_8px_32px_rgba(0,0,0,0.6)] text-xs font-semibold tracking-wider font-body">
           <button
             onClick={onHome}
-            className="px-3.5 py-2 text-white/85 hover:text-white transition-all cursor-pointer uppercase text-[10px] tracking-widest"
+            className="px-3.5 py-2 text-white/85 hover:text-white transition-all cursor-pointer uppercase text-[10px] tracking-widest rounded-full hover:bg-white/5 border border-transparent hover:border-white/10"
           >
             Home
           </button>
           <button
             onClick={onScannerHub}
-            className="px-3.5 py-2 text-white/85 hover:text-white transition-all cursor-pointer uppercase text-[10px] tracking-widest flex items-center gap-1"
+            className="px-3.5 py-2 text-white/85 hover:text-white transition-all cursor-pointer uppercase text-[10px] tracking-widest flex items-center gap-1 rounded-full hover:bg-white/5 border border-transparent hover:border-white/10"
           >
             Scanner Hub <span className="text-[9px] bg-amber-500/20 text-amber-300 border border-amber-500/30 px-1.5 py-0.5 rounded-full font-mono uppercase font-bold">Premium ✨</span>
           </button>
           <button
             onClick={onDevCore}
-            className="px-3.5 py-2 text-white/85 hover:text-white transition-all cursor-pointer uppercase text-[10px] tracking-widest"
+            className="px-3.5 py-2 text-white/85 hover:text-white transition-all cursor-pointer uppercase text-[10px] tracking-widest rounded-full hover:bg-white/5 border border-transparent hover:border-white/10"
           >
             Developer Core
           </button>
           <button
             onClick={onFishIdentify}
-            className="px-3.5 py-2 text-cyan-300 hover:text-cyan-200 transition-all cursor-pointer uppercase text-[10px] tracking-widest flex items-center gap-1"
+            className="px-3.5 py-2 text-cyan-300 hover:text-cyan-200 transition-all cursor-pointer uppercase text-[10px] tracking-widest flex items-center gap-1 rounded-full hover:bg-white/5 border border-transparent hover:border-cyan-400/30"
           >
             Identify Fish <span className="text-[9px] bg-cyan-400/20 text-cyan-200 border border-cyan-400/30 px-1.5 py-0.5 rounded font-mono uppercase font-bold">AI 🐠</span>
           </button>
           <button
             onClick={onBirdIdentify}
-            className="px-3.5 py-2 text-indigo-300 hover:text-indigo-200 transition-all cursor-pointer uppercase text-[10px] tracking-widest flex items-center gap-1"
+            className="px-3.5 py-2 text-indigo-300 hover:text-indigo-200 transition-all cursor-pointer uppercase text-[10px] tracking-widest flex items-center gap-1 rounded-full hover:bg-white/5 border border-transparent hover:border-indigo-400/30"
           >
             Identify Bird <span className="text-[9px] bg-indigo-400/20 text-indigo-200 border border-indigo-400/30 px-1.5 py-0.5 rounded font-mono uppercase font-bold">AI 🦅</span>
           </button>
           <button
             onClick={onGlobalReach}
-            className="px-3.5 py-2 text-white/85 hover:text-white transition-all cursor-pointer uppercase text-[10px] tracking-widest"
+            className="px-3.5 py-2 text-white/85 hover:text-white transition-all cursor-pointer uppercase text-[10px] tracking-widest rounded-full hover:bg-white/5 border border-transparent hover:border-white/10"
           >
             Global Reach
           </button>
           <button
             onClick={onSystemCore}
-            className="px-3.5 py-2 text-white/85 hover:text-white transition-all cursor-pointer uppercase text-[10px] tracking-widest mr-1"
+            className="px-3.5 py-2 text-white/85 hover:text-white transition-all cursor-pointer uppercase text-[10px] tracking-widest mr-1 rounded-full hover:bg-white/5 border border-transparent hover:border-white/10"
           >
             System Core
           </button>
@@ -92,7 +92,7 @@ export const RedesignedNavbar: React.FC<RedesignedNavbarProps> = ({
           {/* Premium Mode Action Button */}
           <button 
             onClick={onPremiumMode}
-            className="ml-1.5 bg-gradient-to-r from-amber-400 to-amber-200 text-black text-[11px] font-bold px-4 py-2 rounded-full flex items-center gap-1 hover:brightness-110 active:scale-95 transition-all cursor-pointer whitespace-nowrap shadow-[0_2px_10px_rgba(245,158,11,0.3)] uppercase tracking-wider"
+            className="ml-1 bg-gradient-to-r from-amber-400 to-amber-200 text-black text-[11px] font-bold px-4 py-2 rounded-full flex items-center gap-1 hover:brightness-110 active:scale-95 transition-all cursor-pointer whitespace-nowrap shadow-[0_2px_10px_rgba(245,158,11,0.3)] uppercase tracking-wider"
           >
             Premium Mode ⚡
           </button>

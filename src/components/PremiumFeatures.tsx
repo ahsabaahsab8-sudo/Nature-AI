@@ -134,7 +134,7 @@ export default function PremiumFeatures({ onBack }: PremiumFeaturesProps) {
           <span className="px-5 py-2 rounded-full bg-white border border-[#E1DEC5] text-[#606c38] text-xs font-bold tracking-widest uppercase inline-flex items-center gap-2 shadow-sm"
                 style={{ boxShadow: '6px 6px 12px #e5e3dd, -6px -6px 12px #ffffff' }}>
             <Sparkles className="w-3.5 h-3.5 text-[#d4b411]" />
-            NATURE AI FEATURES PREMIUM
+            NATURE AI PREMIUM FEATURES
           </span>
         </motion.div>
 
@@ -145,7 +145,7 @@ export default function PremiumFeatures({ onBack }: PremiumFeaturesProps) {
           transition={{ duration: 0.8, delay: 0.1 }}
           className="font-display tracking-[0.1em] text-7xl md:text-9xl font-black text-center text-[#221f10] uppercase mb-8"
         >
-          WILDER
+          NATURE
         </motion.h1>
 
         {/* Hero Featured Image */}
@@ -170,7 +170,7 @@ export default function PremiumFeatures({ onBack }: PremiumFeaturesProps) {
               <span className="text-[10px] tracking-widest font-mono text-[#d4b411] uppercase font-bold bg-[#221f10]/80 px-3 py-1 rounded-full border border-white/10">
                 LIVING BIOSPHERE CONNECTED
               </span>
-              <h3 className="text-2xl font-bold mt-2 font-display">Deep Learning Vector Scan 4.0</h3>
+              <h3 className="text-2xl font-bold mt-2 font-display">Ecosystem Multi-Vision Scanner</h3>
             </div>
             <div className="bg-white/15 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 text-white text-xs font-mono">
               Latitude Index Calibration Active

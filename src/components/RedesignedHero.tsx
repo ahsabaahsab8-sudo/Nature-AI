@@ -49,13 +49,13 @@ export const RedesignedHero: React.FC<RedesignedHeroProps> = ({
             New
           </span>
           <span className="text-white/90 font-body font-light">
-            Booking Q3 2026 engagements -- limited capacity
+            Multi-Vision AI -- Identify plants, insects, fish &amp; birds instantly
           </span>
         </motion.div>
 
         {/* Heading Statement with word-by-word BlurText styling */}
-        <div className="text-5xl md:text-7xl lg:text-[5.5rem] font-heading italic text-white leading-[1.05] max-w-3xl tracking-[-2px] sm:tracking-[-3px] mt-6 select-none px-4">
-          <BlurText text="Crafted Digital Experiences Built to Outlast Trends" />
+        <div className="text-5xl md:text-7xl lg:text-[5.5rem] font-heading italic text-white leading-[1.05] max-w-4xl tracking-[-2px] sm:tracking-[-3px] mt-6 select-none px-4">
+          <BlurText text="Explore the Living World with Nature AI" />
         </div>
 
         {/* Subtitle description statement */}
@@ -65,7 +65,7 @@ export const RedesignedHero: React.FC<RedesignedHeroProps> = ({
           transition={{ duration: 0.8, delay: 0.8, ease: 'easeOut' }}
           className="mt-6 text-sm md:text-base text-white/80 max-w-2xl font-body font-light leading-relaxed px-2"
         >
-          We are a small studio of designers and engineers shaping brand-defining websites for ambitious companies. Precise typography, cinematic motion, and code you can be proud of.
+          Expert-level AI multi-vision tracking for plants, insects, fish, and birds. Scan, diagnose, and catalog your ecosystem instantly with advanced location intelligence and multilingual deep learning layers.
         </motion.p>
 
         {/* Action controllers CTAs */}
@@ -79,7 +79,7 @@ export const RedesignedHero: React.FC<RedesignedHeroProps> = ({
             onClick={onOpenPremium}
             className="liquid-glass-strong rounded-full px-5 py-2.5 text-sm font-semibold text-white flex items-center gap-2 transition-transform hover:scale-105 active:scale-95 cursor-pointer shadow-[0_4px_24px_rgba(255,255,255,0.05)]"
           >
-            <span>Start a Project</span>
+            <span>Explore Premium</span>
             <svg
               className="w-4 h-4 text-white"
               fill="none"
@@ -98,7 +98,7 @@ export const RedesignedHero: React.FC<RedesignedHeroProps> = ({
             onClick={onOpenDevCore}
             className="flex items-center gap-2 text-white/90 font-semibold hover:text-white transition-colors cursor-pointer text-sm"
           >
-            <span>Watch Showreel</span>
+            <span>Developer Core</span>
             <span className="w-8 h-8 rounded-full flex items-center justify-center bg-white/10 hover:bg-white/20 active:bg-white/30 transition-all">
               <svg className="w-3 h-3 fill-current text-white ml-0.5" viewBox="0 0 24 24">
                 <polygon points="6,4 20,12 6,20" />
@@ -124,10 +124,10 @@ export const RedesignedHero: React.FC<RedesignedHeroProps> = ({
             </div>
             <div className="mt-4">
               <span className="font-heading italic text-white text-4xl md:text-5xl tracking-[-1px] leading-none">
-                6 Weeks
+                50K+
               </span>
               <p className="text-xs text-white/70 font-body font-light mt-1 uppercase tracking-wider">
-                Average End-to-End Launch Time
+                Species Identified Across All Kingdoms
               </p>
             </div>
           </div>
@@ -143,10 +143,10 @@ export const RedesignedHero: React.FC<RedesignedHeroProps> = ({
             </div>
             <div className="mt-4">
               <span className="font-heading italic text-white text-4xl md:text-5xl tracking-[-1px] leading-none">
-                140+
+                15+
               </span>
               <p className="text-xs text-white/70 font-body font-light mt-1 uppercase tracking-wider">
-                Brands Shipped Across Four Continents
+                Native Languages Supported Worldwide
               </p>
             </div>
           </div>
@@ -161,18 +161,18 @@ export const RedesignedHero: React.FC<RedesignedHeroProps> = ({
         className="relative z-10 flex flex-col items-center gap-4 pb-8 mt-12 w-full"
       >
         <div className="liquid-glass rounded-full px-4 py-1 text-xs font-medium text-white/80">
-          Trusted by founders, operators, and creative directors worldwide
+          Powered by advanced AI neural networks and multi-spectral vision technology
         </div>
         <div className="flex items-center justify-center gap-12 md:gap-16 flex-wrap font-heading italic text-white text-2xl md:text-3xl tracking-tight select-none opacity-95">
-          <span>Aeon</span>
+          <span>Flora</span>
           <span className="opacity-40 font-body text-lg font-light">•</span>
-          <span>Vela</span>
+          <span>Fauna</span>
           <span className="opacity-40 font-body text-lg font-light">•</span>
-          <span>Apex</span>
+          <span>Aquatic</span>
           <span className="opacity-40 font-body text-lg font-light">•</span>
-          <span>Orbit</span>
+          <span>Aviary</span>
           <span className="opacity-40 font-body text-lg font-light">•</span>
-          <span>Zeno</span>
+          <span>Insecta</span>
         </div>
       </motion.div>
     </section>

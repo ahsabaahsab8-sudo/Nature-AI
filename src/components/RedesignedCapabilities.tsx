@@ -697,7 +697,7 @@ export const RedesignedCapabilities: React.FC = () => {
           viewport={{ once: true }}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-16 w-full"
         >
-          {/* Card 1: AI Scenery (Plant Scanning Screen) */}
+          {/* Card 1: Plant Identifier (Plant Scanning Screen) */}
           <motion.div
             variants={cardVariants}
             className="liquid-glass rounded-[1.5rem] p-6 flex flex-col justify-between hover:bg-white/[0.03] transition-all duration-300"
@@ -706,7 +706,7 @@ export const RedesignedCapabilities: React.FC = () => {
             <div className="mb-6 flex justify-between items-start">
               <div>
                 <h3 className="font-heading italic text-white text-2xl tracking-[-1px] leading-none">
-                  AI Scenery
+                  Plant Identifier
                 </h3>
                 <p className="mt-1 text-[11px] text-white/60 font-body font-light max-w-[28ch]">
                   Identify botanical flora instantly.
@@ -723,7 +723,7 @@ export const RedesignedCapabilities: React.FC = () => {
             </div>
           </motion.div>
 
-          {/* Card 2: Batch Production (Insect Scanning Screen) */}
+          {/* Card 2: Insect Identifier (Insect Scanning Screen) */}
           <motion.div
             variants={cardVariants}
             className="liquid-glass rounded-[1.5rem] p-6 flex flex-col justify-between hover:bg-white/[0.03] transition-all duration-300"
@@ -732,7 +732,7 @@ export const RedesignedCapabilities: React.FC = () => {
             <div className="mb-6 flex justify-between items-start">
               <div>
                 <h3 className="font-heading italic text-white text-2xl tracking-[-1px] leading-none">
-                  Batch Production
+                  Insect Identifier
                 </h3>
                 <p className="mt-1 text-[11px] text-white/60 font-body font-light max-w-[28ch]">
                   Classify macro-fauna taxonomies.
@@ -749,7 +749,7 @@ export const RedesignedCapabilities: React.FC = () => {
             </div>
           </motion.div>
 
-          {/* Card 3: Smart Lighting (Fish Scanning Screen) */}
+          {/* Card 3: Fish Identifier (Fish Scanning Screen) */}
           <motion.div
             variants={cardVariants}
             className="liquid-glass rounded-[1.5rem] p-6 flex flex-col justify-between hover:bg-white/[0.03] transition-all duration-300"
@@ -758,7 +758,7 @@ export const RedesignedCapabilities: React.FC = () => {
             <div className="mb-6 flex justify-between items-start">
               <div>
                 <h3 className="font-heading italic text-white text-2xl tracking-[-1px] leading-none">
-                  Smart Lighting
+                  Fish Identifier
                 </h3>
                 <p className="mt-1 text-[11px] text-white/60 font-body font-light max-w-[28ch]">
                    Capture marine and aquatic species.
@@ -775,7 +775,7 @@ export const RedesignedCapabilities: React.FC = () => {
             </div>
           </motion.div>
 
-          {/* Card 4: Nature AI identify Bird view section (Bird Scanning Screen) */}
+          {/* Card 4: Bird Identifier (Bird Scanning Screen) */}
           <motion.div
             variants={cardVariants}
             className="liquid-glass rounded-[1.5rem] p-6 flex flex-col justify-between hover:bg-white/[0.03] transition-all duration-300"
@@ -784,7 +784,7 @@ export const RedesignedCapabilities: React.FC = () => {
             <div className="mb-6 flex justify-between items-start">
               <div>
                 <h3 className="font-heading italic text-white text-2xl tracking-[-1px] leading-none">
-                  Nature AI identify Bird view section
+                  Bird Identifier
                 </h3>
                 <p className="mt-1 text-[11px] text-white/60 font-body font-light max-w-[28ch]">
                    Identify any bird around you instantly.

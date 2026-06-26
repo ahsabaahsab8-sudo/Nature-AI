@@ -337,7 +337,7 @@ export function ResearchDatabaseSection() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="mt-4 text-sm md:text-base text-zinc-400 font-mono tracking-wide max-w-2xl mx-auto"
           >
-            and some more interesting tools facts sunlight checker birds and avary tools fish and aviary etc
+            Featuring sunlight checker, bird call identifier, aquarium tools, soil moisture tracker, and many more ecosystem utilities.
           </motion.p>
         </div>
 

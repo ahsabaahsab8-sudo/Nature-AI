@@ -216,15 +216,13 @@ const HeroSection: React.FC<{ onBack: () => void }> = ({ onBack }) => {
       {/* Navbar wrapper */}
       <FadeIn delay={0} y={-20} as="nav" className="w-full">
         <div className="flex justify-between items-center w-full px-6 md:px-10 pt-6 md:pt-8">
-          {["About", "Price", "Projects", "Contact"].map((link) => (
+          {["About", "API", "SDK", "Docs"].map((link) => (
             <button 
               key={link}
               className="text-[#D7E2EA] font-medium uppercase tracking-wider text-sm md:text-lg lg:text-[1.4rem] hover:opacity-70 transition-opacity duration-200 cursor-pointer"
               onClick={() => {
                 if (link === "About") {
                   document.getElementById("about-section")?.scrollIntoView({ behavior: 'smooth' });
-                } else if (link === "Projects") {
-                  document.getElementById("projects-section-light")?.scrollIntoView({ behavior: 'smooth' });
                 } else {
                   document.getElementById("about-section")?.scrollIntoView({ behavior: 'smooth' });
                 }
@@ -256,7 +254,7 @@ const HeroSection: React.FC<{ onBack: () => void }> = ({ onBack }) => {
         <FadeIn delay={0.15} y={40} className="w-full max-w-5xl text-center">
           <div className="w-full">
             <h1 className="hero-heading font-black uppercase tracking-tight leading-[1.15] w-full text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl mt-12 select-text">
-              <BlurText text="Hi, we are Arre Deep Minded Services Limited" />
+              <BlurText text="Nature AI — Developer Core" />
             </h1>
           </div>
         </FadeIn>
@@ -269,7 +267,7 @@ const HeroSection: React.FC<{ onBack: () => void }> = ({ onBack }) => {
             className="text-[#D7E2EA] font-light uppercase tracking-wide leading-snug max-w-[160px] sm:max-w-[220px] md:max-w-[260px] lg:max-w-[280px]"
             style={{ fontSize: "clamp(0.75rem, 1.4vw, 1.5rem)" }}
           >
-            a 3d creator driven by crafting striking and unforgettable projects
+            advanced AI ecosystem for species identification and environmental monitoring
           </p>
         </FadeIn>
         
@@ -389,7 +387,7 @@ const MarqueeSection: React.FC = () => {
 
 // 3. AboutSection
 const AboutSection: React.FC = () => {
-  const paragraphText = "With more than five years of experience in AI-driven design and development, we specialize in intelligent applications, healthcare AI, productivity tools, and user experience. We build solutions that help businesses stand out and deliver real impact. Let's build something incredible together!";
+  const paragraphText = "Nature AI Developer Core provides a powerful API and SDK ecosystem for building nature intelligence applications. Access our multi-vision neural networks, species classification models, and environmental diagnostic tools. Integrate plant, insect, fish, and bird identification into your own applications with just a few lines of code.";
 
   return (
     <section 
@@ -461,7 +459,7 @@ const AboutSection: React.FC = () => {
             className="hero-heading font-black uppercase leading-[1.1] tracking-tight text-center"
             style={{ fontSize: "clamp(2rem, 5vw, 64px)" }}
           >
-            About US
+            About Nature AI Core
           </h2>
         </FadeIn>
 
@@ -488,18 +486,18 @@ const ProjectsSectionLight: React.FC = () => {
   const projects = [
     {
       num: "01",
-      name: "AI Medicine Identifier",
-      desc: "AI-powered medicine recognition system that identifies pills and medicines from images using computer vision. Helps healthcare providers and patients quickly verify medication with 95%+ accuracy."
+      name: "Multi-Vision API",
+      desc: "RESTful API for plant, insect, fish, and bird identification. Process images through our neural networks and receive detailed species data, health analysis, and taxonomic classifications."
     },
     {
       num: "02",
-      name: "Nature AI",
-      desc: "Advanced AI platform for environmental monitoring and species identification. Uses machine learning to analyze biodiversity data, track ecosystem health, and support conservation efforts through real-time insights."
+      name: "Ecosystem Scanner SDK",
+      desc: "Integrate real-time environmental scanning into your apps. SDK supports image capture, location-based species mapping, and offline classification for field research applications."
     },
     {
       num: "03",
-      name: "AI Habits Tracker",
-      desc: "Smart habit tracking application powered by behavioral AI. Analyzes user patterns, provides personalized recommendations, and uses predictive analytics to help users build lasting habits with data-driven motivation."
+      name: "Neural Classification Engine",
+      desc: "Train custom classification models on Nature AI's base architecture. Fine-tune for specialized datasets, deploy edge models, and access our growing database of labeled species imagery."
     }
   ];
 
@@ -650,24 +648,24 @@ const ProjectsSectionDark: React.FC = () => {
   const projectCardsData = [
     {
       num: "01",
-      category: "Healthcare AI",
-      name: "AI Medicine Identifier",
+      category: "Vision API",
+      name: "Multi-Vision API",
       img1: "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055344_5eff02e0-87a5-41ce-b64f-eb08da8f33db.png&w=1280&q=85",
       img2: "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055431_11d841fd-8b41-46a5-82e4-b04f2407a7d8.png&w=1280&q=85",
       imgTall: "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055451_e317bf2d-28d4-48cc-86b0-6f72f25b6327.png&w=1280&q=85",
     },
     {
       num: "02",
-      category: "Environmental AI",
-      name: "Nature AI",
+      category: "SDK Platform",
+      name: "Ecosystem SDK",
       img1: "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055654_911201c5-36d9-4bc6-bac7-331adfce159f.png&w=1280&q=85",
       img2: "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055723_5ceda0b8-d9c2-4665-b2e3-83ba19ba76d1.png&w=1280&q=85",
       imgTall: "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055753_adc5dcbd-a8e6-49c0-b43a-9b030d835cea.png&w=1280&q=85",
     },
     {
       num: "03",
-      category: "Productivity AI",
-      name: "AI Habits Tracker",
+      category: "Neural Engine",
+      name: "Classification Engine",
       img1: "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055759_963cfb0b-4bd1-4b0f-9d0a-09bd6cf95b2f.png&w=1280&q=85",
       img2: "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_060108_438f781a-9846-4dcc-89ab-c4e6cb830f5b.png&w=1280&q=85",
       imgTall: "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055818_9d062121-ad7e-46b9-999a-1a6a692ef1ee.png&w=1280&q=85",
@@ -710,7 +708,7 @@ const ProjectsSectionDark: React.FC = () => {
 export default function DeveloperCore({ onBack }: DeveloperCoreProps) {
   useEffect(() => {
     // Dynamic page title setting on mount
-    document.title = "Arre Deep Minded Services Limited -- 3D Creator";
+    document.title = "Nature AI — Developer Core";
   }, []);
 
   return (

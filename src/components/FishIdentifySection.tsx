@@ -157,7 +157,7 @@ export function FishIdentifySection() {
             className="text-sm sm:text-base md:text-lg leading-relaxed text-white/60 max-w-sm sm:max-w-lg mb-5 sm:mb-6"
             style={{ animation: 'fadeSlideUp 0.8s ease 0.7s both' }}
           >
-            Get expert level details about the underground Nature, sub-surface oceanic life, and cryptic deep-water ecosystems instantly.
+            Get expert level details about underwater sea life, sub-surface oceanic species, and cryptic deep-water ecosystems instantly.
           </p>
 
           <button 
@@ -165,7 +165,7 @@ export function FishIdentifySection() {
             className="rounded-lg bg-white px-5 py-2.5 sm:px-6 sm:py-3 text-sm font-medium text-black hover:scale-105 transition-transform inline-flex items-center gap-2 cursor-pointer"
             style={{ animation: 'fadeSlideUp 0.8s ease 0.9s both' }}
           >
-            <span>Explore Work</span>
+            <span>Identify Fish</span>
             <ArrowRight size={16} />
           </button>
         </div>
