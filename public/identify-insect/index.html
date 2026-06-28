@@ -1,4 +1,15 @@
 <!DOCTYPE html><html lang="en"><head>
+<script>
+  // Force the iframe internal path to root to satisfy the SPA router
+  if (window.self !== window.top) {
+    try {
+      history.replaceState(null, '', '/');
+    } catch (e) {
+      console.error('Failed to replace state:', e);
+    }
+  }
+</script>
+
         <script>
 function handleClientSideNavigation() {
     setTimeout(() => {
