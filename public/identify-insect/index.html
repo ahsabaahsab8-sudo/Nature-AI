@@ -8,6 +8,19 @@
       console.error('Failed to replace state:', e);
     }
   }
+
+  // Safe DOM node removal patch to prevent Peachworlds resource disposal crash
+  try {
+    const originalRemoveChild = Node.prototype.removeChild;
+    Node.prototype.removeChild = function(child) {
+      if (child && child.parentNode === this) {
+        return originalRemoveChild.call(this, child);
+      }
+      return child;
+    };
+  } catch (e) {
+    console.error('Failed to patch removeChild:', e);
+  }
 </script>
 
         <script>
