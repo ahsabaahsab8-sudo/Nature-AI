@@ -1432,7 +1432,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     <div class="music">
     </div>
 </main>
-<script src="unpkg.com/imagesloaded@4.1.4/imagesloaded.pkgd.min.js"></script>
+<script src="https://unpkg.com/imagesloaded@4.1.4/imagesloaded.pkgd.min.js"></script>
 <script>
 var counter = 0;
 var ua = window.navigator.userAgent;
@@ -1453,22 +1453,33 @@ var wave = document.querySelector('.js-wave');
 var main = document.querySelector('.js-site');
 var percentage = document.querySelector('.js-loader-percentage');
 
-var imgLoad = imagesLoaded(images);
-imgLoad.on('progress', function(instance, image) {
-    counter++;
-    var percentageResult = counter / images.length;
-    wave.style.height = ((percentageResult) * 360) + 'px';
-    wave.style.y = (290 - ((percentageResult) * 360)) + 'px';
-    var inHtml = (Math.round(percentageResult * 100))
-    if (inHtml > 100) {
-        inHtml = 100
-    }
-    percentage.innerHTML = inHtml;
-});
+var imgLoad;
+try {
+    imgLoad = imagesLoaded(images);
+    imgLoad.on('progress', function(instance, image) {
+        counter++;
+        var percentageResult = counter / images.length;
+        wave.style.height = ((percentageResult) * 360) + 'px';
+        wave.style.y = (290 - ((percentageResult) * 360)) + 'px';
+        var inHtml = (Math.round(percentageResult * 100))
+        if (inHtml > 100) {
+            inHtml = 100
+        }
+        percentage.innerHTML = inHtml;
+    });
 
-imgLoad.on('always', function(instance) {
+    imgLoad.on('always', function(instance) {
+        window.loaded = true;
+    });
+} catch (err) {
+    console.warn('imagesLoaded initialization failed, using fallback:', err);
     window.loaded = true;
-});
+}
+
+// Fail-safe to guarantee loader disappears
+setTimeout(function() {
+    window.loaded = true;
+}, 1500);
 </script>
 
 
@@ -1538,7 +1549,7 @@ var jazak = {"ajax_url":"/wp-admin/admin-ajax.php"};
 //# sourceURL=Nature AI-site-js-js-extra
 </script>
 <script id="Nature AI-site-js-js" src="wp-content/themes/NatureAI/dist/site.min_ver=7.0.js"></script>
-<script id="google-recaptcha-js" src="www.google.com/recaptcha/api_render=6Lf_I7oaAAAAAHI3mEoL7vCWCpi96x4r0jsmfwZk&ver=3.0.js"></script>
+<script id="google-recaptcha-js" src="https://www.google.com/recaptcha/api_render=6Lf_I7oaAAAAAHI3mEoL7vCWCpi96x4r0jsmfwZk&ver=3.0.js"></script>
 <script id="wp-polyfill-js" src="wp-includes/js/dist/vendor/wp-polyfill.min_ver=3.15.0.js"></script>
 <script id="wpcf7-recaptcha-js-before">
 var wpcf7_recaptcha = {
