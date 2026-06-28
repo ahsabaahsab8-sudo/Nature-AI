@@ -34,7 +34,7 @@ if (typeof window !== 'undefined') {
 }
 
 export default function App() {
-  const [currentPage, setCurrentPage] = React.useState<'main' | 'premium-features' | 'developer-core' | 'privacy-policy' | 'terms-of-service'>('main');
+  const [currentPage, setCurrentPage] = React.useState<'main' | 'premium-features' | 'developer-core' | 'privacy-policy' | 'terms-of-service' | 'fish-identify' | 'bird-identify' | 'insect-identify'>('main');
 
   React.useEffect(() => {
     const handleNavigation = () => {
@@ -50,6 +50,12 @@ export default function App() {
         setCurrentPage('developer-core');
       } else if (route === 'premium-features') {
         setCurrentPage('premium-features');
+      } else if (route === 'fish-identify') {
+        setCurrentPage('fish-identify');
+      } else if (route === 'bird-identify') {
+        setCurrentPage('bird-identify');
+      } else if (route === 'identify-insect') {
+        setCurrentPage('insect-identify');
       } else {
         setCurrentPage('main');
       }
@@ -79,45 +85,21 @@ export default function App() {
   };
 
   const openFishIdentifySection = () => {
-    if (currentPage !== 'main') {
-      window.history.pushState(null, '', '/');
-      setCurrentPage('main');
-      setTimeout(() => {
-        const el = document.getElementById('fish-identify-section');
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
-      }, 100);
-    } else {
-      const el = document.getElementById('fish-identify-section');
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-    }
+    window.history.pushState(null, '', '/fish-identify');
+    setCurrentPage('fish-identify');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const openBirdIdentifySection = () => {
-    if (currentPage !== 'main') {
-      window.history.pushState(null, '', '/');
-      setCurrentPage('main');
-      setTimeout(() => {
-        const el = document.getElementById('bird-identify-section');
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
-      }, 100);
-    } else {
-      const el = document.getElementById('bird-identify-section');
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-    }
+    window.history.pushState(null, '', '/bird-identify');
+    setCurrentPage('bird-identify');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const openInsectIdentifySection = () => {
-    if (currentPage !== 'main') {
-      window.history.pushState(null, '', '/');
-      setCurrentPage('main');
-      setTimeout(() => {
-        const el = document.getElementById('insect-identify-section');
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
-      }, 100);
-    } else {
-      const el = document.getElementById('insect-identify-section');
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-    }
+    window.history.pushState(null, '', '/identify-insect');
+    setCurrentPage('insect-identify');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const openPrivacyPolicy = () => {
@@ -148,6 +130,98 @@ export default function App() {
         <PrivacyPolicy onBack={handleBack} />
       ) : currentPage === 'terms-of-service' ? (
         <TermsOfService onBack={handleBack} />
+      ) : currentPage === 'fish-identify' ? (
+        <>
+          <RedesignedNavbar
+            onHome={handleBack}
+            onScannerHub={openPremiumFeatures}
+            onDevCore={openDeveloperCore}
+            onFishIdentify={openFishIdentifySection}
+            onBirdIdentify={openBirdIdentifySection}
+            onInsectIdentify={openInsectIdentifySection}
+            onGlobalReach={handleBack}
+            onSystemCore={openDeveloperCore}
+            onPremiumMode={openPremiumFeatures}
+          />
+          <main className="w-full bg-black min-h-screen pt-24 px-4 md:px-8">
+            <div className="max-w-7xl mx-auto">
+              <FishIdentifySection />
+            </div>
+          </main>
+          <footer className="relative z-10 bg-black py-10 border-t border-white/5 select-none text-center text-xs text-white/40 font-body">
+            <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+              <p>&copy; 2026 Nature AI. All rights reserved.</p>
+              <div className="flex items-center gap-6">
+                <button onClick={openPrivacyPolicy} className="hover:text-white/80 transition-colors cursor-pointer">
+                  Privacy Policy
+                </button>
+                <button onClick={openTermsOfService} className="hover:text-white/80 transition-colors cursor-pointer">
+                  Terms of Service
+                </button>
+              </div>
+            </div>
+          </footer>
+        </>
+      ) : currentPage === 'bird-identify' ? (
+        <>
+          <RedesignedNavbar
+            onHome={handleBack}
+            onScannerHub={openPremiumFeatures}
+            onDevCore={openDeveloperCore}
+            onFishIdentify={openFishIdentifySection}
+            onBirdIdentify={openBirdIdentifySection}
+            onInsectIdentify={openInsectIdentifySection}
+            onGlobalReach={handleBack}
+            onSystemCore={openDeveloperCore}
+            onPremiumMode={openPremiumFeatures}
+          />
+          <main className="w-full bg-black min-h-screen pt-20">
+            <BirdIdentifySection />
+          </main>
+          <footer className="relative z-10 bg-black py-10 border-t border-white/5 select-none text-center text-xs text-white/40 font-body">
+            <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+              <p>&copy; 2026 Nature AI. All rights reserved.</p>
+              <div className="flex items-center gap-6">
+                <button onClick={openPrivacyPolicy} className="hover:text-white/80 transition-colors cursor-pointer">
+                  Privacy Policy
+                </button>
+                <button onClick={openTermsOfService} className="hover:text-white/80 transition-colors cursor-pointer">
+                  Terms of Service
+                </button>
+              </div>
+            </div>
+          </footer>
+        </>
+      ) : currentPage === 'insect-identify' ? (
+        <>
+          <RedesignedNavbar
+            onHome={handleBack}
+            onScannerHub={openPremiumFeatures}
+            onDevCore={openDeveloperCore}
+            onFishIdentify={openFishIdentifySection}
+            onBirdIdentify={openBirdIdentifySection}
+            onInsectIdentify={openInsectIdentifySection}
+            onGlobalReach={handleBack}
+            onSystemCore={openDeveloperCore}
+            onPremiumMode={openPremiumFeatures}
+          />
+          <main className="w-full bg-black min-h-screen pt-20">
+            <InsectIdentifySection />
+          </main>
+          <footer className="relative z-10 bg-black py-10 border-t border-white/5 select-none text-center text-xs text-white/40 font-body">
+            <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+              <p>&copy; 2026 Nature AI. All rights reserved.</p>
+              <div className="flex items-center gap-6">
+                <button onClick={openPrivacyPolicy} className="hover:text-white/80 transition-colors cursor-pointer">
+                  Privacy Policy
+                </button>
+                <button onClick={openTermsOfService} className="hover:text-white/80 transition-colors cursor-pointer">
+                  Terms of Service
+                </button>
+              </div>
+            </div>
+          </footer>
+        </>
       ) : (
         <>
           <RedesignedNavbar
@@ -189,54 +263,6 @@ export default function App() {
             </div>
 
             <ResearchDatabaseSection />
-            
-            {/* Premium visual spacer separating ResearchDatabaseSection (Section 4) and FishIdentifySection (Section 5) */}
-            <div className="w-full bg-black py-24 flex items-center justify-center relative z-20 border-t border-b border-white/5">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(34,211,238,0.05)_0%,transparent_70%)] pointer-events-none" />
-              <div className="w-full max-w-7xl mx-auto px-6 flex items-center justify-between">
-                <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent to-white/10" />
-                <span className="mx-6 text-[10px] font-mono tracking-[0.3em] text-cyan-400/40 uppercase flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-cyan-400/50 animate-pulse" />
-                  INITIALIZING AQUATIC COGNIZANCE
-                  <span className="w-1.5 h-1.5 rounded-full bg-blue-500/50 animate-pulse" />
-                </span>
-                <div className="h-[1px] flex-1 bg-gradient-to-l from-transparent to-white/10" />
-              </div>
-            </div>
-
-            <FishIdentifySection />
-
-            {/* Premium visual spacer separating FishIdentifySection (Section 5) and BirdIdentifySection (Section 6) */}
-            <div className="w-full bg-black py-24 flex items-center justify-center relative z-20 border-t border-b border-white/5">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(99,102,241,0.05)_0%,transparent_70%)] pointer-events-none" />
-              <div className="w-full max-w-7xl mx-auto px-6 flex items-center justify-between">
-                <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent to-white/10" />
-                <span className="mx-6 text-[10px] font-mono tracking-[0.3em] text-indigo-400/40 uppercase flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-indigo-400/50 animate-pulse" />
-                  INITIALIZING AVIAN COGNIZANCE
-                  <span className="w-1.5 h-1.5 rounded-full bg-purple-500/50 animate-pulse" />
-                </span>
-                <div className="h-[1px] flex-1 bg-gradient-to-l from-transparent to-white/10" />
-              </div>
-            </div>
-
-            <BirdIdentifySection />
-
-            {/* Premium visual spacer separating BirdIdentifySection and InsectIdentifySection */}
-            <div className="w-full bg-black py-24 flex items-center justify-center relative z-20 border-t border-b border-white/5">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(16,185,129,0.05)_0%,transparent_70%)] pointer-events-none" />
-              <div className="w-full max-w-7xl mx-auto px-6 flex items-center justify-between">
-                <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent to-white/10" />
-                <span className="mx-6 text-[10px] font-mono tracking-[0.3em] text-emerald-400/40 uppercase flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400/50 animate-pulse" />
-                  INITIALIZING ENTOMOLOGICAL COGNIZANCE
-                  <span className="w-1.5 h-1.5 rounded-full bg-green-500/50 animate-pulse" />
-                </span>
-                <div className="h-[1px] flex-1 bg-gradient-to-l from-transparent to-white/10" />
-              </div>
-            </div>
-
-            <InsectIdentifySection />
           </main>
           
           <footer className="relative z-10 bg-black py-10 border-t border-white/5 select-none text-center text-xs text-white/40 font-body">
