@@ -11,6 +11,7 @@ import { PlantScrollSection } from './components/PlantScrollSection';
 import { ResearchDatabaseSection } from './components/ResearchDatabaseSection';
 import { FishIdentifySection } from './components/FishIdentifySection';
 import { BirdIdentifySection } from './components/BirdIdentifySection';
+import { InsectIdentifySection } from './components/InsectIdentifySection';
 import PremiumFeatures from './components/PremiumFeatures';
 import DeveloperCore from './components/DeveloperCore';
 import PrivacyPolicy from './components/PrivacyPolicy';
@@ -105,6 +106,20 @@ export default function App() {
     }
   };
 
+  const openInsectIdentifySection = () => {
+    if (currentPage !== 'main') {
+      window.history.pushState(null, '', '/');
+      setCurrentPage('main');
+      setTimeout(() => {
+        const el = document.getElementById('insect-identify-section');
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    } else {
+      const el = document.getElementById('insect-identify-section');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const openPrivacyPolicy = () => {
     window.history.pushState(null, '', '/privacy-policy');
     setCurrentPage('privacy-policy');
@@ -141,6 +156,7 @@ export default function App() {
             onDevCore={openDeveloperCore}
             onFishIdentify={openFishIdentifySection}
             onBirdIdentify={openBirdIdentifySection}
+            onInsectIdentify={openInsectIdentifySection}
             onGlobalReach={() => {
               const el = document.getElementById('capabilities');
               if (el) el.scrollIntoView({ behavior: 'smooth' });
@@ -205,6 +221,22 @@ export default function App() {
             </div>
 
             <BirdIdentifySection />
+
+            {/* Premium visual spacer separating BirdIdentifySection and InsectIdentifySection */}
+            <div className="w-full bg-black py-24 flex items-center justify-center relative z-20 border-t border-b border-white/5">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(16,185,129,0.05)_0%,transparent_70%)] pointer-events-none" />
+              <div className="w-full max-w-7xl mx-auto px-6 flex items-center justify-between">
+                <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent to-white/10" />
+                <span className="mx-6 text-[10px] font-mono tracking-[0.3em] text-emerald-400/40 uppercase flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400/50 animate-pulse" />
+                  INITIALIZING ENTOMOLOGICAL COGNIZANCE
+                  <span className="w-1.5 h-1.5 rounded-full bg-green-500/50 animate-pulse" />
+                </span>
+                <div className="h-[1px] flex-1 bg-gradient-to-l from-transparent to-white/10" />
+              </div>
+            </div>
+
+            <InsectIdentifySection />
           </main>
           
           <footer className="relative z-10 bg-black py-10 border-t border-white/5 select-none text-center text-xs text-white/40 font-body">

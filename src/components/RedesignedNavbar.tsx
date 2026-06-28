@@ -10,6 +10,7 @@ interface RedesignedNavbarProps {
   onPremiumMode: () => void;
   onFishIdentify: () => void;
   onBirdIdentify: () => void;
+  onInsectIdentify: () => void;
 }
 
 export const RedesignedNavbar: React.FC<RedesignedNavbarProps> = ({
@@ -20,6 +21,7 @@ export const RedesignedNavbar: React.FC<RedesignedNavbarProps> = ({
   onSystemCore,
   onFishIdentify,
   onBirdIdentify,
+  onInsectIdentify,
   onPremiumMode,
 }) => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -75,6 +77,12 @@ export const RedesignedNavbar: React.FC<RedesignedNavbarProps> = ({
             className="px-3.5 py-2 text-indigo-300 hover:text-indigo-200 transition-all cursor-pointer uppercase text-[10px] tracking-widest flex items-center gap-1 rounded-full hover:bg-white/5 border border-transparent hover:border-indigo-400/30"
           >
             Identify Bird <span className="text-[9px] bg-indigo-400/20 text-indigo-200 border border-indigo-400/30 px-1.5 py-0.5 rounded font-mono uppercase font-bold">AI 🦅</span>
+          </button>
+          <button
+            onClick={onInsectIdentify}
+            className="px-3.5 py-2 text-emerald-300 hover:text-emerald-200 transition-all cursor-pointer uppercase text-[10px] tracking-widest flex items-center gap-1 rounded-full hover:bg-white/5 border border-transparent hover:border-emerald-400/30"
+          >
+            Identify Insect <span className="text-[9px] bg-emerald-400/20 text-emerald-200 border border-emerald-400/30 px-1.5 py-0.5 rounded font-mono uppercase font-bold">AI 🦋</span>
           </button>
           <button
             onClick={onGlobalReach}
@@ -159,6 +167,15 @@ export const RedesignedNavbar: React.FC<RedesignedNavbarProps> = ({
               <span className="flex items-center gap-2">
                 Identify Bird
                 <span className="text-[9px] bg-indigo-400/20 text-indigo-200 border border-indigo-400/30 px-2 py-0.5 rounded font-mono uppercase font-bold">AI</span>
+              </span>
+            </button>
+            <button 
+              onClick={() => handleMobileClick(onInsectIdentify)}
+              className="text-2xl font-semibold text-emerald-300 hover:text-emerald-200 text-left py-1.5 border-b border-white/5 flex justify-between items-center"
+            >
+              <span className="flex items-center gap-2">
+                Identify Insect
+                <span className="text-[9px] bg-emerald-400/20 text-emerald-200 border border-emerald-400/30 px-2 py-0.5 rounded font-mono uppercase font-bold">AI</span>
               </span>
             </button>
 
