@@ -1,0 +1,2075 @@
+<!DOCTYPE html><html lang="en"><head>
+        <link rel="preload" as="image" href="/files.peachworlds.com/website/f737228e-397d-4cf5-b142-af5b159c0484" fetchpriority="high" imagesrcset="/files.peachworlds.com/website/f737228e-397d-4cf5-b142-af5b159c0484" imagesizes="100vw">
+<script type="text/javascript">
+(function(){
+  function i(e){
+    if(!window.frames[e]){
+      if(document.body && document.body.firstChild){
+        var t=document.body;
+        var n=document.createElement("iframe");
+        n.style.display="none";
+        n.name=e;
+        n.title=e;
+        t.insertBefore(n, t.firstChild);
+      } else {
+        setTimeout(function(){i(e)},5)
+      }
+    }
+  }
+  function e(n,o,r,f,s){
+    function e(e,t,n,i){
+      if(typeof n!=="function"){return}
+      if(!window[o]){window[o]=[]}
+      var a=false;
+      if(s){a=s(e,i,n)}
+      if(!a){window[o].push({command:e,version:t,callback:n,parameter:i})}
+    }
+    e.stub=true;
+    e.stubVersion=2;
+    function t(i){
+      if(!window[n]||window[n].stub!==true){return}
+      if(!i.data){return}
+      var a=typeof i.data==="string";
+      var e;
+      try{e=a?JSON.parse(i.data):i.data}catch(t){return}
+      if(e[r]){
+        var o=e[r];
+        window[n](o.command,o.version,function(e,t){
+          var n={};
+          n[f]={returnValue:e,success:t,callId:o.callId};
+          if(i.source){
+            i.source.postMessage(a?JSON.stringify(n):n,"*")
+          }
+        },o.parameter)
+      }
+    }
+    if(typeof window[n]!=="function"){
+      window[n]=e;
+      if(window.addEventListener){
+        window.addEventListener("message",t,false)
+      } else {
+        window.attachEvent("onmessage",t)
+      }
+    }
+  }
+  e("__tcfapi","__tcfapiBuffer","__tcfapiCall","__tcfapiReturn");
+  i("__tcfapiLocator");
+})();
+</script>
+        
+        <title>Self-Service Programmatic Media Curation by Nature AI</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="theme-color" content="#000000">
+        <meta name="description" content="Nature AI is the leading independent directory of ai tools for nature, wildlife, and sustainability. Get a PMP from our libraries or a custom one.">
+        <meta property="og:title" content="Self-Service Programmatic Media Curation by Nature AI">
+        <meta property="og:description" content="Nature AI is the leading independent directory of ai tools for nature, wildlife, and sustainability. Get a PMP from our libraries or a custom one.">
+        <meta property="og:image" content="/curatedm-metaimage.png">
+        <meta property="og:url" content="https://www.curated.media/">
+        <meta property="og:type" content="website">
+        <link rel="icon" href="/curatedm-favicon.png">
+        <link href="/website-base.css" rel="stylesheet">
+        <link href="/styles.css" rel="stylesheet">
+        
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css?family=Inter:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css?family=sans-serif:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css?family=Arial, sans-serif:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+  
+        <script>        window._pwInitialPath = "/";
+</script>
+        <script defer="defer" fetchpriority="high" src="/script.js"></script>
+        <script>
+  function initLazyVideoWrapper(wrapper) {
+    if (wrapper._lazyInitialized) return;
+    wrapper._lazyInitialized = true;
+
+    const video = wrapper.querySelector(".lazy-video");
+    const videoSrc =
+      video?.dataset?.src ||
+      "/files.peachworlds.com/website/0e5f237e-0e45-4db9-8798-8e340bff43f0/peachwebsitevideo-2b.mp4";
+
+    let isLazyVideoLoaded = false;
+    let observersInitialized = false;
+
+    function loadVideoSafely() {
+      if (isLazyVideoLoaded) return;
+      const doLoad = () => {
+        if (isLazyVideoLoaded) return;
+        const source = document.createElement("source");
+        source.src = videoSrc;
+        source.type = "video/mp4";
+        video.appendChild(source);
+        video.load();
+        isLazyVideoLoaded = true;
+        setupPlayPauseObserver();
+      };
+      if ("requestIdleCallback" in window) {
+        requestIdleCallback(doLoad, { timeout: 2000 });
+      } else {
+        setTimeout(doLoad, 500);
+      }
+    }
+
+    function setupPlayPauseObserver() {
+      if (observersInitialized) return;
+      observersInitialized = true;
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!isLazyVideoLoaded) return;
+            if (entry.isIntersecting) {
+              video.play().catch(() => {});
+            } else {
+              video.pause();
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+
+      const container = wrapper.querySelector(".video-container");
+      if (container) observer.observe(container);
+    }
+
+    const preloadObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !isLazyVideoLoaded) {
+            loadVideoSafely();
+            observer.disconnect();
+          }
+        });
+      },
+      { threshold: 0, rootMargin: "500px 0px 0px 0px" }
+    );
+
+    preloadObserver.observe(wrapper);
+
+    window.addEventListener(
+      "scroll",
+      function onScroll() {
+        if (!isLazyVideoLoaded) {
+          loadVideoSafely();
+        }
+        window.removeEventListener("scroll", onScroll);
+      },
+      { once: true }
+    );
+  }
+
+  function observeNewLazyVideoWrappers() {
+    const observer = new MutationObserver((mutations) => {
+      for (const mutation of mutations) {
+        mutation.addedNodes.forEach((node) => {
+          if (node.nodeType !== 1) return;
+
+          if (node.classList.contains("video-container-wrapper")) {
+            initLazyVideoWrapper(node);
+          }
+
+          node
+            .querySelectorAll?.(".video-container-wrapper")
+            .forEach(initLazyVideoWrapper);
+        });
+      }
+    });
+
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+    });
+
+    // Initialize any already-present embeds
+    document
+      .querySelectorAll(".video-container-wrapper")
+      .forEach(initLazyVideoWrapper);
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    observeNewLazyVideoWrappers();
+  });
+</script>
+
+<!-- ✅ Didomi TCF Stub and Loader -->
+<script type="text/javascript">
+  // Pages with iFrame
+  const pagesToDisable = ["/partners-directory"];
+
+  if (!pagesToDisable.includes(window.location.pathname)) {
+    (function () {
+      function i(e) {
+        if (!window.frames[e]) {
+          if (document.body && document.body.firstChild) {
+            var t = document.body;
+            var n = document.createElement("iframe");
+            n.style.display = "none";
+            n.name = e;
+            n.title = e;
+            t.insertBefore(n, t.firstChild);
+          } else {
+            setTimeout(function () {
+              i(e);
+            }, 5);
+          }
+        }
+      }
+
+      function e(n, o, r, f, s) {
+        function e(e, t, n, i) {
+          if (typeof n !== "function") {
+            return;
+          }
+          if (!window[o]) {
+            window[o] = [];
+          }
+          var a = false;
+          if (s) {
+            a = s(e, i, n);
+          }
+          if (!a) {
+            window[o].push({
+              command: e,
+              version: t,
+              callback: n,
+              parameter: i,
+            });
+          }
+        }
+        e.stub = true;
+        e.stubVersion = 2;
+        function t(i) {
+          if (!window[n] || window[n].stub !== true) {
+            return;
+          }
+          if (!i.data) {
+            return;
+          }
+          var a = typeof i.data === "string";
+          var e;
+          try {
+            e = a ? JSON.parse(i.data) : i.data;
+          } catch (t) {
+            return;
+          }
+          if (e[r]) {
+            var o = e[r];
+            window[n](
+              o.command,
+              o.version,
+              function (e, t) {
+                var n = {};
+                n[f] = { returnValue: e, success: t, callId: o.callId };
+                if (i.source) {
+                  i.source.postMessage(a ? JSON.stringify(n) : n, "*");
+                }
+              },
+              o.parameter
+            );
+          }
+        }
+        if (typeof window[n] !== "function") {
+          window[n] = e;
+          if (window.addEventListener) {
+            window.addEventListener("message", t, false);
+          } else {
+            window.attachEvent("onmessage", t);
+          }
+        }
+      }
+
+      e("__tcfapi", "__tcfapiBuffer", "__tcfapiCall", "__tcfapiReturn");
+      i("__tcfapiLocator");
+    })();
+  }
+</script>
+
+<script type="text/javascript">
+  // Pages with iFrame
+  const pages = ["/partners-directory"];
+
+  if (!pages.includes(window.location.pathname)) {
+    (function () {
+      (function (e, i, o) {
+        var n = document.createElement("link");
+        n.rel = "preconnect";
+        n.as = "script";
+        var t = document.createElement("link");
+        t.rel = "dns-prefetch";
+        t.as = "script";
+        var r = document.createElement("script");
+        r.id = "spcloader";
+        r.type = "text/javascript";
+        r.async = true;
+        r.charset = "utf-8";
+        window.didomiConfig = window.didomiConfig || {};
+        window.didomiConfig.sdkPath =
+          window.didomiConfig.sdkPath || o || "https://sdk.privacy-center.org/";
+        const d = window.didomiConfig.sdkPath;
+        var a = d + e + "/loader.js?target_type=notice&target=" + i;
+        if (window.didomiConfig && window.didomiConfig.user) {
+          var c = window.didomiConfig.user;
+          var s = c.country;
+          var f = c.region;
+          if (s) {
+            a += "&country=" + s;
+            if (f) {
+              a += "�ion=" + f;
+            }
+          }
+        }
+        n.href = d;
+        t.href = d;
+        r.src = a;
+        var m = document.getElementsByTagName("script")[0];
+        m.parentNode.insertBefore(n, m);
+        m.parentNode.insertBefore(t, m);
+        m.parentNode.insertBefore(r, m);
+      })("6bc0bf5d-ce80-4186-9fdd-2889df929323", "jLMM8WQz");
+    })();
+  }
+</script>
+
+<!-- ========================= -->
+<!-- Tracking Pixels (GLOBAL)  -->
+<!-- ========================= -->
+
+<!-- RB2B Pixel -->
+<script>
+  !function(key) {
+    if (window.reb2b) return;
+    window.reb2b = { loaded: true };
+    var s = document.createElement("script");
+    s.async = true;
+    s.src =
+      "https://b2bjsstore.s3.us-west-2.amazonaws.com/b/" +
+      key +
+      "/" +
+      key +
+      ".js.gz";
+    document.getElementsByTagName("script")[0].parentNode.insertBefore(
+      s,
+      document.getElementsByTagName("script")[0]
+    );
+  }("M5NRP9HLKQO1");
+</script>
+
+<!-- LinkedIn Insight Tag -->
+<script type="text/javascript">
+  _linkedin_partner_id = "6029074";
+  window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+  window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+</script>
+<script type="text/javascript">
+  (function(l) {
+    if (!l) {
+      window.lintrk = function(a, b) {
+        window.lintrk.q.push([a, b]);
+      };
+      window.lintrk.q = [];
+    }
+    var s = document.getElementsByTagName("script")[0];
+    var b = document.createElement("script");
+    b.type = "text/javascript";
+    b.async = true;
+    b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+    s.parentNode.insertBefore(b, s);
+  })(window.lintrk);
+</script>
+<noscript>
+  <img
+    height="1"
+    width="1"
+    style="display:none;"
+    alt=""
+    src="https://px.ads.linkedin.com/collect/?pid=6029074&fmt=gif"
+  />
+</noscript>
+
+<!-- Reddit Pixel -->
+<script>
+  !function(w,d){
+    if(!w.rdt){
+      var p=w.rdt=function(){
+        p.sendEvent ? p.sendEvent.apply(p,arguments) : p.callQueue.push(arguments)
+      };
+      p.callQueue=[];
+      var t=d.createElement("script");
+      t.src="https://www.redditstatic.com/ads/pixel.js";
+      t.async=!0;
+      var s=d.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(t,s);
+    }
+  }(window,document);
+  rdt('init','a2_i89swvb968wq');
+  rdt('track','PageVisit');
+</script>
+
+<!-- Nature AI Analytics Tag Manager -->
+<script>
+  var _mtm = window._mtm = window._mtm || [];
+  _mtm.push({ 'mtm.startTime': (new Date().getTime()), 'event': 'mtm.Start' });
+  (function() {
+    var d=document, g=d.createElement('script'),
+      s=d.getElementsByTagName('script')[0];
+    g.async=true;
+    g.src='https://analytics.curated.media/js/container_mdjmPDdA.js';
+    s.parentNode.insertBefore(g,s);
+  })();
+</script>
+
+<!-- G2 Attribution Tracking -->
+<script>
+  (function (c, p, d, u, id, i) {
+    id = ''; // Optional Custom ID for user in your system
+    u = 'https://tracking-api.g2.com/attribution_tracking/conversions/' + c + '.js?p=' +
+        encodeURI(p) + '&e=' + id;
+    i = document.createElement('script');
+    i.type = 'application/javascript';
+    i.async = true;
+    i.src = u;
+    d.getElementsByTagName('head')[0].appendChild(i);
+  }("1031554", document.location.href, document));
+</script>
+        <meta name="pw:has-visual-script" content="false">
+        <link rel="preload" media="screen and (max-width: 768)" href="/scene-state/bf92f8a3-c3cb-427f-9e6e-73575c749606.json" as="fetch" crossorigin="anonymous">
+<link rel="preload" media="screen and (max-width: 768)" href="/files.staging.peachworlds.com/website/9affd25e-fcd4-4748-bbd3-5f11225ae4d9/kloofendal-48d-partly-cloudy-puresky-2k-2-.hdr" as="image" crossorigin="anonymous">
+<link rel="preload" media="screen and (max-width: 768)" href="/files.staging.peachworlds.com/website/4a6d678a-3c90-4ca3-8598-395f958538ca/hibiscous-flower.glb" as="fetch" crossorigin="anonymous">
+<link rel="preload" media="screen and (max-width: 768)" href="/files.staging.peachworlds.com/website/5bf41c57-fd92-4058-ac23-0e160a96fec6/8d344401-37f5-4198-ae2f-7d9723af8ff5-white-necked-jacobin-hummingbird-v1.glb" as="fetch" crossorigin="anonymous">
+<link rel="preload" media="screen and (max-width: 768)" href="/files.staging.peachworlds.com/website/85166529-a7e5-4d45-a13c-212387a34824/card5.glb" as="fetch" crossorigin="anonymous">
+<link rel="preload" media="screen and (max-width: 768)" href="/files.staging.peachworlds.com/website/9f189dd1-ba86-4efe-8a69-5633faa85ffd/frame.glb" as="fetch" crossorigin="anonymous">
+<link rel="preload" media="screen and (max-width: 768)" href="/files.staging.peachworlds.com/website/71f7b65f-ab67-4da3-b6dd-3894205def2c/alpha-gradient2.jpg" as="image" crossorigin="anonymous">
+<link rel="preload" media="screen and (max-width: 768)" href="/files.staging.peachworlds.com/website/09b3a33d-dec6-41f8-9396-2de4d32e3685/assets-task-01k5w9yyhzf4dsg8awtx96p3ry-1758665486-img-0.webp" as="image" crossorigin="anonymous">
+<link rel="preload" media="screen and (max-width: 768)" href="/files.staging.peachworlds.com/website/4e95449c-07de-4b49-b3ce-f9df0e27e50a/grega-91-meadow-dreamscape-ar-32-sref-httpss-mj-runndj6dyhg-5ed26ea1-dc2b-43e6-b028-8954b3e312bf.webp" as="image" crossorigin="anonymous">
+<link rel="preload" media="screen and (max-width: 768)" href="/files.staging.peachworlds.com/website/621f5769-7075-454b-96e2-097d6ef6e569/slide1.png" as="image" crossorigin="anonymous">
+<link rel="preload" media="screen and (max-width: 768)" href="/files.staging.peachworlds.com/website/8a3a727a-0b21-46e5-8b82-a1f16a3d58ef/slide2.png" as="image" crossorigin="anonymous">
+<link rel="preload" media="screen and (max-width: 768)" href="/files.staging.peachworlds.com/website/6c73b5d2-2a19-4c50-85ad-4b05fedb7486/slide3.png" as="image" crossorigin="anonymous">
+<link rel="preload" media="screen and (max-width: 768)" href="/files.staging.peachworlds.com/website/f5585800-591e-4199-9c08-05622530283e/slide4.png" as="image" crossorigin="anonymous">
+<link rel="preload" media="screen and (max-width: 768)" href="/files.staging.peachworlds.com/website/53be9d64-bb56-43b0-9299-c6d8a5b2ee48/slide5.png" as="image" crossorigin="anonymous">
+<link rel="preload" media="screen and (max-width: 768)" href="/files.staging.peachworlds.com/website/decc993e-1769-4260-97a6-eed36c8dd19c/slide6.png" as="image" crossorigin="anonymous">
+<link rel="preload" media="screen and (max-width: 768)" href="/files.staging.peachworlds.com/website/afd91f44-996e-42dc-b19e-9fcdea543fec/slide7.png" as="image" crossorigin="anonymous">
+<link rel="preload" media="screen and (max-width: 768)" href="/files.staging.peachworlds.com/website/eba07eb6-12d6-4b75-b033-0e0886eb4a43/slide8.png" as="image" crossorigin="anonymous">
+<link rel="preload" media="screen and (max-width: 768)" href="/files.staging.peachworlds.com/website/86a2ce96-2667-4f89-ae2b-b0832543589e/slide9.png" as="image" crossorigin="anonymous">
+<link rel="preload" media="screen and (max-width: 768)" href="/files.staging.peachworlds.com/website/2ae404ea-d2fa-4540-8c53-e32704ccb2ad/slide10.png" as="image" crossorigin="anonymous">
+<link rel="preload" media="screen and (max-width: 768)" href="/files.staging.peachworlds.com/website/a356ef15-fad7-4603-a543-3c2f8e9ea9f8/slide11.png" as="image" crossorigin="anonymous"><link rel="preload" media="screen and (min-width: 768)" href="/scene-state/a2be68de-75b9-45eb-b89f-cac9fd6cde5c.json" as="fetch" crossorigin="anonymous">
+<link rel="preload" media="screen and (min-width: 768)" href="/files.staging.peachworlds.com/website/9affd25e-fcd4-4748-bbd3-5f11225ae4d9/kloofendal-48d-partly-cloudy-puresky-2k-2-.hdr" as="image" crossorigin="anonymous">
+<link rel="preload" media="screen and (min-width: 768)" href="/files.staging.peachworlds.com/website/9f189dd1-ba86-4efe-8a69-5633faa85ffd/frame.glb" as="fetch" crossorigin="anonymous">
+<link rel="preload" media="screen and (min-width: 768)" href="/files.staging.peachworlds.com/website/4a6d678a-3c90-4ca3-8598-395f958538ca/hibiscous-flower.glb" as="fetch" crossorigin="anonymous">
+<link rel="preload" media="screen and (min-width: 768)" href="/files.staging.peachworlds.com/website/5bf41c57-fd92-4058-ac23-0e160a96fec6/8d344401-37f5-4198-ae2f-7d9723af8ff5-white-necked-jacobin-hummingbird-v1.glb" as="fetch" crossorigin="anonymous">
+<link rel="preload" media="screen and (min-width: 768)" href="/files.staging.peachworlds.com/website/85166529-a7e5-4d45-a13c-212387a34824/card5.glb" as="fetch" crossorigin="anonymous">
+<link rel="preload" media="screen and (min-width: 768)" href="/files.staging.peachworlds.com/website/71f7b65f-ab67-4da3-b6dd-3894205def2c/alpha-gradient2.jpg" as="image" crossorigin="anonymous">
+<link rel="preload" media="screen and (min-width: 768)" href="/files.staging.peachworlds.com/website/09b3a33d-dec6-41f8-9396-2de4d32e3685/assets-task-01k5w9yyhzf4dsg8awtx96p3ry-1758665486-img-0.webp" as="image" crossorigin="anonymous">
+<link rel="preload" media="screen and (min-width: 768)" href="/files.staging.peachworlds.com/website/4e95449c-07de-4b49-b3ce-f9df0e27e50a/grega-91-meadow-dreamscape-ar-32-sref-httpss-mj-runndj6dyhg-5ed26ea1-dc2b-43e6-b028-8954b3e312bf.webp" as="image" crossorigin="anonymous">
+<link rel="preload" media="screen and (min-width: 768)" href="/files.staging.peachworlds.com/website/621f5769-7075-454b-96e2-097d6ef6e569/slide1.png" as="image" crossorigin="anonymous">
+<link rel="preload" media="screen and (min-width: 768)" href="/files.staging.peachworlds.com/website/8a3a727a-0b21-46e5-8b82-a1f16a3d58ef/slide2.png" as="image" crossorigin="anonymous">
+<link rel="preload" media="screen and (min-width: 768)" href="/files.staging.peachworlds.com/website/6c73b5d2-2a19-4c50-85ad-4b05fedb7486/slide3.png" as="image" crossorigin="anonymous">
+<link rel="preload" media="screen and (min-width: 768)" href="/files.staging.peachworlds.com/website/f5585800-591e-4199-9c08-05622530283e/slide4.png" as="image" crossorigin="anonymous">
+<link rel="preload" media="screen and (min-width: 768)" href="/files.staging.peachworlds.com/website/53be9d64-bb56-43b0-9299-c6d8a5b2ee48/slide5.png" as="image" crossorigin="anonymous">
+<link rel="preload" media="screen and (min-width: 768)" href="/files.staging.peachworlds.com/website/decc993e-1769-4260-97a6-eed36c8dd19c/slide6.png" as="image" crossorigin="anonymous">
+<link rel="preload" media="screen and (min-width: 768)" href="/files.staging.peachworlds.com/website/afd91f44-996e-42dc-b19e-9fcdea543fec/slide7.png" as="image" crossorigin="anonymous">
+<link rel="preload" media="screen and (min-width: 768)" href="/files.staging.peachworlds.com/website/eba07eb6-12d6-4b75-b033-0e0886eb4a43/slide8.png" as="image" crossorigin="anonymous">
+<link rel="preload" media="screen and (min-width: 768)" href="/files.staging.peachworlds.com/website/86a2ce96-2667-4f89-ae2b-b0832543589e/slide9.png" as="image" crossorigin="anonymous">
+<link rel="preload" media="screen and (min-width: 768)" href="/files.staging.peachworlds.com/website/2ae404ea-d2fa-4540-8c53-e32704ccb2ad/slide10.png" as="image" crossorigin="anonymous">
+<link rel="preload" media="screen and (min-width: 768)" href="/files.staging.peachworlds.com/website/a356ef15-fad7-4603-a543-3c2f8e9ea9f8/slide11.png" as="image" crossorigin="anonymous"><link rel="preload" href="/ui-state.json" as="fetch" crossorigin="anonymous">
+        
+        <style>
+          *{box-sizing:border-box;scrollbar-width:none}::-webkit-scrollbar{display:none}.pw-scene-style>canvas,.pwb-scene>canvas{display:block;width:100%;height:100%;user-select:none}a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{margin:0;padding:0;border-width:0;border-style:none;border-color:currentcolor;border-image-source:initial;border-image-slice:initial;border-image-width:initial;border-image-outset:initial;border-image-repeat:initial;font-variant-ligatures:inherit;font-variant-caps:inherit;font-variant-numeric:inherit;font-variant-east-asian:inherit;font-variant-alternates:inherit;font-variant-position:inherit;font-variant-emoji:inherit;font-weight:inherit;font-stretch:inherit;font-size:inherit;font-family:inherit;font-optical-sizing:inherit;font-size-adjust:inherit;font-kerning:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-language-override:inherit;vertical-align:baseline}a,abbr,acronym,address,applet,article,aside,audio,big,blockquote,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{font-style:inherit;line-height:inherit}b,body,em,i,strong{line-height:1}b,em,i,strong{line-height:inherit;font-style:italic}b,body,strong{font-style:inherit}b,strong{font-weight:bolder}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}ol,ul{list-style-position:initial;list-style-image:initial;list-style-type:none}blockquote,q{quotes:none}blockquote::after,blockquote::before,q::after,q::before{content:none}table{border-collapse:collapse;-webkit-border-horizontal-spacing:0;-webkit-border-vertical-spacing:0}:root{--pw-user-color-style-f857ba13-729b-4616-86f2-d806c4992ef2:#ffffff26;--pw-user-color-style-f2d69261-dc17-4587-9d81-d228f2eb4c56:#20202040;--pw-user-color-style-a7f31433-8156-47cd-b587-f304ba07ee14:#454ad6;--pw-user-color-style-4f3c2a1b-c85f-4073-a622-e55beab47c5d:#d2d2d2;--pw-user-color-style-7db8a2ee-c999-48d9-90c3-779f585abf6a:#666cff;--pw-user-color-style-fdfc2324-4584-495d-805a-b339b4edc3be:#8c52ff14;--pw-user-color-style-e9254d4a-9eef-4ceb-bd98-63dec67fb4d6:#8c52ff26;--pw-user-color-style-ab186f9c-00c8-4fac-b8ed-018c9c6a4e6e:#666cff14;--pw-user-color-style-01fb19b3-efb2-4882-a3a5-6c5faf71cf0a:#161b42;--pw-user-color-style-adf47dcc-eec0-4b7a-be3d-e549591d309e:#666cff26}#im2i,#pwb-loading-wrap{background-color:#161b42}#im2i{top:0;left:0;right:0;width:100%;bottom:0;height:100dvh;display:flex;position:fixed;align-items:center;flex-direction:column;justify-content:center}#ixe4zkj{top:1dvw;left:1dvw;width:150px;position:static}#if489kl{gap:16px;width:100%;display:flex;position:relative;min-height:75px;align-items:center;padding-top:px;flex-direction:column;justify-content:center}#ifbapuu{bottom:2dvw;display:block;position:fixed;border-radius:px}#ixbkdz,#ixbkdz-2{display:none;margin-top:8px;height:36px;width:100%}#ixbkdz-2{display:block;height:40px;overflow:hidden}@media (max-width:992px){#ixe4zkj{bottom:48px}}@media (max-width:480px){#ixe4zkj{top:16px;left:24px;width:120px;position:static}#im2i{top:0;left:0;right:0;width:100dvw;bottom:0;position:fixed;flex-direction:column;background-color:#161b42}#if489kl{gap:8px;left:revert;top:revert}#ifbapuu{bottom:32px;height:px;right:revert}#ixbkdz{display:block}#ixbkdz-2{display:none}}
+        </style>
+      
+    
+  
+    
+  
+    <style>
+      /* Hide IAB Tech Lab logo from the footer */
+      #it1ordz-2 {
+        display: none !important;
+      }
+      
+      /* Hide Login links from navigation menus */
+      #i6wd7-2-2-4-3, #igrhvb-3, #igrhvb, #i1unxs5, #i6wd7-2-2-4-3-2 {
+        display: none !important;
+      }
+      
+      /* Hide Book a Call links from navigation menus */
+      #i00y82-2-3-4-2-2-5, #i00y82-2-3-4-5-4, #iakzwk, #i00y82-2-3-4-5-3, 
+      #i00y82-2-3-4-2-2-2, #i00y82-2-3-4-2-2-2-2, #i00y82-2-3-4-5-2, 
+      #i00y82-2-3-4-4, #i00y82-2-3-4-2-2-3, #i00y82-2-3-4-2, #i00y82-2-3-4, 
+      #i00y82-2-3-4-2-2-4 {
+        display: none !important;
+      }
+      
+      /* Hide Get started / it's Free links from navigation menus */
+      #ic0tx-2-2-2-3-2-3-2-5, #ic0tx-2-2-2, #i2zq31z, #ic0tx-2-2-2-3-2-3-2, 
+      #ic0tx-2-2-2-3-2-5-2, #ic0tx-2-2-2-3-2-3-2-2, #ic0tx-2-2-2-3-2-3, 
+      #ic0tx-2-2-2-3-2, #ic0tx-2-2-2-3-2-3-2-4 {
+        display: none !important;
+      }
+
+      /* Hide the "Get Started — it's Free" menu buttons everywhere */
+      #ioqrg-2-2-2 {
+        display: none !important;
+      }
+      #i1edxg1 {
+        display: none !important;
+      }
+      #ixnbo71-3-3-2-2-5 {
+        display: none !important;
+      }
+
+      /* Hide footer sections: PRODUCT, USE CASES, CHANNELS, RESOURCES, LEGAL and all their contents */
+      #ibblux, #ibblux-2, #ibblux-2-2-4-2-3, #ibblux-2-2-2, #ibblux-2-2-2-2 {
+        display: none !important;
+      }
+      /* Also hide the mobile/tablet footer variant */
+      #ibblux-9, #ibblux-2-2-3, #ibblux-2-2-2-2-2 {
+        display: none !important;
+      }
+    </style>
+    <style>
+      /* Hide IAB Tech Lab logo from the footer */
+      #it1ordz-2 {
+        display: none !important;
+      }
+      
+      /* Hide Login links from navigation menus */
+      #i6wd7-2-2-4-3, #igrhvb-3, #igrhvb, #i1unxs5, #i6wd7-2-2-4-3-2 {
+        display: none !important;
+      }
+      
+      /* Hide Book a Call links from navigation menus */
+      #i00y82-2-3-4-2-2-5, #i00y82-2-3-4-5-4, #iakzwk, #i00y82-2-3-4-5-3, 
+      #i00y82-2-3-4-2-2-2, #i00y82-2-3-4-2-2-2-2, #i00y82-2-3-4-5-2, 
+      #i00y82-2-3-4-4, #i00y82-2-3-4-2-2-3, #i00y82-2-3-4-2, #i00y82-2-3-4, 
+      #i00y82-2-3-4-2-2-4 {
+        display: none !important;
+      }
+      
+      /* Hide Get started / it's Free links from navigation menus */
+      #ic0tx-2-2-2-3-2-3-2-5, #ic0tx-2-2-2, #i2zq31z, #ic0tx-2-2-2-3-2-3-2, 
+      #ic0tx-2-2-2-3-2-5-2, #ic0tx-2-2-2-3-2-3-2-2, #ic0tx-2-2-2-3-2-3, 
+      #ic0tx-2-2-2-3-2, #ic0tx-2-2-2-3-2-3-2-4 {
+        display: none !important;
+      }
+
+      /* Hide the "Get Started — it's Free" menu buttons everywhere */
+      #ioqrg-2-2-2 {
+        display: none !important;
+      }
+      #i1edxg1 {
+        display: none !important;
+      }
+      #ixnbo71-3-3-2-2-5 {
+        display: none !important;
+      }
+
+      /* Hide footer sections: PRODUCT, USE CASES, CHANNELS, RESOURCES, LEGAL and all their contents */
+      #ibblux, #ibblux-2, #ibblux-2-2-4-2-3, #ibblux-2-2-2, #ibblux-2-2-2-2 {
+        display: none !important;
+      }
+      /* Also hide the mobile/tablet footer variant */
+      #ibblux-9, #ibblux-2-2-3, #ibblux-2-2-2-2-2 {
+        display: none !important;
+      }
+
+      /* Navigation Menu Layout: Arrange straight, close to each other, without wrapping */
+      #ioqrg {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        gap: 20px !important; /* Equal spacing between all menus */
+        width: auto !important;
+        max-width: none !important;
+      }
+      #iv6dna-2 {
+        width: auto !important;
+        max-width: none !important;
+        overflow: visible !important;
+      }
+
+      /* Reset wrapper margins and paddings for all menu items, and prevent stretching */
+      #ioqrg > div[id^="ipavn"] {
+        margin: 0 !important;
+        padding: 0 !important;
+        display: flex !important;
+        align-items: center !important;
+        flex: 0 0 auto !important; /* Prevent stretching or wrapping */
+        width: auto !important;
+      }
+
+      /* Hide the spacer element that pushes elements apart */
+      #imob0j-3 {
+        display: none !important;
+      }
+
+      /* Hide dropdown arrow images in the menu bar */
+      #ioqrg img, #iv6dna-2 img {
+        display: none !important;
+      }
+
+      /* Completely hide dropdown content overlays so tapping them does not open contents */
+      #i7lb35, #i7lb35-4, #i7lb35-4-2 {
+        display: none !important;
+      }
+
+      /* Style for navigation items and newly added items to ensure they look identical and are white */
+      .curated-menu-item {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        cursor: pointer !important;
+        transition: opacity 0.2s ease-in-out !important;
+      }
+      .curated-menu-item:hover {
+        opacity: 0.75 !important;
+      }
+
+      .curated-menu-text {
+        color: #ffffff !important;
+        font-family: 'Inter', sans-serif !important;
+        font-size: 16px !important;
+        font-weight: 500 !important;
+        text-transform: none !important;
+        white-space: nowrap !important;
+        margin: 0 !important;
+        padding: 0 4px !important; /* Unified padding for perfect horizontal consistency */
+      }
+    </style>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // 1. Change "Get PMP deals within seconds, go live within minutes." 
+        //    to "Your Pocket Naturalist. Ready in seconds."
+        var el1 = document.getElementById('ikd5qgl');
+        if (el1) {
+          el1.textContent = 'Your Pocket Naturalist. ';
+          var sub1 = document.getElementById('iicjghp');
+          if (sub1) sub1.textContent = 'Ready in seconds.';
+        }
+        var el1b = document.getElementById('ikd5qgl-3');
+        if (el1b) {
+          el1b.textContent = 'Your Pocket Naturalist. ';
+          var sub1b = document.getElementById('iicjghp-3');
+          if (sub1b) sub1b.textContent = 'Ready in seconds.';
+        }
+
+        // 2. Change "The leading independent self-service curation Platform for programmatic media buyers."
+        //    to "AI That Sees Nature, So You Can Understand It."
+        var el2 = document.getElementById('iurgznb');
+        if (el2) {
+          var inner2 = document.getElementById('i86kcgl');
+          if (inner2) inner2.textContent = '';
+          el2.textContent = 'AI That Sees Nature, So You Can Understand It.';
+        }
+        var el2b = document.getElementById('iurgznb-2');
+        if (el2b) {
+          var inner2b = document.getElementById('i86kcgl-2');
+          if (inner2b) inner2b.textContent = '';
+          el2b.textContent = 'AI That Sees Nature, So You Can Understand It.';
+        }
+
+        // 3. Change "Start Trading Supply-Side Today" 
+        //    to "Download Nature AI Today — Get it on Playstore"
+        var el3 = document.getElementById('iwlmp3k');
+        if (el3) el3.textContent = ' Download Nature AI Today — Get it on Playstore';
+
+        // ============================================================
+        // 4. Rename navigation menu items (desktop top bar)
+        // ============================================================
+        var menuRenames = {
+          'i6wd7': 'Home',
+          'i6wd7-2-6': 'Scanner Hub',
+          'i6wd7-2-3': 'Developer Core',
+          'i6wd7-2-2': 'Identify Bird',
+          // Mobile hamburger menu
+          'i6wd7-2': 'Home',
+          'i6wd7-2-3-4': 'Scanner Hub',
+          'i6wd7-2-6-2': 'Developer Core',
+          'i6wd7-2-2-4': 'Identify Bird'
+        };
+        for (var id in menuRenames) {
+          var menuEl = document.getElementById(id);
+          if (menuEl) {
+            menuEl.textContent = menuRenames[id];
+            // Ensure they have the correct white text class
+            menuEl.className = 'curated-menu-text';
+          }
+        }
+
+        // ============================================================
+        // 5. Add new menu items: "Identify Fish" and "Identify Insect"
+        //    Clone the "Identify Bird" (Customer Stories) menu item 
+        //    and insert after it in both desktop and mobile navs
+        // ============================================================
+
+        // --- Desktop nav: clone #ipavn-2-2 (Identify Bird wrapper) ---
+        var desktopBird = document.getElementById('ipavn-2-2');
+        if (desktopBird && desktopBird.parentNode) {
+          // Create "Identify Fish" menu
+          var fishItem = desktopBird.cloneNode(true);
+          fishItem.id = 'ipavn-2-2-fish';
+          fishItem.className = 'pwb-flex-grid-wrap curated-menu-item';
+          
+          var fishInner = fishItem.querySelector('div');
+          if (fishInner) {
+            fishInner.id = 'i6wd7-2-2-fish';
+            fishInner.className = 'curated-menu-text';
+            fishInner.textContent = 'Identify Fish';
+          }
+          desktopBird.parentNode.insertBefore(fishItem, desktopBird.nextSibling);
+
+          // Create "Identify Insect" menu
+          var insectItem = desktopBird.cloneNode(true);
+          insectItem.id = 'ipavn-2-2-insect';
+          insectItem.className = 'pwb-flex-grid-wrap curated-menu-item';
+          
+          var insectInner = insectItem.querySelector('div');
+          if (insectInner) {
+            insectInner.id = 'i6wd7-2-2-insect';
+            insectInner.className = 'curated-menu-text';
+            insectInner.textContent = 'Identify Insect';
+          }
+          fishItem.parentNode.insertBefore(insectItem, fishItem.nextSibling);
+        }
+
+        // --- Mobile menu: clone #ipavn-2-2-4 (Identify Bird wrapper) ---
+        var mobileBird = document.getElementById('ipavn-2-2-4');
+        if (mobileBird && mobileBird.parentNode) {
+          // Create "Identify Fish" menu
+          var mFishItem = mobileBird.cloneNode(true);
+          mFishItem.id = 'ipavn-2-2-4-fish';
+          var mFishDivs = mFishItem.querySelectorAll('div');
+          if (mFishDivs.length > 0) {
+            mFishDivs[0].id = 'i6wd7-2-2-4-fish';
+            mFishDivs[0].textContent = 'Identify Fish';
+          }
+          mobileBird.parentNode.insertBefore(mFishItem, mobileBird.nextSibling);
+
+          // Create "Identify Insect" menu
+          var mInsectItem = mobileBird.cloneNode(true);
+          mInsectItem.id = 'ipavn-2-2-4-insect';
+          var mInsectDivs = mInsectItem.querySelectorAll('div');
+          if (mInsectDivs.length > 0) {
+            mInsectDivs[0].id = 'i6wd7-2-2-4-insect';
+            mInsectDivs[0].textContent = 'Identify Insect';
+          }
+          mFishItem.parentNode.insertBefore(mInsectItem, mFishItem.nextSibling);
+        }
+
+        // --- Apply curated styling and click behavior ---
+        document.querySelectorAll('#ioqrg > div[id^="ipavn"]').forEach(function(el) {
+          el.className += ' curated-menu-item';
+          
+          // Force reset all layout styles inline to override stylesheet specificity
+          el.style.setProperty('margin-left', '0', 'important');
+          el.style.setProperty('margin-right', '0', 'important');
+          el.style.setProperty('margin-top', '0', 'important');
+          el.style.setProperty('margin-bottom', '0', 'important');
+          el.style.setProperty('padding', '0', 'important');
+          el.style.setProperty('flex', '0 0 auto', 'important');
+          el.style.setProperty('width', 'auto', 'important');
+          el.style.setProperty('position', 'relative', 'important');
+          el.style.setProperty('left', 'auto', 'important');
+          el.style.setProperty('right', 'auto', 'important');
+          el.style.setProperty('top', 'auto', 'important');
+          el.style.setProperty('bottom', 'auto', 'important');
+          el.style.setProperty('transform', 'none', 'important');
+
+          var innerText = el.querySelector('div, span, font');
+          if (innerText) {
+            innerText.className = 'curated-menu-text';
+            innerText.style.setProperty('margin-left', '0', 'important');
+            innerText.style.setProperty('margin-right', '0', 'important');
+            innerText.style.setProperty('padding', '0 4px', 'important'); // Perfect equal spacing
+          }
+          // Navigate to page or redirect CTA to Play Store
+          el.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            var routeMap = {
+              'ipavn': 'home',
+              'ipavn-2': 'scanner-hub',
+              'ipavn-2-3': 'developer-core',
+              'ipavn-2-2': 'bird-identify',
+              'ipavn-2-2-fish': 'fish-identify',
+              'ipavn-2-2-insect': 'insect-identify',
+              'ipavn-6': 'home',
+              'ipavn-2-3-4': 'scanner-hub',
+              'ipavn-2-6': 'developer-core',
+              'ipavn-2-2-4': 'bird-identify',
+              'ipavn-2-2-4-fish': 'fish-identify',
+              'ipavn-2-2-4-insect': 'insect-identify'
+            };
+            var route = routeMap[el.id];
+            if (route && window.parent && window.parent !== window) {
+              window.parent.postMessage({ type: 'navigate', route: route }, '*');
+            }
+          }, true);
+        });
+
+        // --- Redirect CTA buttons and any curated/peachworlds links to Play Store ---
+        document.body.addEventListener('click', function(e) {
+          var target = e.target;
+          while (target && target !== document.body) {
+            var text = (target.textContent || '').toLowerCase();
+            var href = (target.getAttribute('href') || '').toLowerCase();
+            var id = (target.id || '').toLowerCase();
+            
+            // Check if text indicates it's one of the CTA buttons
+            var isCTA = text.includes('get started') || 
+                        text.includes('its free') || 
+                        text.includes('it\'s free') || 
+                        text.includes('researchers') || 
+                        text.includes('book a call') || 
+                        text.includes('book a demo') ||
+                        text.includes('login') ||
+                        id.includes('iho6tu9') || 
+                        id.includes('i1edxg1') || 
+                        id.includes('ibefj6z') || 
+                        id.includes('i6pdkmg');
+            
+            // Check if href points to old domain or external platform
+            var isOldDomain = href.includes('curated.media') || 
+                              href.includes('peachworlds') || 
+                              href.includes('bit.ly') ||
+                              href.includes('statuspage.io');
+                              
+            if (isCTA || isOldDomain) {
+              // Ignore if it's one of the AI search/chat buttons (ChatGPT/Claude/Gemini)
+              if (text.includes('chatgpt') || text.includes('claude') || text.includes('gemini') || text.includes('perplexity') || text.includes('grok')) {
+                // Do not intercept AI buttons
+                target = target.parentNode;
+                continue;
+              }
+              
+              e.preventDefault();
+              e.stopPropagation();
+              window.open('https://play.google.com/store/apps/details?id=com.nature.ai', '_blank');
+              return;
+            }
+            target = target.parentNode;
+          }
+        }, true); // Use capture phase to intercept before PeachWorlds handles it
+      });
+    </script>
+  </head>
+      <body id="igpl">
+        <script>
+function initVideoHoverWrapper(wrapper) {
+  const video = wrapper.querySelector(".hover-video");
+  const poster = wrapper.querySelector(".video-poster");
+
+  // Lazy-load the poster and ensure it is permanently visible
+  if (poster && poster.dataset.src && !poster.src) {
+    poster.src = poster.dataset.src;
+  }
+  if (poster) {
+    poster.style.setProperty("opacity", "1", "important");
+    poster.style.setProperty("display", "block", "important");
+  }
+
+  // Hide the video element so it is never shown
+  if (video) {
+    video.style.setProperty("display", "none", "important");
+  }
+}
+
+function observeNewVideoWrappers() {
+  const observer = new MutationObserver((mutations) => {
+    for (const mutation of mutations) {
+      mutation.addedNodes.forEach((node) => {
+        if (node.nodeType === 1) {
+          if (node.classList.contains("video-hover-wrapper")) {
+            initVideoHoverWrapper(node);
+          }
+          // Also check children in case wrapper is nested
+          node.querySelectorAll?.(".video-hover-wrapper").forEach(initVideoHoverWrapper);
+        }
+      });
+    }
+  });
+
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true,
+  });
+
+  // Also initialize existing ones on load
+  document.querySelectorAll(".video-hover-wrapper").forEach(initVideoHoverWrapper);
+}
+
+// Init everything on load
+document.addEventListener("DOMContentLoaded", () => {
+  observeNewVideoWrappers();
+});
+</script>
+
+        
+
+        <div id="pwb-body-wrap">
+          <div class="pwb-background pwb-flex-grid-wrap" id="ip9j"><div class="pwb-scene" id="iwq9"></div></div><div class="pwb-flex-grid-wrap" id="i9wvtj"><div class="pwb-flex-grid-wrap" id="icy7f"><div class="pwb-flex-grid-wrap" id="izog5sf"><div class="pwb-flex-grid-wrap" id="ij7r1nw"><div class="pwb-flex-grid-wrap" id="i5ca3tn"><div class="pwb-relative-overlay" id="ixj1tk-2"><div class="pwb-flex-grid-wrap" id="ir9fo-3"><div class="pwb-flex-grid-wrap" id="iv6dna-6"><img src="../files.staging.peachworlds.com/website/66551738-8570-460c-a065-5081968cd019/curated-logo.svg" loading="lazy" id="i335f-5"><div class="pwb-flex-grid-wrap" id="ipe2yfu-2"><img src="../files.staging.peachworlds.com/website/fb381f03-388e-4982-996e-4eafbcc5e15f/close-24dp-ffffff-fill0-wght400-grad0-opsz24.png" loading="lazy" id="i335f-3-2-2-2-2-2-3-2"></div></div></div><div class="pwb-flex-grid-wrap" id="iv6dna-2-3"><div class="pwb-flex-grid-wrap" id="ipavn-6"><div id="i6wd7-2" data-has-states="1">Product</div><img src="../files.staging.peachworlds.com/website/84066f60-7f3e-45ab-b156-b75868c776a5/mdi-chevron-right.svg" loading="lazy" id="i0073m-3-3-4"></div><div class="pwb-flex-grid-wrap" id="ipavn-2-3-4"><div id="i6wd7-2-3-4" data-has-states="1">Channels</div><img src="../files.staging.peachworlds.com/website/84066f60-7f3e-45ab-b156-b75868c776a5/mdi-chevron-right.svg" loading="lazy" id="i0073m-3-3-4-7"></div><div class="pwb-flex-grid-wrap" id="ipavn-2-6"><div id="i6wd7-2-6-2" data-has-states="1">Recources</div><img src="../files.staging.peachworlds.com/website/84066f60-7f3e-45ab-b156-b75868c776a5/mdi-chevron-right.svg" loading="lazy" id="i0073m-3-3-4-2"></div><div class="pwb-flex-grid-wrap" id="ipavn-2-2-4"><div id="i6wd7-2-2-4" data-has-states="1">Customer Stories</div><img src="../files.staging.peachworlds.com/website/51f93888-e77c-46f0-9a85-09df7b07fc76/arrow-forward-24dp-000000-fill0-wght400-grad0-opsz24.png" loading="lazy" id="i0073m-3-3-4-4"></div><div class="pwb-flex-grid-wrap" id="ipavn-2-2-4-3"><div id="i6wd7-2-2-4-3" data-has-states="1">Login</div><img src="../files.staging.peachworlds.com/website/51f93888-e77c-46f0-9a85-09df7b07fc76/arrow-forward-24dp-000000-fill0-wght400-grad0-opsz24.png" loading="lazy" id="i0073m-3-3-4-4-3"></div></div><div class="pwb-flex-grid-wrap" id="ivehjk-2-5-2-2-3-2-3"><div class="pwb-flex-grid-wrap" id="ipavn-2-2-2-2-2-2-4"><div id="i6wd7-2-2-2-2-2-2-4" data-has-states="1"><font id="igrhvb-3" face="neuehaasdisplayroman">Login</font></div></div><div class="pwb-flex-grid-wrap" id="irsa34-2-3-4-2-2-5"><div class="pw-block-style" id="ixnbo71-3-3-2-2-5"><div class="pwb-flex-grid-wrap" id="ioqrg-2-2-2-3-3-2-2-5" data-has-states="1"><div class="pwb-flex-grid-wrap" id="ipavn-2-2-2-2-2-2-2-3-3-2-2-5"><div id="i6wd7-2-2-2-2-2-2-2-3-3-2-2-5"><span id="ic0tx-2-2-2-3-2-3-2-5">Get Started</span> — it's Free</div></div></div></div><div class="pw-block-style" id="ixnbo71-2-2-4-2-2-5"><div class="pwb-flex-grid-wrap" id="ioqrg-2-2-2-2-2-2-3-4-2-2-5" data-has-states="1"><div class="framer-1cc0f02" id="imob0j-3-5-2-5-2-2-5"></div><div class="pwb-flex-grid-wrap" id="ipavn-2-2-2-2-2-2-2-2-2-2-3-4-2-2-5"><div id="i6wd7-2-2-2-2-2-2-2-2-2-2-3-4-2-2-5" data-has-states="1"><font id="i00y82-2-3-4-2-2-5" face="neuehaasdisplayroman">Book a Call</font></div></div></div></div></div><div class="pwb-flex-grid-wrap" id="ijxmk22"></div><div class="pwb-flex-grid-wrap" id="itv616-2-5-2-2-3-2-3-7-7"><div class="pw-block-style" id="i743mek-2"><div id="ijn8ii-2-2-3"><span id="i4jt91y-2">©2025 <span id="i1k927h-2" data-has-states="1">Nature AI</span>: Deep Minded Services Limited.</span></div></div><div class="pwb-flex-grid-wrap" id="i56x6r-2-5-2-2-3-2-3-7-7"><div class="pwb-flex-grid-wrap" id="i56x6r-2-5-2-2-3-7-2-2" data-has-states="1"><img src="../files.staging.peachworlds.com/website/41608704-5ba8-432c-af38-64178cff8cd6/ico-linked.svg" loading="lazy" id="ihvpmx-2-5-2-2-3-7-2-2"><div class="framer-1cc0f02" id="imob0j-3-2-2-3-4-4-2-5-2-2-3-7-2-2"></div></div></div></div></div></div></div></div><div class="pwb-flex-grid-wrap" id="i0gnr9t"><div class="pwb-flex-grid-wrap" id="ivnzwwj"><div class="pwb-relative-overlay" id="ixj1tk-2-2"><div class="pwb-flex-grid-wrap" id="ir9fo-3-3"><div class="pwb-flex-grid-wrap" id="iv6dna-6-2"><img src="../files.staging.peachworlds.com/website/66551738-8570-460c-a065-5081968cd019/curated-logo.svg" loading="lazy" id="i335f-5-2"><div class="pwb-flex-grid-wrap" id="ipe2yfu-2-2"><img src="../files.staging.peachworlds.com/website/fb381f03-388e-4982-996e-4eafbcc5e15f/close-24dp-ffffff-fill0-wght400-grad0-opsz24.png" loading="lazy" id="i335f-3-2-2-2-2-2-3-2-2"></div></div></div><div class="pwb-flex-grid-wrap" id="iv6dna-2-3-2"><div class="pwb-flex-grid-wrap" id="i8i2vn-2-2-2-2-6-2"><img src="../files.staging.peachworlds.com/website/16093634-f171-4574-b37c-70ccd02d2ee1/mdi-chevron-left.svg" loading="lazy" id="i0073m-3-3-4-5"><div id="i6wd7-2-2-2-3-7-2-5-2">Back</div></div><div class="pwb-flex-grid-wrap" id="ii2b9e-2-4"><div class="pwb-flex-grid-wrap" id="i8i2vn-2-2-2-2-8"><div id="i6wd7-2-2-2-3-7-2-7">PRODUCT</div><div class="pw-block-style" id="ilozfje-5"><div class="pw-block-style" id="i76l88j-5"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/1cbdf796-40eb-4de2-a2a3-1dc0591320ab/mdi-chart-box-plus-outline.svg" loading="lazy" id="iffoco1-5"></div><div class="pw-block-style" id="i14466j-5"><div id="i6wd7-2-2-2-2-4-4" data-has-states="1">Curation</div><div id="i6wd7-2-2-2-2-2-4-3-3">Performance & Quality</div></div></div><div class="pw-block-style" id="ilozfje-2-3"><div class="pw-block-style" id="i76l88j-2-3"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/6cf676b3-fd9d-450f-b97a-a907942af119/monetization.svg" loading="lazy" id="iffoco1-2-3"></div><div class="pw-block-style" id="i14466j-2-3"><div id="i6wd7-2-2-2-2-4-5-3" data-has-states="1">Monetization</div><div id="i6wd7-2-2-2-2-2-4-3-5-3">Demand Facilitation </div></div></div></div><div class="pwb-flex-grid-wrap" id="i8i2vn-2-2-2-2-4-3"><div id="i6wd7-2-2-2-3-7-2-3-3">USE CASES</div><div class="pw-block-style" id="i541vd4-3"><div class="pw-block-style" id="impu3zk-2-3"><div class="pw-block-style" id="ilozfje-2-2-2-3"><div class="pw-block-style" id="i76l88j-2-2-2-3"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/20dcff30-32a6-436d-ad48-e69a11d0cfde/media.svg" loading="lazy" id="iffoco1-2-2-2-3"></div><div class="pw-block-style" id="i14466j-2-2-2-3"><div id="i6wd7-2-2-2-2-4-5-2-2-3" data-has-states="1"><span id="i30luj3-3">Plants & Fungi</span></div><div id="i6wd7-2-2-2-2-2-4-3-5-2-2-3"><span id="i1prjua-3" draggable="true"></span><span id="idg9qwi-3" draggable="true"></span><span id="i1r9emf-3" draggable="true">Control & Transparency</span></div></div></div><div class="pw-block-style" id="ilozfje-3-2-3"><div class="pw-block-style" id="i76l88j-3-2-3"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/44fd5487-321b-4aa0-8d7a-9d915122b9e6/mdi-bullhorn-outline.svg" loading="lazy" id="iffoco1-3-2-3"></div><div class="pw-block-style" id="i14466j-3-2-3"><div id="i6wd7-2-2-2-2-4-3-2-3" data-has-states="1"><span id="ijmub0k-3"></span><span id="iazlrx4-3"></span><span id="iukycqg-3">Birds & Wildlife</span></div><div id="i6wd7-2-2-2-2-2-4-3-9-2-3">Every Dollar Counts</div></div></div></div><div class="pw-block-style" id="impu3zk-4"><div class="pw-block-style" id="ilozfje-2-2-4"><div class="pw-block-style" id="i76l88j-2-2-4"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/4e1ac04a-a256-4246-95ff-2784187dccd6/mdi-newspaper-variant-outline-1-.svg" loading="lazy" id="iffoco1-2-2-4"></div><div class="pw-block-style" id="i14466j-2-2-4"><div id="i6wd7-2-2-2-2-4-5-2-4" data-has-states="1"><span id="igiemz2-3"></span><span id="i9a1l2h-3">Marine & Fish</span></div><div id="i6wd7-2-2-2-2-2-4-3-5-2-4">O&O & Audience Extension</div></div></div><div class="pw-block-style" id="ilozfje-3-4"><div class="pw-block-style" id="i76l88j-3-4"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/a7e20b02-c70d-4140-ae9c-3737d44dff47/mdi-server-outline-1-.svg" loading="lazy" id="iffoco1-3-4"></div><div class="pw-block-style" id="i14466j-3-4"><div id="i6wd7-2-2-2-2-4-3-11" data-has-states="1">Insects & Bugs</div><div id="i6wd7-2-2-2-2-2-4-3-9-4">Our Stack is Yours </div></div></div></div></div></div></div></div></div></div></div><div class="pwb-flex-grid-wrap" id="i25h83e"><div class="pwb-flex-grid-wrap" id="il1490o"><div class="pwb-relative-overlay" id="ijk79y6"><div class="pwb-flex-grid-wrap" id="ir9fo-3-4"><div class="pwb-flex-grid-wrap" id="iv6dna-6-4"><img src="../files.staging.peachworlds.com/website/66551738-8570-460c-a065-5081968cd019/curated-logo.svg" loading="lazy" id="i335f-5-4"><div class="pwb-flex-grid-wrap" id="ipe2yfu-2-4"><img src="../files.staging.peachworlds.com/website/fb381f03-388e-4982-996e-4eafbcc5e15f/close-24dp-ffffff-fill0-wght400-grad0-opsz24.png" loading="lazy" id="i335f-3-2-2-2-2-2-3-2-4"></div></div></div><div class="pwb-flex-grid-wrap" id="idisnyk"><div class="pwb-flex-grid-wrap" id="i8i2vn-2-2-2-2-6-2-3"><img src="../files.staging.peachworlds.com/website/16093634-f171-4574-b37c-70ccd02d2ee1/mdi-chevron-left.svg" loading="lazy" id="i0073m-3-3-4-5-3"><div id="i6wd7-2-2-2-3-7-2-5-2-3">Back</div></div><div class="pwb-flex-grid-wrap" id="i8i2vn-2-2-2-2-2-3"><div id="i6wd7-2-2-2-3-7-2-2-3">WALLED-GARDEN</div><div class="pw-block-style" id="ilozfje-4-3"><div class="pw-block-style" id="i76l88j-4-3"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/3ecb43d3-4624-4936-99fe-ba58fa505f5c/mdi-youtube.svg" loading="lazy" id="iffoco1-4-3"></div><div class="pw-block-style" id="i14466j-4-3"><div id="i6wd7-2-2-2-2-4-2-3" data-has-states="1">YouTube</div><div id="i6wd7-2-2-2-2-2-4-3-2-3">Relevant & Suitable</div></div></div></div><div class="pwb-flex-grid-wrap" id="i8i2vn-2-2-2-2-4-2-3"><div id="i6wd7-2-2-2-3-7-2-3-2-3">PROGRAMMATIC</div><div class="pw-block-style" id="i541vd4-2-3"><div class="pw-block-style" id="impu3zk-2-2-3"><div class="pw-block-style" id="ilozfje-2-2-2-2-3"><div class="pw-block-style" id="i76l88j-2-2-2-2-3"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/cf731f55-e0fe-4ea5-b87b-8e6cf6dceec3/material-symbols-tv-displays-outline.svg" loading="lazy" id="iffoco1-2-2-2-2-3"></div><div class="pw-block-style" id="i14466j-2-2-2-2-3"><div id="i6wd7-2-2-2-2-4-5-2-2-2-3" data-has-states="1"><span id="i30luj3-2-3">Display / Native</span></div><div id="i6wd7-2-2-2-2-2-4-3-5-2-2-2-3"><span id="i1prjua-2-3" draggable="true"></span><span id="idg9qwi-2-3" draggable="true"></span><span id="i1r9emf-2-3" draggable="true">Explore Without Internet</span></div></div></div><div class="pw-block-style" id="ilozfje-3-2-2-3"><div class="pw-block-style" id="i76l88j-3-2-2-3"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/376700c7-4308-4b1a-aa97-36f5fc707b21/mdi-play-pause-1-.svg" loading="lazy" id="iffoco1-3-2-2-3"></div><div class="pw-block-style" id="i14466j-3-2-2-3"><div id="i6wd7-2-2-2-2-4-3-2-2-3" data-has-states="1"><span id="ijmub0k-2-3"></span><span id="iazlrx4-2-3"></span><span id="iukycqg-2-3">Video / Audio</span></div><div id="i6wd7-2-2-2-2-2-4-3-9-2-2-3">Stand Out</div></div></div></div><div class="pw-block-style" id="impu3zk-3-3"><div class="pw-block-style" id="ilozfje-2-2-3-3"><div class="pw-block-style" id="i76l88j-2-2-3-3"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/d3abd8df-60e7-4baa-b893-92c70915da83/mdi-billboard-1-.svg" loading="lazy" id="iffoco1-2-2-3-3"></div><div class="pw-block-style" id="i14466j-2-2-3-3"><div id="i6wd7-2-2-2-2-4-5-2-3-2" data-has-states="1"><span id="igiemz2-2-2"></span><span id="i9a1l2h-2-2">DOOH</span></div><div id="i6wd7-2-2-2-2-2-4-3-5-2-3-3">Turn Heads</div></div></div><div class="pw-block-style" id="ilozfje-3-3-3"><div class="pw-block-style" id="i76l88j-3-3-3"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/5532c0c0-f9c6-4001-a4ed-4aeb0c64621a/mdi-tv.svg" loading="lazy" id="iffoco1-3-3-3"></div><div class="pw-block-style" id="i14466j-3-3-3"><div id="i6wd7-2-2-2-2-4-3-5-3" data-has-states="1">CTV</div><div id="i6wd7-2-2-2-2-2-4-3-9-3-3">Chat With Your AI Nature Guide</div></div></div></div></div></div></div></div></div></div><div class="pwb-flex-grid-wrap" id="i27b3qz"><div class="pwb-flex-grid-wrap" id="iz9tq2g"><div class="pwb-relative-overlay" id="ik48q6m"><div class="pwb-flex-grid-wrap" id="ir9fo-3-4-2"><div class="pwb-flex-grid-wrap" id="iv6dna-6-4-2"><img src="../files.staging.peachworlds.com/website/66551738-8570-460c-a065-5081968cd019/curated-logo.svg" loading="lazy" id="i335f-5-4-2"><div class="pwb-flex-grid-wrap" id="ipe2yfu-2-4-2"><img src="../files.staging.peachworlds.com/website/fb381f03-388e-4982-996e-4eafbcc5e15f/close-24dp-ffffff-fill0-wght400-grad0-opsz24.png" loading="lazy" id="i335f-3-2-2-2-2-2-3-2-4-2"></div></div></div><div class="pwb-flex-grid-wrap" id="irej9sn"><div class="pwb-flex-grid-wrap" id="i8i2vn-2-2-2-2-6-2-3-2"><img src="../files.staging.peachworlds.com/website/16093634-f171-4574-b37c-70ccd02d2ee1/mdi-chevron-left.svg" loading="lazy" id="i0073m-3-3-4-5-3-2"><div id="i6wd7-2-2-2-3-7-2-5-2-3-2">Back</div></div><div class="pwb-flex-grid-wrap" id="i8i2vn-2-2-2-2-4-2-2-2"><div id="i6wd7-2-2-2-3-7-2-3-2-2-2">RESOURCES</div><div class="pw-block-style" id="i541vd4-2-2-2"><div class="pw-block-style" id="impu3zk-2-2-2-2"><div class="pw-block-style" id="ilozfje-2-2-2-2-2-2" data-has-states="1"><div class="pw-block-style" id="i76l88j-2-2-2-2-2-2"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/bac28771-df75-4613-9e35-842b53c2142f/mdi-handshake.svg" loading="lazy" id="iffoco1-2-2-2-2-2-2"></div><div class="pw-block-style" id="i14466j-2-2-2-2-2-2"><div id="i6wd7-2-2-2-2-4-5-2-2-2-2-2" data-has-states="1"><span id="i30luj3-2-2-2" data-has-states="1">Partner Directory</span></div><div id="i6wd7-2-2-2-2-2-4-3-5-2-2-2-2-2"><span id="i1prjua-2-2-2" draggable="true"></span><span id="idg9qwi-2-2-2" draggable="true"></span><span id="i1r9emf-2-2-2" draggable="true">1+1=3</span></div></div></div><div class="pw-block-style" id="ilozfje-3-2-2-2-2"><div class="pw-block-style" id="i76l88j-3-2-2-2-2"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/39876595-6459-4748-94da-ff277ea83f9a/mdi-chat-bubble-outline.svg" loading="lazy" id="iffoco1-3-2-2-2-2"></div><div class="pw-block-style" id="i14466j-3-2-2-2-2"><div id="i6wd7-2-2-2-2-4-3-2-2-2-2" data-has-states="1"><span id="ijmub0k-2-2-2"></span><span id="iazlrx4-2-2-2"></span><span id="iukycqg-2-2-2" data-has-states="1">Live Chat</span></div><div id="i6wd7-2-2-2-2-2-4-3-9-2-2-2-2">Ask Away</div></div></div></div><div class="pw-block-style" id="impu3zk-3-2-3"><div class="pw-block-style" id="ilozfje-2-2-3-2-3"><div class="pw-block-style" id="i76l88j-2-2-3-2-3"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/05648bc3-e6b9-4259-bfa4-d22a9f891a9a/mdi-app-notification-outline.svg" loading="lazy" id="iffoco1-2-2-3-2-3"></div><div class="pw-block-style" id="i14466j-2-2-3-2-3"><div id="i6wd7-2-2-2-2-4-3-5-2-2-3" data-has-states="1">System Status</div><div id="i6wd7-2-2-2-2-2-4-3-5-2-3-2-3">Proactive Notifications</div></div></div><div class="pw-block-style" id="ilozfje-3-3-2-3"><div class="pw-block-style" id="i76l88j-3-3-2-3"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/de0b9975-b3d4-4ad6-8b73-42a04692a10a/mdi-calendar-blank-outline.svg" loading="lazy" id="iffoco1-3-3-2-3"></div><div class="pw-block-style" id="i14466j-3-3-2-3"><div id="i6wd7-2-2-2-2-4-3-5-2-4" data-has-states="1">Book a Demo</div><div id="i6wd7-2-2-2-2-2-4-3-9-3-2-3">See for Yourself</div></div></div></div><div class="pw-block-style" id="impu3zk-3-2-2-2"><div class="pw-block-style" id="ilozfje-2-2-3-2-2-2"><div class="pw-block-style" id="i76l88j-2-2-3-2-2-2"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/663643b2-8c6a-4c99-87b2-af058186015a/mdi-bookshelf-1-.svg" loading="lazy" id="iffoco1-2-2-3-2-2-2"></div><div class="pw-block-style" id="i14466j-2-2-3-2-2-2"><div id="i6wd7-2-2-2-2-4-3-5-2-2-2-2" data-has-states="1">Documentation</div><div id="i6wd7-2-2-2-2-2-4-3-5-2-3-2-2-2">Help & Support</div></div></div><div class="pw-block-style" id="ilozfje-3-3-2-2-2"><div class="pw-block-style" id="i76l88j-3-3-2-2-2"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/c201e8cb-1af8-492e-9471-7d8b0ee3cdfe/mdi-email-outline.svg" loading="lazy" id="iffoco1-3-3-2-2-2"></div><div class="pw-block-style" id="i14466j-3-3-2-2-2"><div id="i6wd7-2-2-2-2-4-3-5-2-3-2" data-has-states="1">Contact Us</div><div id="i6wd7-2-2-2-2-2-4-3-9-3-2-2-2">Have Any Questions?</div></div></div></div></div></div></div></div></div></div></div><div class="pwb-flex-grid-wrap" id="ir9fo"><div class="pwb-flex-grid-wrap" id="iv6dna"><img src="../files.staging.peachworlds.com/website/66551738-8570-460c-a065-5081968cd019/curated-logo.svg" loading="lazy" id="i335f-6"></div><div class="pwb-flex-grid-wrap" id="ipe2yfu"><img src="../files.staging.peachworlds.com/website/22d82afc-88ce-4cee-81f0-a436de6424b3/menu-2-.svg" loading="lazy" id="i335f-3"></div><div class="pwb-flex-grid-wrap" id="iv6dna-2"><div class="pwb-flex-grid-wrap" id="ioqrg"><div class="pwb-flex-grid-wrap" id="ipavn" data-has-states="1"><div id="i6wd7" data-has-states="1">Product</div><img src="../files.staging.peachworlds.com/website/fc469322-89ca-4842-970c-23d0ad2920cc/stat-minus-1-16dp-ffffff-fill0-wght400-grad0-opsz20.svg" loading="lazy" id="igeicrq-4" data-has-states="1"></div><div class="pwb-flex-grid-wrap" id="ipavn-2" data-has-states="1"><div id="i6wd7-2-6" data-has-states="1">Channels </div><img src="../files.staging.peachworlds.com/website/fc469322-89ca-4842-970c-23d0ad2920cc/stat-minus-1-16dp-ffffff-fill0-wght400-grad0-opsz20.svg" loading="lazy" id="igeicrq-4-2" data-has-states="1"></div><div class="pwb-flex-grid-wrap" id="ipavn-2-3" data-has-states="1"><div id="i6wd7-2-3" data-has-states="1">Resources</div><img src="../files.staging.peachworlds.com/website/fc469322-89ca-4842-970c-23d0ad2920cc/stat-minus-1-16dp-ffffff-fill0-wght400-grad0-opsz20.svg" loading="lazy" id="igeicrq-4-3" data-has-states="1"></div><div class="pwb-flex-grid-wrap" id="ipavn-2-2" data-has-states="1"><div id="i6wd7-2-2" data-has-states="1">Customer Stories</div></div><div class="framer-1cc0f02" id="imob0j-3"></div><div class="pwb-relative-overlay" id="i7lb35"><div class="pwb-flex-grid-wrap" id="ii2b9e"><div class="pwb-flex-grid-wrap" id="ii2b9e-2"><div class="pwb-flex-grid-wrap" id="i8i2vn-2-2-2-2"><div id="i6wd7-2-2-2-3-7-2">PRODUCT</div><div class="pw-block-style" id="ilozfje"><div class="pw-block-style" id="i76l88j"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/1cbdf796-40eb-4de2-a2a3-1dc0591320ab/mdi-chart-box-plus-outline.svg" loading="lazy" id="iffoco1"></div><div class="pw-block-style" id="i14466j"><div id="i6wd7-2-2-2-2-4" data-has-states="1">Curation</div><div id="i6wd7-2-2-2-2-2-4-3">Performance & Quality</div></div></div><div class="pw-block-style" id="ilozfje-2"><div class="pw-block-style" id="i76l88j-2"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/6cf676b3-fd9d-450f-b97a-a907942af119/monetization.svg" loading="lazy" id="iffoco1-2"></div><div class="pw-block-style" id="i14466j-2"><div id="i6wd7-2-2-2-2-4-5" data-has-states="1">Monetization</div><div id="i6wd7-2-2-2-2-2-4-3-5">Demand Facilitation </div></div></div></div><div class="pwb-flex-grid-wrap" id="i8i2vn-2-2-2-2-3"></div><div class="pwb-flex-grid-wrap" id="i8i2vn-2-2-2-2-4"><div id="i6wd7-2-2-2-3-7-2-3">USE CASES</div><div class="pw-block-style" id="i541vd4"><div class="pw-block-style" id="impu3zk-2"><div class="pw-block-style" id="ilozfje-2-2-2"><div class="pw-block-style" id="i76l88j-2-2-2"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/20dcff30-32a6-436d-ad48-e69a11d0cfde/media.svg" loading="lazy" id="iffoco1-2-2-2"></div><div class="pw-block-style" id="i14466j-2-2-2"><div id="i6wd7-2-2-2-2-4-5-2-2" data-has-states="1"><span id="i30luj3">Plants & Fungi</span></div><div id="i6wd7-2-2-2-2-2-4-3-5-2-2"><span id="i1prjua" draggable="true"></span><span id="idg9qwi" draggable="true"></span><span id="i1r9emf" draggable="true">Control & Transparency</span></div></div></div><div class="pw-block-style" id="ilozfje-3-2"><div class="pw-block-style" id="i76l88j-3-2"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/44fd5487-321b-4aa0-8d7a-9d915122b9e6/mdi-bullhorn-outline.svg" loading="lazy" id="iffoco1-3-2"></div><div class="pw-block-style" id="i14466j-3-2"><div id="i6wd7-2-2-2-2-4-3-2" data-has-states="1"><span id="ijmub0k"></span><span id="iazlrx4"></span><span id="iukycqg">Birds & Wildlife</span></div><div id="i6wd7-2-2-2-2-2-4-3-9-2">Every Dollar Counts</div></div></div></div><div class="pw-block-style" id="impu3zk"><div class="pw-block-style" id="ilozfje-2-2"><div class="pw-block-style" id="i76l88j-2-2"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/4e1ac04a-a256-4246-95ff-2784187dccd6/mdi-newspaper-variant-outline-1-.svg" loading="lazy" id="iffoco1-2-2"></div><div class="pw-block-style" id="i14466j-2-2"><div id="i6wd7-2-2-2-2-4-5-2" data-has-states="1"><span id="igiemz2"></span><span id="i9a1l2h">Marine & Fish</span></div><div id="i6wd7-2-2-2-2-2-4-3-5-2">O&O & Audience Extension</div></div></div><div class="pw-block-style" id="ilozfje-3"><div class="pw-block-style" id="i76l88j-3"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/a7e20b02-c70d-4140-ae9c-3737d44dff47/mdi-server-outline-1-.svg" loading="lazy" id="iffoco1-3"></div><div class="pw-block-style" id="i14466j-3"><div id="i6wd7-2-2-2-2-4-3" data-has-states="1">Insects & Bugs</div><div id="i6wd7-2-2-2-2-2-4-3-9">Our Stack is Yours </div></div></div></div></div></div></div></div></div><div class="pwb-relative-overlay" id="i7lb35-4"><div class="pwb-flex-grid-wrap" id="ii2b9e-5"><div class="pwb-flex-grid-wrap" id="ii2b9e-2-2"><div class="pwb-flex-grid-wrap" id="i8i2vn-2-2-2-2-2"><div id="i6wd7-2-2-2-3-7-2-2">WALLED-GARDEN</div><div class="pw-block-style" id="ilozfje-4"><div class="pw-block-style" id="i76l88j-4"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/3ecb43d3-4624-4936-99fe-ba58fa505f5c/mdi-youtube.svg" loading="lazy" id="iffoco1-4"></div><div class="pw-block-style" id="i14466j-4"><div id="i6wd7-2-2-2-2-4-2" data-has-states="1">YouTube</div><div id="i6wd7-2-2-2-2-2-4-3-2">Relevant & Suitable</div></div></div></div><div class="pwb-flex-grid-wrap" id="i8i2vn-2-2-2-2-3-2"></div><div class="pwb-flex-grid-wrap" id="i8i2vn-2-2-2-2-4-2"><div id="i6wd7-2-2-2-3-7-2-3-2">PROGRAMMATIC</div><div class="pw-block-style" id="i541vd4-2"><div class="pw-block-style" id="impu3zk-2-2"><div class="pw-block-style" id="ilozfje-2-2-2-2"><div class="pw-block-style" id="i76l88j-2-2-2-2"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/cf731f55-e0fe-4ea5-b87b-8e6cf6dceec3/material-symbols-tv-displays-outline.svg" loading="lazy" id="iffoco1-2-2-2-2"></div><div class="pw-block-style" id="i14466j-2-2-2-2"><div id="i6wd7-2-2-2-2-4-5-2-2-2" data-has-states="1"><span id="i30luj3-2">Display / Native</span></div><div id="i6wd7-2-2-2-2-2-4-3-5-2-2-2"><span id="i1prjua-2" draggable="true"></span><span id="idg9qwi-2" draggable="true"></span><span id="i1r9emf-2" draggable="true">Explore Without Internet</span></div></div></div><div class="pw-block-style" id="ilozfje-3-2-2"><div class="pw-block-style" id="i76l88j-3-2-2"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/376700c7-4308-4b1a-aa97-36f5fc707b21/mdi-play-pause-1-.svg" loading="lazy" id="iffoco1-3-2-2"></div><div class="pw-block-style" id="i14466j-3-2-2"><div id="i6wd7-2-2-2-2-4-3-2-2" data-has-states="1"><span id="ijmub0k-2"></span><span id="iazlrx4-2"></span><span id="iukycqg-2">Video / Audio</span></div><div id="i6wd7-2-2-2-2-2-4-3-9-2-2">Stand Out</div></div></div></div><div class="pw-block-style" id="impu3zk-3"><div class="pw-block-style" id="ilozfje-2-2-3"><div class="pw-block-style" id="i76l88j-2-2-3"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/d3abd8df-60e7-4baa-b893-92c70915da83/mdi-billboard-1-.svg" loading="lazy" id="iffoco1-2-2-3"></div><div class="pw-block-style" id="i14466j-2-2-3"><div id="i6wd7-2-2-2-2-4-5-2-3" data-has-states="1"><span id="igiemz2-2"></span><span id="i9a1l2h-2">DOOH</span></div><div id="i6wd7-2-2-2-2-2-4-3-5-2-3">Turn Heads</div></div></div><div class="pw-block-style" id="ilozfje-3-3"><div class="pw-block-style" id="i76l88j-3-3"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/5532c0c0-f9c6-4001-a4ed-4aeb0c64621a/mdi-tv.svg" loading="lazy" id="iffoco1-3-3"></div><div class="pw-block-style" id="i14466j-3-3"><div id="i6wd7-2-2-2-2-4-3-5" data-has-states="1">CTV</div><div id="i6wd7-2-2-2-2-2-4-3-9-3">Chat With Your AI Nature Guide</div></div></div></div></div></div></div></div></div><div class="pwb-relative-overlay" id="i7lb35-4-2"><div class="pwb-flex-grid-wrap" id="ii2b9e-5-2"><div class="pwb-flex-grid-wrap" id="ii2b9e-2-2-2"><div class="pwb-flex-grid-wrap" id="i8i2vn-2-2-2-2-2-2"><div id="i6wd7-2-2-2-3-7-2-2-2">PRODUCT</div><div class="pw-block-style" id="ilozfje-4-2"><div class="pw-block-style" id="i76l88j-4-2"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/19555fea-a60e-4002-a248-801ab44f152f/curation.svg" loading="lazy" id="iffoco1-4-2"></div><div class="pw-block-style" id="i14466j-4-2"><div id="i6wd7-2-2-2-2-4-2-2" data-has-states="1">Curation</div><div id="i6wd7-2-2-2-2-2-4-3-2-2">Performance & Quality</div></div></div><div class="pw-block-style" id="ilozfje-2-3-2"><div class="pw-block-style" id="i76l88j-2-3-2"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/6cf676b3-fd9d-450f-b97a-a907942af119/monetization.svg" loading="lazy" id="iffoco1-2-3-2"></div><div class="pw-block-style" id="i14466j-2-3-2"><div id="i6wd7-2-2-2-2-4-5-3-2" data-has-states="1">Monetization</div><div id="i6wd7-2-2-2-2-2-4-3-5-3-2">Demand Facilitation </div></div></div></div><div class="pwb-flex-grid-wrap" id="i8i2vn-2-2-2-2-3-2-2"></div><div class="pwb-flex-grid-wrap" id="i8i2vn-2-2-2-2-4-2-2"><div id="i6wd7-2-2-2-3-7-2-3-2-2">RESOURCES</div><div class="pw-block-style" id="i541vd4-2-2"><div class="pw-block-style" id="impu3zk-2-2-2"><div class="pw-block-style" id="ilozfje-2-2-2-2-2" data-has-states="1"><div class="pw-block-style" id="i76l88j-2-2-2-2-2"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/bac28771-df75-4613-9e35-842b53c2142f/mdi-handshake.svg" loading="lazy" id="iffoco1-2-2-2-2-2"></div><div class="pw-block-style" id="i14466j-2-2-2-2-2"><div id="i6wd7-2-2-2-2-4-5-2-2-2-2" data-has-states="1"><span id="i30luj3-2-2" data-has-states="1">Partner Directory</span></div><div id="i6wd7-2-2-2-2-2-4-3-5-2-2-2-2"><span id="i1prjua-2-2" draggable="true"></span><span id="idg9qwi-2-2" draggable="true"></span><span id="i1r9emf-2-2" draggable="true">1+1=3</span></div></div></div><div class="pw-block-style" id="ilozfje-3-2-2-2"><div class="pw-block-style" id="i76l88j-3-2-2-2"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/39876595-6459-4748-94da-ff277ea83f9a/mdi-chat-bubble-outline.svg" loading="lazy" id="iffoco1-3-2-2-2"></div><div class="pw-block-style" id="i14466j-3-2-2-2"><div id="i6wd7-2-2-2-2-4-3-2-2-2" data-has-states="1"><span id="ijmub0k-2-2"></span><span id="iazlrx4-2-2"></span><span id="iukycqg-2-2" data-has-states="1">Live Chat</span></div><div id="i6wd7-2-2-2-2-2-4-3-9-2-2-2">Ask Away</div></div></div></div><div class="pw-block-style" id="impu3zk-3-2"><div class="pw-block-style" id="ilozfje-2-2-3-2"><div class="pw-block-style" id="i76l88j-2-2-3-2"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/05648bc3-e6b9-4259-bfa4-d22a9f891a9a/mdi-app-notification-outline.svg" loading="lazy" id="iffoco1-2-2-3-2"></div><div class="pw-block-style" id="i14466j-2-2-3-2"><div id="i6wd7-2-2-2-2-4-3-5-2-2" data-has-states="1">System Status</div><div id="i6wd7-2-2-2-2-2-4-3-5-2-3-2">Proactive Notifications</div></div></div><div class="pw-block-style" id="ilozfje-3-3-2"><div class="pw-block-style" id="i76l88j-3-3-2"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/de0b9975-b3d4-4ad6-8b73-42a04692a10a/mdi-calendar-blank-outline.svg" loading="lazy" id="iffoco1-3-3-2"></div><div class="pw-block-style" id="i14466j-3-3-2"><div id="i6wd7-2-2-2-2-4-3-5-2" data-has-states="1">Book a Demo</div><div id="i6wd7-2-2-2-2-2-4-3-9-3-2">See for Yourself</div></div></div></div><div class="pw-block-style" id="impu3zk-3-2-2"><div class="pw-block-style" id="ilozfje-2-2-3-2-2"><div class="pw-block-style" id="i76l88j-2-2-3-2-2"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/663643b2-8c6a-4c99-87b2-af058186015a/mdi-bookshelf-1-.svg" loading="lazy" id="iffoco1-2-2-3-2-2"></div><div class="pw-block-style" id="i14466j-2-2-3-2-2"><div id="i6wd7-2-2-2-2-4-3-5-2-2-2" data-has-states="1">Documentation</div><div id="i6wd7-2-2-2-2-2-4-3-5-2-3-2-2">Help & Support</div></div></div><div class="pw-block-style" id="ilozfje-3-3-2-2"><div class="pw-block-style" id="i76l88j-3-3-2-2"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/c201e8cb-1af8-492e-9471-7d8b0ee3cdfe/mdi-email-outline.svg" loading="lazy" id="iffoco1-3-3-2-2"></div><div class="pw-block-style" id="i14466j-3-3-2-2"><div id="i6wd7-2-2-2-2-4-3-5-2-3" data-has-states="1">Contact Us</div><div id="i6wd7-2-2-2-2-2-4-3-9-3-2-2">Have Any Questions?</div></div></div></div></div></div></div></div></div></div></div><div class="pwb-flex-grid-wrap" id="iv6dna-3"><div class="pwb-flex-grid-wrap" id="ioqrg-2"><div class="pwb-flex-grid-wrap" id="ioqrg-2-2" data-has-states="1"><div class="pwb-flex-grid-wrap" id="ipavn-2-2-2-2-2-2"><div id="i6wd7-2-2-2-2-2-2" data-has-states="1"><font id="igrhvb" face="neuehaasdisplayroman">Login</font></div></div></div><div class="pw-block-style" id="ixnbo71-2-2-4-5-4"><div class="pwb-flex-grid-wrap" id="ioqrg-2-2-2-2-2-2-3-4-5-4" data-has-states="1"><div class="framer-1cc0f02" id="imob0j-3-5-2-5-5-4"></div><div class="pwb-flex-grid-wrap" id="ipavn-2-2-2-2-2-2-2-2-2-2-3-4-5-4"><div id="i6wd7-2-2-2-2-2-2-2-2-2-2-3-4-5-4" data-has-states="1"><font id="i00y82-2-3-4-5-4" face="neuehaasdisplayroman">Book a Call</font></div></div></div></div><div class="pwb-flex-grid-wrap" id="ioqrg-2-2-2" data-has-states="1"><div class="framer-1cc0f02" id="imob0j-3-5-2-2-2"></div><img class="pw-image-style" src="../files.staging.peachworlds.com/website/8bff4f45-ecd2-4fde-943d-0d6b58599f96/overlay.svg" loading="lazy" id="idowc9k"><div class="pwb-flex-grid-wrap" id="ipavn-2-2-2-2-2-2-2"><div id="i6wd7-2-2-2-2-2-2-2"><span id="ic0tx-2-2-2">Get Started</span> — it's Free</div></div></div></div><div class="pwb-flex-grid-wrap" id="iho6tu9"><div class="pwb-flex-grid-wrap" id="i6pdkmg" data-has-states="1"><div class="pwb-flex-grid-wrap" id="iu2pwdz"><div id="ih4qxzk" data-has-states="1"><font id="i1unxs5" face="neuehaasdisplayroman">Login</font></div></div></div><div class="pwb-flex-grid-wrap" id="ibefj6z" data-has-states="1"><div class="pwb-flex-grid-wrap" id="i5qtno8"><div id="ilsswl3" data-has-states="1"><font id="iakzwk" face="neuehaasdisplayroman">Book a Call</font></div></div></div><div class="pwb-flex-grid-wrap" id="i1edxg1" data-has-states="1"><div class="pwb-flex-grid-wrap" id="ie05t8t"><div id="idfx52o"><span id="i2zq31z">Get started</span> — it's free</div></div></div></div></div></div></div><div class="pwb-flex-grid-wrap" id="iolnzn9"></div><div class="pwb-flex-grid-wrap" id="i2pjm"><div class="pwb-flex-grid-wrap" id="i58eb-2-2"><div class="pwb-flex-grid-wrap" id="i54bq-2-2"><div id="i2omk-2-2"><span id="ikd6twb"></span><span id="iv1c0dt"></span><span id="ivxar6f">Nature AI</span></div><div id="i2omk-2-2-4">
+  <span id="i7re8s9"></span><span id="imkowem"></span><span id="igxs9y7"></span>
+  <span id="i6hs6au" style="font-size: 2rem; display: block; line-height: 1.2; margin-bottom: 8px; font-family: Inter, sans-serif; font-weight: 700;">Protect the Planet with AI</span>
+  <span style="font-size: 1.15rem; font-weight: 300; opacity: 0.8; max-width: 550px; display: block; line-height: 1.4; margin-top: 12px; font-family: Inter, sans-serif; text-transform: none;">200+ AI tools to identify species, track wildlife, analyze climate data, and build a greener future.</span>
+</div><div class="pwb-flex-grid-wrap" id="irsa34-2-3-4"><div class="pw-block-style" id="ixnbo71-3-3-4"><div class="pwb-flex-grid-wrap" id="ioqrg-2-2-2-3-3-4" data-has-states="1"><div class="framer-1cc0f02" id="imob0j-3-5-2-2-5-4"></div><div class="pwb-flex-grid-wrap" id="ipavn-2-2-2-2-2-2-2-3-3-4"><div id="i6wd7-2-2-2-2-2-2-2-3-3-4"><span id="ic0tx-2-2-2-3-2-5">Get Started Free</span></div></div></div></div><div class="pw-block-style" id="ixnbo71-2-2-4-5"><div class="pwb-flex-grid-wrap" id="ioqrg-2-2-2-2-2-2-3-4-5" data-has-states="1"><div class="framer-1cc0f02" id="imob0j-3-5-2-5-5"></div><div class="pwb-flex-grid-wrap" id="ipavn-2-2-2-2-2-2-2-2-2-2-3-4-5"><div id="i6wd7-2-2-2-2-2-2-2-2-2-2-3-4-5" data-has-states="1"><font id="i00y82-2-3-4-5" face="neuehaasdisplayroman">For Researchers</font></div></div></div></div></div><div id="i2omk-2-2-4-2">
+  <span id="i64pmz2"></span><span id="iyic5dp"></span>
+  <span id="i3jtqaq" style="font-size: 2rem; display: block; line-height: 1.2; margin-bottom: 8px; font-family: Inter, sans-serif; font-weight: 700;">Protect the Planet with AI</span>
+  <span style="font-size: 1.15rem; font-weight: 300; opacity: 0.8; max-width: 550px; display: block; line-height: 1.4; margin-top: 12px; font-family: Inter, sans-serif; text-transform: none;">200+ AI tools to identify species, track wildlife, analyze climate data, and build a greener future.</span>
+</div><div class="pwb-flex-grid-wrap" id="irsa34-2-3-4-2-2"><div class="pw-block-style" id="ixnbo71-3-3-2-2"><div class="pwb-flex-grid-wrap" id="ioqrg-2-2-2-3-3-2-2" data-has-states="1"><div class="pwb-flex-grid-wrap" id="ipavn-2-2-2-2-2-2-2-3-3-2-2"><div id="i6wd7-2-2-2-2-2-2-2-3-3-2-2"><span id="ic0tx-2-2-2-3-2-3-2">Get Started Free</span></div></div></div></div><div class="pw-block-style" id="ixnbo71-2-2-4-2-2"><div class="pwb-flex-grid-wrap" id="ioqrg-2-2-2-2-2-2-3-4-2-2" data-has-states="1"><div class="framer-1cc0f02" id="imob0j-3-5-2-5-2-2"></div><div class="pwb-flex-grid-wrap" id="ipavn-2-2-2-2-2-2-2-2-2-2-3-4-2-2"><div id="i6wd7-2-2-2-2-2-2-2-2-2-2-3-4-2-2" data-has-states="1"><font id="i00y82-2-3-4-2-2" face="neuehaasdisplayroman">For Researchers</font></div></div></div></div></div><div id="i2omk-2-2-2">Powering award winners & nominees</div><img src="../files.staging.peachworlds.com/website/ce818be3-1aee-4f28-af19-6e12d26ad332/purple-blur2.png" loading="lazy" id="idjhyi"><img src="../files.staging.peachworlds.com/website/a13f4ae5-5bb9-4fb8-abcf-9c4b85b6a4bb/gradient.png" loading="lazy" id="ir7m4z9"></div><div class="pwb-flex-grid-wrap" id="iawqb1g" data-has-states="1"><div id="ifo6hrw" data-has-states="1">Scroll down & discover</div></div><div class="pwb-flex-grid-wrap" id="i4qyc" data-has-states="1"><div class="framer-1cc0f02" id="imob0j-3-2"><div id="i2omk-2-2-3">Scroll down <br id="iqrzfl">& discover</div><div class="pwb-flex-grid-wrap" id="i4sn4h"><img src="../files.staging.peachworlds.com/website/051ac293-649f-4caf-93ba-a0ef09680c3d/mdi-arrow-down.svg" loading="lazy" id="i0073m"></div></div></div></div><div class="pwb-anchor" id="iee4h3-4"></div><div class="pwb-flex-grid-wrap" id="ilex4h"><div class="pwb-flex-grid-wrap" id="i64awm"><div id="inm1q-2-3-3-3"><span id="ixlqy24"></span><span id="imwkmzi"></span><span id="iurgznb">The leading independent <span id="i86kcgl">self-service curation platform</span> 
+for programmatic media buyers.</span></div><div id="inm1q-2-3-3-3-2"><span id="ixlqy24-2"></span><span id="imwkmzi-2"></span><span id="iurgznb-2">The leading independent <span id="i86kcgl-2">directory of AI tools</span> for nature, wildlife, and sustainability.</span></div><div class="pwb-flex-grid-wrap" id="irsa34-2-3"><div class="pw-block-style" id="ixnbo71-3-3-4-2"><div class="pwb-flex-grid-wrap" id="ioqrg-2-2-2-3-3-4-2" data-has-states="1"><div class="framer-1cc0f02" id="imob0j-3-5-2-2-5-4-2"></div><div class="pwb-flex-grid-wrap" id="ipavn-2-2-2-2-2-2-2-3-3-4-2"><div id="i6wd7-2-2-2-2-2-2-2-3-3-4-2"><span id="ic0tx-2-2-2-3-2-5-2">Get started</span> — it's free</div></div></div></div><div class="pw-block-style" id="ixnbo71-2-2-4-5-3"><div class="pwb-flex-grid-wrap" id="ioqrg-2-2-2-2-2-2-3-4-5-3" data-has-states="1"><div class="framer-1cc0f02" id="imob0j-3-5-2-5-5-3"></div><div class="pwb-flex-grid-wrap" id="ipavn-2-2-2-2-2-2-2-2-2-2-3-4-5-3"><div id="i6wd7-2-2-2-2-2-2-2-2-2-2-3-4-5-3" data-has-states="1"><font id="i00y82-2-3-4-5-3" face="neuehaasdisplayroman">Book a Call</font></div></div></div></div></div><div id="ixixypg">No-Code <br id="i5xegg">3D Website Builder.<br id="irxpwf"></div><div class="pwb-flex-grid-wrap" id="irsa34-2-3-4-2-2-2"><div class="pw-block-style" id="ixnbo71-3-3-2-2-2"><div class="pwb-flex-grid-wrap" id="ioqrg-2-2-2-3-3-2-2-2" data-has-states="1"><div class="pwb-flex-grid-wrap" id="ipavn-2-2-2-2-2-2-2-3-3-2-2-2"><div id="i6wd7-2-2-2-2-2-2-2-3-3-2-2-2"><span id="ic0tx-2-2-2-3-2-3-2-2">Get started</span> — it's free</div></div></div></div><div class="pw-block-style" id="ixnbo71-2-2-4-2-2-2"><div class="pwb-flex-grid-wrap" id="ioqrg-2-2-2-2-2-2-3-4-2-2-2" data-has-states="1"><div class="framer-1cc0f02" id="imob0j-3-5-2-5-2-2-2"></div><div class="pwb-flex-grid-wrap" id="ipavn-2-2-2-2-2-2-2-2-2-2-3-4-2-2-2"><div id="i6wd7-2-2-2-2-2-2-2-2-2-2-3-4-2-2-2" data-has-states="1"><font id="i00y82-2-3-4-2-2-2" face="neuehaasdisplayroman">Book a Call</font></div></div></div></div></div><div class="pwb-flex-grid-wrap" id="irsa34-2-3-3-2"><img class="pw-image-style" src="../files.peachworlds.com/website/bb6df56b-ddb3-49a4-a47e-da02b3caafb8/cross-channeladvertising-highperformer-highperformer.png" loading="lazy" id="iyonnc3-3-2"><img class="pw-image-style" src="../files.peachworlds.com/website/49eab857-51a4-4a9b-8dbd-f53541c3d50b/badge.png" loading="lazy" id="ikt6kc7z"></div><div class="pwb-flex-grid-wrap" id="i6vxg7-3"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/7e39c9b2-4309-420a-9c9d-fe2ec4341b61/overlay-big.svg" loading="lazy" id="iyonnc3"><div class="pwb-flex-grid-wrap" id="ik754i-3-2"><div class="pwb-flex-grid-wrap" id="ijch4nz-2-2-3" data-has-states="1"><div class="pwb-flex-grid-wrap" id="i9zonsv-3-3"><div class="pwb-flex-grid-wrap" id="i9zonsv-3-3-2"><img src="../files.staging.peachworlds.com/website/5b55a18f-23d4-463f-ad12-a1e49f221d86/dashboard-glass-blue.png" loading="lazy" id="ilwnepj-2-2-3-2-2"></div></div><div class="framer-1cc0f02" id="imob0j-3-5-3-4-3"></div></div><img class="pw-image-style" src="../files.staging.peachworlds.com/website/236fd6c6-e446-4642-9164-dbe5e11c1b76/glow-line-big.svg" loading="lazy" id="ikn3uyp-2-3"></div></div><div class="pwb-flex-grid-wrap" id="in6nbcy"><div class="pwb-flex-grid-wrap" id="in6nbcy-2"><div class="framer-1cc0f02" id="imob0j-3-2-3"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/1a600fb8-e366-43ab-8961-89140a53e965/card-overlay.svg" loading="lazy" id="ikn3uyp"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/bb8093a3-162b-438b-82c6-461be8e881ea/card1.png" loading="lazy" id="ikn3uyp-4-2-2"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/28e1d489-78ee-4fad-918d-86f17da7278e/glow-line.svg" loading="lazy" id="ikn3uyp-2"><div id="i2omk-2-2-3-3-5-2-2-2-2"><span id="iu8unmg"></span><span id="iksn9ez"></span><span id="iakgd3i">SPECIES IDENTIFICATION</span></div><div id="i2omk-2-2-3-3"><span id="i945wwc"></span><span id="ick57j3"></span><span id="io3pswn">Identify Plants & Animals Instantly</span></div><div id="i2omk-2-2-3-3-5"><span id="itlfirw"></span><span id="i473tvg"></span><span id="ik1wv0k">Point your camera at any plant, bird, insect, or fish to get instant high-accuracy classification and detailed species information.</span></div><div class="pwb-flex-grid-wrap" id="ioqrg-2-2-2-2-2-3-3-4-2-6"><div class="pwb-flex-grid-wrap" id="ipavn-2-2-2-2-2-2-2-2-2-3-3-4-2-6"><div id="i6wd7-2-2-2-2-2-2-2-2-2-3-3-4-2-6" data-has-states="1"><span id="icyz5lj"></span><span id="iniqxbh"></span><span id="i889wji">Get the App Now</span></div></div><img src="../files.staging.peachworlds.com/website/53368d56-caac-4fcd-91a1-46b7786647ef/mdi-arrow-right.svg" loading="lazy" id="isx5jai-6"></div></div></div><div class="pwb-flex-grid-wrap" id="in6nbcy-2-2"><div class="framer-1cc0f02" id="imob0j-3-2-3-4"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/fd4515b1-15bf-4e33-8a1c-c104836dd0cd/card-overlay-drak.svg" loading="lazy" id="ikn3uyp-3"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/fd072ad2-7a23-463f-b623-8e39daa28f0f/glow-line-dark.svg" loading="lazy" id="ikn3uyp-2-2"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/88b0adb3-2415-4964-a0a8-0f67e8fd3bf7/card2.png" loading="lazy" id="ikn3uyp-4-2-2-3"><div id="i2omk-2-2-3-3-5-2-2-2-2-3"><span id="iu8unmg-2"></span><span id="ixoge2i"></span><span id="irzoypo"></span><span id="i1y74zn">AI NATURALIST</span></div><div id="i2omk-2-2-3-3-4"><span id="i945wwc-2"></span><span id="io3pswn-2">Chat With Your AI Nature Guide</span></div><div id="i2omk-2-2-3-3-5-3"><span id="itlfirw-2"></span><span id="i473tvg-2"></span><span id="ik1wv0k-2"><span id="ib7bemb"></span><span id="ia2zd1h"></span>Have questions about wildlife, ecosystems, or survival? Ask our interactive AI chatbot trained on global ecological databases.</span></div><div class="pwb-flex-grid-wrap" id="ioqrg-2-2-2-2-2-3-3-4-2-6-2"><div class="pwb-flex-grid-wrap" id="ipavn-2-2-2-2-2-2-2-2-2-3-3-4-2-6-2"><div id="i6wd7-2-2-2-2-2-2-2-2-2-3-3-4-2-6-2" data-has-states="1"><span id="icyz5lj-2"></span><span id="iniqxbh-2"></span><span id="i889wji-2">Get the App Now</span></div></div><img src="../files.staging.peachworlds.com/website/53368d56-caac-4fcd-91a1-46b7786647ef/mdi-arrow-right.svg" loading="lazy" id="isx5jai-6-3"></div></div></div><div class="pwb-flex-grid-wrap" id="in6nbcy-2-2-2"><div class="framer-1cc0f02" id="imob0j-3-2-3-4-2"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/fd4515b1-15bf-4e33-8a1c-c104836dd0cd/card-overlay-drak.svg" loading="lazy" id="ikn3uyp-3-2"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/fd072ad2-7a23-463f-b623-8e39daa28f0f/glow-line-dark.svg" loading="lazy" id="ikn3uyp-2-2-2"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/51d380b4-caba-4ad6-b5e2-4e48c5c81124/card3.png" loading="lazy" id="ikn3uyp-4-2-2-3-2"><div id="i2omk-2-2-3-3-5-2-2-2-2-3-2"><span id="iu8unmg-2-2"></span><span id="i8vysi1">OFFLINE KNOWLEDGE</span></div><div id="i2omk-2-2-3-3-4-2"><span id="i945wwc-2-2"></span><span id="io3pswn-2-2"><span id="ieyvic4"></span><span id="iybhqis"></span>Explore Without Internet</span></div><div id="i2omk-2-2-3-3-5-3-2"><span id="itlfirw-2-2"></span><span id="ijo2m6j"></span><span id="ilc57hn"></span><span id="iipredt">Download region-specific offline models so you can identify species and navigate wildlife guides even when you're completely off the grid.</span></div><div class="pwb-flex-grid-wrap" id="ioqrg-2-2-2-2-2-3-3-4-2-6-2-2"><div class="pwb-flex-grid-wrap" id="ipavn-2-2-2-2-2-2-2-2-2-3-3-4-2-6-2-2"><div id="i6wd7-2-2-2-2-2-2-2-2-2-3-3-4-2-6-2-2" data-has-states="1"><span id="icyz5lj-2-2"></span><span id="iniqxbh-2-2"></span><span id="i889wji-2-2">Get the App Now</span></div></div><img src="../files.staging.peachworlds.com/website/53368d56-caac-4fcd-91a1-46b7786647ef/mdi-arrow-right.svg" loading="lazy" id="isx5jai-6-2"></div></div></div></div></div></div><div class="pwb-anchor" id="iee4h3-3"></div><div class="pwb-flex-grid-wrap" id="i0loz7-3-2-2"></div><div class="pwb-flex-grid-wrap" id="ivkbm9"><div class="pwb-flex-grid-wrap" id="iqmxovh"><div class="pw-block-style" id="igivtmg-5"><div class="pw-embed-style pwb-embed" id="idb59ma-5"><style>
+  @import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
+
+  #code1 {
+    position: relative;
+    font-family: 'Fira Code', monospace;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #b8baff;
+    white-space: pre;
+    mix-blend-mode: screen;
+    text-shadow: 0 0 6px rgba(102,108,255,.9),
+                 0 0 12px rgba(102,108,255,.6),
+                 0 0 20px rgba(102,108,255,.4);
+    overflow: visible;
+    z-index: 0;
+  }
+
+  .cursor {
+    display: inline-block;
+    width: .6ch;
+    height: 1em;
+    margin-left: .1ch;
+    background: currentColor;
+    animation: blink .6s steps(1) infinite;
+    box-shadow: 0 0 6px rgba(102,108,255,.8);
+    vertical-align: -.1em;
+  }
+
+  @keyframes blink { 50% { opacity: 0; } }
+</style>
+
+<pre id="code1"></pre>
+
+<script>(function(){
+
+const LINES1 = [
+  `"id": "0123456789ABCDEF0123456789ABCDEF",`,
+  `"at": 2,`,
+  `"tmax": 120,`,
+  `"imp": [{`,
+  `  "id": "1",`,
+  `  "pmp": {`,
+  `    "private_auction": 1,`,
+  `    "deals": [{`,
+  `      "id": "1452f.eadb4.7aaa",`,
+  `      "bidfloor": 5.3,`,
+  `      "at": 1,`,
+  `      "wseats": [],`,
+  `      "ext": { "priority": 1, "wadvs": [] }`
+];
+
+animateCode("code1", LINES1);
+
+function animateCode(id, lines) {
+  const pre = document.getElementById(id);
+  let buf = [], i = 0;
+
+  function render() {
+    pre.innerHTML = buf
+      .map((l, j) => j === buf.length - 1 ? l + '<span class="cursor"></span>' : l)
+      .join("\n");
+  }
+
+  const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+  async function typeLine(line) {
+    let s = "";
+    for (const c of line) {
+      s += c;
+      buf[buf.length - 1] = s;
+      render();
+      await sleep(10); // faster typing
+    }
+  }
+
+  async function run() {
+    while (true) {
+      buf.push("");
+      await typeLine(lines[i % lines.length]);
+      i++;
+      await sleep(100);
+
+      // keep only last 12 lines visible
+      if (buf.length > 12) buf.shift();
+    }
+  }
+
+  run();
+}
+
+})();</script>
+</div></div><div id="ilusfa2"><span id="i8i59df">Rooted in Nature. </span><span id="iki82sj">Powered by AI.</span></div><div class="pwb-flex-grid-wrap" id="irsa34-2-3-4-2-2-2-2"><div class="pw-block-style" id="ixnbo71-3-3-2-2-2-2"><div class="pwb-flex-grid-wrap" id="ioqrg-2-2-2-3-3-2-2-2-2" data-has-states="1"><div class="pwb-flex-grid-wrap" id="ipavn-2-2-2-2-2-2-2-3-3-2-2-2-2"><div id="i6wd7-2-2-2-2-2-2-2-3-3-2-2-2-2"><font face="neuehaasdisplayroman" id="i79ocll">Customer Stories</font></div></div></div></div><div class="pw-block-style" id="ixnbo71-2-2-4-2-2-2-2"><div class="pwb-flex-grid-wrap" id="ioqrg-2-2-2-2-2-2-3-4-2-2-2-2" data-has-states="1"><div class="framer-1cc0f02" id="imob0j-3-5-2-5-2-2-2-2"></div><div class="pwb-flex-grid-wrap" id="ipavn-2-2-2-2-2-2-2-2-2-2-3-4-2-2-2-2"><div id="i6wd7-2-2-2-2-2-2-2-2-2-2-3-4-2-2-2-2" data-has-states="1"><font id="i00y82-2-3-4-2-2-2-2" face="neuehaasdisplayroman">Book a Call</font></div></div></div></div></div><div class="pwb-flex-grid-wrap" id="irsa34-2-3-2"><div class="pw-block-style" id="ixnbo71-3-2"><div class="pwb-flex-grid-wrap" id="ioqrg-2-2-2-3-2" data-has-states="1"><div class="framer-1cc0f02" id="imob0j-3-5-2-2-3"></div><div class="pwb-flex-grid-wrap" id="ipavn-2-2-2-2-2-2-2-3-2"><div id="i6wd7-2-2-2-2-2-2-2-3-2"><font face="neuehaasdisplayroman" id="i82knzy">Customer Stories</font></div></div></div></div><div class="pw-block-style" id="ixnbo71-2-2-4-5-2"><div class="pwb-flex-grid-wrap" id="ioqrg-2-2-2-2-2-2-3-4-5-2" data-has-states="1"><div class="framer-1cc0f02" id="imob0j-3-5-2-5-5-2"></div><div class="pwb-flex-grid-wrap" id="ipavn-2-2-2-2-2-2-2-2-2-2-3-4-5-2"><div id="i6wd7-2-2-2-2-2-2-2-2-2-2-3-4-5-2" data-has-states="1"><font id="i00y82-2-3-4-5-2" face="neuehaasdisplayroman">Book a Call</font></div></div></div></div></div></div><img class="pw-image-style" src="../files.staging.peachworlds.com/website/7e39c9b2-4309-420a-9c9d-fe2ec4341b61/overlay-big.svg" loading="lazy" id="iyonnc3-2"><div class="pwb-flex-grid-wrap" id="iogw3f-2"><div class="pwb-flex-grid-wrap" id="ijch4nz" data-has-states="1"><div class="framer-1cc0f02" id="imob0j-3-5-3"></div><img class="pw-image-style" src="../files.staging.peachworlds.com/website/fd072ad2-7a23-463f-b623-8e39daa28f0f/glow-line-dark.svg" loading="lazy" id="ikn3uyp-2-2-3"><div class="pwb-flex-grid-wrap" id="iq3tjk-2-4"><div class="pw-no-class-fix pwb-embed" id="in3nlcf"><div class="video-hover-wrapper" style="
+  position: relative;
+  width: 100%;
+  padding-top: 51%; /* 16:8 Aspect Ratio */
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #282b42;
+">
+  <img class="video-poster" loading="lazy" data-src="/files.staging.peachworlds.com/website/b0f9b1ae-6f30-4d48-b7ca-789a313ec716/screenshot-2025-10-06-at-20-07-11.svg" alt="Video preview" style="
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 8px;
+      transition: opacity 0.4s ease;
+      opacity: 1;
+      z-index: 1;
+    ">
+  <video class="hover-video" data-src="/files.staging.peachworlds.com/website/55773df3-d853-4340-a272-25a84e225911/clip1.mp4" style="
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 8px;
+      z-index: 0;
+      display: block;
+    " loop="" muted="" playsinline="" preload="none"></video>
+</div>
+</div><video class="pw-video-style" playsinline="true" id="ifiwdfc" data-has-states="1" loop="" muted="" src="../files.staging.peachworlds.com/website/55773df3-d853-4340-a272-25a84e225911/clip1.mp4"></video><img src="../files.staging.peachworlds.com/website/b0f9b1ae-6f30-4d48-b7ca-789a313ec716/screenshot-2025-10-06-at-20-07-11.svg" loading="lazy" id="ilwnepj-3"></div></div><div class="pwb-flex-grid-wrap" id="ijch4nz-4" data-has-states="1"><div class="framer-1cc0f02" id="imob0j-3-5-3-3"></div><img class="pw-image-style" src="../files.staging.peachworlds.com/website/fd072ad2-7a23-463f-b623-8e39daa28f0f/glow-line-dark.svg" loading="lazy" id="ikn3uyp-2-2-3-3"><div class="pwb-flex-grid-wrap" id="iq3tjk-2-4-4"><div class="pw-no-class-fix pwb-embed" id="in3nlcf-3"><div class="video-hover-wrapper" style="
+  position: relative;
+  width: 100%;
+  padding-top: 51%; /* 16:8 Aspect Ratio */
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #282b42;
+">
+  <img class="video-poster" loading="lazy" data-src="/files.staging.peachworlds.com/website/ecfa7a23-b793-4a16-acaf-d9e151ee480f/screenshot-2025-10-06-at-20-08-08.png" alt="Video preview" style="
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 8px;
+      transition: opacity 0.4s ease;
+      opacity: 1;
+      z-index: 1;
+    ">
+  <video class="hover-video" data-src="/files.staging.peachworlds.com/website/87deacd5-4023-4c53-b6f0-2dee287bbacd/clip2.mp4" style="
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 8px;
+      z-index: 0;
+      display: block;
+    " loop="" muted="" playsinline="" preload="none"></video>
+</div>
+</div><video class="pw-video-style" playsinline="true" id="ifiwdfc-3" data-has-states="1" loop="" muted="" src="../files.staging.peachworlds.com/website/87deacd5-4023-4c53-b6f0-2dee287bbacd/clip2.mp4"></video><img src="../files.staging.peachworlds.com/website/ecfa7a23-b793-4a16-acaf-d9e151ee480f/screenshot-2025-10-06-at-20-08-08.png" loading="lazy" id="ilwnepj-3-3"></div></div><div class="pwb-flex-grid-wrap" id="ijch4nz-4-3" data-has-states="1"><div class="framer-1cc0f02" id="imob0j-3-5-3-3-3"></div><img class="pw-image-style" src="../files.staging.peachworlds.com/website/fd072ad2-7a23-463f-b623-8e39daa28f0f/glow-line-dark.svg" loading="lazy" id="ikn3uyp-2-2-3-3-3"><div class="pwb-flex-grid-wrap" id="iq3tjk-2-4-4-3"><div class="pw-no-class-fix pwb-embed" id="in3nlcf-3-3"><div class="video-hover-wrapper" style="
+  position: relative;
+  width: 100%;
+  padding-top: 51%; /* 16:8 Aspect Ratio */
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #282b42;
+">
+  <img class="video-poster" loading="lazy" data-src="/files.staging.peachworlds.com/website/81f2a6ea-3681-4b8e-afbe-34d81b5c72ff/screenshot-2025-10-06-at-20-31-13.png" alt="Video preview" style="
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 8px;
+      transition: opacity 0.4s ease;
+      opacity: 1;
+      z-index: 1;
+    ">
+  <video class="hover-video" data-src="/files.staging.peachworlds.com/website/898ac959-ccb1-46e8-9de9-98c9ff00a0f8/clip3.mp4" style="
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 8px;
+      z-index: 0;
+      display: block;
+    " loop="" muted="" playsinline="" preload="none"></video>
+</div>
+</div><video class="pw-video-style" playsinline="true" id="ifiwdfc-3-3" data-has-states="1" loop="" muted="" src="../files.staging.peachworlds.com/website/898ac959-ccb1-46e8-9de9-98c9ff00a0f8/clip3.mp4"></video><img src="../files.staging.peachworlds.com/website/81f2a6ea-3681-4b8e-afbe-34d81b5c72ff/screenshot-2025-10-06-at-20-31-13.png" loading="lazy" id="ilwnepj-3-3-3"></div></div></div><div class="pwb-flex-grid-wrap" id="i0edjkg"><div class="pwb-flex-grid-wrap" id="ifq2cxk"><div class="pwb-flex-grid-wrap" id="ijch4nz-5" data-has-states="1"><div class="framer-1cc0f02" id="imob0j-3-5-3-4"></div><img class="pw-image-style" src="../files.staging.peachworlds.com/website/fd072ad2-7a23-463f-b623-8e39daa28f0f/glow-line-dark.svg" loading="lazy" id="ikn3uyp-2-2-3-4"><div class="pwb-flex-grid-wrap" id="iq3tjk-2-4-5"><div class="pw-no-class-fix pwb-embed" id="in3nlcf-8"><div class="video-hover-wrapper" style="
+  position: relative;
+  width: 100%;
+  padding-top: 51%; /* 16:8 Aspect Ratio */
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #282b42;
+">
+  <img class="video-poster" loading="lazy" data-src="/files.staging.peachworlds.com/website/e5389e72-cd57-4e39-95ae-d665891b3eef/screenshot-2025-10-05-at-20-14-34.png" alt="Video preview" style="
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 8px;
+  transition: opacity 0.4s ease;
+  opacity: 1;
+  z-index: 1;
+">
+  <video class="hover-video" data-src="/files.staging.peachworlds.com/website/79037c19-5668-4a1a-a8d1-d65a8715446e/clip5-v2.mp4" style="
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 8px;
+  z-index: 0;
+  display: block;
+" loop="" muted="" playsinline="" preload="none"></video>
+</div>
+</div><video class="pw-video-style" playsinline="true" id="ifiwdfc-4" data-has-states="1" loop="" muted="" src="../files.staging.peachworlds.com/website/79037c19-5668-4a1a-a8d1-d65a8715446e/clip5-v2.mp4"></video><img src="../files.staging.peachworlds.com/website/e5389e72-cd57-4e39-95ae-d665891b3eef/screenshot-2025-10-05-at-20-14-34.png" loading="lazy" id="ilwnepj-3-4"></div></div><div class="pwb-flex-grid-wrap" id="ijch4nz-5-2" data-has-states="1"><div class="framer-1cc0f02" id="imob0j-3-5-3-4-2"></div><img class="pw-image-style" src="../files.staging.peachworlds.com/website/fd072ad2-7a23-463f-b623-8e39daa28f0f/glow-line-dark.svg" loading="lazy" id="ikn3uyp-2-2-3-4-2"><div class="pwb-flex-grid-wrap" id="iq3tjk-2-4-5-2"><div class="pw-no-class-fix pwb-embed" id="in3nlcf-8-2"><div class="video-hover-wrapper" style="
+  position: relative;
+  width: 100%;
+  padding-top: 51%; /* 16:8 Aspect Ratio */
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #282b42;
+">
+  <img class="video-poster" loading="lazy" data-src="/files.staging.peachworlds.com/website/a33b5678-4ab9-4474-bd41-2df1f555e683/screenshot-2025-10-06-at-20-46-59.png" alt="Video preview" style="
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 8px;
+  transition: opacity 0.4s ease;
+  opacity: 1;
+  z-index: 1;
+">
+  <video class="hover-video" data-src="/files.staging.peachworlds.com/website/3c1deea7-91fb-4475-bdec-b92937e044cf/clip6-new.mp4" style="
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 8px;
+   z-index: 0;
+  display: block;
+" loop="" muted="" playsinline="" preload="none"></video>
+</div>
+
+</div><video class="pw-video-style" playsinline="true" id="ifiwdfc-4-2" data-has-states="1" loop="" muted="" src="../files.staging.peachworlds.com/website/3c1deea7-91fb-4475-bdec-b92937e044cf/clip6-new.mp4"></video><img src="../files.staging.peachworlds.com/website/a33b5678-4ab9-4474-bd41-2df1f555e683/screenshot-2025-10-06-at-20-46-59.png" loading="lazy" id="ilwnepj-3-4-2"></div></div><div class="pwb-flex-grid-wrap" id="ijch4nz-5-2-2" data-has-states="1"><div class="framer-1cc0f02" id="imob0j-3-5-3-4-2-2"></div><img class="pw-image-style" src="../files.staging.peachworlds.com/website/fd072ad2-7a23-463f-b623-8e39daa28f0f/glow-line-dark.svg" loading="lazy" id="ikn3uyp-2-2-3-4-2-2"><div class="pwb-flex-grid-wrap" id="iq3tjk-2-4-5-2-2"><div class="pw-no-class-fix pwb-embed" id="in3nlcf-8-2-2"><div class="video-hover-wrapper" style="
+  position: relative;
+  width: 100%;
+  padding-top: 51%; /* 16:8 Aspect Ratio */
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #282b42;
+">
+  <img class="video-poster" loading="lazy" data-src="/files.staging.peachworlds.com/website/339a41a5-4f9a-4f00-9870-5e3bba3bf528/screenshot-2025-10-06-at-20-15-23.png" alt="Video preview" style="
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 8px;
+  transition: opacity 0.4s ease;
+  opacity: 1;
+  z-index: 1;
+">
+  <video class="hover-video" data-src="/files.staging.peachworlds.com/website/009d8ac6-650b-4955-95fb-849d01a9e10a/clip7-new.mp4" style="
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 8px;
+  z-index: 0;
+  display: block;
+" loop="" muted="" playsinline="" preload="none"></video>
+</div>
+</div><video class="pw-video-style" playsinline="true" id="ifiwdfc-4-2-2" data-has-states="1" loop="" muted="" src="../files.staging.peachworlds.com/website/009d8ac6-650b-4955-95fb-849d01a9e10a/clip7-new.mp4"></video><img src="../files.staging.peachworlds.com/website/339a41a5-4f9a-4f00-9870-5e3bba3bf528/screenshot-2025-10-06-at-20-15-23.png" loading="lazy" id="ilwnepj-3-4-2-2"></div></div><div class="pwb-flex-grid-wrap" id="ijch4nz-2-2" data-has-states="1"><div class="pwb-flex-grid-wrap" id="i9zonsv-3"><div class="pw-no-class-fix pwb-embed" id="in3nlcf-4"><div class="video-hover-wrapper" style="
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio */
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: #000;
+">
+  <img class="video-poster" loading="lazy" data-src="/files.peachworlds.com/website/547bea63-d7a4-4141-b301-95637bdc82f1/garri-thumb.webp" alt="Video preview" style="
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 20px;
+      transition: opacity 0.4s ease;
+      opacity: 1;
+      z-index: 1;
+    ">
+  <video class="hover-video" data-src="/files.peachworlds.com/website/2af6cb04-12f7-409b-ae21-e4f10221fe16/garri-360.mp4" style="
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 20px;
+      z-index: 0;
+      display: block;
+    " loop="" muted="" playsinline="" preload="none"></video>
+</div>
+</div><img src="../files.staging.peachworlds.com/website/c3750f13-4c70-4e25-8792-d8f7f2b63faa/garri-thumb.webp" loading="lazy" id="ilwnepj-2-2-3"></div></div></div></div><div class="pwb-anchor" id="iee4h3-3-2"></div><div class="pw-block-style" id="i31ri1a"><div class="pwb-flex-grid-wrap" id="in6nbcy-4-2"><div class="pwb-flex-grid-wrap" id="in6nbcy-2-4-2"><div class="framer-1cc0f02" id="imob0j-3-2-3-5-2"><div class="pwb-flex-grid-wrap" id="ixb6oyx"><div id="i2omk-2-2-3-3-5-2-2-2-2-4-2">USE CASE</div></div><div id="i2omk-2-2-3-3-7-2"><span id="ix7hvkg"></span><span id="iij2ryv"></span><span id="i9zt83t">Plants & Fungi</span></div><div id="i2omk-2-2-3-3-5-4-2"><span id="ienww4m"></span><span id="isawojn"></span><span id="i7cm2hq">Identify flowers, trees, mushrooms, and succulents instantly. Deep learning models trained on 100,000+ botanical specimens provide instant accuracy.</span></div><div class="pwb-flex-grid-wrap" id="ioqrg-2-2-2-2-2-3-3-4-2"><div class="pwb-flex-grid-wrap" id="ipavn-2-2-2-2-2-2-2-2-2-3-3-4-2"><div id="i6wd7-2-2-2-2-2-2-2-2-2-3-3-4-2" data-has-states="1"><font id="i00y82-3-3-4-2" face="neuehaasdisplayroman">Explore Now </font></div></div><img src="../files.staging.peachworlds.com/website/53368d56-caac-4fcd-91a1-46b7786647ef/mdi-arrow-right.svg" loading="lazy" id="isx5jai-6-4"></div></div><img class="pw-image-style" src="../files.staging.peachworlds.com/website/fd4515b1-15bf-4e33-8a1c-c104836dd0cd/card-overlay-drak.svg" loading="lazy" id="ikn3uyp-3-3"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/fd072ad2-7a23-463f-b623-8e39daa28f0f/glow-line-dark.svg" loading="lazy" id="ikn3uyp-2-2-4"></div><div class="pwb-flex-grid-wrap" id="in6nbcy-2-4-2-3"><div class="framer-1cc0f02" id="imob0j-3-2-3-5-2-3"><div class="pwb-flex-grid-wrap" id="ixb6oyx-2"><div id="i2omk-2-2-3-3-5-2-2-2-2-4-2-3">USE CASE</div></div><div id="i2omk-2-2-3-3-7-2-4"><span id="ix7hvkg-2"></span><span id="ilmhegi"></span><span id="imzbh8n"></span><span id="izb9ve6">Birds & Wildlife</span></div><div id="i2omk-2-2-3-3-5-4-2-6"><span id="ienww4m-2"></span><span id="isawojn-2"></span><span id="i7cm2hq-2"><span id="im4ju9s"></span><span id="ip6uq78"></span>Track migratory species and map local fauna. Analyze plumage patterns, silhouettes, and nests to learn about behaviors and habitats.</span></div><div class="pwb-flex-grid-wrap" id="ioqrg-2-2-2-2-2-3-3-4-2-2"><div class="pwb-flex-grid-wrap" id="ipavn-2-2-2-2-2-2-2-2-2-3-3-4-2-2"><div id="i6wd7-2-2-2-2-2-2-2-2-2-3-3-4-2-2" data-has-states="1"><font id="i00y82-3-3-4-2-2" face="neuehaasdisplayroman">Explore Now </font></div></div><img src="../files.staging.peachworlds.com/website/53368d56-caac-4fcd-91a1-46b7786647ef/mdi-arrow-right.svg" loading="lazy" id="isx5jai-6-5"></div></div><img class="pw-image-style" src="../files.staging.peachworlds.com/website/fd4515b1-15bf-4e33-8a1c-c104836dd0cd/card-overlay-drak.svg" loading="lazy" id="ikn3uyp-3-3-2"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/fd072ad2-7a23-463f-b623-8e39daa28f0f/glow-line-dark.svg" loading="lazy" id="ikn3uyp-2-2-4-2"></div><div class="pwb-flex-grid-wrap" id="in6nbcy-2-4-2-3-2"><div class="framer-1cc0f02" id="imob0j-3-2-3-5-2-3-2"><div class="pwb-flex-grid-wrap" id="ixb6oyx-2-2"><div id="i2omk-2-2-3-3-5-2-2-2-2-4-2-3-2">USE CASE</div></div><div id="i2omk-2-2-3-3-7-2-4-2"><span id="ix7hvkg-2-2"></span><span id="ivkpv2j">Marine & Fish</span></div><div id="i2omk-2-2-3-3-5-4-2-6-2"><span id="ienww4m-2-2"></span><span id="isawojn-2-2"></span><span id="i7cm2hq-2-2"><span id="i8u9uo4"></span><span id="id8ulir"></span>Identify aquatic organisms in rivers, lakes, and oceans. Designed to assist divers, anglers, and marine biology students.</span></div><div class="pwb-flex-grid-wrap" id="ioqrg-2-2-2-2-2-3-3-4-2-2-2"><div class="pwb-flex-grid-wrap" id="ipavn-2-2-2-2-2-2-2-2-2-3-3-4-2-2-2"><div id="i6wd7-2-2-2-2-2-2-2-2-2-3-3-4-2-2-2" data-has-states="1"><font id="i00y82-3-3-4-2-2-2" face="neuehaasdisplayroman">Explore Now </font></div></div><img src="../files.staging.peachworlds.com/website/53368d56-caac-4fcd-91a1-46b7786647ef/mdi-arrow-right.svg" loading="lazy" id="isx5jai-6-6"></div></div><img class="pw-image-style" src="../files.staging.peachworlds.com/website/fd4515b1-15bf-4e33-8a1c-c104836dd0cd/card-overlay-drak.svg" loading="lazy" id="ikn3uyp-3-3-2-2"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/fd072ad2-7a23-463f-b623-8e39daa28f0f/glow-line-dark.svg" loading="lazy" id="ikn3uyp-2-2-4-2-2"></div><div class="pwb-flex-grid-wrap" id="in6nbcy-2-4-2-3-2-2"><div class="framer-1cc0f02" id="imob0j-3-2-3-5-2-3-2-2"><div class="pwb-flex-grid-wrap" id="ixb6oyx-2-2-2"><div id="i2omk-2-2-3-3-5-2-2-2-2-4-2-3-2-2">USE CASE</div></div><div id="i2omk-2-2-3-3-7-2-4-2-2"><span id="ix7hvkg-2-2-2"></span><span id="iij2ryv-2-2-2"></span><span id="i9zt83t-2-2-2">Insects & Bugs</span></div><div class="pwb-flex-grid-wrap" id="iqdyvit-5-2-2"><div id="i2omk-2-2-3-3-7-2-3-5-2-2">Ecommerce</div><img src="../files.staging.peachworlds.com/website/c85d97c9-2f42-4e22-8763-3811f577c4f5/right-arrow-4-.svg" loading="lazy" id="isx5jai-2-5-2-2"></div><div id="i2omk-2-2-3-3-5-4-2-6-2-2"><span id="ienww4m-2-2-2"></span><span id="isawojn-2-2-2"></span><span id="i7cm2hq-2-2-2"><span id="izig3cn"></span><span id="i43uhuh"></span>Recognize butterflies, bees, beetles, and arachnids. Examine micro-features like wing veins and patterns to determine exact species.</span></div><div class="pwb-flex-grid-wrap" id="ioqrg-2-2-2-2-2-3-3-4-2-2-2-2"><div class="pwb-flex-grid-wrap" id="ipavn-2-2-2-2-2-2-2-2-2-3-3-4-2-2-2-2"><div id="i6wd7-2-2-2-2-2-2-2-2-2-3-3-4-2-2-2-2" data-has-states="1"><font id="i00y82-3-3-4-2-2-2-2" face="neuehaasdisplayroman">Explore Now </font></div></div><img src="../files.staging.peachworlds.com/website/53368d56-caac-4fcd-91a1-46b7786647ef/mdi-arrow-right.svg" loading="lazy" id="isx5jai-6-7"></div></div><img class="pw-image-style" src="../files.staging.peachworlds.com/website/fd4515b1-15bf-4e33-8a1c-c104836dd0cd/card-overlay-drak.svg" loading="lazy" id="ikn3uyp-3-3-2-2-2"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/fd072ad2-7a23-463f-b623-8e39daa28f0f/glow-line-dark.svg" loading="lazy" id="ikn3uyp-2-2-4-2-2-2"></div><div class="pw-block-style" id="igivtmg-4-2-3"><div class="pw-embed-style pwb-embed" id="idb59ma-4-2-3"><style>
+  @import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
+
+  #code1 {
+    position: relative;
+    font-family: 'Fira Code', monospace;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #b8baff;
+    white-space: pre;
+    mix-blend-mode: screen;
+    text-shadow: 0 0 6px rgba(102,108,255,.9),
+                 0 0 12px rgba(102,108,255,.6),
+                 0 0 20px rgba(102,108,255,.4);
+    overflow: visible;
+    z-index: 0;
+  }
+
+  .cursor {
+    display: inline-block;
+    width: .6ch;
+    height: 1em;
+    margin-left: .1ch;
+    background: currentColor;
+    animation: blink .6s steps(1) infinite;
+    box-shadow: 0 0 6px rgba(102,108,255,.8);
+    vertical-align: -.1em;
+  }
+
+  @keyframes blink { 50% { opacity: 0; } }
+</style>
+
+<pre id="code1"></pre>
+
+<script>(function(){
+
+const LINES1 = [
+  `"id": "0123456789ABCDEF0123456789ABCDEF",`,
+  `"at": 2,`,
+  `"tmax": 120,`,
+  `"imp": [{`,
+  `  "id": "1",`,
+  `  "pmp": {`,
+  `    "private_auction": 1,`,
+  `    "deals": [{`,
+  `      "id": "1452f.eadb4.7aaa",`,
+  `      "bidfloor": 5.3,`,
+  `      "at": 1,`,
+  `      "wseats": [],`,
+  `      "ext": { "priority": 1, "wadvs": [] }`
+];
+
+animateCode("code1", LINES1);
+
+function animateCode(id, lines) {
+  const pre = document.getElementById(id);
+  let buf = [], i = 0;
+
+  function render() {
+    pre.innerHTML = buf
+      .map((l, j) => j === buf.length - 1 ? l + '<span class="cursor"></span>' : l)
+      .join("\n");
+  }
+
+  const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+  async function typeLine(line) {
+    let s = "";
+    for (const c of line) {
+      s += c;
+      buf[buf.length - 1] = s;
+      render();
+      await sleep(10); // faster typing
+    }
+  }
+
+  async function run() {
+    while (true) {
+      buf.push("");
+      await typeLine(lines[i % lines.length]);
+      i++;
+      await sleep(100);
+
+      // keep only last 12 lines visible
+      if (buf.length > 12) buf.shift();
+    }
+  }
+
+  run();
+}
+
+})();</script>
+</div></div></div></div><div class="pwb-anchor" id="iee4h3-3-3-3"></div></div><div class="pwb-flex-grid-wrap" id="i0loz7-3-2-2-5"><div class="pw-block-style" id="igivtmg-4-2"><div class="pw-embed-style pwb-embed" id="idb59ma-4-2"><style>
+  @import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
+
+  #code1 {
+    position: relative;
+    font-family: 'Fira Code', monospace;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #b8baff;
+    white-space: pre;
+    mix-blend-mode: screen;
+    text-shadow: 0 0 6px rgba(102,108,255,.9),
+                 0 0 12px rgba(102,108,255,.6),
+                 0 0 20px rgba(102,108,255,.4);
+    overflow: visible;
+    z-index: 0;
+  }
+
+  .cursor {
+    display: inline-block;
+    width: .6ch;
+    height: 1em;
+    margin-left: .1ch;
+    background: currentColor;
+    animation: blink .6s steps(1) infinite;
+    box-shadow: 0 0 6px rgba(102,108,255,.8);
+    vertical-align: -.1em;
+  }
+
+  @keyframes blink { 50% { opacity: 0; } }
+</style>
+
+<pre id="code1"></pre>
+
+<script>(function(){
+
+const LINES1 = [
+  `"id": "0123456789ABCDEF0123456789ABCDEF",`,
+  `"at": 2,`,
+  `"tmax": 120,`,
+  `"imp": [{`,
+  `  "id": "1",`,
+  `  "pmp": {`,
+  `    "private_auction": 1,`,
+  `    "deals": [{`,
+  `      "id": "1452f.eadb4.7aaa",`,
+  `      "bidfloor": 5.3,`,
+  `      "at": 1,`,
+  `      "wseats": [],`,
+  `      "ext": { "priority": 1, "wadvs": [] }`
+];
+
+animateCode("code1", LINES1);
+
+function animateCode(id, lines) {
+  const pre = document.getElementById(id);
+  let buf = [], i = 0;
+
+  function render() {
+    pre.innerHTML = buf
+      .map((l, j) => j === buf.length - 1 ? l + '<span class="cursor"></span>' : l)
+      .join("\n");
+  }
+
+  const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+  async function typeLine(line) {
+    let s = "";
+    for (const c of line) {
+      s += c;
+      buf[buf.length - 1] = s;
+      render();
+      await sleep(10); // faster typing
+    }
+  }
+
+  async function run() {
+    while (true) {
+      buf.push("");
+      await typeLine(lines[i % lines.length]);
+      i++;
+      await sleep(100);
+
+      // keep only last 12 lines visible
+      if (buf.length > 12) buf.shift();
+    }
+  }
+
+  run();
+}
+
+})();</script>
+</div></div><div class="pw-block-style" id="igivtmg-2"><div class="pw-embed-style pwb-embed" id="idb59ma-2"><style>
+  @import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
+  #code2 {
+    position: relative;
+    font-family:'Fira Code',monospace;
+    font-size:15px; line-height:1.5;
+    color:#b8baff; white-space:pre;
+    mix-blend-mode:screen;
+    text-shadow:0 0 6px rgba(102,108,255,.9),
+                 0 0 12px rgba(102,108,255,.6),
+                 0 0 20px rgba(102,108,255,.4);
+    overflow: visible; z-index: 0;
+  }
+  
+  .cursor {
+    display:inline-block;width:.6ch;height:1em;margin-left:.1ch;
+    background:currentColor;animation:blink .6s steps(1) infinite;
+    box-shadow:0 0 6px rgba(102,108,255,.8);vertical-align:-.1em;
+  }
+  @keyframes blink {50%{opacity:0}}
+</style>
+
+<pre id="code2"></pre>
+
+<script>(function(){
+
+const LINES2=[
+  `"video": {`,
+  `  "mimes": ["video/x-flv","video/mp4"],`,
+  `  "api": [1,2],`,
+  `  "battr": [13,14],`,
+  `  "boxingallowed": true,`,
+  `  "delivery": [2],`,
+  `  "h": 480,`,
+  `  "linearity": 1,`,
+  `  "maxbitrate": 1500,`,
+  `  "maxduration": 30,`,
+  `  "minbitrate": 300,`,
+  `  "minduration": 5,`,
+  `  "playbackmethod": [1],`,
+  `  "pos": 1,`,
+  `  "protocol": [2,3],`,
+  `  "sequence": 1,`,
+  `  "startdelay": 0,`,
+  `  "w": 640`,
+  `}`
+];
+animateCode("code2",LINES2);
+
+function animateCode(id,lines){
+  const pre=document.getElementById(id);let buf=[],i=0;
+  function render(){pre.innerHTML=buf.map((l,j)=>j==buf.length-1?l+'<span class="cursor"></span>':l).join("\n")}
+  const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+  async function typeLine(t){let s="";for(const c of t){s+=c;buf[buf.length-1]=s;render();await sleep(10)}}
+  async function run(){while(1){buf.push("");await typeLine(lines[i%lines.length]);i++;await sleep(100);if(buf.length>12)buf.shift();}}
+  run();
+}
+
+})();</script>
+</div></div></div><div class="pwb-anchor" id="iee4h3-3-3"></div><div class="pwb-flex-grid-wrap" id="i0loz7-3-2"></div><div class="pwb-anchor" id="iee4h3-3-3-2"></div><div class="pwb-flex-grid-wrap" id="i0loz7-3"></div><div class="pwb-anchor" id="iee4h3-3-3-2-2"></div><div class="pwb-flex-grid-wrap" id="i0loz7-3-3"></div><div class="pwb-anchor" id="iee4h3-3-2-2-2-2-2-3"></div><div class="pwb-flex-grid-wrap" id="ixlw3c-2-2-2"><div class="pwb-flex-grid-wrap" id="iqidrx-2-2"><div class="pwb-flex-grid-wrap" id="ixycwt-2-2"><div id="inm1q-3-2-2-2-2"><span id="izb4axp"> One Platform to access the entire 
+<span id="iznm2wg">Supply-Side Ecosystem</span></span></div><div class="pwb-flex-grid-wrap" id="irsa34-2"><div class="pw-block-style" id="ixnbo71-2-2-4-4"><div class="pwb-flex-grid-wrap" id="ioqrg-2-2-2-2-2-2-3-4-4" data-has-states="1"><div class="framer-1cc0f02" id="imob0j-3-5-2-5-4"></div><div class="pwb-flex-grid-wrap" id="ipavn-2-2-2-2-2-2-2-2-2-2-3-4-4"><div id="i6wd7-2-2-2-2-2-2-2-2-2-2-3-4-4" data-has-states="1"><font id="i00y82-2-3-4-4" face="neuehaasdisplayroman">Book a Call</font></div></div></div></div></div><div class="pwb-flex-grid-wrap" id="irsa34-2-3-4-2-2-3"><div class="pw-block-style" id="ixnbo71-2-2-4-2-2-3"><div class="pwb-flex-grid-wrap" id="ioqrg-2-2-2-2-2-2-3-4-2-2-3" data-has-states="1"><div class="framer-1cc0f02" id="imob0j-3-5-2-5-2-2-3"></div><div class="pwb-flex-grid-wrap" id="ipavn-2-2-2-2-2-2-2-2-2-2-3-4-2-2-3"><div id="i6wd7-2-2-2-2-2-2-2-2-2-2-3-4-2-2-3" data-has-states="1"><font id="i00y82-2-3-4-2-2-3" face="neuehaasdisplayroman">Book a Call</font></div></div></div></div></div></div></div></div><div class="pwb-anchor" id="iee4h3-3-2-2-2-2-2-3-2"></div><div class="pwb-flex-grid-wrap" id="ixlw3c-2-2-2-2"><div class="pwb-flex-grid-wrap" id="i0loz7-3-2-2-5-2"><div class="pw-block-style" id="igivtmg-4-2-2"><div class="pw-embed-style pwb-embed" id="idb59ma-4-2-2"><style>
+  @import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
+
+  #code1 {
+    position: relative;
+    font-family: 'Fira Code', monospace;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #b8baff;
+    white-space: pre;
+    mix-blend-mode: screen;
+    text-shadow: 0 0 6px rgba(102,108,255,.9),
+                 0 0 12px rgba(102,108,255,.6),
+                 0 0 20px rgba(102,108,255,.4);
+    overflow: visible;
+    z-index: 0;
+  }
+
+  .cursor {
+    display: inline-block;
+    width: .6ch;
+    height: 1em;
+    margin-left: .1ch;
+    background: currentColor;
+    animation: blink .6s steps(1) infinite;
+    box-shadow: 0 0 6px rgba(102,108,255,.8);
+    vertical-align: -.1em;
+  }
+
+  @keyframes blink { 50% { opacity: 0; } }
+</style>
+
+<pre id="code1"></pre>
+
+<script>(function(){
+
+const LINES1 = [
+  `"id": "0123456789ABCDEF0123456789ABCDEF",`,
+  `"at": 2,`,
+  `"tmax": 120,`,
+  `"imp": [{`,
+  `  "id": "1",`,
+  `  "pmp": {`,
+  `    "private_auction": 1,`,
+  `    "deals": [{`,
+  `      "id": "1452f.eadb4.7aaa",`,
+  `      "bidfloor": 5.3,`,
+  `      "at": 1,`,
+  `      "wseats": [],`,
+  `      "ext": { "priority": 1, "wadvs": [] }`
+];
+
+animateCode("code1", LINES1);
+
+function animateCode(id, lines) {
+  const pre = document.getElementById(id);
+  let buf = [], i = 0;
+
+  function render() {
+    pre.innerHTML = buf
+      .map((l, j) => j === buf.length - 1 ? l + '<span class="cursor"></span>' : l)
+      .join("\n");
+  }
+
+  const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+  async function typeLine(line) {
+    let s = "";
+    for (const c of line) {
+      s += c;
+      buf[buf.length - 1] = s;
+      render();
+      await sleep(10); // faster typing
+    }
+  }
+
+  async function run() {
+    while (true) {
+      buf.push("");
+      await typeLine(lines[i % lines.length]);
+      i++;
+      await sleep(100);
+
+      // keep only last 12 lines visible
+      if (buf.length > 12) buf.shift();
+    }
+  }
+
+  run();
+}
+
+})();</script>
+</div></div><div class="pw-block-style" id="igivtmg-2-2"><div class="pw-embed-style pwb-embed" id="idb59ma-2-2"><style>
+  @import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
+  #code2 {
+    position: relative;
+    font-family:'Fira Code',monospace;
+    font-size:15px; line-height:1.5;
+    color:#b8baff; white-space:pre;
+    mix-blend-mode:screen;
+    text-shadow:0 0 6px rgba(102,108,255,.9),
+                 0 0 12px rgba(102,108,255,.6),
+                 0 0 20px rgba(102,108,255,.4);
+    overflow: visible; z-index: 0;
+  }
+  
+  .cursor {
+    display:inline-block;width:.6ch;height:1em;margin-left:.1ch;
+    background:currentColor;animation:blink .6s steps(1) infinite;
+    box-shadow:0 0 6px rgba(102,108,255,.8);vertical-align:-.1em;
+  }
+  @keyframes blink {50%{opacity:0}}
+</style>
+
+<pre id="code2"></pre>
+
+<script>(function(){
+
+const LINES2=[
+  `"video": {`,
+  `  "mimes": ["video/x-flv","video/mp4"],`,
+  `  "api": [1,2],`,
+  `  "battr": [13,14],`,
+  `  "boxingallowed": true,`,
+  `  "delivery": [2],`,
+  `  "h": 480,`,
+  `  "linearity": 1,`,
+  `  "maxbitrate": 1500,`,
+  `  "maxduration": 30,`,
+  `  "minbitrate": 300,`,
+  `  "minduration": 5,`,
+  `  "playbackmethod": [1],`,
+  `  "pos": 1,`,
+  `  "protocol": [2,3],`,
+  `  "sequence": 1,`,
+  `  "startdelay": 0,`,
+  `  "w": 640`,
+  `}`
+];
+animateCode("code2",LINES2);
+
+function animateCode(id,lines){
+  const pre=document.getElementById(id);let buf=[],i=0;
+  function render(){pre.innerHTML=buf.map((l,j)=>j==buf.length-1?l+'<span class="cursor"></span>':l).join("\n")}
+  const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+  async function typeLine(t){let s="";for(const c of t){s+=c;buf[buf.length-1]=s;render();await sleep(10)}}
+  async function run(){while(1){buf.push("");await typeLine(lines[i%lines.length]);i++;await sleep(100);if(buf.length>12)buf.shift();}}
+  run();
+}
+
+})();</script>
+</div></div></div></div><div class="pwb-anchor" id="iee4h3-3-2-2-2-2-2"></div><div class="pwb-flex-grid-wrap" id="i0loz7-3-2-2-4-2"></div><div class="pwb-anchor" id="iee4h3-3-2-2-2-2-2-5"></div><div class="pwb-flex-grid-wrap" id="iwu2i4f"><div class="pwb-flex-grid-wrap" id="ilex4h-3"><div class="pwb-flex-grid-wrap" id="ivkbm9-3"><div class="pwb-flex-grid-wrap" id="itgbbf-3"><div id="inm1q-3-3"><span id="i9i7w7a"></span><span id="i1ii6bh"></span><span id="ikd5qgl">Get PMP deals within seconds,
+<span id="iicjghp">go live within minutes.</span></span></div><div id="inm1q-3-3-2"><span id="i9i7w7a-2"></span><span id="i1ii6bh-2"></span><span id="ikd5qgl-3">Identify Any Species in Seconds, <span id="iicjghp-3">With AI.</span></span></div><div class="pwb-flex-grid-wrap" id="irsa34-2-3-4-2"><div class="pw-block-style" id="ixnbo71-3-3-2"><div class="pwb-flex-grid-wrap" id="ioqrg-2-2-2-3-3-2" data-has-states="1"><div class="pwb-flex-grid-wrap" id="ipavn-2-2-2-2-2-2-2-3-3-2"><div id="i6wd7-2-2-2-2-2-2-2-3-3-2"><span id="ic0tx-2-2-2-3-2-3">Get Started</span> — it's Free</div></div></div></div><div class="pw-block-style" id="ixnbo71-2-2-4-2"><div class="pwb-flex-grid-wrap" id="ioqrg-2-2-2-2-2-2-3-4-2" data-has-states="1"><div class="framer-1cc0f02" id="imob0j-3-5-2-5-2"></div><div class="pwb-flex-grid-wrap" id="ipavn-2-2-2-2-2-2-2-2-2-2-3-4-2"><div id="i6wd7-2-2-2-2-2-2-2-2-2-2-3-4-2" data-has-states="1"><font id="i00y82-2-3-4-2" face="neuehaasdisplayroman">Book a Call</font></div></div></div></div></div></div><div class="pw-block-style" id="igivtmg-3"><div class="pw-embed-style pwb-embed" id="idb59ma-3"><style>
+  @import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
+  #code3 {
+    position: relative;
+    font-family:'Fira Code',monospace;
+    font-size:15px; line-height:1.5;
+    color:#b8baff; white-space:pre;
+    mix-blend-mode:screen;
+    text-shadow:0 0 6px rgba(102,108,255,.9),
+                 0 0 12px rgba(102,108,255,.6),
+                 0 0 20px rgba(102,108,255,.4);
+    overflow: visible; z-index: 0;
+  }
+  
+  .cursor {
+    display:inline-block;width:.6ch;height:1em;margin-left:.1ch;
+    background:currentColor;animation:blink .6s steps(1) infinite;
+    box-shadow:0 0 6px rgba(102,108,255,.8);vertical-align:-.1em;
+  }
+  @keyframes blink {50%{opacity:0}}
+</style>
+
+<pre id="code3"></pre>
+
+<script>
+const LINES3=[
+  `"site": {`,
+  `  "id": "1345135123",`,
+  `  "name": "Site ABCD",`,
+  `  "domain": "siteabcd.com",`,
+  `  "cat": ["IAB2-1","IAB2-2"],`,
+  `  "page": "http://siteabcd.com/page.htm",`,
+  `  "ref": "http://referringsite.com/referringpage.htm",`,
+  `  "privacypolicy": true,`,
+  `  "publisher": { "id": "pub12345", "name": "Marine & Fish A" },`,
+  `  "content": {`,
+  `    "cat": ["IAB2-2"],`,
+  `    "episode": 23,`,
+  `    "id": "1234567",`,
+  `    "keyword": ["keyword a","keyword b","keyword c"],`,
+  `    "season": 2,`,
+  `    "series": "All About Cars",`,
+  `    "title": "Car Show"`,
+  `  }`,
+  `}`
+];
+animateCode("code3",LINES3);
+
+function animateCode(id,lines){
+  const pre=document.getElementById(id);let buf=[],i=0;
+  function render(){pre.innerHTML=buf.map((l,j)=>j==buf.length-1?l+'<span class="cursor"></span>':l).join("\n")}
+  const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+  async function typeLine(t){let s="";for(const c of t){s+=c;buf[buf.length-1]=s;render();await sleep(10)}}
+  async function run(){while(1){buf.push("");await typeLine(lines[i%lines.length]);i++;await sleep(100);if(buf.length>12)buf.shift();}}
+  run();
+}
+</script>
+</div></div></div><div class="pwb-flex-grid-wrap" id="in6nbcy-4-3"><div class="pwb-flex-grid-wrap" id="in6nbcy-2-4-3"><div class="framer-1cc0f02" id="imob0j-3-2-3-5-3"><div id="i2omk-2-2-3-3-7-3"><span id="i1b4jvm"></span><span id="ige05dm"></span><span id="i7m9j4o">Pick a Package & Customize It</span></div><div class="pwb-flex-grid-wrap" id="iqlxmn9-3-6"><img src="../files.staging.peachworlds.com/website/92b731c1-fd64-488c-ad93-c467c3a606bb/step1-1.png" loading="lazy" id="i1j7jnd-2" data-has-states="1"><img src="../files.staging.peachworlds.com/website/0e984529-0f9f-49f6-ae83-bf9c5b867e58/step1-2.png" loading="lazy" id="i1j7jnd-2-3" data-has-states="1"></div><div class="pwb-flex-grid-wrap" id="iqlxmn9-3-6-3"><img src="../files.staging.peachworlds.com/website/57921c9f-c7f0-44a8-bce8-c87d20e19d94/step1-3.png" loading="lazy" id="i1j7jnd-2-4" data-has-states="1"><img src="../files.staging.peachworlds.com/website/d3f3bcf7-fb34-41c4-a448-fae2d5bc91c7/step1-4.png" loading="lazy" id="i1j7jnd-2-3-2" data-has-states="1"></div></div><img class="pw-image-style" src="../files.staging.peachworlds.com/website/fd4515b1-15bf-4e33-8a1c-c104836dd0cd/card-overlay-drak.svg" loading="lazy" id="ikn3uyp-3-6"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/fd072ad2-7a23-463f-b623-8e39daa28f0f/glow-line-dark.svg" loading="lazy" id="ikn3uyp-2-2-7"></div><div class="pwb-flex-grid-wrap" id="in6nbcy-2-3-4-2"><div class="framer-1cc0f02" id="imob0j-3-2-3-3-3-2"><div id="i2omk-2-2-3-3-7-3-2"><span id="i1b4jvm-2"></span><span id="i30w36j"></span><span id="id68imu"></span><span id="ivyo05i">Review Forecast & Bidding Guidance</span></div><div class="pwb-flex-grid-wrap" id="iqlxmn9-3-3-2"><img src="../files.staging.peachworlds.com/website/076d5b65-f5be-4c62-9a57-820ea316e0a4/step2.png" loading="lazy" id="i1j7jnd-3-3"></div></div><img class="pw-image-style" src="../files.staging.peachworlds.com/website/fd4515b1-15bf-4e33-8a1c-c104836dd0cd/card-overlay-drak.svg" loading="lazy" id="ikn3uyp-3-4"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/fd072ad2-7a23-463f-b623-8e39daa28f0f/glow-line-dark.svg" loading="lazy" id="ikn3uyp-2-2-5"></div><div class="pwb-flex-grid-wrap" id="in6nbcy-2-3-4-2-2"><div class="framer-1cc0f02" id="imob0j-3-2-3-3-3-2-2"><div id="i2omk-2-2-3-3-7-3-2-2"><span id="i1b4jvm-2-2"></span><span id="i3zceaf"></span><span id="icai1o9"></span><span id="i256ep8">Generate PMP Deals within Seconds</span></div><div class="pwb-flex-grid-wrap" id="iqlxmn9-3-3-2-2"><img src="../files.staging.peachworlds.com/website/33a39fb5-d04e-4dcd-a249-c99fd8d78662/slide-3.png" loading="lazy" id="i1j7jnd-3-3-2"></div></div><img class="pw-image-style" src="../files.staging.peachworlds.com/website/fd4515b1-15bf-4e33-8a1c-c104836dd0cd/card-overlay-drak.svg" loading="lazy" id="ikn3uyp-3-5"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/fd072ad2-7a23-463f-b623-8e39daa28f0f/glow-line-dark.svg" loading="lazy" id="ikn3uyp-2-2-6"></div></div><div class="pw-no-class-fix pwb-embed" id="improb-2-2"><style>
+  body {
+    margin: 0;
+    font-family: sans-serif;
+    background: black;
+  }
+
+  .carousel-container {
+    overflow: hidden;
+    width: 100%;
+    background: none;
+  }
+
+  .carousel-track {
+    display: flex;
+    width: max-content;
+    will-change: transform;
+  }
+
+  .carousel-item {
+    display: inline-flex; height: 48px;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #C2A3FF;
+    padding: 14px 16px;
+    margin-right: 16px;
+    border-radius: 100px;
+    flex-shrink: 0;
+    white-space: nowrap; 
+    box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.35) inset, 0 -1px 0 0 rgba(0, 0, 0, 0.35) inset;
+  }
+
+  .carousel-item img {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+    flex-shrink: 0;
+  }
+
+  .carousel-item span {
+    color: #1E2242;
+    font-size: 18px;
+  }
+</style>
+
+<div class="carousel-container">
+  <div class="carousel-track" id="carousel-track">
+    <!-- Tiles will be added by JS -->
+  </div>
+</div>
+
+<script>
+  const features = [
+    "Carbon Efficient",
+    "Audio",
+    "SIMID",
+    "Audience-Layered",
+    "Contextual",
+    "CTV",
+    "Performance",
+    "Rich Media",
+    "User Session Data",
+    "Demographics",
+    "Sensitive or Regulated",
+    "DOOH",
+    "YouTube"
+  ];
+
+  const icons = [
+  "/files.staging.peachworlds.com/website/264c96f8-d459-4106-b502-c32384bcb721/carbon.svg",
+  "/files.staging.peachworlds.com/website/a9be850d-1451-4f74-b84b-bcd2df9cb09f/audio.svg",
+  "/files.staging.peachworlds.com/website/b088b1f8-a252-49b3-b3dc-adbc4b95b9b3/simid.svg",
+  "/files.staging.peachworlds.com/website/7a4897b3-59ca-4ec8-969d-b4267f45311f/audience.svg",
+  "/files.staging.peachworlds.com/website/3b527dc5-7bce-46b9-913f-d59e59e2673f/context.svg",
+  "/files.staging.peachworlds.com/website/4fad83f3-150e-438b-ad23-91ea19405411/ctv.svg",
+  "/files.staging.peachworlds.com/website/a1e598f8-cfc0-46e7-8448-391e6107eddd/performance.svg",
+  "/files.staging.peachworlds.com/website/f08c2ca2-66ed-4c6f-b863-927e602245bb/media.svg",
+  "/files.staging.peachworlds.com/website/01efcd3e-a0a7-4a00-b1b6-f40a2d8e20a4/user-data.svg",
+  "/files.staging.peachworlds.com/website/15ac20c2-dbe5-4003-90fd-d632ae518918/demographics.svg",
+  "/files.staging.peachworlds.com/website/6b45282e-e7e3-4909-b0b5-83ddc2de0d45/cone.svg",
+  "/files.staging.peachworlds.com/website/03721bce-002b-4552-9371-c414fd142aba/billboard.svg",
+  "/files.staging.peachworlds.com/website/44a66b62-442c-4e47-887d-294a41568766/youtube.svg"
+];
+
+  const track = document.getElementById("carousel-track");
+
+  [...features.entries(), ...features.entries()].forEach(([i, label]) => {
+    const item = document.createElement('div');
+    item.className = 'carousel-item';
+    item.innerHTML = `
+      <img src="${icons[i % icons.length]}" alt="${label}">
+      <span>${label}</span>
+    `;
+    track.appendChild(item);
+  });
+
+  let scrollX = 0;
+  const speed = 0.5;
+
+  function animate() {
+    scrollX -= speed;
+    if (Math.abs(scrollX) >= track.scrollWidth / 2) {
+      scrollX = 0;
+    }
+    track.style.transform = `translateX(${scrollX}px)`;
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+</script>
+</div><div class="pw-block-style" id="is4hc3g"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/0912338d-3284-4328-948f-58dd926cc0ba/audience.svg" loading="lazy" id="itrgrjh"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/44a66b62-442c-4e47-887d-294a41568766/youtube.svg" loading="lazy" id="itrgrjh-2"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/01efcd3e-a0a7-4a00-b1b6-f40a2d8e20a4/user-data.svg" loading="lazy" id="itrgrjh-2-2"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/6b45282e-e7e3-4909-b0b5-83ddc2de0d45/cone.svg" loading="lazy" id="itrgrjh-2-2-2"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/f08c2ca2-66ed-4c6f-b863-927e602245bb/media.svg" loading="lazy" id="itrgrjh-2-2-2-2-2"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/b0d555dc-0a4a-4057-92c4-176fbbf4dbb2/performance.svg" loading="lazy" id="itrgrjh-2-2-2-2-2-2"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/05a74c5f-2220-4c23-9141-c1eb22b9c9c9/ctv.svg" loading="lazy" id="itrgrjh-2-2-2-2-2-2-2"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/15ac20c2-dbe5-4003-90fd-d632ae518918/demographics.svg" loading="lazy" id="itrgrjh-2-2-2-2-2-2-2-2-2"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/03721bce-002b-4552-9371-c414fd142aba/billboard.svg" loading="lazy" id="itrgrjh-2-2-2-2-2-2-2-2-2-2"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/13e8e46e-a2f7-48d7-ab51-262ebd3dc1e3/context.svg" loading="lazy" id="itrgrjh-2-2-2-2-2-2-2-2-2-2-2"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/264c96f8-d459-4106-b502-c32384bcb721/carbon.svg" loading="lazy" id="itrgrjh-2-2-2-2-2-2-2-2-2-2-2-2"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/a9be850d-1451-4f74-b84b-bcd2df9cb09f/audio.svg" loading="lazy" id="itrgrjh-2-2-2-2-2-2-2-2-2-2-2-2-2"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/b088b1f8-a252-49b3-b3dc-adbc4b95b9b3/simid.svg" loading="lazy" id="itrgrjh-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2"></div></div></div><div class="pwb-flex-grid-wrap" id="i0loz7-3-2-2-4"></div><div class="pwb-anchor" id="iee4h3-3-2-2-2-2-2-4-3"></div><div class="pwb-flex-grid-wrap" id="i0loz7-3-2-2-4-3"></div><div class="pwb-flex-grid-wrap" id="i0loz7-3-2-2-2"></div><div class="pwb-anchor" id="iee4h3-3-2-2-2-2-2-4-2"></div><div class="pwb-flex-grid-wrap" id="i0loz7-3-2-2-3"></div><div class="pwb-anchor" id="iee4h3-3-2-2-2-2-2-4-2-2"></div><div class="pwb-flex-grid-wrap" id="ibdecd"><div class="pwb-flex-grid-wrap" id="imqgmk-2-2"><div class="pwb-flex-grid-wrap" id="ixycwt-2-2-3"><div id="inm1q-3-2-2-2-2-3"><span id="ijj1lp6"></span><span id="i7xarqz"></span><span id="iwlmp3k"> Start Trading Supply-Side Today</span></div><div class="pwb-flex-grid-wrap" id="irsa34-2-4"><div class="pw-block-style" id="ixnbo71-3-3"><div class="pwb-flex-grid-wrap" id="ioqrg-2-2-2-3-3" data-has-states="1"><div class="framer-1cc0f02" id="imob0j-3-5-2-2-5"></div><div class="pwb-flex-grid-wrap" id="ipavn-2-2-2-2-2-2-2-3-3"><div id="i6wd7-2-2-2-2-2-2-2-3-3"><span id="ic0tx-2-2-2-3-2">Get Started</span> — it's Free</div></div></div></div><div class="pw-block-style" id="ixnbo71-2-2-4"><div class="pwb-flex-grid-wrap" id="ioqrg-2-2-2-2-2-2-3-4" data-has-states="1"><div class="framer-1cc0f02" id="imob0j-3-5-2-5"></div><div class="pwb-flex-grid-wrap" id="ipavn-2-2-2-2-2-2-2-2-2-2-3-4"><div id="i6wd7-2-2-2-2-2-2-2-2-2-2-3-4" data-has-states="1"><font id="i00y82-2-3-4" face="neuehaasdisplayroman">Book a Call</font></div></div></div></div></div><div class="pwb-flex-grid-wrap" id="irsa34-2-3-4-2-2-4"><div class="pw-block-style" id="ixnbo71-3-3-2-2-4"><div class="pwb-flex-grid-wrap" id="ioqrg-2-2-2-3-3-2-2-4" data-has-states="1"><div class="pwb-flex-grid-wrap" id="ipavn-2-2-2-2-2-2-2-3-3-2-2-4"><div id="i6wd7-2-2-2-2-2-2-2-3-3-2-2-4"><span id="ic0tx-2-2-2-3-2-3-2-4">Get started</span> — it's free</div></div></div></div><div class="pw-block-style" id="ixnbo71-2-2-4-2-2-4"><div class="pwb-flex-grid-wrap" id="ioqrg-2-2-2-2-2-2-3-4-2-2-4" data-has-states="1"><div class="framer-1cc0f02" id="imob0j-3-5-2-5-2-2-4"></div><div class="pwb-flex-grid-wrap" id="ipavn-2-2-2-2-2-2-2-2-2-2-3-4-2-2-4"><div id="i6wd7-2-2-2-2-2-2-2-2-2-2-3-4-2-2-4" data-has-states="1"><font id="i00y82-2-3-4-2-2-4" face="neuehaasdisplayroman">Book a Call</font></div></div></div></div></div></div><div class="pwb-flex-grid-wrap" id="i0h78r"><div class="pwb-flex-grid-wrap" id="i3dc64"><div class="pwb-flex-grid-wrap" id="ibblux"><div id="ipsa3o" data-has-states="1">PRODUCT</div><div id="ia6ok2" data-has-states="1">Curation</div><div id="ia6ok2-3" data-has-states="1">Monetization<br id="iftwn7n"></div></div><div class="pwb-flex-grid-wrap" id="ibblux-2"><div id="ipsa3o-2" data-has-states="1">USE CASES</div><div id="ia6ok2-3-8" data-has-states="1">Plants & Fungi<br id="iftwn7n-2"></div><div id="ia6ok2-3-8-2" data-has-states="1">Birds & Wildlife</div><div id="ia6ok2-3-8-2-2" data-has-states="1">Marine & Fish</div><div id="ia6ok2-3-8-2-2-2" data-has-states="1">Insects & Bugs</div></div><div class="pwb-flex-grid-wrap" id="ibblux-2-2-4-2-3"><div id="ipsa3o-2-2-4-2-3" data-has-states="1">CHANNELS</div><div id="ia6ok2-3-8-2-3-2-2-2-2-3-2-3" data-has-states="1">CTV</div><div id="ia6ok2-3-8-2-3-2-5-2-3" data-has-states="1">Display / Native</div><div id="ia6ok2-3-8-2-3-2-2-2-4-2-3" data-has-states="1">DOOH</div><div id="ia6ok2-3-8-2-3-2-2-4-2-3" data-has-states="1">Video / Audio</div><div id="ia6ok2-3-8-2-3-4-2-3" data-has-states="1">YouTube</div></div><div class="pwb-flex-grid-wrap" id="ibblux-2-2-2"><div id="ipsa3o-2-2-2" data-has-states="1">RESOURCES</div><div id="ia6ok2-3-8-2-3-2-3" data-has-states="1">In The Press</div><div id="ia6ok2-3-8-2-3-2-3-6" data-has-states="1">Partner Directory</div><div id="ia6ok2-3-8-2-3-2-3-2" data-has-states="1">Live Chat</div><div id="ia6ok2-3-8-2-3-2-3-2-2" data-has-states="1">System Status</div><div id="ia6ok2-3-8-2-3-2-3-2-2-2" data-has-states="1">Book a Demo</div><div id="ia6ok2-3-8-2-3-2-3-2-2-2-2" data-has-states="1">Documentation</div><div id="ia6ok2-3-8-2-3-2-3-2-2-2-2-2" data-has-states="1">Contact Us</div></div><div class="pwb-flex-grid-wrap" id="ibblux-2-2-2-2"><div id="ipsa3o-2-2-2-2" data-has-states="1">LEGAL</div><div id="ia6ok2-3-8-2-3-2-3-4" data-has-states="1">Website Privacy Policy</div><div id="ia6ok2-3-8-2-3-2-3-4-2" data-has-states="1">Terms of Service</div><div id="ia6ok2-3-8-2-3-2-3-2-2-3" data-has-states="1">Services Privacy Policy</div><div id="ia6ok2-3-8-2-3-2-3-2-2-2-3" data-has-states="1">Consumer Access Request</div><div class="pw-embed-style pwb-embed" id="ie5hjah"><a href="javascript:Didomi.preferences.show()" class="privacy-link padding">
+  Do Not Share or Sell My <br> Personal Information
+</a>
+<br>
+<a href="javascript:Didomi.preferences.show()" class="privacy-link">
+  Opt Out
+</a>
+
+<style>
+  .privacy-link {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+    color: #FFFFFF;
+    text-decoration: none;
+    display: inline-block;
+    transition: opacity 0.3s ease;
+  }
+.padding { padding-bottom: 8px; }
+  .privacy-link:hover {
+    opacity: 0.7;
+  }
+</style>
+
+</div><div id="ia6ok2-3-8-2-3-2-3-2-2-2-2-3" data-has-states="1">Do Not Share or Sell My <br id="iscmq3a">Personal Information</div><div id="ia6ok2-3-8-2-3-2-3-2-2-2-2-3-2" data-has-states="1">Opt Out</div></div></div></div><div class="pwb-flex-grid-wrap" id="i0h78r-2"><div class="pwb-flex-grid-wrap" id="i3dc64-2"><div class="pw-block-style" id="izyght5"><div class="pwb-flex-grid-wrap" id="ibblux-9"><div id="ipsa3o-9" data-has-states="1">PRODUCT</div><div id="ia6ok2-2" data-has-states="1">Curation</div><div id="ia6ok2-3-9" data-has-states="1">Monetization<br id="iftwn7n-3"></div></div><div class="pwb-flex-grid-wrap" id="ibblux-2-2-3"><div id="ipsa3o-2-2-3" data-has-states="1">CHANNELS</div><div id="ia6ok2-3-8-2-3-2-2-2-2-2" data-has-states="1">CTV</div><div id="ia6ok2-3-8-2-3-2-4" data-has-states="1">Display / Native</div><div id="ia6ok2-3-8-2-3-2-2-2-3" data-has-states="1">DOOH</div><div id="ia6ok2-3-8-2-3-2-2-3" data-has-states="1">Video / Audio</div><div id="ia6ok2-3-8-2-3-3" data-has-states="1">YouTube</div></div><div class="pwb-flex-grid-wrap" id="ibblux-2-2-2-2-2"><div id="ipsa3o-2-2-2-2-2" data-has-states="1">LEGAL</div><div id="ia6ok2-3-8-2-3-2-3-4-3" data-has-states="1">Website Privacy Policy</div><div id="ia6ok2-3-8-2-3-2-3-4-2-2" data-has-states="1">Terms of Service</div><div id="ia6ok2-3-8-2-3-2-3-2-2-3-2" data-has-states="1">Services Privacy Policy</div><div id="ia6ok2-3-8-2-3-2-3-2-2-2-3-2" data-has-states="1">Consumer Access Request</div><div class="pw-embed-style pwb-embed" id="ie5hjah-2"><a href="javascript:Didomi.preferences.show()" class="privacy-link padding">
+  Do Not Share or Sell <br> My Personal Information
+</a>
+<br>
+<a href="javascript:Didomi.preferences.show()" class="privacy-link">
+  Opt Out
+</a>
+
+<style>
+  .privacy-link {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+    color: #ffffff;
+    opacity: 1;
+    text-decoration: none;
+    display: inline-block;
+    width: 100%;
+    transition: instant;
+  }
+
+  .padding { 
+    padding-bottom: 8px; 
+  }
+
+  .privacy-link:hover {
+    opacity: 0.6;
+  }
+</style>
+</div></div></div><div class="pw-block-style" id="izyght5-2"><div class="pw-block-style" id="i0e1vxy"><div class="pwb-flex-grid-wrap" id="ibblux-2-3"><div id="ipsa3o-2-3" data-has-states="1">USE CASES</div><div id="ia6ok2-3-8-3" data-has-states="1">Plants & Fungi<br id="iftwn7n-2-2"></div><div id="ia6ok2-3-8-2-4" data-has-states="1">Birds & Wildlife</div><div id="ia6ok2-3-8-2-2-3" data-has-states="1">Marine & Fish</div><div id="ia6ok2-3-8-2-2-2-2" data-has-states="1">Insects & Bugs</div></div><div class="pwb-flex-grid-wrap" id="ibblux-2-2-2-3"><div id="ipsa3o-2-2-2-3" data-has-states="1">RESOURCES</div><div id="ia6ok2-3-8-2-3-2-3-7-6-2-7-2" data-has-states="1">In The Press</div><div id="ia6ok2-3-8-2-3-2-3-3" data-has-states="1">Partner Directory</div><div id="ia6ok2-3-8-2-3-2-3-2-3" data-has-states="1">Live Chat</div><div id="ia6ok2-3-8-2-3-2-3-2-2-4" data-has-states="1">System Status</div><div id="ia6ok2-3-8-2-3-2-3-2-2-2-4" data-has-states="1">Book a Demo</div><div id="ia6ok2-3-8-2-3-2-3-2-2-2-2-4" data-has-states="1">Documentation</div><div id="ia6ok2-3-8-2-3-2-3-2-2-2-2-2-2" data-has-states="1">Contact Us</div></div></div><div class="pw-block-style" id="i7tw2wt-2"><div class="pwb-flex-grid-wrap" id="ivehjk-3"><div class="pwb-flex-grid-wrap" id="itv616-2-5-2-2-3-7-2"><div class="pwb-flex-grid-wrap" id="i56x6r-2-5-2-2-3-7-2" data-has-states="1"><img src="../files.staging.peachworlds.com/website/41608704-5ba8-432c-af38-64178cff8cd6/ico-linked.svg" loading="lazy" id="ihvpmx-2-5-2-2-3-7-2"><div class="framer-1cc0f02" id="imob0j-3-2-2-3-4-4-2-5-2-2-3-7-2"></div></div></div></div><img class="pw-image-style" src="../files.staging.peachworlds.com/website/037a8077-07a0-48e3-a915-55a2e98a6952/logo-iab-1.png" loading="lazy" id="it1ordz-2"></div></div></div></div><div class="pwb-flex-grid-wrap" id="ibblux-3"><div id="ia6ok2-4">Ask AI for a summary of Nature AI</div><div class="pw-block-style" id="i7tw2wt-4"><div class="pwb-flex-grid-wrap" id="ivehjk-2"><div class="pwb-flex-grid-wrap" id="itv616-2-5-2-2-3-7-4"><div class="pwb-flex-grid-wrap" id="i56x6r-2-5-2-2-3-7-4" data-has-states="1"><img src="../files.peachworlds.com/website/cc09f8b5-7a08-4a16-a9da-4c8a14cc2283/svgexport-1-1.png" loading="lazy" id="ihvpmx-2-5-2-2-3-7-4"><div class="framer-1cc0f02" id="imob0j-3-2-2-3-4-4-2-5-2-2-3-7-4"></div></div><div class="pwb-flex-grid-wrap" id="i56x6r-2-5-2-2-3-7-4-2" data-has-states="1"><img src="../files.peachworlds.com/website/911878c3-a992-4980-9b5c-37a25869dc22/g314.png" loading="lazy" id="ihvpmx-2-5-2-2-3-7-4-2"><div class="framer-1cc0f02" id="imob0j-3-2-2-3-4-4-2-5-2-2-3-7-4-2"></div></div><div class="pwb-flex-grid-wrap" id="i56x6r-2-5-2-2-3-7-4-3" data-has-states="1"><img src="../files.peachworlds.com/website/a188cb55-bb56-4d45-b1e8-3f229c9ced63/svgexport-1-3-1.png" loading="lazy" id="ihvpmx-2-5-2-2-3-7-4-3"><div class="framer-1cc0f02" id="imob0j-3-2-2-3-4-4-2-5-2-2-3-7-4-3"></div></div><div class="pwb-flex-grid-wrap" id="i56x6r-2-5-2-2-3-7-4-4" data-has-states="1"><img src="../files.peachworlds.com/website/d6390522-5cd6-4854-af51-e2e155bafe49/vector.png" loading="lazy" id="ihvpmx-2-5-2-2-3-7-4-4"><div class="framer-1cc0f02" id="imob0j-3-2-2-3-4-4-2-5-2-2-3-7-4-4"></div></div><div class="pwb-flex-grid-wrap" id="i56x6r-2-5-2-2-3-7-4-5" data-has-states="1"><img src="../files.peachworlds.com/website/ac4dbe47-e28b-4245-9a0f-bc79db749515/svgexport-1-4-1.png" loading="lazy" id="ihvpmx-2-5-2-2-3-7-4-5"><div class="framer-1cc0f02" id="imob0j-3-2-2-3-4-4-2-5-2-2-3-7-4-5"></div></div></div></div></div></div><div class="pw-block-style" id="i7tw2wt"><div class="pwb-flex-grid-wrap" id="ivehjk"><div class="pwb-flex-grid-wrap" id="itv616-2-5-2-2-3-7"><div class="pwb-flex-grid-wrap" id="i56x6r-2-5-2-2-3-7" data-has-states="1"><img src="../files.staging.peachworlds.com/website/41608704-5ba8-432c-af38-64178cff8cd6/ico-linked.svg" loading="lazy" id="ihvpmx-2-5-2-2-3-7"><div class="framer-1cc0f02" id="imob0j-3-2-2-3-4-4-2-5-2-2-3-7"></div></div></div></div><img class="pw-image-style" src="../files.staging.peachworlds.com/website/037a8077-07a0-48e3-a915-55a2e98a6952/logo-iab-1.png" loading="lazy" id="it1ordz"></div><div class="pw-block-style" id="i743mek"><div id="ijn8ii-2-2"><span id="i4jt91y">©2026 <span id="i1k927h" data-has-states="1">Nature AI</span>: Deep Minded Services Limited.</span></div></div><div class="pwb-flex-grid-wrap" id="ixlw3c-2-2-2-2-2-2-2-2-3"></div><img src="../files.staging.peachworlds.com/website/6b1d80ee-cc80-48cb-965f-4b3e8feec214/gradient.png" loading="lazy" id="i9m2ahj"></div></div><div class="pwb-anchor" id="iee4h3-3-2-2-2-2-2-2"></div></div></div>
+        </div>
+        <div id="pwb-loading-wrap"><div class="pwb-flex-grid-wrap" id="im2i"><div class="pwb-flex-grid-wrap" id="ifbapuu"></div><div class="pwb-flex-grid-wrap" id="if489kl"><img src="/files.staging.peachworlds.com/website/66551738-8570-460c-a065-5081968cd019/curated-logo.svg" loading="eager" id="ixe4zkj"><div class="pw-no-class-fix pwb-embed" id="ixbkdz"><div style="
+  position: relative;
+  overflow: hidden;
+  height: 28px;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  color: white;
+  line-height: 28px;
+">
+  <div style="height:28px; overflow:hidden;">
+  <div style="
+    display:flex;
+    flex-direction:column;
+    animation:smoothRoll 12s infinite ease-in-out;
+    will-change: transform;
+  ">
+    <div style="height:28px;">Initializing Nature AI Engine…</div>
+    <div style="height:28px;">Optimizing Supply Pathways…</div>
+    <div style="height:28px;">Configuring Real-Time Optimizations...</div>
+    <div style="height:28px;">Activating Smart Buying Signals…</div>
+  </div>
+</div>
+
+<style>
+@keyframes smoothRoll {
+  0%, 20%   { transform: translateY(0%); }
+  25%, 45%  { transform: translateY(-25%); }
+  50%, 70%  { transform: translateY(-50%); }
+  75%, 95%  { transform: translateY(-75%); }
+  100%      { transform: translateY(0%); }
+}
+</style>
+</div>
+</div><div class="pw-no-class-fix pwb-embed" id="ixbkdz-2"><div style="
+  position: relative;
+  overflow: hidden;
+  height: 28 px;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  font-size: 28px;
+  color: white;
+  line-height: 28px;
+">
+  <div style="height:30px; overflow:hidden;">
+  <div style="
+    display:flex;
+    flex-direction:column;
+    animation:smoothRoll 12s infinite ease-in-out;
+    will-change: transform;
+  ">
+    <div style="height:30px;">Initializing Nature AI Engine…</div>
+    <div style="height:30px;">Optimizing Supply Pathways…</div>
+    <div style="height:30px;">Configuring Real-Time Optimizations...</div>
+    <div style="height:30px;">Activating Smart Buying Signals…</div>
+  </div>
+</div>
+
+<style>
+@keyframes smoothRoll {
+  0%, 20%   { transform: translateY(0%); }
+  25%, 45%  { transform: translateY(-25%); }
+  50%, 70%  { transform: translateY(-50%); }
+  75%, 95%  { transform: translateY(-75%); }
+  100%      { transform: translateY(0%); }
+}
+</style>
+</div>
+</div></div></div></div>
+        
+
+       <!-- Waterfall optimization -->
+        <script type="text/javascript">
+          window._pwPreviewResourceUrls = [];
+          (function waterfallOptimizationScript(){window._pwPreviewResourceUrls=window._pwPreviewResourceUrls||[];if(!window._pwLoadFileRequestsCache)window._pwLoadFileRequestsCache=new Map;if(!window._pwLoadFileResolveFnCache)window._pwLoadFileResolveFnCache=new Map;window._pwSetFileCache=(fileUrl,blob)=>{if(!window._pwLoadFileResolveFnCache)throw new Error(`Variable "_pwLoadFileResolveFnCache" is undefined.`);const blobUrl=(window.URL||window.webkitURL).createObjectURL(blob);const resolveFn=window._pwLoadFileResolveFnCache.get(fileUrl);if(!resolveFn)throw new Error(`Resolve function for file "${fileUrl}" not found.`);resolveFn(blobUrl)};window._pwWaitForExplicitFileResolve=fileUrl=>{if(!window._pwLoadFileResolveFnCache)throw new Error(`Variable "_pwLoadFileResolveFnCache" is undefined.`);if(!window._pwLoadFileRequestsCache)throw new Error(`Variable "_pwLoadFileRequestsCache" is undefined.`);if(window._pwLoadFileResolveFnCache.has(fileUrl)&&window._pwLoadFileRequestsCache.has(fileUrl))return;let resolveFn=void 0;const explicitWaitPromise=new Promise(resolve=>{resolveFn=resolve});window._pwLoadFileResolveFnCache.set(fileUrl,resolveFn);window._pwLoadFileRequestsCache.set(fileUrl,explicitWaitPromise)};window._pwLoadFileFromCacheHelper=async fileUrl=>{if(!fileUrl)return void 0;try{const response=await fetch(fileUrl);if(!response.ok)return void 0;const blob=await response.blob();const blobUrl=(window.URL||window.webkitURL).createObjectURL(blob);return blobUrl}catch(error){return void 0}};window._pwLoadFileFromCache=async fileUrl=>{if(!fileUrl)return void 0;if(!window._pwLoadFileRequestsCache)throw new Error(`Variable "_pwLoadFileRequestsCache" is undefined.`);let requestPromise=window._pwLoadFileRequestsCache.get(fileUrl);if(!requestPromise){if(!window._pwLoadFileFromCacheHelper)throw new Error(`Function "_pwLoadFileFromCacheHelper" is undefined.`);requestPromise=window._pwLoadFileFromCacheHelper(fileUrl);window._pwLoadFileRequestsCache.set(fileUrl,requestPromise)}return await requestPromise};for(const explicitResourceUrl of window._pwPreviewResourceUrls)window._pwWaitForExplicitFileResolve(explicitResourceUrl)})();
+        </script>
+
+        <script type="text/javascript">
+          window._pwExecLoadingPageJavascript = () => {
+            
+          };
+          window._pwExecLoadingPageJavascript();
+        </script>
+
+        <style>
+  .loader {
+    width: 60px;
+    height: 60px;
+    border: 4px dotted #fff;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    box-sizing: border-box;
+    animation: rotation 3.5s linear infinite;
+  }
+
+  @media (max-width: 480px) {
+    .loader {
+      width: 48px;
+      height: 48px;
+      animation: rotation 2s linear infinite;
+    }
+  }
+
+  @keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+</style>
+<script>
+  document.querySelectorAll("#ifbapuu").forEach(function (el) {
+    el.innerHTML = "<span class='loader'></span>";
+  });
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+  function enableDidomiScroll() {
+    const popup = document.querySelector('#didomi-host');
+    const dialog = document.querySelector('.didomi-consent-popup__dialog');
+    const backdrop = document.querySelector('.didomi-consent-popup__backdrop');
+    const canvasBlock = document.getElementById('ip9j');
+    const cookieBanner = document.querySelector('.didomi-notice');  /* 🍪 Cookie banner */
+
+    if (!dialog || !popup) return;
+
+    /* ✅ Make Didomi scrollable inside */
+    Object.assign(dialog.style, {
+      display: 'block',
+      position: 'relative',
+      maxHeight: '100vh',
+      overflowY: 'auto',
+      overflowX: 'hidden',
+      webkitOverflowScrolling: 'touch',
+      touchAction: 'pan-y',
+      pointerEvents: 'auto',
+      zIndex: '2147483647'
+    });
+
+    /* ⭐️ High z-index for the entire Didomi host */
+    Object.assign(popup.style, {
+      position: 'relative',
+      zIndex: '2147483646'
+    });
+
+    /* Fix backdrop layout */
+    if (backdrop) {
+      Object.assign(backdrop.style, {
+        alignItems: 'flex-start',
+        justifyContent: 'center',
+        overflow: 'hidden',
+        zIndex: '2147483645'
+      });
+    }
+
+    /* 🍪 Force cookie banner BELOW popup & backdrop */
+    if (cookieBanner) {
+      cookieBanner.style.setProperty('z-index', '2147483644', 'important'); /* 🔥 force override */
+      cookieBanner.style.setProperty('pointer-events', 'none', 'important');
+      cookieBanner.style.setProperty('opacity', '0.7', 'important');
+    }
+
+    /* 🚫 Lock 3D canvas and body scroll */
+    if (canvasBlock) {
+      canvasBlock.style.overflow = 'hidden';
+      canvasBlock.style.pointerEvents = 'none';
+    }
+    document.body.style.overflow = 'hidden';
+
+    /* 🧠 Stop smooth scroll scripts from stealing input */
+    ['wheel','touchmove'].forEach(evt => {
+      popup.addEventListener(evt, e => e.stopPropagation(), { passive: false });
+    });
+  }
+
+  function disableDidomiScroll() {
+    const canvasBlock = document.getElementById('ip9j');
+    const cookieBanner = document.querySelector('.didomi-notice');
+    if (canvasBlock) {
+      canvasBlock.style.overflow = '';
+      canvasBlock.style.pointerEvents = '';
+    }
+    if (cookieBanner) {
+      cookieBanner.style.removeProperty('z-index');
+      cookieBanner.style.removeProperty('pointer-events');
+      cookieBanner.style.removeProperty('opacity');
+    }
+    document.body.style.overflow = '';
+  }
+
+  /* 🕵️ Watch for Didomi popup and re-apply hierarchy */
+  const observer = new MutationObserver(() => {
+    const dialogVisible = document.querySelector('.didomi-consent-popup__dialog');
+    if (dialogVisible && dialogVisible.offsetParent !== null) {
+      enableDidomiScroll();
+    } else {
+      disableDidomiScroll();
+    }
+  });
+
+  observer.observe(document.body, { childList: true, subtree: true });
+});
+</script>
+
+        
+      
+</body></html>
