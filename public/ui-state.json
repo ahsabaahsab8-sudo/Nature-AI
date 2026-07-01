@@ -1,1 +1,2416 @@
-{"devices":{"mobile":{"scrollSettings":{"type":"smooth","speed":100,"easing":"default","duration":1200,"isInfinite":false},"canvases":{"ivp3":{"sceneId":"04e75d4b-9e7f-45d7-bc1e-f0c201aa3915"}}},"tablet":{"scrollSettings":{"type":"native","speed":100,"easing":"default","duration":1200,"isInfinite":false},"canvases":{"ivp3":{}}},"desktop":{"scrollSettings":{"type":"smooth","speed":100,"easing":"default","duration":1200,"isInfinite":false},"canvases":{"ivp3":{"sceneId":"39084bcb-331f-41ba-b3fc-4a28a104c9c3","cameraId":"ea94b165-c53b-4704-87a9-1633ae09cd51"}}}},"sections":{"i84ba":{"name":"hero-trigger","offsetY":0,"hash":"hero-trigger"},"idh9or":{"name":"2","offsetY":0,"hash":"2"},"i9iedj7":{"name":"2B","offsetY":0,"hash":"2b"}},"links":{"ispyh-2-3-2-3-2-3-2":{"type":"internal","pageId":"8161f13a-ba38-423e-969f-ffef74a7b46b","pagePath":"/industries"},"ispyh-2-3-2-3-2-2-2-2":{"type":"internal","pageId":"580cc0b9-4155-444d-bc35-372a5f3c6c48","pagePath":"/about"},"ispyh-2-3-2-3-2-2-2-2-2":{"type":"external","url":"https://mindhyveai.wixstudio.com/blog-dv8"},"ispyh-2-3-2-3-2-2-2-2-2-2":{"type":"internal","pageId":"ad3690c8-62f5-478c-9cb0-cb0a04426b84","pagePath":"/contact"},"inh75-3":{"type":"internal","pageId":"4468e8c9-24de-4a18-a566-59a21ea2afb5","sectionId":"i9iedj7","smoothScroll":true,"pagePath":"/","sectionHash":"2b"},"inh75-7":{"type":"internal","pageId":"beff5dc7-2891-493b-9e2f-2913101fcda0","pagePath":"/solutions"},"inh75":{"type":"internal","pageId":"ad3690c8-62f5-478c-9cb0-cb0a04426b84","pagePath":"/contact"},"inh75-2":{"type":"internal","pageId":"beff5dc7-2891-493b-9e2f-2913101fcda0","pagePath":"/solutions"},"inh75-2-2":{"type":"internal","pageId":"beff5dc7-2891-493b-9e2f-2913101fcda0","pagePath":"/solutions"},"inh75-2-3-3":{"type":"internal","pageId":"105bbf39-1b7e-4e00-a033-aec915e7d343","pagePath":"/medopsai"},"inh75-4-3":{"type":"internal","pageId":"ad3690c8-62f5-478c-9cb0-cb0a04426b84","pagePath":"/contact"},"inh75-2-3":{"type":"internal","pageId":"11f9e9cc-e427-491c-810b-e310b71aac57","pagePath":"/lawopsai"},"inh75-2-3-2":{"type":"internal","pageId":"e052acf9-165d-4386-8414-885d07938e58","pagePath":"/eduopsai"},"inh75-5":{"type":"internal","pageId":"ad3690c8-62f5-478c-9cb0-cb0a04426b84","pagePath":"/contact"},"inh75-2-4":{"type":"internal","pageId":"beff5dc7-2891-493b-9e2f-2913101fcda0","pagePath":"/solutions"},"ispyh-2-3-2-3-2-3-2-3":{"type":"internal","pageId":"8161f13a-ba38-423e-969f-ffef74a7b46b","pagePath":"/industries"},"ispyh-2-3-2-3-2-2-2-2-3":{"type":"internal","pageId":"580cc0b9-4155-444d-bc35-372a5f3c6c48","pagePath":"/about"},"ispyh-2-3-2-3-2-2-2-2-2-3":{"url":"https://mindhyveai.wixstudio.com/blog-dv8","type":"external","newTab":true},"ispyh-2-3-2-3-2-2-2-2-2-2-2":{"type":"internal","pageId":"ad3690c8-62f5-478c-9cb0-cb0a04426b84","pagePath":"/contact"},"inh75-7-2-2":{"type":"internal","pageId":"beff5dc7-2891-493b-9e2f-2913101fcda0","pagePath":"/solutions"},"ispyh-2-2-2-2-2-2-2-4-2-3-3-2-3-2-4-2-3-8-8":{"type":"internal","pageId":"4468e8c9-24de-4a18-a566-59a21ea2afb5","pagePath":"/"},"inh75-2-4-3-2-2-3-2-3-2-5-2-3-8-8":{"type":"external","url":"https://www.linkedin.com/company/dv8-infosystems/"},"inh75-2-4-2-3-2-2-3-2-3-2-5-2-3-8-8":{"type":"external","url":"https://www.facebook.com/dv8infosystems"},"inh75-2-4-2-2-3-2-2-3-2-3-2-5-2-3-8-8":{"type":"external","url":"https://x.com/Dv8Infosystems"},"inh75-2-4-2-2-2-2-2-2-3-2-3-2-5-2-3-8-8":{"type":"external","url":"https://www.instagram.com/dv8infosystems/"},"ispyh-2-2-2-2-2-2-2-4-2-2-3-3-2-3-2-4-2-3-8-8":{"type":"internal","pageId":"8161f13a-ba38-423e-969f-ffef74a7b46b","pagePath":"/industries"},"ispyh-2-2-2-2-2-2-2-4-2-2-2-4-3-2-3-2-4-2-3-8-8":{"type":"internal","pageId":"580cc0b9-4155-444d-bc35-372a5f3c6c48","pagePath":"/about"},"ispyh-2-2-2-2-2-2-2-4-2-2-2-2-3-3-2-3-2-4-2-3-8-8":{"type":"external","url":"https://blog.dv8.bz","newTab":true},"ispyh-2-2-2-2-2-2-2-4-2-2-2-2-2-3-3-2-3-2-4-2-3-8-8":{"type":"internal","pageId":"ad3690c8-62f5-478c-9cb0-cb0a04426b84","pagePath":"/contact"},"ispyh-2-2-2-2-2-2-2-4-2-2-2-2-2-2-2-3-2-3-2-4-2-3-8-8":{"type":"external","url":"https://mindhyve.ai/"},"ispyh-2-3-2-3-2-3-2-11":{"type":"internal","pageId":"4468e8c9-24de-4a18-a566-59a21ea2afb5","pagePath":"/"},"ispyh-2-3-2-3-2-3-2-3-9":{"type":"internal","pageId":"4468e8c9-24de-4a18-a566-59a21ea2afb5","pagePath":"/"},"ispyh-2-2-2-2-2-2-2-4-2-2-3-3-2-3-2-4-2-3-8-8-2":{"type":"internal","pageId":"beff5dc7-2891-493b-9e2f-2913101fcda0","pagePath":"/solutions"},"io9cyo-3-2-4-2":{"type":"external","url":"https://blog.dv8.bz/post/the-ai-revolution-by-mindhyve","newTab":true},"idgw7r9":{"type":"internal","pageId":"105bbf39-1b7e-4e00-a033-aec915e7d343","pagePath":"/medopsai"},"ixyyaj2":{"type":"internal","pageId":"e052acf9-165d-4386-8414-885d07938e58","pagePath":"/eduopsai"},"iihsrqn":{"type":"internal","pageId":"11f9e9cc-e427-491c-810b-e310b71aac57","pagePath":"/lawopsai"},"ib2yrlm-8":{"type":"internal","pageId":"105bbf39-1b7e-4e00-a033-aec915e7d343","pagePath":"/medopsai"},"ie4by5i-8":{"type":"internal","pageId":"e052acf9-165d-4386-8414-885d07938e58","pagePath":"/eduopsai"},"iezvswv-8":{"type":"internal","pageId":"11f9e9cc-e427-491c-810b-e310b71aac57","pagePath":"/lawopsai"},"inh75-4-3-2":{"type":"internal","pageId":"ad3690c8-62f5-478c-9cb0-cb0a04426b84","pagePath":"/contact"},"inh75-4-3-3":{"type":"internal","pageId":"ad3690c8-62f5-478c-9cb0-cb0a04426b84","pagePath":"/contact"},"inh75-2-2-3":{"type":"external","url":"https://blog.dv8.bz","newTab":true},"ispyh-2-2-2-2-2-2-2-2-2-3-3-3-2-2-2-3-8-8":{"type":"internal","pageId":"d99217fb-0937-4860-bd2d-42241946d348","sectionId":"ik2wln-4-2-2-4-4","pagePath":"/privacy","sectionHash":"1"},"ispyh-2-2-2-2-2-2-2-2-2-3-3-4-2-2-2-3-8-8":{"type":"internal","pageId":"4237e28a-1d8c-460e-96f3-5f4f10c49249","sectionId":"ik2wln-4-2-2-4-4-2","pagePath":"/terms","sectionHash":"1"},"io9cyo-3-2-4":{"type":"external","url":"https://blog.dv8.bz/post/transforming-healthcare-with-ava-healthcare-the-future-of-ai-driven-clinical-decision-support","newTab":true}},"scrollAnimations":{"i1lwz":{"start":"bottom","effectB":"fade","sectionId":"i84ba","effectA":"fade","type":"section"},"i1lwz-2-2":{"start":"bottom","effectA":"fade","effectB":"fade","sectionId":"i84ba","type":"section"},"isb85k":{"effectA":{"keyframe":{"opacity":0,"offsetX":-150},"transition":{"type":"easeOut","duration":3500}},"effectB":"slide_left","type":"element"},"isb85k-3":{"effectA":{"keyframe":{"opacity":0,"offsetX":350},"transition":{"type":"easeOut","duration":3500}},"effectB":"slide_right","type":"element"},"isb85k-4":{"effectA":{"keyframe":{"opacity":0,"offsetX":250},"transition":{"type":"easeOut","duration":3500}},"effectB":{"keyframe":{"opacity":0,"offsetX":150},"transition":{"type":"easeOut","duration":1000}},"type":"element"},"isb85k-2":{"effectA":{"keyframe":{"opacity":0,"offsetX":-300},"transition":{"type":"easeOut","duration":3500}},"effectB":"slide_left","type":"element"},"isb85k-2-2":{"effectA":{"keyframe":{"opacity":0,"offsetX":300},"transition":{"type":"easeOut","duration":3500}},"effectB":"slide_right","type":"element"}},"interactions":{"i1lwz-2-3-4":[{"actions":[{"id":"iy2h61","type":"uiOverlay","event":"open"}],"mouseCursor":"pointer","triggerType":"mouseClick"}],"i1lwz-2-3-4-2":[{"actions":[{"id":"iy2h61","type":"uiOverlay","event":"close"}],"mouseCursor":"pointer","triggerType":"mouseClick"}],"izd16":[{"triggerType":"mouseEnter","mouseCursor":"pointer","actions":[{"type":"uiOverlay","event":"open","id":"i6gdgk"}]}]},"relativeOverlays":{"i6gdgk":{"position":"bottom","align":"start","offsetOrthogonal":8,"offsetParallel":48,"dismissType":"auto"},"iy2h61":{"position":"bottom","align":"center","offsetOrthogonal":0,"offsetParallel":0,"dismissType":"click"},"i6gdgk-2":{"position":"bottom","align":"center","offsetOrthogonal":8,"offsetParallel":0,"dismissType":"auto"},"iy2h61-2":{"position":"bottom","align":"center","offsetOrthogonal":8,"offsetParallel":0,"dismissType":"auto"},"i6gdgk-3":{"position":"bottom","align":"center","offsetOrthogonal":8,"offsetParallel":0,"dismissType":"auto"},"iy2h61-3":{"position":"bottom","align":"center","offsetOrthogonal":8,"offsetParallel":0,"dismissType":"auto"},"i6gdgk-4":{"position":"bottom","align":"center","offsetOrthogonal":8,"offsetParallel":0,"dismissType":"auto"},"iy2h61-4":{"position":"bottom","align":"center","offsetOrthogonal":8,"offsetParallel":0,"dismissType":"auto"},"i6gdgk-5":{"position":"bottom","align":"center","offsetOrthogonal":8,"offsetParallel":0,"dismissType":"auto"},"iy2h61-5":{"position":"bottom","align":"center","offsetOrthogonal":8,"offsetParallel":0,"dismissType":"auto"},"i6gdgk-6":{"position":"bottom","align":"center","offsetOrthogonal":8,"offsetParallel":0,"dismissType":"auto"},"iy2h61-6":{"position":"bottom","align":"center","offsetOrthogonal":8,"offsetParallel":0,"dismissType":"auto"},"i6gdgk-7":{"position":"bottom","align":"center","offsetOrthogonal":8,"offsetParallel":0,"dismissType":"auto"},"iy2h61-7":{"position":"bottom","align":"center","offsetOrthogonal":8,"offsetParallel":0,"dismissType":"auto"},"i6gdgk-8":{"position":"bottom","align":"center","offsetOrthogonal":8,"offsetParallel":0,"dismissType":"auto"},"iy2h61-8":{"position":"bottom","align":"center","offsetOrthogonal":8,"offsetParallel":0,"dismissType":"auto"},"i6gdgk-5-4":{"position":"bottom","align":"center","offsetOrthogonal":8,"offsetParallel":0,"dismissType":"auto"},"iy2h61-5-4":{"position":"bottom","align":"center","offsetOrthogonal":8,"offsetParallel":0,"dismissType":"auto"},"i6gdgk-5-4-3":{"position":"bottom","align":"center","offsetOrthogonal":8,"offsetParallel":0,"dismissType":"auto"},"iy2h61-5-4-3":{"position":"bottom","align":"center","offsetOrthogonal":8,"offsetParallel":0,"dismissType":"auto"},"i6gdgk-5-4-4":{"position":"bottom","align":"center","offsetOrthogonal":8,"offsetParallel":0,"dismissType":"auto"},"iy2h61-5-4-4":{"position":"bottom","align":"center","offsetOrthogonal":8,"offsetParallel":0,"dismissType":"auto"}},"anchors":{"igf6s8":{"percentage":0},"igf6s8-2":{"percentage":0.1},"igf6s8-3":{"percentage":0.6499999999999999},"igf6s8-3-2":{"percentage":0.18},"igf6s8-3-3":{"percentage":0.47},"igf6s8-3-2-2":{"percentage":0.275},"igf6s8-3-2-2-2":{"percentage":0},"igf6s8-3-2-3":{"percentage":0.245}}}
+{
+  "devices": {
+    "mobile": {
+      "scrollSettings": {
+        "type": "smooth",
+        "speed": 100,
+        "easing": "default",
+        "duration": 1200,
+        "isInfinite": false
+      },
+      "canvases": {
+        "iwq9": {
+          "sceneId": "bf92f8a3-c3cb-427f-9e6e-73575c749606"
+        }
+      }
+    },
+    "tablet": {
+      "scrollSettings": {
+        "type": "smooth",
+        "speed": 100,
+        "easing": "default",
+        "duration": 1200,
+        "isInfinite": false
+      },
+      "canvases": {
+        "iwq9": {}
+      }
+    },
+    "desktop": {
+      "scrollSettings": {
+        "type": "smooth",
+        "speed": 100,
+        "easing": "default",
+        "duration": 1200,
+        "isInfinite": false
+      },
+      "canvases": {
+        "iwq9": {
+          "sceneId": "a2be68de-75b9-45eb-b89f-cac9fd6cde5c",
+          "cameraId": "ea94b165-c53b-4704-87a9-1633ae09cd51"
+        }
+      }
+    }
+  },
+  "sections": {
+    "i9wvtj": {
+      "name": "body",
+      "offsetY": -10,
+      "hash": "body"
+    },
+    "ilex4h": {
+      "name": "start",
+      "offsetY": 0,
+      "hash": "start"
+    },
+    "iee4h3-4": {
+      "name": "video",
+      "offsetY": 0,
+      "hash": "video"
+    },
+    "i58eb-2-2": {
+      "name": "hero",
+      "offsetY": 0,
+      "hash": "hero"
+    },
+    "iqidrx-2-2": {
+      "name": "market",
+      "offsetY": 0,
+      "hash": "market"
+    },
+    "igeicrq-4": {
+      "name": "caret-down",
+      "offsetY": 0,
+      "hash": "caret-down"
+    },
+    "ia6ok2-3-8-2-3-2-3-2-2-2-2-3": {
+      "name": "didomi-donotsell",
+      "offsetY": 0,
+      "hash": "didomi-donotsell"
+    },
+    "ia6ok2-3-8-2-3-2-3-2-2-2-2-3-2": {
+      "name": "didomi-optout",
+      "offsetY": 0,
+      "hash": "didomi-optout"
+    },
+    "igeicrq-4-2": {
+      "name": "caret-down",
+      "offsetY": 0,
+      "hash": "caret-down-2"
+    },
+    "igeicrq-4-3": {
+      "name": "caret-down",
+      "offsetY": 0,
+      "hash": "caret-down-3"
+    }
+  },
+  "links": {
+    "i4qyc": {
+      "type": "internal",
+      "pageId": "818ba655-8d6e-494f-bdfc-1345f32e5373",
+      "sectionId": "iee4h3-4",
+      "smoothScroll": true,
+      "pagePath": "/",
+      "sectionHash": "video"
+    },
+    "ia6ok2": {
+      "type": "internal",
+      "pageId": "45813f90-ba80-41eb-a268-272af79c74bd",
+      "pagePath": "/curation"
+    },
+    "idw3ec": {
+      "type": "internal",
+      "pageId": "818ba655-8d6e-494f-bdfc-1345f32e5373",
+      "pagePath": "/"
+    },
+    "i1edxg1": {
+      "url": "https://play.google.com/store/apps/details?id=com.nature.ai",
+      "type": "external",
+      "newTab": true
+    },
+    "i25h83e": {
+      "type": "external"
+    },
+    "i335f-5": {
+      "type": "internal",
+      "pageId": "818ba655-8d6e-494f-bdfc-1345f32e5373",
+      "pagePath": "/"
+    },
+    "i6pdkmg": {
+      "url": "https://play.google.com/store/apps/details?id=com.nature.ai",
+      "type": "external",
+      "newTab": true
+    },
+    "ibefj6z": {
+      "url": "https://play.google.com/store/apps/details?id=com.nature.ai",
+      "type": "external",
+      "newTab": true
+    },
+    "iolnzn9": {
+      "url": "https://www.awwwards.com/sites/peach-web",
+      "type": "external",
+      "newTab": true
+    },
+    "iu2pwdz": {
+      "url": "https://play.google.com/store/apps/details?id=com.nature.ai",
+      "type": "external",
+      "newTab": true
+    },
+    "ia6ok2-3": {
+      "type": "internal",
+      "pageId": "383c0979-e9c9-4737-9b8e-93435832f458",
+      "pagePath": "/monetization"
+    },
+    "i335f-5-2": {
+      "type": "internal",
+      "pageId": "818ba655-8d6e-494f-bdfc-1345f32e5373",
+      "sectionId": "i58eb-2-2",
+      "pagePath": "/",
+      "sectionHash": "hero"
+    },
+    "ioqrg-2-2": {
+      "url": "https://play.google.com/store/apps/details?id=com.nature.ai",
+      "type": "external",
+      "newTab": true
+    },
+    "ipavn-2-2": {
+      "type": "internal",
+      "pageId": "ec63cbc7-6be7-497f-8c41-173e56115cea",
+      "pagePath": "/customer-stories"
+    },
+    "ijch4nz-2-2": {
+      "url": "https://garrizmudze.com/",
+      "type": "external",
+      "newTab": true
+    },
+    "ioqrg-2-2-2": {
+      "url": "https://play.google.com/store/apps/details?id=com.nature.ai",
+      "type": "external",
+      "newTab": true
+    },
+    "ipavn-2-2-4": {
+      "type": "internal",
+      "pageId": "ec63cbc7-6be7-497f-8c41-173e56115cea",
+      "pagePath": "/customer-stories"
+    },
+    "i6wd7-2-2-2-2-4": {
+      "type": "internal",
+      "pageId": "45813f90-ba80-41eb-a268-272af79c74bd",
+      "pagePath": "/curation"
+    },
+    "ipavn-2-2-2-2-2-2": {
+      "url": "https://play.google.com/store/apps/details?id=com.nature.ai",
+      "type": "external",
+      "newTab": true
+    },
+    "i56x6r-2-5-2-2-3-7": {
+      "url": "https://www.linkedin.com/company/curated-media-platform/",
+      "type": "external",
+      "newTab": true
+    },
+    "i56x6r-2-5-2-2-3-2-3-7-7": {
+      "url": "https://www.linkedin.com/company/peachweb-builder/",
+      "type": "external",
+      "newTab": true
+    },
+    "ioqrg-2-2-2-2-2-3-3-4-2": {
+      "type": "internal",
+      "pageId": "0ad5137b-c419-4be9-969b-0759bd5a19ef",
+      "newTab": true,
+      "pagePath": "/media-agency"
+    },
+    "ioqrg-2-2-2-2-2-3-3-4-2-6": {
+      "type": "external",
+      "url": "https://play.google.com/store/apps/details?id=com.nature.ai",
+      "newTab": true
+    },
+    "i335f-6": {
+      "type": "internal",
+      "pageId": "818ba655-8d6e-494f-bdfc-1345f32e5373",
+      "pagePath": "/"
+    },
+    "ioqrg-2-2-2-3-2": {
+      "type": "internal",
+      "pageId": "ec63cbc7-6be7-497f-8c41-173e56115cea",
+      "newTab": true,
+      "pagePath": "/customer-stories"
+    },
+    "ioqrg-2-2-2-2-2-3-3-4-2-6-2": {
+      "type": "external",
+      "url": "https://play.google.com/store/apps/details?id=com.nature.ai",
+      "newTab": true
+    },
+    "ioqrg-2-2-2-2-2-3-3-4-2-6-2-2": {
+      "type": "external",
+      "url": "https://play.google.com/store/apps/details?id=com.nature.ai",
+      "newTab": true
+    },
+    "ioqrg-2-2-2-3-3": {
+      "url": "https://play.google.com/store/apps/details?id=com.nature.ai",
+      "type": "external",
+      "newTab": true
+    },
+    "ioqrg-2-2-2-2-2-2-3-4": {
+      "url": "https://play.google.com/store/apps/details?id=com.nature.ai",
+      "type": "external",
+      "newTab": true
+    },
+    "i1k927h": {
+      "type": "external",
+      "url": "https://play.google.com/store/apps/details?id=com.nature.ai",
+      "newTab": true
+    },
+    "ia6ok2-3-8": {
+      "type": "internal",
+      "pageId": "0ad5137b-c419-4be9-969b-0759bd5a19ef",
+      "pagePath": "/media-agency"
+    },
+    "ia6ok2-3-8-2": {
+      "type": "internal",
+      "pageId": "b080ba05-a13d-4e63-b159-b9df6f408284",
+      "pagePath": "/direct-advertiser"
+    },
+    "ia6ok2-3-8-2-2": {
+      "type": "internal",
+      "pageId": "324884fe-8559-466e-836f-1811b662b824",
+      "pagePath": "/publisher"
+    },
+    "ia6ok2-3-8-2-2-2": {
+      "type": "internal",
+      "pageId": "ea799bee-b3d0-46d7-a24e-a228a32422ad",
+      "pagePath": "/ad-tech"
+    },
+    "ia6ok2-3-8-2-3-2-3": {
+      "type": "internal",
+      "pageId": "3479f240-dbf4-4328-8d0a-0c4e5cf8de48",
+      "newTab": true,
+      "pagePath": "/in-the-press"
+    },
+    "ia6ok2-3-8-2-3-2-3-2": {
+      "type": "external",
+      "newTab": true,
+      "url": "https://play.google.com/store/apps/details?id=com.nature.ai"
+    },
+    "ia6ok2-3-8-2-3-2-3-2-2": {
+      "type": "external",
+      "newTab": true,
+      "url": "https://play.google.com/store/apps/details?id=com.nature.ai"
+    },
+    "ia6ok2-3-8-2-3-2-3-2-2-2": {
+      "type": "external",
+      "newTab": true,
+      "url": "https://play.google.com/store/apps/details?id=com.nature.ai"
+    },
+    "ia6ok2-3-8-2-3-2-3-2-2-2-2": {
+      "type": "external",
+      "newTab": true,
+      "url": "https://play.google.com/store/apps/details?id=com.nature.ai"
+    },
+    "ia6ok2-3-8-2-3-2-3-2-2-2-2-2": {
+      "type": "external",
+      "newTab": true,
+      "url": "https://play.google.com/store/apps/details?id=com.nature.ai"
+    },
+    "ia6ok2-3-8-2-3-2-3-4": {
+      "type": "external",
+      "newTab": true,
+      "url": "https://play.google.com/store/apps/details?id=com.nature.ai"
+    },
+    "ia6ok2-3-8-2-3-2-3-2-2-3": {
+      "type": "external",
+      "newTab": true,
+      "url": "https://play.google.com/store/apps/details?id=com.nature.ai"
+    },
+    "ia6ok2-3-8-2-3-2-3-2-2-2-3": {
+      "type": "external",
+      "newTab": true,
+      "url": "https://play.google.com/store/apps/details?id=com.nature.ai"
+    },
+    "ia6ok2-3-8-2-3-2-3-4-2": {
+      "type": "external",
+      "newTab": true,
+      "url": "https://play.google.com/store/apps/details?id=com.nature.ai"
+    },
+    "i6wd7-2-2-2-2-4-5": {
+      "type": "internal",
+      "pageId": "383c0979-e9c9-4737-9b8e-93435832f458",
+      "pagePath": "/monetization"
+    },
+    "i6wd7-2-2-2-2-4-3": {
+      "type": "internal",
+      "pageId": "ea799bee-b3d0-46d7-a24e-a228a32422ad",
+      "pagePath": "/ad-tech"
+    },
+    "i6wd7-2-2-2-2-4-5-2": {
+      "type": "internal",
+      "pageId": "324884fe-8559-466e-836f-1811b662b824",
+      "pagePath": "/publisher"
+    },
+    "i6wd7-2-2-2-2-4-5-2-2": {
+      "type": "internal",
+      "pageId": "0ad5137b-c419-4be9-969b-0759bd5a19ef",
+      "pagePath": "/media-agency"
+    },
+    "i6wd7-2-2-2-2-4-3-2": {
+      "type": "internal",
+      "pageId": "b080ba05-a13d-4e63-b159-b9df6f408284",
+      "pagePath": "/direct-advertiser"
+    },
+    "i6wd7-2-2-2-2-4-2": {
+      "type": "internal",
+      "pageId": "8ac38f69-84b3-4592-ba61-a1660a00ddf1",
+      "pagePath": "/youtube"
+    },
+    "i6wd7-2-2-2-2-4-5-2-2-2": {
+      "type": "internal",
+      "pageId": "4959a4da-ea4b-487f-83dc-e4c7ef4b5b4f",
+      "pagePath": "/display-native"
+    },
+    "i6wd7-2-2-2-2-4-3-2-2": {
+      "type": "internal",
+      "pageId": "8a0d4a7f-4f89-4bf5-9dde-ef8560e65440",
+      "pagePath": "/video-audio"
+    },
+    "i6wd7-2-2-2-2-4-5-2-3": {
+      "type": "internal",
+      "pageId": "6fd751b2-897e-45d2-b359-04ba6742035c",
+      "pagePath": "/dooh"
+    },
+    "i6wd7-2-2-2-2-4-3-5": {
+      "type": "internal",
+      "pageId": "a786bfe3-28b3-46f7-bfea-d64b489e7198",
+      "pagePath": "/ctv"
+    },
+    "i6wd7-2-2-2-2-4-2-2": {
+      "type": "external"
+    },
+    "i6wd7-2-2-2-2-4-5-3-2": {
+      "type": "external"
+    },
+    "i6wd7-2-2-2-2-4-5-2-2-2-2": {
+      "type": "external",
+      "url": "https://sensible-innovation-510703.framer.app/partners-directory"
+    },
+    "i6wd7-2-2-2-2-4-3-2-2-2": {
+      "type": "external"
+    },
+    "i6wd7-2-2-2-2-4-3-5-2": {
+      "type": "external",
+      "newTab": true,
+      "url": "https://play.google.com/store/apps/details?id=com.nature.ai"
+    },
+    "i6wd7-2-2-2-2-4-3-5-2-2": {
+      "type": "external",
+      "url": "https://play.google.com/store/apps/details?id=com.nature.ai",
+      "newTab": true
+    },
+    "i6wd7-2-2-2-2-4-3-5-2-2-2": {
+      "type": "external",
+      "newTab": true,
+      "url": "https://play.google.com/store/apps/details?id=com.nature.ai"
+    },
+    "i6wd7-2-2-2-2-4-3-5-2-3": {
+      "type": "external",
+      "newTab": true,
+      "url": "https://play.google.com/store/apps/details?id=com.nature.ai"
+    },
+    "ioqrg-2-2-2-2-2-3-3-4-2-2": {
+      "type": "internal",
+      "pageId": "b080ba05-a13d-4e63-b159-b9df6f408284",
+      "newTab": true,
+      "pagePath": "/direct-advertiser"
+    },
+    "ioqrg-2-2-2-2-2-3-3-4-2-2-2": {
+      "type": "internal",
+      "pageId": "324884fe-8559-466e-836f-1811b662b824",
+      "newTab": true,
+      "pagePath": "/publisher"
+    },
+    "iqdyvit-5-2-2": {
+      "type": "internal",
+      "pageId": "4bb8f531-10f4-4730-86ed-b58237679e29"
+    },
+    "ioqrg-2-2-2-2-2-3-3-4-2-2-2-2": {
+      "type": "internal",
+      "pageId": "ea799bee-b3d0-46d7-a24e-a228a32422ad",
+      "newTab": true,
+      "pagePath": "/ad-tech"
+    },
+    "ijch4nz-2-2-3": {
+      "url": "",
+      "type": "external",
+      "newTab": true
+    },
+    "i1j7jnd-2": {
+      "type": "external",
+      "newTab": true,
+      "url": "https://play.google.com/store/apps/details?id=com.nature.ai"
+    },
+    "i1j7jnd-2-3": {
+      "type": "external",
+      "url": "https://play.google.com/store/apps/details?id=com.nature.ai",
+      "newTab": true
+    },
+    "i1j7jnd-2-4": {
+      "type": "external",
+      "url": "https://play.google.com/store/apps/details?id=com.nature.ai",
+      "newTab": true
+    },
+    "i1j7jnd-2-3-2": {
+      "type": "external",
+      "url": "https://play.google.com/store/apps/details?id=com.nature.ai",
+      "newTab": true
+    },
+    "ioqrg-2-2-2-3-3-2": {
+      "url": "https://play.google.com/store/apps/details?id=com.nature.ai",
+      "type": "external",
+      "newTab": true
+    },
+    "ioqrg-2-2-2-2-2-2-3-4-2": {
+      "url": "https://play.google.com/store/apps/details?id=com.nature.ai",
+      "type": "external",
+      "newTab": true
+    },
+    "ioqrg-2-2-2-2-2-2-3-4-4": {
+      "url": "https://play.google.com/store/apps/details?id=com.nature.ai",
+      "type": "external",
+      "newTab": true
+    },
+    "ioqrg-2-2-2-3-3-4": {
+      "url": "https://play.google.com/store/apps/details?id=com.nature.ai",
+      "type": "external",
+      "newTab": true
+    },
+    "ioqrg-2-2-2-2-2-2-3-4-5": {
+      "url": "https://play.google.com/store/apps/details?id=com.nature.ai",
+      "type": "external",
+      "newTab": true
+    },
+    "ioqrg-2-2-2-2-2-2-3-4-5-2": {
+      "url": "https://play.google.com/store/apps/details?id=com.nature.ai",
+      "type": "external",
+      "newTab": true
+    },
+    "ioqrg-2-2-2-3-3-4-2": {
+      "url": "https://play.google.com/store/apps/details?id=com.nature.ai",
+      "type": "external",
+      "newTab": true
+    },
+    "ioqrg-2-2-2-2-2-2-3-4-5-3": {
+      "url": "https://play.google.com/store/apps/details?id=com.nature.ai",
+      "type": "external",
+      "newTab": true
+    },
+    "ioqrg-2-2-2-2-2-2-3-4-5-4": {
+      "url": "https://play.google.com/store/apps/details?id=com.nature.ai",
+      "type": "external",
+      "newTab": true
+    },
+    "iukycqg-2-2": {
+      "type": "external",
+      "newTab": true,
+      "url": "https://play.google.com/store/apps/details?id=com.nature.ai"
+    },
+    "ia6ok2-3-8-2-3-2-3-2-2-2-2-3": {
+      "type": "external",
+      "url": "javascript:Didomi.preferences.show()"
+    },
+    "ia6ok2-3-8-2-3-2-3-2-2-2-2-3-2": {
+      "type": "external",
+      "newTab": false,
+      "url": "javascript:Didomi.preferences.show()"
+    },
+    "ia6ok2-2": {
+      "type": "internal",
+      "pageId": "45813f90-ba80-41eb-a268-272af79c74bd",
+      "pagePath": "/curation"
+    },
+    "ia6ok2-3-9": {
+      "type": "internal",
+      "pageId": "383c0979-e9c9-4737-9b8e-93435832f458",
+      "pagePath": "/monetization"
+    },
+    "ia6ok2-3-8-3": {
+      "type": "internal",
+      "pageId": "0ad5137b-c419-4be9-969b-0759bd5a19ef",
+      "pagePath": "/media-agency"
+    },
+    "ia6ok2-3-8-2-4": {
+      "type": "internal",
+      "pageId": "b080ba05-a13d-4e63-b159-b9df6f408284",
+      "pagePath": "/direct-advertiser"
+    },
+    "ia6ok2-3-8-2-2-3": {
+      "type": "internal",
+      "pageId": "324884fe-8559-466e-836f-1811b662b824",
+      "pagePath": "/publisher"
+    },
+    "ia6ok2-3-8-2-2-2-2": {
+      "type": "internal",
+      "pageId": "ea799bee-b3d0-46d7-a24e-a228a32422ad",
+      "pagePath": "/ad-tech"
+    },
+    "ia6ok2-3-8-2-3-2-2-2-2-2": {
+      "type": "internal",
+      "pageId": "a786bfe3-28b3-46f7-bfea-d64b489e7198",
+      "pagePath": "/ctv"
+    },
+    "ia6ok2-3-8-2-3-2-4": {
+      "type": "internal",
+      "pageId": "4959a4da-ea4b-487f-83dc-e4c7ef4b5b4f",
+      "pagePath": "/display-native"
+    },
+    "ia6ok2-3-8-2-3-2-2-2-3": {
+      "type": "internal",
+      "pageId": "6fd751b2-897e-45d2-b359-04ba6742035c",
+      "pagePath": "/dooh"
+    },
+    "ia6ok2-3-8-2-3-2-2-3": {
+      "type": "internal",
+      "pageId": "8a0d4a7f-4f89-4bf5-9dde-ef8560e65440",
+      "pagePath": "/video-audio"
+    },
+    "ia6ok2-3-8-2-3-3": {
+      "type": "internal",
+      "pageId": "8ac38f69-84b3-4592-ba61-a1660a00ddf1",
+      "pagePath": "/youtube"
+    },
+    "ia6ok2-3-8-2-3-2-3-3": {
+      "type": "internal",
+      "pageId": "67283c5b-f9d7-46f6-a8b8-cad95b684202",
+      "newTab": true,
+      "pagePath": "/partners-directory"
+    },
+    "ia6ok2-3-8-2-3-2-3-2-3": {
+      "type": "external",
+      "newTab": true,
+      "url": "https://play.google.com/store/apps/details?id=com.nature.ai"
+    },
+    "ia6ok2-3-8-2-3-2-3-2-2-4": {
+      "type": "external",
+      "newTab": true,
+      "url": "https://play.google.com/store/apps/details?id=com.nature.ai"
+    },
+    "ia6ok2-3-8-2-3-2-3-2-2-2-4": {
+      "type": "external",
+      "newTab": true,
+      "url": "https://play.google.com/store/apps/details?id=com.nature.ai"
+    },
+    "ia6ok2-3-8-2-3-2-3-2-2-2-2-4": {
+      "type": "external",
+      "newTab": true,
+      "url": "https://play.google.com/store/apps/details?id=com.nature.ai"
+    },
+    "ia6ok2-3-8-2-3-2-3-2-2-2-2-2-2": {
+      "type": "external",
+      "newTab": true,
+      "url": "https://play.google.com/store/apps/details?id=com.nature.ai"
+    },
+    "ia6ok2-3-8-2-3-2-3-4-3": {
+      "type": "external",
+      "newTab": true,
+      "url": "https://play.google.com/store/apps/details?id=com.nature.ai"
+    },
+    "ia6ok2-3-8-2-3-2-3-4-2-2": {
+      "type": "external",
+      "newTab": true,
+      "url": "https://play.google.com/store/apps/details?id=com.nature.ai"
+    },
+    "ia6ok2-3-8-2-3-2-3-2-2-3-2": {
+      "type": "external",
+      "newTab": true,
+      "url": "https://play.google.com/store/apps/details?id=com.nature.ai"
+    },
+    "ia6ok2-3-8-2-3-2-3-2-2-2-3-2": {
+      "type": "external",
+      "newTab": true,
+      "url": "https://play.google.com/store/apps/details?id=com.nature.ai"
+    },
+    "ioqrg-2-2-2-3-3-2-2": {
+      "url": "https://play.google.com/store/apps/details?id=com.nature.ai",
+      "type": "external",
+      "newTab": true
+    },
+    "ioqrg-2-2-2-2-2-2-3-4-2-2": {
+      "url": "https://play.google.com/store/apps/details?id=com.nature.ai",
+      "type": "external",
+      "newTab": true
+    },
+    "iawqb1g": {
+      "type": "internal",
+      "pageId": "818ba655-8d6e-494f-bdfc-1345f32e5373",
+      "sectionId": "iee4h3-4",
+      "smoothScroll": true,
+      "pagePath": "/",
+      "sectionHash": "video"
+    },
+    "ioqrg-2-2-2-3-3-2-2-2": {
+      "url": "https://play.google.com/store/apps/details?id=com.nature.ai",
+      "type": "external",
+      "newTab": true
+    },
+    "ioqrg-2-2-2-2-2-2-3-4-2-2-2": {
+      "url": "https://play.google.com/store/apps/details?id=com.nature.ai",
+      "type": "external",
+      "newTab": true
+    },
+    "ioqrg-2-2-2-3-3-2-2-2-2": {
+      "type": "internal",
+      "pageId": "ec63cbc7-6be7-497f-8c41-173e56115cea",
+      "newTab": true,
+      "pagePath": "/customer-stories"
+    },
+    "ioqrg-2-2-2-2-2-2-3-4-2-2-2-2": {
+      "url": "https://play.google.com/store/apps/details?id=com.nature.ai",
+      "type": "external",
+      "newTab": true
+    },
+    "ioqrg-2-2-2-2-2-2-3-4-2-2-3": {
+      "url": "https://play.google.com/store/apps/details?id=com.nature.ai",
+      "type": "external",
+      "newTab": true
+    },
+    "ioqrg-2-2-2-3-3-2-2-4": {
+      "url": "https://play.google.com/store/apps/details?id=com.nature.ai",
+      "type": "external",
+      "newTab": true
+    },
+    "ioqrg-2-2-2-2-2-2-3-4-2-2-4": {
+      "url": "https://play.google.com/store/apps/details?id=com.nature.ai",
+      "type": "external",
+      "newTab": true
+    },
+    "i56x6r-2-5-2-2-3-7-2": {
+      "url": "https://www.linkedin.com/company/curated-media-platform/",
+      "type": "external",
+      "newTab": true
+    },
+    "ioqrg-2-2-2-3-3-2-2-5": {
+      "url": "https://play.google.com/store/apps/details?id=com.nature.ai",
+      "type": "external",
+      "newTab": true
+    },
+    "ioqrg-2-2-2-2-2-2-3-4-2-2-5": {
+      "url": "https://play.google.com/store/apps/details?id=com.nature.ai",
+      "type": "external",
+      "newTab": true
+    },
+    "ijn8ii-2-2-3": {
+      "type": "external"
+    },
+    "i1k927h-2": {
+      "type": "external",
+      "url": "https://play.google.com/store/apps/details?id=com.nature.ai",
+      "newTab": true
+    },
+    "i56x6r-2-5-2-2-3-7-2-2": {
+      "url": "https://www.linkedin.com/company/curated-media-platform/",
+      "type": "external",
+      "newTab": true
+    },
+    "ipavn-2-2-2-2-2-2-4": {
+      "url": "https://play.google.com/store/apps/details?id=com.nature.ai",
+      "type": "external",
+      "newTab": true
+    },
+    "i6wd7-2-2-2-2-4-4": {
+      "type": "internal",
+      "pageId": "45813f90-ba80-41eb-a268-272af79c74bd",
+      "pagePath": "/curation"
+    },
+    "i6wd7-2-2-2-2-4-5-3": {
+      "type": "internal",
+      "pageId": "383c0979-e9c9-4737-9b8e-93435832f458",
+      "pagePath": "/monetization"
+    },
+    "i6wd7-2-2-2-2-4-5-2-2-3": {
+      "type": "internal",
+      "pageId": "0ad5137b-c419-4be9-969b-0759bd5a19ef",
+      "pagePath": "/media-agency"
+    },
+    "i6wd7-2-2-2-2-4-3-2-3": {
+      "type": "internal",
+      "pageId": "b080ba05-a13d-4e63-b159-b9df6f408284",
+      "pagePath": "/direct-advertiser"
+    },
+    "i6wd7-2-2-2-2-4-5-2-4": {
+      "type": "internal",
+      "pageId": "324884fe-8559-466e-836f-1811b662b824",
+      "pagePath": "/publisher"
+    },
+    "i6wd7-2-2-2-2-4-3-11": {
+      "type": "internal",
+      "pageId": "ea799bee-b3d0-46d7-a24e-a228a32422ad",
+      "pagePath": "/ad-tech"
+    },
+    "i335f-5-4": {
+      "type": "internal",
+      "pageId": "818ba655-8d6e-494f-bdfc-1345f32e5373",
+      "pagePath": "/"
+    },
+    "i6wd7-2-2-2-2-4-2-3": {
+      "type": "internal",
+      "pageId": "8ac38f69-84b3-4592-ba61-a1660a00ddf1",
+      "pagePath": "/youtube"
+    },
+    "i6wd7-2-2-2-2-4-5-2-2-2-3": {
+      "type": "internal",
+      "pageId": "4959a4da-ea4b-487f-83dc-e4c7ef4b5b4f",
+      "pagePath": "/display-native"
+    },
+    "i6wd7-2-2-2-2-4-3-2-2-3": {
+      "type": "internal",
+      "pageId": "8a0d4a7f-4f89-4bf5-9dde-ef8560e65440",
+      "pagePath": "/video-audio"
+    },
+    "i6wd7-2-2-2-2-4-5-2-3-2": {
+      "type": "internal",
+      "pageId": "6fd751b2-897e-45d2-b359-04ba6742035c",
+      "pagePath": "/dooh"
+    },
+    "i6wd7-2-2-2-2-4-3-5-3": {
+      "type": "internal",
+      "pageId": "a786bfe3-28b3-46f7-bfea-d64b489e7198",
+      "pagePath": "/ctv"
+    },
+    "i335f-5-4-2": {
+      "type": "internal",
+      "pageId": "818ba655-8d6e-494f-bdfc-1345f32e5373",
+      "pagePath": "/"
+    },
+    "i6wd7-2-2-2-2-4-5-2-2-2-2-2": {
+      "type": "external",
+      "url": "https://sensible-innovation-510703.framer.app/partners-directory"
+    },
+    "i6wd7-2-2-2-2-4-3-2-2-2-2": {
+      "type": "external"
+    },
+    "iukycqg-2-2-2": {
+      "type": "external",
+      "newTab": true,
+      "url": "https://play.google.com/store/apps/details?id=com.nature.ai"
+    },
+    "i6wd7-2-2-2-2-4-3-5-2-2-3": {
+      "type": "external",
+      "url": "https://play.google.com/store/apps/details?id=com.nature.ai",
+      "newTab": true
+    },
+    "i6wd7-2-2-2-2-4-3-5-2-4": {
+      "type": "external",
+      "newTab": true,
+      "url": "https://play.google.com/store/apps/details?id=com.nature.ai"
+    },
+    "i6wd7-2-2-2-2-4-3-5-2-2-2-2": {
+      "type": "external",
+      "newTab": true,
+      "url": "https://play.google.com/store/apps/details?id=com.nature.ai"
+    },
+    "i6wd7-2-2-2-2-4-3-5-2-3-2": {
+      "type": "external",
+      "newTab": true,
+      "url": "https://play.google.com/store/apps/details?id=com.nature.ai"
+    },
+    "ipavn-2-2-4-3": {
+      "type": "external",
+      "newTab": true,
+      "url": "https://play.google.com/store/apps/details?id=com.nature.ai"
+    },
+    "ia6ok2-3-8-2-3-2-2-2-2-3-2-3": {
+      "type": "internal",
+      "pageId": "a786bfe3-28b3-46f7-bfea-d64b489e7198",
+      "pagePath": "/ctv"
+    },
+    "ia6ok2-3-8-2-3-2-5-2-3": {
+      "type": "internal",
+      "pageId": "4959a4da-ea4b-487f-83dc-e4c7ef4b5b4f",
+      "pagePath": "/display-native"
+    },
+    "ia6ok2-3-8-2-3-2-2-2-4-2-3": {
+      "type": "internal",
+      "pageId": "6fd751b2-897e-45d2-b359-04ba6742035c",
+      "pagePath": "/dooh"
+    },
+    "ia6ok2-3-8-2-3-2-2-4-2-3": {
+      "type": "internal",
+      "pageId": "8a0d4a7f-4f89-4bf5-9dde-ef8560e65440",
+      "pagePath": "/video-audio"
+    },
+    "ia6ok2-3-8-2-3-4-2-3": {
+      "type": "internal",
+      "pageId": "8ac38f69-84b3-4592-ba61-a1660a00ddf1",
+      "pagePath": "/youtube"
+    },
+    "i30luj3-2-2": {
+      "type": "internal",
+      "pageId": "67283c5b-f9d7-46f6-a8b8-cad95b684202",
+      "newTab": true,
+      "pagePath": "/partners-directory"
+    },
+    "i30luj3-2-2-2": {
+      "type": "internal",
+      "pageId": "67283c5b-f9d7-46f6-a8b8-cad95b684202",
+      "newTab": true,
+      "pagePath": "/partners-directory"
+    },
+    "i56x6r-2-5-2-2-3-7-4": {
+      "url": "https://chat.openai.com/?q=Act%20as%20a%20practical%20tech%20advisor%20helping%20me%20decide%20if%20I%20should%20use%20this%20app.Task%3A%20Analyze%20www.natureai.online%20and%20tell%20me%20if%20Nature%20AI%20is%20worth%20downloading.Read%20the%20website%20and%20summarize%20in%20bullets%3AWhat%20is%20Nature%20AI%3F%20%0AOne-line%20pitch.%20What%20problem%20does%20it%20solve%3FWho%20is%20it%20for%3F%20%0AHikers%2C%20students%2C%20parents%2C%20photographers%2C%20researchers%3F%20Be%20specific.Standout%20Features%20%0AFocus%20on%3A%20AI%20species%20identification%20for%20Plants%2C%20Birds%2C%20Fish%2C%20Insects%2C%20The%20AI%20Naturalist%20Chat%2C%20Accuracy%20rate%2C%20Offline%20vs%20Online%2C%20Free%20vs%20Paid.Proof%20%2F%20Social%20Proof%20%0ACheck%20www.natureai.online%20for%20Play%20Store%20link%2C%20reviews%2C%20downloads%2C%20screenshots.When%20to%20use%20it%20vs%20Not%20use%20it%20%0AWhen%20is%20this%20better%20than%20Google%20Lens%20or%20a%20book%3FPricing%20Model%20%0AIs%20it%20free%3F%20Freemium%3F%20Subscription%3F%20Any%20limits%3FHow%20it%20compares%20to%20alternatives%20%0Avs%20PlantNet%2C%20PictureThis%2C%20iNaturalist%2C%20Google%20Lens.%20What%E2%80%99s%20different%3FFinish%20with%3AThe%2030-second%20verdict%3A%20Should%20I%20install%20this%20right%20now%3F%20Yes%2FNo%20%2B%201%20reason.3%20Next%20Steps%3A%20%5Bhttps%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.nature.ai%5D",
+      "type": "external",
+      "newTab": true
+    },
+    "i56x6r-2-5-2-2-3-7-4-2": {
+      "url": "https://claude.ai/new?q=Act%20as%20a%20practical%20tech%20advisor%20helping%20me%20decide%20if%20I%20should%20use%20this%20app.Task%3A%20Analyze%20www.natureai.online%20and%20tell%20me%20if%20Nature%20AI%20is%20worth%20downloading.Read%20the%20website%20and%20summarize%20in%20bullets%3AWhat%20is%20Nature%20AI%3F%20%0AOne-line%20pitch.%20What%20problem%20does%20it%20solve%3FWho%20is%20it%20for%3F%20%0AHikers%2C%20students%2C%20parents%2C%20photographers%2C%20researchers%3F%20Be%20specific.Standout%20Features%20%0AFocus%20on%3A%20AI%20species%20identification%20for%20Plants%2C%20Birds%2C%20Fish%2C%20Insects%2C%20The%20AI%20Naturalist%20Chat%2C%20Accuracy%20rate%2C%20Offline%20vs%20Online%2C%20Free%20vs%20Paid.Proof%20%2F%20Social%20Proof%20%0ACheck%20www.natureai.online%20for%20Play%20Store%20link%2C%20reviews%2C%20downloads%2C%20screenshots.When%20to%20use%20it%20vs%20Not%20use%20it%20%0AWhen%20is%20this%20better%20than%20Google%20Lens%20or%20a%20book%3FPricing%20Model%20%0AIs%20it%20free%3F%20Freemium%3F%20Subscription%3F%20Any%20limits%3FHow%20it%20compares%20to%20alternatives%20%0Avs%20PlantNet%2C%20PictureThis%2C%20iNaturalist%2C%20Google%20Lens.%20What%E2%80%99s%20different%3FFinish%20with%3AThe%2030-second%20verdict%3A%20Should%20I%20install%20this%20right%20now%3F%20Yes%2FNo%20%2B%201%20reason.3%20Next%20Steps%3A%20%5Bhttps%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.nature.ai%5D",
+      "type": "external",
+      "newTab": true
+    },
+    "i56x6r-2-5-2-2-3-7-4-3": {
+      "url": "https://www.google.com/search?udm=50&aep=11&q=Act%20as%20a%20practical%20tech%20advisor%20helping%20me%20decide%20if%20I%20should%20use%20this%20app.Task%3A%20Analyze%20www.natureai.online%20and%20tell%20me%20if%20Nature%20AI%20is%20worth%20downloading.Read%20the%20website%20and%20summarize%20in%20bullets%3AWhat%20is%20Nature%20AI%3F%20%0AOne-line%20pitch.%20What%20problem%20does%20it%20solve%3FWho%20is%20it%20for%3F%20%0AHikers%2C%20students%2C%20parents%2C%20photographers%2C%20researchers%3F%20Be%20specific.Standout%20Features%20%0AFocus%20on%3A%20AI%20species%20identification%20for%20Plants%2C%20Birds%2C%20Fish%2C%20Insects%2C%20The%20AI%20Naturalist%20Chat%2C%20Accuracy%20rate%2C%20Offline%20vs%20Online%2C%20Free%20vs%20Paid.Proof%20%2F%20Social%20Proof%20%0ACheck%20www.natureai.online%20for%20Play%20Store%20link%2C%20reviews%2C%20downloads%2C%20screenshots.When%20to%20use%20it%20vs%20Not%20use%20it%20%0AWhen%20is%20this%20better%20than%20Google%20Lens%20or%20a%20book%3FPricing%20Model%20%0AIs%20it%20free%3F%20Freemium%3F%20Subscription%3F%20Any%20limits%3FHow%20it%20compares%20to%20alternatives%20%0Avs%20PlantNet%2C%20PictureThis%2C%20iNaturalist%2C%20Google%20Lens.%20What%E2%80%99s%20different%3FFinish%20with%3AThe%2030-second%20verdict%3A%20Should%20I%20install%20this%20right%20now%3F%20Yes%2FNo%20%2B%201%20reason.3%20Next%20Steps%3A%20%5Bhttps%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.nature.ai%5D",
+      "type": "external",
+      "newTab": true
+    },
+    "i56x6r-2-5-2-2-3-7-4-4": {
+      "url": "https://www.perplexity.ai/search/new?q=Act%20as%20a%20practical%20tech%20advisor%20helping%20me%20decide%20if%20I%20should%20use%20this%20app.Task%3A%20Analyze%20www.natureai.online%20and%20tell%20me%20if%20Nature%20AI%20is%20worth%20downloading.Read%20the%20website%20and%20summarize%20in%20bullets%3AWhat%20is%20Nature%20AI%3F%20%0AOne-line%20pitch.%20What%20problem%20does%20it%20solve%3FWho%20is%20it%20for%3F%20%0AHikers%2C%20students%2C%20parents%2C%20photographers%2C%20researchers%3F%20Be%20specific.Standout%20Features%20%0AFocus%20on%3A%20AI%20species%20identification%20for%20Plants%2C%20Birds%2C%20Fish%2C%20Insects%2C%20The%20AI%20Naturalist%20Chat%2C%20Accuracy%20rate%2C%20Offline%20vs%20Online%2C%20Free%20vs%20Paid.Proof%20%2F%20Social%20Proof%20%0ACheck%20www.natureai.online%20for%20Play%20Store%20link%2C%20reviews%2C%20downloads%2C%20screenshots.When%20to%20use%20it%20vs%20Not%20use%20it%20%0AWhen%20is%20this%20better%20than%20Google%20Lens%20or%20a%20book%3FPricing%20Model%20%0AIs%20it%20free%3F%20Freemium%3F%20Subscription%3F%20Any%20limits%3FHow%20it%20compares%20to%20alternatives%20%0Avs%20PlantNet%2C%20PictureThis%2C%20iNaturalist%2C%20Google%20Lens.%20What%E2%80%99s%20different%3FFinish%20with%3AThe%2030-second%20verdict%3A%20Should%20I%20install%20this%20right%20now%3F%20Yes%2FNo%20%2B%201%20reason.3%20Next%20Steps%3A%20%5Bhttps%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.nature.ai%5D",
+      "type": "external",
+      "newTab": true
+    },
+    "i56x6r-2-5-2-2-3-7-4-5": {
+      "url": "https://x.com/i/grok?text=Act%20as%20a%20practical%20tech%20advisor%20helping%20me%20decide%20if%20I%20should%20use%20this%20app.Task%3A%20Analyze%20www.natureai.online%20and%20tell%20me%20if%20Nature%20AI%20is%20worth%20downloading.Read%20the%20website%20and%20summarize%20in%20bullets%3AWhat%20is%20Nature%20AI%3F%20%0AOne-line%20pitch.%20What%20problem%20does%20it%20solve%3FWho%20is%20it%20for%3F%20%0AHikers%2C%20students%2C%20parents%2C%20photographers%2C%20researchers%3F%20Be%20specific.Standout%20Features%20%0AFocus%20on%3A%20AI%20species%20identification%20for%20Plants%2C%20Birds%2C%20Fish%2C%20Insects%2C%20The%20AI%20Naturalist%20Chat%2C%20Accuracy%20rate%2C%20Offline%20vs%20Online%2C%20Free%20vs%20Paid.Proof%20%2F%20Social%20Proof%20%0ACheck%20www.natureai.online%20for%20Play%20Store%20link%2C%20reviews%2C%20downloads%2C%20screenshots.When%20to%20use%20it%20vs%20Not%20use%20it%20%0AWhen%20is%20this%20better%20than%20Google%20Lens%20or%20a%20book%3FPricing%20Model%20%0AIs%20it%20free%3F%20Freemium%3F%20Subscription%3F%20Any%20limits%3FHow%20it%20compares%20to%20alternatives%20%0Avs%20PlantNet%2C%20PictureThis%2C%20iNaturalist%2C%20Google%20Lens.%20What%E2%80%99s%20different%3FFinish%20with%3AThe%2030-second%20verdict%3A%20Should%20I%20install%20this%20right%20now%3F%20Yes%2FNo%20%2B%201%20reason.3%20Next%20Steps%3A%20%5Bhttps%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.nature.ai%5D",
+      "type": "external",
+      "newTab": true
+    },
+    "ia6ok2-3-8-2-3-2-3-6": {
+      "type": "internal",
+      "pageId": "67283c5b-f9d7-46f6-a8b8-cad95b684202",
+      "newTab": true,
+      "pagePath": "/partners-directory"
+    },
+    "ia6ok2-3-8-2-3-2-3-7-6-2-7-2": {
+      "type": "internal",
+      "pageId": "3479f240-dbf4-4328-8d0a-0c4e5cf8de48",
+      "newTab": true,
+      "pagePath": "/in-the-press"
+    }
+  },
+  "scrollAnimations": {
+    "i4qyc": {
+      "start": "bottom",
+      "effectA": "fade",
+      "effectB": "fade",
+      "sectionId": "i58eb-2-2",
+      "type": "section"
+    },
+    "i1edxg1": {
+      "type": "section",
+      "start": "bottom",
+      "effectB": "fade",
+      "sectionId": "ixlw3c-2-2-3-2"
+    },
+    "i6pdkmg": {
+      "type": "section",
+      "start": "bottom",
+      "effectB": "fade",
+      "sectionId": "ixlw3c-2-2-3-2"
+    },
+    "iawqb1g": {
+      "type": "section",
+      "start": "bottom",
+      "effectA": "fade",
+      "effectB": "fade",
+      "sectionId": "i58eb-2-2"
+    },
+    "ibefj6z": {
+      "type": "section",
+      "start": "bottom",
+      "effectB": "fade",
+      "sectionId": "ixlw3c-2-2-3-2"
+    },
+    "iho6tu9": {
+      "type": "section",
+      "start": "bottom",
+      "effectA": "fade",
+      "sectionId": "ilex4h"
+    },
+    "i54bq-2-2": {
+      "type": "section",
+      "start": "bottom",
+      "effectA": "fade",
+      "effectB": "fade",
+      "sectionId": "i58eb-2-2"
+    },
+    "ixycwt-2-2": {
+      "start": "bottom",
+      "effectA": "fade",
+      "sectionId": "iqidrx-2-2",
+      "effectB": "fade",
+      "type": "section"
+    },
+    "ixycwt-2-2-3": {
+      "type": "section",
+      "start": "bottom",
+      "effectA": "fade",
+      "sectionId": "iqidrx-2-2"
+    }
+  },
+  "interactions": {
+    "ipavn": [
+      {
+        "actions": [
+          {
+            "id": "i7lb35",
+            "type": "uiOverlay",
+            "event": "open"
+          }
+        ],
+        "mouseCursor": "pointer",
+        "triggerType": "mouseEnter"
+      },
+      {
+        "actions": [
+          {
+            "id": "i7lb35",
+            "type": "uiOverlay",
+            "event": "open"
+          }
+        ],
+        "mouseCursor": "pointer",
+        "triggerType": "mouseClick"
+      },
+      {
+        "triggerType": "mouseEnter",
+        "mouseCursor": "pointer",
+        "actions": [
+          {
+            "type": "uiOverlay",
+            "event": "close",
+            "id": "i7lb35-4"
+          }
+        ]
+      },
+      {
+        "triggerType": "mouseEnter",
+        "mouseCursor": "pointer",
+        "actions": [
+          {
+            "type": "uiOverlay",
+            "event": "close",
+            "id": "i7lb35-4-2"
+          }
+        ]
+      }
+    ],
+    "ipavn-2": [
+      {
+        "actions": [
+          {
+            "id": "i7lb35-4",
+            "type": "uiOverlay",
+            "event": "open"
+          }
+        ],
+        "mouseCursor": "pointer",
+        "triggerType": "mouseClick"
+      },
+      {
+        "actions": [
+          {
+            "id": "i7lb35-4",
+            "type": "uiOverlay",
+            "event": "open"
+          }
+        ],
+        "mouseCursor": "pointer",
+        "triggerType": "mouseEnter"
+      },
+      {
+        "triggerType": "mouseEnter",
+        "mouseCursor": "pointer",
+        "actions": [
+          {
+            "type": "uiOverlay",
+            "event": "close",
+            "id": "i7lb35"
+          }
+        ]
+      },
+      {
+        "triggerType": "mouseEnter",
+        "mouseCursor": "pointer",
+        "actions": [
+          {
+            "type": "uiOverlay",
+            "event": "close",
+            "id": "i7lb35-4-2"
+          }
+        ]
+      }
+    ],
+    "ipavn-6": [
+      {
+        "actions": [
+          {
+            "id": "ixj1tk-2-2",
+            "type": "uiOverlay",
+            "event": "open"
+          }
+        ],
+        "mouseCursor": "pointer",
+        "triggerType": "mouseClick"
+      }
+    ],
+    "ipe2yfu": [
+      {
+        "actions": [
+          {
+            "id": "ixj1tk-2",
+            "type": "uiOverlay",
+            "event": "open"
+          }
+        ],
+        "mouseCursor": "pointer",
+        "triggerType": "mouseClick"
+      }
+    ],
+    "ipavn-2-3": [
+      {
+        "actions": [
+          {
+            "id": "i7lb35-4-2",
+            "type": "uiOverlay",
+            "event": "open"
+          }
+        ],
+        "mouseCursor": "pointer",
+        "triggerType": "mouseClick"
+      },
+      {
+        "actions": [
+          {
+            "id": "i7lb35-4-2",
+            "type": "uiOverlay",
+            "event": "open"
+          }
+        ],
+        "mouseCursor": "pointer",
+        "triggerType": "mouseEnter"
+      },
+      {
+        "triggerType": "mouseEnter",
+        "mouseCursor": "pointer",
+        "actions": [
+          {
+            "type": "uiOverlay",
+            "event": "close",
+            "id": "i7lb35"
+          }
+        ]
+      },
+      {
+        "triggerType": "mouseEnter",
+        "mouseCursor": "pointer",
+        "actions": [
+          {
+            "type": "uiOverlay",
+            "event": "close",
+            "id": "i7lb35-4"
+          }
+        ]
+      }
+    ],
+    "ipavn-2-6": [
+      {
+        "actions": [
+          {
+            "id": "ik48q6m",
+            "type": "uiOverlay",
+            "event": "open"
+          }
+        ],
+        "mouseCursor": "pointer",
+        "triggerType": "mouseClick"
+      }
+    ],
+    "ipe2yfu-2": [
+      {
+        "actions": [
+          {
+            "id": "ixj1tk-2",
+            "type": "uiOverlay",
+            "event": "close"
+          }
+        ],
+        "mouseCursor": "pointer",
+        "triggerType": "mouseClick"
+      }
+    ],
+    "ipavn-2-3-4": [
+      {
+        "actions": [
+          {
+            "id": "ijk79y6",
+            "type": "uiOverlay",
+            "event": "open"
+          }
+        ],
+        "mouseCursor": "pointer",
+        "triggerType": "mouseClick"
+      }
+    ],
+    "ipe2yfu-2-2": [
+      {
+        "actions": [
+          {
+            "id": "ixj1tk-2-2",
+            "type": "uiOverlay",
+            "event": "close"
+          },
+          {
+            "id": "ixj1tk-2",
+            "type": "uiOverlay",
+            "event": "close"
+          }
+        ],
+        "mouseCursor": "pointer",
+        "triggerType": "mouseClick"
+      }
+    ],
+    "i8i2vn-2-2-2-2-6-2": [
+      {
+        "actions": [
+          {
+            "id": "ixj1tk-2-2",
+            "type": "uiOverlay",
+            "event": "close"
+          }
+        ],
+        "mouseCursor": "pointer",
+        "triggerType": "mouseClick"
+      }
+    ],
+    "i7lb35": [
+      {
+        "triggerType": "mouseClick",
+        "mouseCursor": "pointer",
+        "actions": [
+          {
+            "type": "uiOverlay",
+            "event": "close",
+            "id": "i7lb35-4"
+          }
+        ]
+      },
+      {
+        "triggerType": "mouseClick",
+        "mouseCursor": "pointer",
+        "actions": [
+          {
+            "type": "uiOverlay",
+            "event": "close",
+            "id": "i7lb35-4-2"
+          }
+        ]
+      }
+    ],
+    "i7lb35-4": [
+      {
+        "triggerType": "mouseClick",
+        "mouseCursor": "pointer",
+        "actions": [
+          {
+            "type": "uiOverlay",
+            "event": "open",
+            "id": "i7lb35-4"
+          }
+        ]
+      },
+      {
+        "triggerType": "mouseClick",
+        "mouseCursor": "pointer",
+        "actions": [
+          {
+            "type": "uiOverlay",
+            "event": "close",
+            "id": "i7lb35-4-2"
+          }
+        ]
+      }
+    ],
+    "i7lb35-4-2": [
+      {
+        "triggerType": "mouseClick",
+        "mouseCursor": "pointer",
+        "actions": [
+          {
+            "type": "uiOverlay",
+            "event": "open",
+            "id": "i7lb35-4-2"
+          }
+        ]
+      },
+      {
+        "triggerType": "mouseClick",
+        "mouseCursor": "pointer",
+        "actions": [
+          {
+            "type": "uiOverlay",
+            "event": "close",
+            "id": "i7lb35-4"
+          }
+        ]
+      }
+    ],
+    "ipavn-2-2": [
+      {
+        "triggerType": "mouseEnter",
+        "mouseCursor": "pointer",
+        "actions": [
+          {
+            "type": "uiOverlay",
+            "event": "close",
+            "id": "i7lb35"
+          }
+        ]
+      },
+      {
+        "triggerType": "mouseEnter",
+        "mouseCursor": "pointer",
+        "actions": [
+          {
+            "type": "uiOverlay",
+            "event": "close",
+            "id": "i7lb35-4"
+          }
+        ]
+      },
+      {
+        "triggerType": "mouseEnter",
+        "mouseCursor": "pointer",
+        "actions": [
+          {
+            "type": "uiOverlay",
+            "event": "close",
+            "id": "i7lb35-4-2"
+          }
+        ]
+      }
+    ],
+    "ipe2yfu-2-4": [
+      {
+        "actions": [
+          {
+            "id": "ixj1tk-2",
+            "type": "uiOverlay",
+            "event": "close"
+          }
+        ],
+        "mouseCursor": "pointer",
+        "triggerType": "mouseClick"
+      }
+    ],
+    "i8i2vn-2-2-2-2-6-2-3": [
+      {
+        "actions": [
+          {
+            "id": "ijk79y6",
+            "type": "uiOverlay",
+            "event": "close"
+          }
+        ],
+        "mouseCursor": "pointer",
+        "triggerType": "mouseClick"
+      }
+    ],
+    "ipe2yfu-2-4-2": [
+      {
+        "actions": [
+          {
+            "id": "ixj1tk-2",
+            "type": "uiOverlay",
+            "event": "close"
+          }
+        ],
+        "mouseCursor": "pointer",
+        "triggerType": "mouseClick"
+      }
+    ],
+    "i8i2vn-2-2-2-2-6-2-3-2": [
+      {
+        "actions": [
+          {
+            "id": "ik48q6m",
+            "type": "uiOverlay",
+            "event": "close"
+          }
+        ],
+        "mouseCursor": "pointer",
+        "triggerType": "mouseClick"
+      }
+    ]
+  },
+  "relativeOverlays": {
+    "i7lb35": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "iymxp2": {
+      "align": "center",
+      "position": "bottom",
+      "dismissType": "auto",
+      "offsetParallel": 0,
+      "offsetOrthogonal": -26
+    },
+    "ijk79y6": {
+      "align": "center",
+      "position": "top",
+      "dismissType": "none",
+      "offsetParallel": 0,
+      "offsetOrthogonal": 0
+    },
+    "ik48q6m": {
+      "align": "center",
+      "position": "top",
+      "dismissType": "none",
+      "offsetParallel": 0,
+      "offsetOrthogonal": 0
+    },
+    "i7lb35-2": {
+      "align": "center",
+      "position": "bottom",
+      "dismissType": "auto",
+      "offsetParallel": 0,
+      "offsetOrthogonal": 8
+    },
+    "i7lb35-3": {
+      "align": "center",
+      "position": "bottom",
+      "dismissType": "auto",
+      "offsetParallel": 0,
+      "offsetOrthogonal": 8
+    },
+    "i7lb35-5": {
+      "align": "center",
+      "position": "bottom",
+      "dismissType": "auto",
+      "offsetParallel": 0,
+      "offsetOrthogonal": 8
+    },
+    "iknl7h-2": {
+      "align": "center",
+      "position": "bottom",
+      "dismissType": "auto",
+      "offsetParallel": 0,
+      "offsetOrthogonal": 8
+    },
+    "iknl7h-3": {
+      "align": "center",
+      "position": "bottom",
+      "dismissType": "auto",
+      "offsetParallel": 0,
+      "offsetOrthogonal": 8
+    },
+    "iknl7h-5": {
+      "align": "center",
+      "position": "bottom",
+      "dismissType": "auto",
+      "offsetParallel": 0,
+      "offsetOrthogonal": 8
+    },
+    "ixj1tk-2": {
+      "align": "center",
+      "position": "top",
+      "dismissType": "none",
+      "offsetParallel": 0,
+      "offsetOrthogonal": 0
+    },
+    "ijk79y6-2": {
+      "align": "center",
+      "position": "bottom",
+      "dismissType": "auto",
+      "offsetParallel": 0,
+      "offsetOrthogonal": 8
+    },
+    "ik48q6m-2": {
+      "align": "center",
+      "position": "bottom",
+      "dismissType": "auto",
+      "offsetParallel": 0,
+      "offsetOrthogonal": 8
+    },
+    "i7lb35-2-2": {
+      "align": "center",
+      "position": "bottom",
+      "dismissType": "auto",
+      "offsetParallel": 0,
+      "offsetOrthogonal": 8
+    },
+    "i7lb35-2-3": {
+      "align": "center",
+      "position": "bottom",
+      "dismissType": "auto",
+      "offsetParallel": 0,
+      "offsetOrthogonal": 8
+    },
+    "i7lb35-2-4": {
+      "align": "center",
+      "position": "bottom",
+      "dismissType": "auto",
+      "offsetParallel": 0,
+      "offsetOrthogonal": 8
+    },
+    "iknl7h-2-2": {
+      "align": "center",
+      "position": "bottom",
+      "dismissType": "auto",
+      "offsetParallel": 0,
+      "offsetOrthogonal": 8
+    },
+    "iknl7h-2-3": {
+      "align": "center",
+      "position": "bottom",
+      "dismissType": "auto",
+      "offsetParallel": 0,
+      "offsetOrthogonal": 8
+    },
+    "iknl7h-2-4": {
+      "align": "center",
+      "position": "bottom",
+      "dismissType": "auto",
+      "offsetParallel": 0,
+      "offsetOrthogonal": 8
+    },
+    "ixj1tk-2-2": {
+      "align": "center",
+      "position": "top",
+      "dismissType": "none",
+      "offsetParallel": 0,
+      "offsetOrthogonal": 0
+    },
+    "ixj1tk-2-3": {
+      "align": "center",
+      "position": "bottom",
+      "dismissType": "auto",
+      "offsetParallel": 0,
+      "offsetOrthogonal": 8
+    },
+    "ijk79y6-2-2": {
+      "align": "center",
+      "position": "bottom",
+      "dismissType": "auto",
+      "offsetParallel": 0,
+      "offsetOrthogonal": 8
+    },
+    "ijk79y6-2-3": {
+      "align": "center",
+      "position": "bottom",
+      "dismissType": "auto",
+      "offsetParallel": 0,
+      "offsetOrthogonal": 8
+    },
+    "ijk79y6-2-4": {
+      "align": "center",
+      "position": "bottom",
+      "dismissType": "auto",
+      "offsetParallel": 0,
+      "offsetOrthogonal": 8
+    },
+    "ijk79y6-2-5": {
+      "align": "center",
+      "position": "bottom",
+      "dismissType": "auto",
+      "offsetParallel": 0,
+      "offsetOrthogonal": 8
+    },
+    "ijk79y6-2-6": {
+      "align": "center",
+      "position": "bottom",
+      "dismissType": "auto",
+      "offsetParallel": 0,
+      "offsetOrthogonal": 8
+    },
+    "ik48q6m-2-2": {
+      "align": "center",
+      "position": "bottom",
+      "dismissType": "auto",
+      "offsetParallel": 0,
+      "offsetOrthogonal": 8
+    },
+    "ik48q6m-2-3": {
+      "align": "center",
+      "position": "bottom",
+      "dismissType": "auto",
+      "offsetParallel": 0,
+      "offsetOrthogonal": 8
+    },
+    "ik48q6m-2-4": {
+      "align": "center",
+      "position": "bottom",
+      "dismissType": "auto",
+      "offsetParallel": 0,
+      "offsetOrthogonal": 8
+    },
+    "ik48q6m-2-5": {
+      "align": "center",
+      "position": "bottom",
+      "dismissType": "auto",
+      "offsetParallel": 0,
+      "offsetOrthogonal": 8
+    },
+    "ik48q6m-2-6": {
+      "align": "center",
+      "position": "bottom",
+      "dismissType": "auto",
+      "offsetParallel": 0,
+      "offsetOrthogonal": 8
+    },
+    "i7lb35-2-2-2": {
+      "align": "center",
+      "position": "bottom",
+      "dismissType": "auto",
+      "offsetParallel": 0,
+      "offsetOrthogonal": 8
+    },
+    "i7lb35-2-4-2": {
+      "align": "center",
+      "position": "bottom",
+      "dismissType": "auto",
+      "offsetParallel": 0,
+      "offsetOrthogonal": 8
+    },
+    "i7lb35-2-4-3": {
+      "align": "center",
+      "position": "bottom",
+      "dismissType": "auto",
+      "offsetParallel": 0,
+      "offsetOrthogonal": 8
+    },
+    "iknl7h-2-2-2": {
+      "align": "center",
+      "position": "bottom",
+      "dismissType": "auto",
+      "offsetParallel": 0,
+      "offsetOrthogonal": 8
+    },
+    "iknl7h-2-4-2": {
+      "align": "center",
+      "position": "bottom",
+      "dismissType": "auto",
+      "offsetParallel": 0,
+      "offsetOrthogonal": 8
+    },
+    "ixj1tk-2-2-2": {
+      "align": "center",
+      "position": "bottom",
+      "dismissType": "auto",
+      "offsetParallel": 0,
+      "offsetOrthogonal": 8
+    },
+    "ixj1tk-2-3-2": {
+      "align": "center",
+      "position": "bottom",
+      "dismissType": "auto",
+      "offsetParallel": 0,
+      "offsetOrthogonal": 8
+    },
+    "ixj1tk-2-3-3": {
+      "align": "center",
+      "position": "bottom",
+      "dismissType": "auto",
+      "offsetParallel": 0,
+      "offsetOrthogonal": 8
+    },
+    "ixj1tk-2-3-4": {
+      "align": "center",
+      "position": "bottom",
+      "dismissType": "auto",
+      "offsetParallel": 0,
+      "offsetOrthogonal": 8
+    },
+    "ixj1tk-2-3-5": {
+      "align": "center",
+      "position": "bottom",
+      "dismissType": "auto",
+      "offsetParallel": 0,
+      "offsetOrthogonal": 8
+    },
+    "ixj1tk-2-3-6": {
+      "align": "center",
+      "position": "bottom",
+      "dismissType": "auto",
+      "offsetParallel": 0,
+      "offsetOrthogonal": 8
+    },
+    "ijk79y6-2-6-2": {
+      "align": "center",
+      "position": "bottom",
+      "dismissType": "auto",
+      "offsetParallel": 0,
+      "offsetOrthogonal": 8
+    },
+    "ik48q6m-2-6-2": {
+      "align": "center",
+      "position": "bottom",
+      "dismissType": "auto",
+      "offsetParallel": 0,
+      "offsetOrthogonal": 8
+    },
+    "i7lb35-2-4-2-3": {
+      "align": "center",
+      "position": "bottom",
+      "dismissType": "auto",
+      "offsetParallel": 0,
+      "offsetOrthogonal": 8
+    },
+    "ixj1tk-2-2-2-2": {
+      "align": "center",
+      "position": "bottom",
+      "dismissType": "auto",
+      "offsetParallel": 0,
+      "offsetOrthogonal": 8
+    },
+    "ixj1tk-2-2-2-3": {
+      "align": "center",
+      "position": "bottom",
+      "dismissType": "auto",
+      "offsetParallel": 0,
+      "offsetOrthogonal": 8
+    },
+    "ixj1tk-2-2-2-4": {
+      "align": "center",
+      "position": "bottom",
+      "dismissType": "auto",
+      "offsetParallel": 0,
+      "offsetOrthogonal": 8
+    },
+    "ixj1tk-2-2-2-5": {
+      "align": "center",
+      "position": "bottom",
+      "dismissType": "auto",
+      "offsetParallel": 0,
+      "offsetOrthogonal": 8
+    },
+    "ixj1tk-2-2-2-6": {
+      "align": "center",
+      "position": "bottom",
+      "dismissType": "auto",
+      "offsetParallel": 0,
+      "offsetOrthogonal": 8
+    },
+    "ixj1tk-2-3-6-2": {
+      "align": "center",
+      "position": "bottom",
+      "dismissType": "auto",
+      "offsetParallel": 0,
+      "offsetOrthogonal": 8
+    },
+    "i7lb35-2-4-2-2-2": {
+      "align": "center",
+      "position": "bottom",
+      "dismissType": "auto",
+      "offsetParallel": 0,
+      "offsetOrthogonal": 8
+    },
+    "i7lb35-2-4-2-2-3": {
+      "align": "center",
+      "position": "bottom",
+      "dismissType": "auto",
+      "offsetParallel": 0,
+      "offsetOrthogonal": 8
+    },
+    "i7lb35-2-4-2-2-4": {
+      "align": "center",
+      "position": "bottom",
+      "dismissType": "auto",
+      "offsetParallel": 0,
+      "offsetOrthogonal": 8
+    },
+    "i7lb35-2-4-2-2-5": {
+      "align": "center",
+      "position": "bottom",
+      "dismissType": "auto",
+      "offsetParallel": 0,
+      "offsetOrthogonal": 8
+    },
+    "i7lb35-2-4-2-2-6": {
+      "align": "center",
+      "position": "bottom",
+      "dismissType": "auto",
+      "offsetParallel": 0,
+      "offsetOrthogonal": 8
+    },
+    "i7lb35-2-4-2-2-8": {
+      "align": "center",
+      "position": "bottom",
+      "dismissType": "auto",
+      "offsetParallel": 0,
+      "offsetOrthogonal": 8
+    },
+    "ixj1tk-2-2-2-6-2": {
+      "align": "center",
+      "position": "bottom",
+      "dismissType": "auto",
+      "offsetParallel": 0,
+      "offsetOrthogonal": 8
+    },
+    "i7lb35-4": {
+      "align": "center",
+      "position": "bottom",
+      "dismissType": "auto",
+      "offsetParallel": 0,
+      "offsetOrthogonal": 8
+    },
+    "i7lb35-4-2": {
+      "align": "center",
+      "position": "bottom",
+      "dismissType": "auto",
+      "offsetParallel": 0,
+      "offsetOrthogonal": 8
+    },
+    "ixj1tk-2-4": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "ixj1tk-2-2-3": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "ijk79y6-3": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "ik48q6m-3": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "i7lb35-6": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "i7lb35-4-3": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "i7lb35-4-2-2": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "ixj1tk-2-4-2": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "ixj1tk-2-2-3-2": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "ijk79y6-3-2": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "ik48q6m-3-2": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "i7lb35-6-2": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "i7lb35-4-3-2": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "i7lb35-4-2-2-2": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "i7lb35-4-4": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "i7lb35-4-2-3": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "i7lb35-4-4-2": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "i7lb35-4-2-3-2": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "ixj1tk-2-3-2-2": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "ixj1tk-2-2-2-2-2": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "ijk79y6-2-2-2": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "ik48q6m-2-2-2": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "i7lb35-4-4-2-2": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "i7lb35-4-2-3-2-2": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "ixj1tk-2-3-2-2-2": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "ixj1tk-2-2-2-2-2-2": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "ijk79y6-2-2-2-2": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "ik48q6m-2-2-2-2": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "i7lb35-2-2-2-2": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "i7lb35-4-4-2-2-2": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "i7lb35-4-2-3-2-2-2": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "ixj1tk-2-3-2-2-3": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "ixj1tk-2-2-2-2-2-3": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "ijk79y6-2-2-2-3": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "ik48q6m-2-2-2-3": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "i7lb35-2-2-2-3": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "i7lb35-4-4-2-2-3": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "i7lb35-4-2-3-2-2-3": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "ixj1tk-2-3-2-2-3-2": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "ixj1tk-2-2-2-2-2-3-2": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "ijk79y6-2-2-2-3-2": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "ik48q6m-2-2-2-3-2": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "i7lb35-2-2-2-3-2": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "i7lb35-4-4-2-2-3-2": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "i7lb35-4-2-3-2-2-3-2": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "ixj1tk-2-3-2-2-3-3": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "ixj1tk-2-2-2-2-2-3-3": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "ijk79y6-2-2-2-3-3": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "ik48q6m-2-2-2-3-3": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "i7lb35-2-2-2-3-3": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "i7lb35-4-4-2-2-3-3": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "i7lb35-4-2-3-2-2-3-3": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "ixj1tk-2-3-2-2-3-3-2": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "ixj1tk-2-2-2-2-2-3-3-2": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "ijk79y6-2-2-2-3-3-2": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "ik48q6m-2-2-2-3-3-2": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "i7lb35-2-2-2-3-3-2": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "i7lb35-4-4-2-2-3-3-2": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "i7lb35-4-2-3-2-2-3-3-2": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "ixj1tk-2-3-2-2-3-3-2-2": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "ixj1tk-2-2-2-2-2-3-3-2-2": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "ijk79y6-2-2-2-3-3-2-2": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "ik48q6m-2-2-2-3-3-2-2": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "i7lb35-2-2-2-3-3-2-2": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "i7lb35-4-4-2-2-3-3-2-2": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "i7lb35-4-2-3-2-2-3-3-2-2": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "ixj1tk-2-3-2-2-3-3-2-2-2": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "ixj1tk-2-2-2-2-2-3-3-2-2-2": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "ijk79y6-2-2-2-3-3-2-2-2": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "ik48q6m-2-2-2-3-3-2-2-2": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "i7lb35-2-2-2-3-3-2-2-2": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "i7lb35-4-4-2-2-3-3-2-2-2": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "i7lb35-4-2-3-2-2-3-3-2-2-2": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "ixj1tk-2-3-2-2-3-3-2-2-2-2": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "ixj1tk-2-2-2-2-2-3-3-2-2-2-2": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "ijk79y6-2-2-2-3-3-2-2-2-2": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "ik48q6m-2-2-2-3-3-2-2-2-2": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "i7lb35-2-2-2-3-3-2-2-2-2": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "i7lb35-4-4-2-2-3-3-2-2-2-2": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "i7lb35-4-2-3-2-2-3-3-2-2-2-2": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "ixj1tk-2-3-2-2-3-3-2-2-2-2-2": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "ixj1tk-2-2-2-2-2-3-3-2-2-2-2-2": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "ijk79y6-2-2-2-3-3-2-2-2-2-2": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "ik48q6m-2-2-2-3-3-2-2-2-2-2": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "i7lb35-2-2-2-3-3-2-2-2-2-2": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "i7lb35-4-4-2-2-3-3-2-2-2-2-2": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    },
+    "i7lb35-4-2-3-2-2-3-3-2-2-2-2-2": {
+      "position": "bottom",
+      "align": "center",
+      "offsetOrthogonal": 8,
+      "offsetParallel": 0,
+      "dismissType": "auto"
+    }
+  },
+  "anchors": {
+    "iee4h3-3": {
+      "percentage": 0.05
+    },
+    "iee4h3-4": {
+      "percentage": 0
+    },
+    "iee4h3-3-3": {
+      "percentage": 0.15
+    },
+    "iee4h3-3-2-2-2-2-2": {
+      "percentage": 0.35
+    },
+    "iee4h3-3-2-2-2-2-2-2": {
+      "percentage": 0.75
+    },
+    "iee4h3-3-2-2-2-2-2-3": {
+      "percentage": 0.3
+    },
+    "iee4h3-3-2-2-2-2-2-3-2": {
+      "percentage": 0.33
+    },
+    "iee4h3-3-3-2": {
+      "percentage": 0.18
+    },
+    "iee4h3-3-3-2-2": {
+      "percentage": 0.21
+    },
+    "iee4h3-3-2-2-2-2-2-4-2": {
+      "percentage": 0.53
+    },
+    "iee4h3-3-2-2-2-2-2-4-2-2": {
+      "percentage": 0.6
+    },
+    "iee4h3-3-2-2-2-2-2-4-3": {
+      "percentage": 0.44
+    },
+    "iee4h3-3-3-3": {
+      "percentage": 0.14
+    },
+    "iee4h3-3-2": {
+      "percentage": 0.13
+    },
+    "iee4h3-3-2-2-2-2-2-5": {
+      "percentage": 0.41
+    }
+  }
+}

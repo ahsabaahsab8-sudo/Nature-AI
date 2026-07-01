@@ -24,7 +24,14 @@ export function ClonedHome({
 }: ClonedHomeProps) {
 
   useEffect(() => {
-    // 1. Rename Navigation Menu Items
+    // 1. Load PeachWorlds script.js dynamically
+    const script = document.createElement('script');
+    script.src = '/script.js';
+    script.defer = true;
+    script.setAttribute('fetchpriority', 'high');
+    document.body.appendChild(script);
+
+    // 2. Rename Navigation Menu Items
     const menuRenames: { [id: string]: string } = {
       'i6wd7': 'Home',
       'i6wd7-2-6': 'Scanner Hub',
@@ -38,125 +45,143 @@ export function ClonedHome({
       'i6wd7-2-2-4': 'Identify Bird'
     };
 
-    for (const id in menuRenames) {
-      const menuEl = document.getElementById(id);
-      if (menuEl) {
-        menuEl.textContent = menuRenames[id];
-        menuEl.className = 'curated-menu-text';
+    const runMenuRenames = () => {
+      for (const id in menuRenames) {
+        const menuEl = document.getElementById(id);
+        if (menuEl) {
+          menuEl.textContent = menuRenames[id];
+          menuEl.className = 'curated-menu-text';
+        }
       }
-    }
-
-    // 2. Clone and Insert Fish and Insect Items
-    const desktopBird = document.getElementById('ipavn-2-2');
-    if (desktopBird && desktopBird.parentNode && !document.getElementById('ipavn-2-2-fish')) {
-      // Fish desktop
-      const fishItem = desktopBird.cloneNode(true) as HTMLElement;
-      fishItem.id = 'ipavn-2-2-fish';
-      fishItem.className = 'pwb-flex-grid-wrap curated-menu-item';
-      const fishInner = fishItem.querySelector('div');
-      if (fishInner) {
-        fishInner.id = 'i6wd7-2-2-fish';
-        fishInner.className = 'curated-menu-text';
-        fishInner.textContent = 'Identify Fish';
-      }
-      desktopBird.parentNode.insertBefore(fishItem, desktopBird.nextSibling);
-
-      // Insect desktop
-      const insectItem = desktopBird.cloneNode(true) as HTMLElement;
-      insectItem.id = 'ipavn-2-2-insect';
-      insectItem.className = 'pwb-flex-grid-wrap curated-menu-item';
-      const insectInner = insectItem.querySelector('div');
-      if (insectInner) {
-        insectInner.id = 'i6wd7-2-2-insect';
-        insectInner.className = 'curated-menu-text';
-        insectInner.textContent = 'Identify Insect';
-      }
-      fishItem.parentNode.insertBefore(insectItem, fishItem.nextSibling);
-    }
-
-    const mobileBird = document.getElementById('ipavn-2-2-4');
-    if (mobileBird && mobileBird.parentNode && !document.getElementById('ipavn-2-2-4-fish')) {
-      // Fish mobile
-      const mFishItem = mobileBird.cloneNode(true) as HTMLElement;
-      mFishItem.id = 'ipavn-2-2-4-fish';
-      const mFishDivs = mFishItem.querySelectorAll('div');
-      if (mFishDivs.length > 0) {
-        mFishDivs[0].id = 'i6wd7-2-2-4-fish';
-        mFishDivs[0].textContent = 'Identify Fish';
-      }
-      mobileBird.parentNode.insertBefore(mFishItem, mobileBird.nextSibling);
-
-      // Insect mobile
-      const mInsectItem = mobileBird.cloneNode(true) as HTMLElement;
-      mInsectItem.id = 'ipavn-2-2-4-insect';
-      const mInsectDivs = mInsectItem.querySelectorAll('div');
-      if (mInsectDivs.length > 0) {
-        mInsectDivs[0].id = 'i6wd7-2-2-4-insect';
-        mInsectDivs[0].textContent = 'Identify Insect';
-      }
-      mFishItem.parentNode.insertBefore(mInsectItem, mFishItem.nextSibling);
-    }
-
-    // Apply inline style overrides for spacing alignment
-    document.querySelectorAll('#ioqrg > div[id^="ipavn"]').forEach(function(el) {
-      const htmlEl = el as HTMLElement;
-      htmlEl.className += ' curated-menu-item';
-      htmlEl.style.setProperty('margin-left', '0', 'important');
-      htmlEl.style.setProperty('margin-right', '0', 'important');
-      htmlEl.style.setProperty('margin-top', '0', 'important');
-      htmlEl.style.setProperty('margin-bottom', '0', 'important');
-      htmlEl.style.setProperty('padding', '0', 'important');
-      htmlEl.style.setProperty('flex', '0 0 auto', 'important');
-      htmlEl.style.setProperty('width', 'auto', 'important');
-      htmlEl.style.setProperty('position', 'relative', 'important');
-      htmlEl.style.setProperty('left', 'auto', 'important');
-      htmlEl.style.setProperty('right', 'auto', 'important');
-      htmlEl.style.setProperty('top', 'auto', 'important');
-      htmlEl.style.setProperty('bottom', 'auto', 'important');
-      htmlEl.style.setProperty('transform', 'none', 'important');
-
-      const innerText = htmlEl.querySelector('div, span, font') as HTMLElement;
-      if (innerText) {
-        innerText.className = 'curated-menu-text';
-        innerText.style.setProperty('margin-left', '0', 'important');
-        innerText.style.setProperty('margin-right', '0', 'important');
-        innerText.style.setProperty('padding', '0 4px', 'important');
-      }
-    });
-
-    // 3. Setup Navigation Menu Click Handlers
-    const menuClicks: { [id: string]: () => void } = {
-      'ipavn': onHome,
-      'ipavn-2': onScannerHub,
-      'ipavn-2-3': onDevCore,
-      'ipavn-2-2': onBirdIdentify,
-      'ipavn-2-2-fish': onFishIdentify,
-      'ipavn-2-2-insect': onInsectIdentify,
-
-      // Mobile
-      'ipavn-6': onHome,
-      'ipavn-2-3-4': onScannerHub,
-      'ipavn-2-6': onDevCore,
-      'ipavn-2-2-4': onBirdIdentify,
-      'ipavn-2-2-4-fish': onFishIdentify,
-      'ipavn-2-2-4-insect': onInsectIdentify
     };
 
-    for (const id in menuClicks) {
-      const el = document.getElementById(id);
-      if (el) {
-        // Remove clone to prevent duplicate event listeners
-        const clone = el.cloneNode(true) as HTMLElement;
-        el.parentNode?.replaceChild(clone, el);
-        clone.addEventListener('click', (e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          menuClicks[id]();
-        }, true);
-      }
-    }
+    runMenuRenames();
 
-    // 4. Global Click Redirect to Play Store for CTA Buttons
+    // 3. Clone and Insert Fish and Insect Items
+    const runMenuCloning = () => {
+      const desktopBird = document.getElementById('ipavn-2-2');
+      if (desktopBird && desktopBird.parentNode && !document.getElementById('ipavn-2-2-fish')) {
+        // Fish desktop
+        const fishItem = desktopBird.cloneNode(true) as HTMLElement;
+        fishItem.id = 'ipavn-2-2-fish';
+        fishItem.className = 'pwb-flex-grid-wrap curated-menu-item';
+        const fishInner = fishItem.querySelector('div');
+        if (fishInner) {
+          fishInner.id = 'i6wd7-2-2-fish';
+          fishInner.className = 'curated-menu-text';
+          fishInner.textContent = 'Identify Fish';
+        }
+        desktopBird.parentNode.insertBefore(fishItem, desktopBird.nextSibling);
+
+        // Insect desktop
+        const insectItem = desktopBird.cloneNode(true) as HTMLElement;
+        insectItem.id = 'ipavn-2-2-insect';
+        insectItem.className = 'pwb-flex-grid-wrap curated-menu-item';
+        const insectInner = insectItem.querySelector('div');
+        if (insectInner) {
+          insectInner.id = 'i6wd7-2-2-insect';
+          insectInner.className = 'curated-menu-text';
+          insectInner.textContent = 'Identify Insect';
+        }
+        fishItem.parentNode.insertBefore(insectItem, fishItem.nextSibling);
+      }
+
+      const mobileBird = document.getElementById('ipavn-2-2-4');
+      if (mobileBird && mobileBird.parentNode && !document.getElementById('ipavn-2-2-4-fish')) {
+        // Fish mobile
+        const mFishItem = mobileBird.cloneNode(true) as HTMLElement;
+        mFishItem.id = 'ipavn-2-2-4-fish';
+        const mFishDivs = mFishItem.querySelectorAll('div');
+        if (mFishDivs.length > 0) {
+          mFishDivs[0].id = 'i6wd7-2-2-4-fish';
+          mFishDivs[0].textContent = 'Identify Fish';
+        }
+        mobileBird.parentNode.insertBefore(mFishItem, mobileBird.nextSibling);
+
+        // Insect mobile
+        const mInsectItem = mobileBird.cloneNode(true) as HTMLElement;
+        mInsectItem.id = 'ipavn-2-2-4-insect';
+        const mInsectDivs = mInsectItem.querySelectorAll('div');
+        if (mInsectDivs.length > 0) {
+          mInsectDivs[0].id = 'i6wd7-2-2-4-insect';
+          mInsectDivs[0].textContent = 'Identify Insect';
+        }
+        mFishItem.parentNode.insertBefore(mInsectItem, mFishItem.nextSibling);
+      }
+
+      // Apply inline style overrides for spacing alignment
+      document.querySelectorAll('#ioqrg > div[id^="ipavn"]').forEach(function(el) {
+        const htmlEl = el as HTMLElement;
+        htmlEl.className += ' curated-menu-item';
+        htmlEl.style.setProperty('margin-left', '0', 'important');
+        htmlEl.style.setProperty('margin-right', '0', 'important');
+        htmlEl.style.setProperty('margin-top', '0', 'important');
+        htmlEl.style.setProperty('margin-bottom', '0', 'important');
+        htmlEl.style.setProperty('padding', '0', 'important');
+        htmlEl.style.setProperty('flex', '0 0 auto', 'important');
+        htmlEl.style.setProperty('width', 'auto', 'important');
+        htmlEl.style.setProperty('position', 'relative', 'important');
+        htmlEl.style.setProperty('left', 'auto', 'important');
+        htmlEl.style.setProperty('right', 'auto', 'important');
+        htmlEl.style.setProperty('top', 'auto', 'important');
+        htmlEl.style.setProperty('bottom', 'auto', 'important');
+        htmlEl.style.setProperty('transform', 'none', 'important');
+
+        const innerText = htmlEl.querySelector('div, span, font') as HTMLElement;
+        if (innerText) {
+          innerText.className = 'curated-menu-text';
+          innerText.style.setProperty('margin-left', '0', 'important');
+          innerText.style.setProperty('margin-right', '0', 'important');
+          innerText.style.setProperty('padding', '0 4px', 'important');
+        }
+      });
+    };
+
+    runMenuCloning();
+
+    // 4. Setup Navigation Menu Click Handlers
+    const setupMenuClicks = () => {
+      const menuClicks: { [id: string]: () => void } = {
+        'ipavn': onHome,
+        'ipavn-2': onScannerHub,
+        'ipavn-2-3': onDevCore,
+        'ipavn-2-2': onBirdIdentify,
+        'ipavn-2-2-fish': onFishIdentify,
+        'ipavn-2-2-insect': onInsectIdentify,
+
+        // Mobile
+        'ipavn-6': onHome,
+        'ipavn-2-3-4': onScannerHub,
+        'ipavn-2-6': onDevCore,
+        'ipavn-2-2-4': onBirdIdentify,
+        'ipavn-2-2-4-fish': onFishIdentify,
+        'ipavn-2-2-4-insect': onInsectIdentify
+      };
+
+      for (const id in menuClicks) {
+        const el = document.getElementById(id);
+        if (el) {
+          const clone = el.cloneNode(true) as HTMLElement;
+          el.parentNode?.replaceChild(clone, el);
+          clone.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            menuClicks[id]();
+          }, true);
+        }
+      }
+    };
+
+    setupMenuClicks();
+
+    // Run layout modifications repeatedly to ensure dynamic content matches
+    const intervalId = setInterval(() => {
+      runMenuRenames();
+      runMenuCloning();
+      setupMenuClicks();
+    }, 1000);
+
+    // 5. Global Click Redirect to Play Store for CTA Buttons
     const handleGlobalClick = (e: MouseEvent) => {
       let target = e.target as HTMLElement | null;
       while (target && target !== document.body) {
@@ -166,7 +191,7 @@ export function ClonedHome({
 
         const isCTA = text.includes('get started') || 
                       text.includes('its free') || 
-                      text.includes("it's free") || 
+                      text.includes("it's free") ||
                       text.includes('researchers') || 
                       text.includes('book a call') || 
                       text.includes('book a demo') ||
@@ -182,7 +207,6 @@ export function ClonedHome({
                             href.includes('statuspage.io');
 
         if (isCTA || isOldDomain) {
-          // Ignore if it's one of the AI search/chat buttons (ChatGPT/Claude/Gemini/Perplexity/Grok)
           if (text.includes('chatgpt') || text.includes('claude') || text.includes('gemini') || text.includes('perplexity') || text.includes('grok')) {
             target = target.parentElement;
             continue;
@@ -198,7 +222,7 @@ export function ClonedHome({
     };
     document.body.addEventListener('click', handleGlobalClick, true);
 
-    // 5. Initialize video hover wrappers (permanently showing posters, hiding videos)
+    // 6. Initialize video hover wrappers (permanently showing posters, hiding videos)
     const initVideoHoverWrapper = (wrapper: HTMLElement) => {
       const video = wrapper.querySelector(".hover-video") as HTMLVideoElement | null;
       const poster = wrapper.querySelector(".video-poster") as HTMLImageElement | null;
@@ -219,7 +243,6 @@ export function ClonedHome({
       initVideoHoverWrapper(el as HTMLElement);
     });
 
-    // Observer for lazy loading dynamic wrappers
     const observer = new MutationObserver((mutations) => {
       for (const mutation of mutations) {
         mutation.addedNodes.forEach((node) => {
@@ -243,13 +266,20 @@ export function ClonedHome({
 
     // Cleanup
     return () => {
+      clearInterval(intervalId);
       document.body.removeEventListener('click', handleGlobalClick, true);
       observer.disconnect();
+      document.body.removeChild(script);
+      document.querySelectorAll('script[src*=".script.js"]').forEach(el => el.remove());
+      const canvas = document.querySelector('canvas');
+      if (canvas) canvas.remove();
     };
   }, [onHome, onScannerHub, onDevCore, onFishIdentify, onBirdIdentify, onInsectIdentify]);
 
   return (
     <div className="cloned-home-wrapper relative w-full h-full">
+      <link href="/website-base.css" rel="stylesheet" type="text/css" />
+      <link href="/styles.css" rel="stylesheet" type="text/css" />
       <style dangerouslySetInnerHTML={{ __html: `
           *{box-sizing:border-box;scrollbar-width:none}::-webkit-scrollbar{display:none}.pw-scene-style>canvas,.pwb-scene>canvas{display:block;width:100%;height:100%;user-select:none}a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{margin:0;padding:0;border-width:0;border-style:none;border-color:currentcolor;border-image-source:initial;border-image-slice:initial;border-image-width:initial;border-image-outset:initial;border-image-repeat:initial;font-variant-ligatures:inherit;font-variant-caps:inherit;font-variant-numeric:inherit;font-variant-east-asian:inherit;font-variant-alternates:inherit;font-variant-position:inherit;font-variant-emoji:inherit;font-weight:inherit;font-stretch:inherit;font-size:inherit;font-family:inherit;font-optical-sizing:inherit;font-size-adjust:inherit;font-kerning:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-language-override:inherit;vertical-align:baseline}a,abbr,acronym,address,applet,article,aside,audio,big,blockquote,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{font-style:inherit;line-height:inherit}b,body,em,i,strong{line-height:1}b,em,i,strong{line-height:inherit;font-style:italic}b,body,strong{font-style:inherit}b,strong{font-weight:bolder}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}ol,ul{list-style-position:initial;list-style-image:initial;list-style-type:none}blockquote,q{quotes:none}blockquote::after,blockquote::before,q::after,q::before{content:none}table{border-collapse:collapse;-webkit-border-horizontal-spacing:0;-webkit-border-vertical-spacing:0}:root{--pw-user-color-style-f857ba13-729b-4616-86f2-d806c4992ef2:#ffffff26;--pw-user-color-style-f2d69261-dc17-4587-9d81-d228f2eb4c56:#20202040;--pw-user-color-style-a7f31433-8156-47cd-b587-f304ba07ee14:#454ad6;--pw-user-color-style-4f3c2a1b-c85f-4073-a622-e55beab47c5d:#d2d2d2;--pw-user-color-style-7db8a2ee-c999-48d9-90c3-779f585abf6a:#666cff;--pw-user-color-style-fdfc2324-4584-495d-805a-b339b4edc3be:#8c52ff14;--pw-user-color-style-e9254d4a-9eef-4ceb-bd98-63dec67fb4d6:#8c52ff26;--pw-user-color-style-ab186f9c-00c8-4fac-b8ed-018c9c6a4e6e:#666cff14;--pw-user-color-style-01fb19b3-efb2-4882-a3a5-6c5faf71cf0a:#161b42;--pw-user-color-style-adf47dcc-eec0-4b7a-be3d-e549591d309e:#666cff26}#im2i,#pwb-loading-wrap{background-color:#161b42}#im2i{top:0;left:0;right:0;width:100%;bottom:0;height:100dvh;display:flex;position:fixed;align-items:center;flex-direction:column;justify-content:center}#ixe4zkj{top:1dvw;left:1dvw;width:150px;position:static}#if489kl{gap:16px;width:100%;display:flex;position:relative;min-height:75px;align-items:center;padding-top:px;flex-direction:column;justify-content:center}#ifbapuu{bottom:2dvw;display:block;position:fixed;border-radius:px}#ixbkdz,#ixbkdz-2{display:none;margin-top:8px;height:36px;width:100%}#ixbkdz-2{display:block;height:40px;overflow:hidden}@media (max-width:992px){#ixe4zkj{bottom:48px}}@media (max-width:480px){#ixe4zkj{top:16px;left:24px;width:120px;position:static}#im2i{top:0;left:0;right:0;width:100dvw;bottom:0;position:fixed;flex-direction:column;background-color:#161b42}#if489kl{gap:8px;left:revert;top:revert}#ifbapuu{bottom:32px;height:px;right:revert}#ixbkdz{display:block}#ixbkdz-2{display:none}}
         
@@ -771,1072 +801,7 @@ for programmatic media buyers.</span></div><div id="inm1q-2-3-3-3-2"><span id="i
 
 <pre id="code1"></pre>
 
-
-</div></div><div id="ilusfa2"><span id="i8i59df">Rooted in Nature. </span><span id="iki82sj">Powered by AI.</span></div><div class="pwb-flex-grid-wrap" id="irsa34-2-3-4-2-2-2-2"><div class="pw-block-style" id="ixnbo71-3-3-2-2-2-2"><div class="pwb-flex-grid-wrap" id="ioqrg-2-2-2-3-3-2-2-2-2" data-has-states="1"><div class="pwb-flex-grid-wrap" id="ipavn-2-2-2-2-2-2-2-3-3-2-2-2-2"><div id="i6wd7-2-2-2-2-2-2-2-3-3-2-2-2-2"><font face="neuehaasdisplayroman" id="i79ocll">Customer Stories</font></div></div></div></div><div class="pw-block-style" id="ixnbo71-2-2-4-2-2-2-2"><div class="pwb-flex-grid-wrap" id="ioqrg-2-2-2-2-2-2-3-4-2-2-2-2" data-has-states="1"><div class="framer-1cc0f02" id="imob0j-3-5-2-5-2-2-2-2"></div><div class="pwb-flex-grid-wrap" id="ipavn-2-2-2-2-2-2-2-2-2-2-3-4-2-2-2-2"><div id="i6wd7-2-2-2-2-2-2-2-2-2-2-3-4-2-2-2-2" data-has-states="1"><font id="i00y82-2-3-4-2-2-2-2" face="neuehaasdisplayroman">Book a Call</font></div></div></div></div></div><div class="pwb-flex-grid-wrap" id="irsa34-2-3-2"><div class="pw-block-style" id="ixnbo71-3-2"><div class="pwb-flex-grid-wrap" id="ioqrg-2-2-2-3-2" data-has-states="1"><div class="framer-1cc0f02" id="imob0j-3-5-2-2-3"></div><div class="pwb-flex-grid-wrap" id="ipavn-2-2-2-2-2-2-2-3-2"><div id="i6wd7-2-2-2-2-2-2-2-3-2"><font face="neuehaasdisplayroman" id="i82knzy">Customer Stories</font></div></div></div></div><div class="pw-block-style" id="ixnbo71-2-2-4-5-2"><div class="pwb-flex-grid-wrap" id="ioqrg-2-2-2-2-2-2-3-4-5-2" data-has-states="1"><div class="framer-1cc0f02" id="imob0j-3-5-2-5-5-2"></div><div class="pwb-flex-grid-wrap" id="ipavn-2-2-2-2-2-2-2-2-2-2-3-4-5-2"><div id="i6wd7-2-2-2-2-2-2-2-2-2-2-3-4-5-2" data-has-states="1"><font id="i00y82-2-3-4-5-2" face="neuehaasdisplayroman">Book a Call</font></div></div></div></div></div></div><img class="pw-image-style" src="../files.staging.peachworlds.com/website/7e39c9b2-4309-420a-9c9d-fe2ec4341b61/overlay-big.svg" loading="lazy" id="iyonnc3-2"><div class="pwb-flex-grid-wrap" id="iogw3f-2"><div class="pwb-flex-grid-wrap" id="ijch4nz" data-has-states="1"><div class="framer-1cc0f02" id="imob0j-3-5-3"></div><img class="pw-image-style" src="../files.staging.peachworlds.com/website/fd072ad2-7a23-463f-b623-8e39daa28f0f/glow-line-dark.svg" loading="lazy" id="ikn3uyp-2-2-3"><div class="pwb-flex-grid-wrap" id="iq3tjk-2-4"><div class="pw-no-class-fix pwb-embed" id="in3nlcf"><div class="video-hover-wrapper" style="
-  position: relative;
-  width: 100%;
-  padding-top: 51%; /* 16:8 Aspect Ratio */
-  border-radius: 8px;
-  overflow: hidden;
-  background-color: #282b42;
-">
-  <img class="video-poster" loading="lazy" data-src="/files.staging.peachworlds.com/website/b0f9b1ae-6f30-4d48-b7ca-789a313ec716/screenshot-2025-10-06-at-20-07-11.svg" alt="Video preview" style="
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 8px;
-      transition: opacity 0.4s ease;
-      opacity: 1;
-      z-index: 1;
-    ">
-  <video class="hover-video" data-src="/files.staging.peachworlds.com/website/55773df3-d853-4340-a272-25a84e225911/clip1.mp4" style="
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      border-radius: 8px;
-      z-index: 0;
-      display: block;
-    " loop="" muted="" playsinline="" preload="none"></video>
-</div>
-</div><video class="pw-video-style" playsinline="true" id="ifiwdfc" data-has-states="1" loop="" muted="" src="../files.staging.peachworlds.com/website/55773df3-d853-4340-a272-25a84e225911/clip1.mp4"></video><img src="../files.staging.peachworlds.com/website/b0f9b1ae-6f30-4d48-b7ca-789a313ec716/screenshot-2025-10-06-at-20-07-11.svg" loading="lazy" id="ilwnepj-3"></div></div><div class="pwb-flex-grid-wrap" id="ijch4nz-4" data-has-states="1"><div class="framer-1cc0f02" id="imob0j-3-5-3-3"></div><img class="pw-image-style" src="../files.staging.peachworlds.com/website/fd072ad2-7a23-463f-b623-8e39daa28f0f/glow-line-dark.svg" loading="lazy" id="ikn3uyp-2-2-3-3"><div class="pwb-flex-grid-wrap" id="iq3tjk-2-4-4"><div class="pw-no-class-fix pwb-embed" id="in3nlcf-3"><div class="video-hover-wrapper" style="
-  position: relative;
-  width: 100%;
-  padding-top: 51%; /* 16:8 Aspect Ratio */
-  border-radius: 8px;
-  overflow: hidden;
-  background-color: #282b42;
-">
-  <img class="video-poster" loading="lazy" data-src="/files.staging.peachworlds.com/website/ecfa7a23-b793-4a16-acaf-d9e151ee480f/screenshot-2025-10-06-at-20-08-08.png" alt="Video preview" style="
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 8px;
-      transition: opacity 0.4s ease;
-      opacity: 1;
-      z-index: 1;
-    ">
-  <video class="hover-video" data-src="/files.staging.peachworlds.com/website/87deacd5-4023-4c53-b6f0-2dee287bbacd/clip2.mp4" style="
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      border-radius: 8px;
-      z-index: 0;
-      display: block;
-    " loop="" muted="" playsinline="" preload="none"></video>
-</div>
-</div><video class="pw-video-style" playsinline="true" id="ifiwdfc-3" data-has-states="1" loop="" muted="" src="../files.staging.peachworlds.com/website/87deacd5-4023-4c53-b6f0-2dee287bbacd/clip2.mp4"></video><img src="../files.staging.peachworlds.com/website/ecfa7a23-b793-4a16-acaf-d9e151ee480f/screenshot-2025-10-06-at-20-08-08.png" loading="lazy" id="ilwnepj-3-3"></div></div><div class="pwb-flex-grid-wrap" id="ijch4nz-4-3" data-has-states="1"><div class="framer-1cc0f02" id="imob0j-3-5-3-3-3"></div><img class="pw-image-style" src="../files.staging.peachworlds.com/website/fd072ad2-7a23-463f-b623-8e39daa28f0f/glow-line-dark.svg" loading="lazy" id="ikn3uyp-2-2-3-3-3"><div class="pwb-flex-grid-wrap" id="iq3tjk-2-4-4-3"><div class="pw-no-class-fix pwb-embed" id="in3nlcf-3-3"><div class="video-hover-wrapper" style="
-  position: relative;
-  width: 100%;
-  padding-top: 51%; /* 16:8 Aspect Ratio */
-  border-radius: 8px;
-  overflow: hidden;
-  background-color: #282b42;
-">
-  <img class="video-poster" loading="lazy" data-src="/files.staging.peachworlds.com/website/81f2a6ea-3681-4b8e-afbe-34d81b5c72ff/screenshot-2025-10-06-at-20-31-13.png" alt="Video preview" style="
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 8px;
-      transition: opacity 0.4s ease;
-      opacity: 1;
-      z-index: 1;
-    ">
-  <video class="hover-video" data-src="/files.staging.peachworlds.com/website/898ac959-ccb1-46e8-9de9-98c9ff00a0f8/clip3.mp4" style="
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      border-radius: 8px;
-      z-index: 0;
-      display: block;
-    " loop="" muted="" playsinline="" preload="none"></video>
-</div>
-</div><video class="pw-video-style" playsinline="true" id="ifiwdfc-3-3" data-has-states="1" loop="" muted="" src="../files.staging.peachworlds.com/website/898ac959-ccb1-46e8-9de9-98c9ff00a0f8/clip3.mp4"></video><img src="../files.staging.peachworlds.com/website/81f2a6ea-3681-4b8e-afbe-34d81b5c72ff/screenshot-2025-10-06-at-20-31-13.png" loading="lazy" id="ilwnepj-3-3-3"></div></div></div><div class="pwb-flex-grid-wrap" id="i0edjkg"><div class="pwb-flex-grid-wrap" id="ifq2cxk"><div class="pwb-flex-grid-wrap" id="ijch4nz-5" data-has-states="1"><div class="framer-1cc0f02" id="imob0j-3-5-3-4"></div><img class="pw-image-style" src="../files.staging.peachworlds.com/website/fd072ad2-7a23-463f-b623-8e39daa28f0f/glow-line-dark.svg" loading="lazy" id="ikn3uyp-2-2-3-4"><div class="pwb-flex-grid-wrap" id="iq3tjk-2-4-5"><div class="pw-no-class-fix pwb-embed" id="in3nlcf-8"><div class="video-hover-wrapper" style="
-  position: relative;
-  width: 100%;
-  padding-top: 51%; /* 16:8 Aspect Ratio */
-  border-radius: 8px;
-  overflow: hidden;
-  background-color: #282b42;
-">
-  <img class="video-poster" loading="lazy" data-src="/files.staging.peachworlds.com/website/e5389e72-cd57-4e39-95ae-d665891b3eef/screenshot-2025-10-05-at-20-14-34.png" alt="Video preview" style="
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top;
-  border-radius: 8px;
-  transition: opacity 0.4s ease;
-  opacity: 1;
-  z-index: 1;
-">
-  <video class="hover-video" data-src="/files.staging.peachworlds.com/website/79037c19-5668-4a1a-a8d1-d65a8715446e/clip5-v2.mp4" style="
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top;
-  border-radius: 8px;
-  z-index: 0;
-  display: block;
-" loop="" muted="" playsinline="" preload="none"></video>
-</div>
-</div><video class="pw-video-style" playsinline="true" id="ifiwdfc-4" data-has-states="1" loop="" muted="" src="../files.staging.peachworlds.com/website/79037c19-5668-4a1a-a8d1-d65a8715446e/clip5-v2.mp4"></video><img src="../files.staging.peachworlds.com/website/e5389e72-cd57-4e39-95ae-d665891b3eef/screenshot-2025-10-05-at-20-14-34.png" loading="lazy" id="ilwnepj-3-4"></div></div><div class="pwb-flex-grid-wrap" id="ijch4nz-5-2" data-has-states="1"><div class="framer-1cc0f02" id="imob0j-3-5-3-4-2"></div><img class="pw-image-style" src="../files.staging.peachworlds.com/website/fd072ad2-7a23-463f-b623-8e39daa28f0f/glow-line-dark.svg" loading="lazy" id="ikn3uyp-2-2-3-4-2"><div class="pwb-flex-grid-wrap" id="iq3tjk-2-4-5-2"><div class="pw-no-class-fix pwb-embed" id="in3nlcf-8-2"><div class="video-hover-wrapper" style="
-  position: relative;
-  width: 100%;
-  padding-top: 51%; /* 16:8 Aspect Ratio */
-  border-radius: 8px;
-  overflow: hidden;
-  background-color: #282b42;
-">
-  <img class="video-poster" loading="lazy" data-src="/files.staging.peachworlds.com/website/a33b5678-4ab9-4474-bd41-2df1f555e683/screenshot-2025-10-06-at-20-46-59.png" alt="Video preview" style="
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top;
-  border-radius: 8px;
-  transition: opacity 0.4s ease;
-  opacity: 1;
-  z-index: 1;
-">
-  <video class="hover-video" data-src="/files.staging.peachworlds.com/website/3c1deea7-91fb-4475-bdec-b92937e044cf/clip6-new.mp4" style="
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top;
-  border-radius: 8px;
-   z-index: 0;
-  display: block;
-" loop="" muted="" playsinline="" preload="none"></video>
-</div>
-
-</div><video class="pw-video-style" playsinline="true" id="ifiwdfc-4-2" data-has-states="1" loop="" muted="" src="../files.staging.peachworlds.com/website/3c1deea7-91fb-4475-bdec-b92937e044cf/clip6-new.mp4"></video><img src="../files.staging.peachworlds.com/website/a33b5678-4ab9-4474-bd41-2df1f555e683/screenshot-2025-10-06-at-20-46-59.png" loading="lazy" id="ilwnepj-3-4-2"></div></div><div class="pwb-flex-grid-wrap" id="ijch4nz-5-2-2" data-has-states="1"><div class="framer-1cc0f02" id="imob0j-3-5-3-4-2-2"></div><img class="pw-image-style" src="../files.staging.peachworlds.com/website/fd072ad2-7a23-463f-b623-8e39daa28f0f/glow-line-dark.svg" loading="lazy" id="ikn3uyp-2-2-3-4-2-2"><div class="pwb-flex-grid-wrap" id="iq3tjk-2-4-5-2-2"><div class="pw-no-class-fix pwb-embed" id="in3nlcf-8-2-2"><div class="video-hover-wrapper" style="
-  position: relative;
-  width: 100%;
-  padding-top: 51%; /* 16:8 Aspect Ratio */
-  border-radius: 8px;
-  overflow: hidden;
-  background-color: #282b42;
-">
-  <img class="video-poster" loading="lazy" data-src="/files.staging.peachworlds.com/website/339a41a5-4f9a-4f00-9870-5e3bba3bf528/screenshot-2025-10-06-at-20-15-23.png" alt="Video preview" style="
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top;
-  border-radius: 8px;
-  transition: opacity 0.4s ease;
-  opacity: 1;
-  z-index: 1;
-">
-  <video class="hover-video" data-src="/files.staging.peachworlds.com/website/009d8ac6-650b-4955-95fb-849d01a9e10a/clip7-new.mp4" style="
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top;
-  border-radius: 8px;
-  z-index: 0;
-  display: block;
-" loop="" muted="" playsinline="" preload="none"></video>
-</div>
-</div><video class="pw-video-style" playsinline="true" id="ifiwdfc-4-2-2" data-has-states="1" loop="" muted="" src="../files.staging.peachworlds.com/website/009d8ac6-650b-4955-95fb-849d01a9e10a/clip7-new.mp4"></video><img src="../files.staging.peachworlds.com/website/339a41a5-4f9a-4f00-9870-5e3bba3bf528/screenshot-2025-10-06-at-20-15-23.png" loading="lazy" id="ilwnepj-3-4-2-2"></div></div><div class="pwb-flex-grid-wrap" id="ijch4nz-2-2" data-has-states="1"><div class="pwb-flex-grid-wrap" id="i9zonsv-3"><div class="pw-no-class-fix pwb-embed" id="in3nlcf-4"><div class="video-hover-wrapper" style="
-  position: relative;
-  width: 100%;
-  padding-top: 56.25%; /* 16:9 Aspect Ratio */
-  border-radius: 20px;
-  overflow: hidden;
-  background-color: #000;
-">
-  <img class="video-poster" loading="lazy" data-src="/files.peachworlds.com/website/547bea63-d7a4-4141-b301-95637bdc82f1/garri-thumb.webp" alt="Video preview" style="
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 20px;
-      transition: opacity 0.4s ease;
-      opacity: 1;
-      z-index: 1;
-    ">
-  <video class="hover-video" data-src="/files.peachworlds.com/website/2af6cb04-12f7-409b-ae21-e4f10221fe16/garri-360.mp4" style="
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      border-radius: 20px;
-      z-index: 0;
-      display: block;
-    " loop="" muted="" playsinline="" preload="none"></video>
-</div>
-</div><img src="../files.staging.peachworlds.com/website/c3750f13-4c70-4e25-8792-d8f7f2b63faa/garri-thumb.webp" loading="lazy" id="ilwnepj-2-2-3"></div></div></div></div><div class="pwb-anchor" id="iee4h3-3-2"></div><div class="pw-block-style" id="i31ri1a"><div class="pwb-flex-grid-wrap" id="in6nbcy-4-2"><div class="pwb-flex-grid-wrap" id="in6nbcy-2-4-2"><div class="framer-1cc0f02" id="imob0j-3-2-3-5-2"><div class="pwb-flex-grid-wrap" id="ixb6oyx"><div id="i2omk-2-2-3-3-5-2-2-2-2-4-2">USE CASE</div></div><div id="i2omk-2-2-3-3-7-2"><span id="ix7hvkg"></span><span id="iij2ryv"></span><span id="i9zt83t">Plants & Fungi</span></div><div id="i2omk-2-2-3-3-5-4-2"><span id="ienww4m"></span><span id="isawojn"></span><span id="i7cm2hq">Identify flowers, trees, mushrooms, and succulents instantly. Deep learning models trained on 100,000+ botanical specimens provide instant accuracy.</span></div><div class="pwb-flex-grid-wrap" id="ioqrg-2-2-2-2-2-3-3-4-2"><div class="pwb-flex-grid-wrap" id="ipavn-2-2-2-2-2-2-2-2-2-3-3-4-2"><div id="i6wd7-2-2-2-2-2-2-2-2-2-3-3-4-2" data-has-states="1"><font id="i00y82-3-3-4-2" face="neuehaasdisplayroman">Explore Now </font></div></div><img src="../files.staging.peachworlds.com/website/53368d56-caac-4fcd-91a1-46b7786647ef/mdi-arrow-right.svg" loading="lazy" id="isx5jai-6-4"></div></div><img class="pw-image-style" src="../files.staging.peachworlds.com/website/fd4515b1-15bf-4e33-8a1c-c104836dd0cd/card-overlay-drak.svg" loading="lazy" id="ikn3uyp-3-3"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/fd072ad2-7a23-463f-b623-8e39daa28f0f/glow-line-dark.svg" loading="lazy" id="ikn3uyp-2-2-4"></div><div class="pwb-flex-grid-wrap" id="in6nbcy-2-4-2-3"><div class="framer-1cc0f02" id="imob0j-3-2-3-5-2-3"><div class="pwb-flex-grid-wrap" id="ixb6oyx-2"><div id="i2omk-2-2-3-3-5-2-2-2-2-4-2-3">USE CASE</div></div><div id="i2omk-2-2-3-3-7-2-4"><span id="ix7hvkg-2"></span><span id="ilmhegi"></span><span id="imzbh8n"></span><span id="izb9ve6">Birds & Wildlife</span></div><div id="i2omk-2-2-3-3-5-4-2-6"><span id="ienww4m-2"></span><span id="isawojn-2"></span><span id="i7cm2hq-2"><span id="im4ju9s"></span><span id="ip6uq78"></span>Track migratory species and map local fauna. Analyze plumage patterns, silhouettes, and nests to learn about behaviors and habitats.</span></div><div class="pwb-flex-grid-wrap" id="ioqrg-2-2-2-2-2-3-3-4-2-2"><div class="pwb-flex-grid-wrap" id="ipavn-2-2-2-2-2-2-2-2-2-3-3-4-2-2"><div id="i6wd7-2-2-2-2-2-2-2-2-2-3-3-4-2-2" data-has-states="1"><font id="i00y82-3-3-4-2-2" face="neuehaasdisplayroman">Explore Now </font></div></div><img src="../files.staging.peachworlds.com/website/53368d56-caac-4fcd-91a1-46b7786647ef/mdi-arrow-right.svg" loading="lazy" id="isx5jai-6-5"></div></div><img class="pw-image-style" src="../files.staging.peachworlds.com/website/fd4515b1-15bf-4e33-8a1c-c104836dd0cd/card-overlay-drak.svg" loading="lazy" id="ikn3uyp-3-3-2"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/fd072ad2-7a23-463f-b623-8e39daa28f0f/glow-line-dark.svg" loading="lazy" id="ikn3uyp-2-2-4-2"></div><div class="pwb-flex-grid-wrap" id="in6nbcy-2-4-2-3-2"><div class="framer-1cc0f02" id="imob0j-3-2-3-5-2-3-2"><div class="pwb-flex-grid-wrap" id="ixb6oyx-2-2"><div id="i2omk-2-2-3-3-5-2-2-2-2-4-2-3-2">USE CASE</div></div><div id="i2omk-2-2-3-3-7-2-4-2"><span id="ix7hvkg-2-2"></span><span id="ivkpv2j">Marine & Fish</span></div><div id="i2omk-2-2-3-3-5-4-2-6-2"><span id="ienww4m-2-2"></span><span id="isawojn-2-2"></span><span id="i7cm2hq-2-2"><span id="i8u9uo4"></span><span id="id8ulir"></span>Identify aquatic organisms in rivers, lakes, and oceans. Designed to assist divers, anglers, and marine biology students.</span></div><div class="pwb-flex-grid-wrap" id="ioqrg-2-2-2-2-2-3-3-4-2-2-2"><div class="pwb-flex-grid-wrap" id="ipavn-2-2-2-2-2-2-2-2-2-3-3-4-2-2-2"><div id="i6wd7-2-2-2-2-2-2-2-2-2-3-3-4-2-2-2" data-has-states="1"><font id="i00y82-3-3-4-2-2-2" face="neuehaasdisplayroman">Explore Now </font></div></div><img src="../files.staging.peachworlds.com/website/53368d56-caac-4fcd-91a1-46b7786647ef/mdi-arrow-right.svg" loading="lazy" id="isx5jai-6-6"></div></div><img class="pw-image-style" src="../files.staging.peachworlds.com/website/fd4515b1-15bf-4e33-8a1c-c104836dd0cd/card-overlay-drak.svg" loading="lazy" id="ikn3uyp-3-3-2-2"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/fd072ad2-7a23-463f-b623-8e39daa28f0f/glow-line-dark.svg" loading="lazy" id="ikn3uyp-2-2-4-2-2"></div><div class="pwb-flex-grid-wrap" id="in6nbcy-2-4-2-3-2-2"><div class="framer-1cc0f02" id="imob0j-3-2-3-5-2-3-2-2"><div class="pwb-flex-grid-wrap" id="ixb6oyx-2-2-2"><div id="i2omk-2-2-3-3-5-2-2-2-2-4-2-3-2-2">USE CASE</div></div><div id="i2omk-2-2-3-3-7-2-4-2-2"><span id="ix7hvkg-2-2-2"></span><span id="iij2ryv-2-2-2"></span><span id="i9zt83t-2-2-2">Insects & Bugs</span></div><div class="pwb-flex-grid-wrap" id="iqdyvit-5-2-2"><div id="i2omk-2-2-3-3-7-2-3-5-2-2">Ecommerce</div><img src="../files.staging.peachworlds.com/website/c85d97c9-2f42-4e22-8763-3811f577c4f5/right-arrow-4-.svg" loading="lazy" id="isx5jai-2-5-2-2"></div><div id="i2omk-2-2-3-3-5-4-2-6-2-2"><span id="ienww4m-2-2-2"></span><span id="isawojn-2-2-2"></span><span id="i7cm2hq-2-2-2"><span id="izig3cn"></span><span id="i43uhuh"></span>Recognize butterflies, bees, beetles, and arachnids. Examine micro-features like wing veins and patterns to determine exact species.</span></div><div class="pwb-flex-grid-wrap" id="ioqrg-2-2-2-2-2-3-3-4-2-2-2-2"><div class="pwb-flex-grid-wrap" id="ipavn-2-2-2-2-2-2-2-2-2-3-3-4-2-2-2-2"><div id="i6wd7-2-2-2-2-2-2-2-2-2-3-3-4-2-2-2-2" data-has-states="1"><font id="i00y82-3-3-4-2-2-2-2" face="neuehaasdisplayroman">Explore Now </font></div></div><img src="../files.staging.peachworlds.com/website/53368d56-caac-4fcd-91a1-46b7786647ef/mdi-arrow-right.svg" loading="lazy" id="isx5jai-6-7"></div></div><img class="pw-image-style" src="../files.staging.peachworlds.com/website/fd4515b1-15bf-4e33-8a1c-c104836dd0cd/card-overlay-drak.svg" loading="lazy" id="ikn3uyp-3-3-2-2-2"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/fd072ad2-7a23-463f-b623-8e39daa28f0f/glow-line-dark.svg" loading="lazy" id="ikn3uyp-2-2-4-2-2-2"></div><div class="pw-block-style" id="igivtmg-4-2-3"><div class="pw-embed-style pwb-embed" id="idb59ma-4-2-3"><style>
-  @import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
-
-  #code1 {
-    position: relative;
-    font-family: 'Fira Code', monospace;
-    font-size: 15px;
-    line-height: 1.5;
-    color: #b8baff;
-    white-space: pre;
-    mix-blend-mode: screen;
-    text-shadow: 0 0 6px rgba(102,108,255,.9),
-                 0 0 12px rgba(102,108,255,.6),
-                 0 0 20px rgba(102,108,255,.4);
-    overflow: visible;
-    z-index: 0;
-  }
-
-  .cursor {
-    display: inline-block;
-    width: .6ch;
-    height: 1em;
-    margin-left: .1ch;
-    background: currentColor;
-    animation: blink .6s steps(1) infinite;
-    box-shadow: 0 0 6px rgba(102,108,255,.8);
-    vertical-align: -.1em;
-  }
-
-  @keyframes blink { 50% { opacity: 0; } }
-</style>
-
-<pre id="code1"></pre>
-
-<script>(function(){
-
-const LINES1 = [
-  \`"id": "0123456789ABCDEF0123456789ABCDEF",\`,
-  \`"at": 2,\`,
-  \`"tmax": 120,\`,
-  \`"imp": [{\`,
-  \`  "id": "1",\`,
-  \`  "pmp": {\`,
-  \`    "private_auction": 1,\`,
-  \`    "deals": [{\`,
-  \`      "id": "1452f.eadb4.7aaa",\`,
-  \`      "bidfloor": 5.3,\`,
-  \`      "at": 1,\`,
-  \`      "wseats": [],\`,
-  \`      "ext": { "priority": 1, "wadvs": [] }\`
-];
-
-animateCode("code1", LINES1);
-
-function animateCode(id, lines) {
-  const pre = document.getElementById(id);
-  let buf = [], i = 0;
-
-  function render() {
-    pre.innerHTML = buf
-      .map((l, j) => j === buf.length - 1 ? l + '<span class="cursor"></span>' : l)
-      .join("\\n");
-  }
-
-  const sleep = ms => new Promise(r => setTimeout(r, ms));
-
-  async function typeLine(line) {
-    let s = "";
-    for (const c of line) {
-      s += c;
-      buf[buf.length - 1] = s;
-      render();
-      await sleep(10); // faster typing
-    }
-  }
-
-  async function run() {
-    while (true) {
-      buf.push("");
-      await typeLine(lines[i % lines.length]);
-      i++;
-      await sleep(100);
-
-      // keep only last 12 lines visible
-      if (buf.length > 12) buf.shift();
-    }
-  }
-
-  run();
-}
-
-})();</script>
-</div></div></div></div><div class="pwb-anchor" id="iee4h3-3-3-3"></div></div><div class="pwb-flex-grid-wrap" id="i0loz7-3-2-2-5"><div class="pw-block-style" id="igivtmg-4-2"><div class="pw-embed-style pwb-embed" id="idb59ma-4-2"><style>
-  @import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
-
-  #code1 {
-    position: relative;
-    font-family: 'Fira Code', monospace;
-    font-size: 15px;
-    line-height: 1.5;
-    color: #b8baff;
-    white-space: pre;
-    mix-blend-mode: screen;
-    text-shadow: 0 0 6px rgba(102,108,255,.9),
-                 0 0 12px rgba(102,108,255,.6),
-                 0 0 20px rgba(102,108,255,.4);
-    overflow: visible;
-    z-index: 0;
-  }
-
-  .cursor {
-    display: inline-block;
-    width: .6ch;
-    height: 1em;
-    margin-left: .1ch;
-    background: currentColor;
-    animation: blink .6s steps(1) infinite;
-    box-shadow: 0 0 6px rgba(102,108,255,.8);
-    vertical-align: -.1em;
-  }
-
-  @keyframes blink { 50% { opacity: 0; } }
-</style>
-
-<pre id="code1"></pre>
-
-<script>(function(){
-
-const LINES1 = [
-  \`"id": "0123456789ABCDEF0123456789ABCDEF",\`,
-  \`"at": 2,\`,
-  \`"tmax": 120,\`,
-  \`"imp": [{\`,
-  \`  "id": "1",\`,
-  \`  "pmp": {\`,
-  \`    "private_auction": 1,\`,
-  \`    "deals": [{\`,
-  \`      "id": "1452f.eadb4.7aaa",\`,
-  \`      "bidfloor": 5.3,\`,
-  \`      "at": 1,\`,
-  \`      "wseats": [],\`,
-  \`      "ext": { "priority": 1, "wadvs": [] }\`
-];
-
-animateCode("code1", LINES1);
-
-function animateCode(id, lines) {
-  const pre = document.getElementById(id);
-  let buf = [], i = 0;
-
-  function render() {
-    pre.innerHTML = buf
-      .map((l, j) => j === buf.length - 1 ? l + '<span class="cursor"></span>' : l)
-      .join("\\n");
-  }
-
-  const sleep = ms => new Promise(r => setTimeout(r, ms));
-
-  async function typeLine(line) {
-    let s = "";
-    for (const c of line) {
-      s += c;
-      buf[buf.length - 1] = s;
-      render();
-      await sleep(10); // faster typing
-    }
-  }
-
-  async function run() {
-    while (true) {
-      buf.push("");
-      await typeLine(lines[i % lines.length]);
-      i++;
-      await sleep(100);
-
-      // keep only last 12 lines visible
-      if (buf.length > 12) buf.shift();
-    }
-  }
-
-  run();
-}
-
-})();</script>
-</div></div><div class="pw-block-style" id="igivtmg-2"><div class="pw-embed-style pwb-embed" id="idb59ma-2"><style>
-  @import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
-  #code2 {
-    position: relative;
-    font-family:'Fira Code',monospace;
-    font-size:15px; line-height:1.5;
-    color:#b8baff; white-space:pre;
-    mix-blend-mode:screen;
-    text-shadow:0 0 6px rgba(102,108,255,.9),
-                 0 0 12px rgba(102,108,255,.6),
-                 0 0 20px rgba(102,108,255,.4);
-    overflow: visible; z-index: 0;
-  }
-  
-  .cursor {
-    display:inline-block;width:.6ch;height:1em;margin-left:.1ch;
-    background:currentColor;animation:blink .6s steps(1) infinite;
-    box-shadow:0 0 6px rgba(102,108,255,.8);vertical-align:-.1em;
-  }
-  @keyframes blink {50%{opacity:0}}
-</style>
-
-<pre id="code2"></pre>
-
-<script>(function(){
-
-const LINES2=[
-  \`"video": {\`,
-  \`  "mimes": ["video/x-flv","video/mp4"],\`,
-  \`  "api": [1,2],\`,
-  \`  "battr": [13,14],\`,
-  \`  "boxingallowed": true,\`,
-  \`  "delivery": [2],\`,
-  \`  "h": 480,\`,
-  \`  "linearity": 1,\`,
-  \`  "maxbitrate": 1500,\`,
-  \`  "maxduration": 30,\`,
-  \`  "minbitrate": 300,\`,
-  \`  "minduration": 5,\`,
-  \`  "playbackmethod": [1],\`,
-  \`  "pos": 1,\`,
-  \`  "protocol": [2,3],\`,
-  \`  "sequence": 1,\`,
-  \`  "startdelay": 0,\`,
-  \`  "w": 640\`,
-  \`}\`
-];
-animateCode("code2",LINES2);
-
-function animateCode(id,lines){
-  const pre=document.getElementById(id);let buf=[],i=0;
-  function render(){pre.innerHTML=buf.map((l,j)=>j==buf.length-1?l+'<span class="cursor"></span>':l).join("\\n")}
-  const sleep=ms=>new Promise(r=>setTimeout(r,ms));
-  async function typeLine(t){let s="";for(const c of t){s+=c;buf[buf.length-1]=s;render();await sleep(10)}}
-  async function run(){while(1){buf.push("");await typeLine(lines[i%lines.length]);i++;await sleep(100);if(buf.length>12)buf.shift();}}
-  run();
-}
-
-})();</script>
-</div></div></div><div class="pwb-anchor" id="iee4h3-3-3"></div><div class="pwb-flex-grid-wrap" id="i0loz7-3-2"></div><div class="pwb-anchor" id="iee4h3-3-3-2"></div><div class="pwb-flex-grid-wrap" id="i0loz7-3"></div><div class="pwb-anchor" id="iee4h3-3-3-2-2"></div><div class="pwb-flex-grid-wrap" id="i0loz7-3-3"></div><div class="pwb-anchor" id="iee4h3-3-2-2-2-2-2-3"></div><div class="pwb-flex-grid-wrap" id="ixlw3c-2-2-2"><div class="pwb-flex-grid-wrap" id="iqidrx-2-2"><div class="pwb-flex-grid-wrap" id="ixycwt-2-2"><div id="inm1q-3-2-2-2-2"><span id="izb4axp"> One Platform to access the entire 
-<span id="iznm2wg">Supply-Side Ecosystem</span></span></div><div class="pwb-flex-grid-wrap" id="irsa34-2"><div class="pw-block-style" id="ixnbo71-2-2-4-4"><div class="pwb-flex-grid-wrap" id="ioqrg-2-2-2-2-2-2-3-4-4" data-has-states="1"><div class="framer-1cc0f02" id="imob0j-3-5-2-5-4"></div><div class="pwb-flex-grid-wrap" id="ipavn-2-2-2-2-2-2-2-2-2-2-3-4-4"><div id="i6wd7-2-2-2-2-2-2-2-2-2-2-3-4-4" data-has-states="1"><font id="i00y82-2-3-4-4" face="neuehaasdisplayroman">Book a Call</font></div></div></div></div></div><div class="pwb-flex-grid-wrap" id="irsa34-2-3-4-2-2-3"><div class="pw-block-style" id="ixnbo71-2-2-4-2-2-3"><div class="pwb-flex-grid-wrap" id="ioqrg-2-2-2-2-2-2-3-4-2-2-3" data-has-states="1"><div class="framer-1cc0f02" id="imob0j-3-5-2-5-2-2-3"></div><div class="pwb-flex-grid-wrap" id="ipavn-2-2-2-2-2-2-2-2-2-2-3-4-2-2-3"><div id="i6wd7-2-2-2-2-2-2-2-2-2-2-3-4-2-2-3" data-has-states="1"><font id="i00y82-2-3-4-2-2-3" face="neuehaasdisplayroman">Book a Call</font></div></div></div></div></div></div></div></div><div class="pwb-anchor" id="iee4h3-3-2-2-2-2-2-3-2"></div><div class="pwb-flex-grid-wrap" id="ixlw3c-2-2-2-2"><div class="pwb-flex-grid-wrap" id="i0loz7-3-2-2-5-2"><div class="pw-block-style" id="igivtmg-4-2-2"><div class="pw-embed-style pwb-embed" id="idb59ma-4-2-2"><style>
-  @import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
-
-  #code1 {
-    position: relative;
-    font-family: 'Fira Code', monospace;
-    font-size: 15px;
-    line-height: 1.5;
-    color: #b8baff;
-    white-space: pre;
-    mix-blend-mode: screen;
-    text-shadow: 0 0 6px rgba(102,108,255,.9),
-                 0 0 12px rgba(102,108,255,.6),
-                 0 0 20px rgba(102,108,255,.4);
-    overflow: visible;
-    z-index: 0;
-  }
-
-  .cursor {
-    display: inline-block;
-    width: .6ch;
-    height: 1em;
-    margin-left: .1ch;
-    background: currentColor;
-    animation: blink .6s steps(1) infinite;
-    box-shadow: 0 0 6px rgba(102,108,255,.8);
-    vertical-align: -.1em;
-  }
-
-  @keyframes blink { 50% { opacity: 0; } }
-</style>
-
-<pre id="code1"></pre>
-
-<script>(function(){
-
-const LINES1 = [
-  \`"id": "0123456789ABCDEF0123456789ABCDEF",\`,
-  \`"at": 2,\`,
-  \`"tmax": 120,\`,
-  \`"imp": [{\`,
-  \`  "id": "1",\`,
-  \`  "pmp": {\`,
-  \`    "private_auction": 1,\`,
-  \`    "deals": [{\`,
-  \`      "id": "1452f.eadb4.7aaa",\`,
-  \`      "bidfloor": 5.3,\`,
-  \`      "at": 1,\`,
-  \`      "wseats": [],\`,
-  \`      "ext": { "priority": 1, "wadvs": [] }\`
-];
-
-animateCode("code1", LINES1);
-
-function animateCode(id, lines) {
-  const pre = document.getElementById(id);
-  let buf = [], i = 0;
-
-  function render() {
-    pre.innerHTML = buf
-      .map((l, j) => j === buf.length - 1 ? l + '<span class="cursor"></span>' : l)
-      .join("\\n");
-  }
-
-  const sleep = ms => new Promise(r => setTimeout(r, ms));
-
-  async function typeLine(line) {
-    let s = "";
-    for (const c of line) {
-      s += c;
-      buf[buf.length - 1] = s;
-      render();
-      await sleep(10); // faster typing
-    }
-  }
-
-  async function run() {
-    while (true) {
-      buf.push("");
-      await typeLine(lines[i % lines.length]);
-      i++;
-      await sleep(100);
-
-      // keep only last 12 lines visible
-      if (buf.length > 12) buf.shift();
-    }
-  }
-
-  run();
-}
-
-})();</script>
-</div></div><div class="pw-block-style" id="igivtmg-2-2"><div class="pw-embed-style pwb-embed" id="idb59ma-2-2"><style>
-  @import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
-  #code2 {
-    position: relative;
-    font-family:'Fira Code',monospace;
-    font-size:15px; line-height:1.5;
-    color:#b8baff; white-space:pre;
-    mix-blend-mode:screen;
-    text-shadow:0 0 6px rgba(102,108,255,.9),
-                 0 0 12px rgba(102,108,255,.6),
-                 0 0 20px rgba(102,108,255,.4);
-    overflow: visible; z-index: 0;
-  }
-  
-  .cursor {
-    display:inline-block;width:.6ch;height:1em;margin-left:.1ch;
-    background:currentColor;animation:blink .6s steps(1) infinite;
-    box-shadow:0 0 6px rgba(102,108,255,.8);vertical-align:-.1em;
-  }
-  @keyframes blink {50%{opacity:0}}
-</style>
-
-<pre id="code2"></pre>
-
-<script>(function(){
-
-const LINES2=[
-  \`"video": {\`,
-  \`  "mimes": ["video/x-flv","video/mp4"],\`,
-  \`  "api": [1,2],\`,
-  \`  "battr": [13,14],\`,
-  \`  "boxingallowed": true,\`,
-  \`  "delivery": [2],\`,
-  \`  "h": 480,\`,
-  \`  "linearity": 1,\`,
-  \`  "maxbitrate": 1500,\`,
-  \`  "maxduration": 30,\`,
-  \`  "minbitrate": 300,\`,
-  \`  "minduration": 5,\`,
-  \`  "playbackmethod": [1],\`,
-  \`  "pos": 1,\`,
-  \`  "protocol": [2,3],\`,
-  \`  "sequence": 1,\`,
-  \`  "startdelay": 0,\`,
-  \`  "w": 640\`,
-  \`}\`
-];
-animateCode("code2",LINES2);
-
-function animateCode(id,lines){
-  const pre=document.getElementById(id);let buf=[],i=0;
-  function render(){pre.innerHTML=buf.map((l,j)=>j==buf.length-1?l+'<span class="cursor"></span>':l).join("\\n")}
-  const sleep=ms=>new Promise(r=>setTimeout(r,ms));
-  async function typeLine(t){let s="";for(const c of t){s+=c;buf[buf.length-1]=s;render();await sleep(10)}}
-  async function run(){while(1){buf.push("");await typeLine(lines[i%lines.length]);i++;await sleep(100);if(buf.length>12)buf.shift();}}
-  run();
-}
-
-})();</script>
-</div></div></div></div><div class="pwb-anchor" id="iee4h3-3-2-2-2-2-2"></div><div class="pwb-flex-grid-wrap" id="i0loz7-3-2-2-4-2"></div><div class="pwb-anchor" id="iee4h3-3-2-2-2-2-2-5"></div><div class="pwb-flex-grid-wrap" id="iwu2i4f"><div class="pwb-flex-grid-wrap" id="ilex4h-3"><div class="pwb-flex-grid-wrap" id="ivkbm9-3"><div class="pwb-flex-grid-wrap" id="itgbbf-3"><div id="inm1q-3-3"><span id="i9i7w7a"></span><span id="i1ii6bh"></span><span id="ikd5qgl">Get PMP deals within seconds,
-<span id="iicjghp">go live within minutes.</span></span></div><div id="inm1q-3-3-2"><span id="i9i7w7a-2"></span><span id="i1ii6bh-2"></span><span id="ikd5qgl-3">Identify Any Species in Seconds, <span id="iicjghp-3">With AI.</span></span></div><div class="pwb-flex-grid-wrap" id="irsa34-2-3-4-2"><div class="pw-block-style" id="ixnbo71-3-3-2"><div class="pwb-flex-grid-wrap" id="ioqrg-2-2-2-3-3-2" data-has-states="1"><div class="pwb-flex-grid-wrap" id="ipavn-2-2-2-2-2-2-2-3-3-2"><div id="i6wd7-2-2-2-2-2-2-2-3-3-2"><span id="ic0tx-2-2-2-3-2-3">Get Started</span> — it's Free</div></div></div></div><div class="pw-block-style" id="ixnbo71-2-2-4-2"><div class="pwb-flex-grid-wrap" id="ioqrg-2-2-2-2-2-2-3-4-2" data-has-states="1"><div class="framer-1cc0f02" id="imob0j-3-5-2-5-2"></div><div class="pwb-flex-grid-wrap" id="ipavn-2-2-2-2-2-2-2-2-2-2-3-4-2"><div id="i6wd7-2-2-2-2-2-2-2-2-2-2-3-4-2" data-has-states="1"><font id="i00y82-2-3-4-2" face="neuehaasdisplayroman">Book a Call</font></div></div></div></div></div></div><div class="pw-block-style" id="igivtmg-3"><div class="pw-embed-style pwb-embed" id="idb59ma-3"><style>
-  @import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
-  #code3 {
-    position: relative;
-    font-family:'Fira Code',monospace;
-    font-size:15px; line-height:1.5;
-    color:#b8baff; white-space:pre;
-    mix-blend-mode:screen;
-    text-shadow:0 0 6px rgba(102,108,255,.9),
-                 0 0 12px rgba(102,108,255,.6),
-                 0 0 20px rgba(102,108,255,.4);
-    overflow: visible; z-index: 0;
-  }
-  
-  .cursor {
-    display:inline-block;width:.6ch;height:1em;margin-left:.1ch;
-    background:currentColor;animation:blink .6s steps(1) infinite;
-    box-shadow:0 0 6px rgba(102,108,255,.8);vertical-align:-.1em;
-  }
-  @keyframes blink {50%{opacity:0}}
-</style>
-
-<pre id="code3"></pre>
-
-<script>
-const LINES3=[
-  \`"site": {\`,
-  \`  "id": "1345135123",\`,
-  \`  "name": "Site ABCD",\`,
-  \`  "domain": "siteabcd.com",\`,
-  \`  "cat": ["IAB2-1","IAB2-2"],\`,
-  \`  "page": "http://siteabcd.com/page.htm",\`,
-  \`  "ref": "http://referringsite.com/referringpage.htm",\`,
-  \`  "privacypolicy": true,\`,
-  \`  "publisher": { "id": "pub12345", "name": "Marine & Fish A" },\`,
-  \`  "content": {\`,
-  \`    "cat": ["IAB2-2"],\`,
-  \`    "episode": 23,\`,
-  \`    "id": "1234567",\`,
-  \`    "keyword": ["keyword a","keyword b","keyword c"],\`,
-  \`    "season": 2,\`,
-  \`    "series": "All About Cars",\`,
-  \`    "title": "Car Show"\`,
-  \`  }\`,
-  \`}\`
-];
-animateCode("code3",LINES3);
-
-function animateCode(id,lines){
-  const pre=document.getElementById(id);let buf=[],i=0;
-  function render(){pre.innerHTML=buf.map((l,j)=>j==buf.length-1?l+'<span class="cursor"></span>':l).join("\\n")}
-  const sleep=ms=>new Promise(r=>setTimeout(r,ms));
-  async function typeLine(t){let s="";for(const c of t){s+=c;buf[buf.length-1]=s;render();await sleep(10)}}
-  async function run(){while(1){buf.push("");await typeLine(lines[i%lines.length]);i++;await sleep(100);if(buf.length>12)buf.shift();}}
-  run();
-}
-</script>
-</div></div></div><div class="pwb-flex-grid-wrap" id="in6nbcy-4-3"><div class="pwb-flex-grid-wrap" id="in6nbcy-2-4-3"><div class="framer-1cc0f02" id="imob0j-3-2-3-5-3"><div id="i2omk-2-2-3-3-7-3"><span id="i1b4jvm"></span><span id="ige05dm"></span><span id="i7m9j4o">Pick a Package & Customize It</span></div><div class="pwb-flex-grid-wrap" id="iqlxmn9-3-6"><img src="../files.staging.peachworlds.com/website/92b731c1-fd64-488c-ad93-c467c3a606bb/step1-1.png" loading="lazy" id="i1j7jnd-2" data-has-states="1"><img src="../files.staging.peachworlds.com/website/0e984529-0f9f-49f6-ae83-bf9c5b867e58/step1-2.png" loading="lazy" id="i1j7jnd-2-3" data-has-states="1"></div><div class="pwb-flex-grid-wrap" id="iqlxmn9-3-6-3"><img src="../files.staging.peachworlds.com/website/57921c9f-c7f0-44a8-bce8-c87d20e19d94/step1-3.png" loading="lazy" id="i1j7jnd-2-4" data-has-states="1"><img src="../files.staging.peachworlds.com/website/d3f3bcf7-fb34-41c4-a448-fae2d5bc91c7/step1-4.png" loading="lazy" id="i1j7jnd-2-3-2" data-has-states="1"></div></div><img class="pw-image-style" src="../files.staging.peachworlds.com/website/fd4515b1-15bf-4e33-8a1c-c104836dd0cd/card-overlay-drak.svg" loading="lazy" id="ikn3uyp-3-6"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/fd072ad2-7a23-463f-b623-8e39daa28f0f/glow-line-dark.svg" loading="lazy" id="ikn3uyp-2-2-7"></div><div class="pwb-flex-grid-wrap" id="in6nbcy-2-3-4-2"><div class="framer-1cc0f02" id="imob0j-3-2-3-3-3-2"><div id="i2omk-2-2-3-3-7-3-2"><span id="i1b4jvm-2"></span><span id="i30w36j"></span><span id="id68imu"></span><span id="ivyo05i">Review Forecast & Bidding Guidance</span></div><div class="pwb-flex-grid-wrap" id="iqlxmn9-3-3-2"><img src="../files.staging.peachworlds.com/website/076d5b65-f5be-4c62-9a57-820ea316e0a4/step2.png" loading="lazy" id="i1j7jnd-3-3"></div></div><img class="pw-image-style" src="../files.staging.peachworlds.com/website/fd4515b1-15bf-4e33-8a1c-c104836dd0cd/card-overlay-drak.svg" loading="lazy" id="ikn3uyp-3-4"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/fd072ad2-7a23-463f-b623-8e39daa28f0f/glow-line-dark.svg" loading="lazy" id="ikn3uyp-2-2-5"></div><div class="pwb-flex-grid-wrap" id="in6nbcy-2-3-4-2-2"><div class="framer-1cc0f02" id="imob0j-3-2-3-3-3-2-2"><div id="i2omk-2-2-3-3-7-3-2-2"><span id="i1b4jvm-2-2"></span><span id="i3zceaf"></span><span id="icai1o9"></span><span id="i256ep8">Generate PMP Deals within Seconds</span></div><div class="pwb-flex-grid-wrap" id="iqlxmn9-3-3-2-2"><img src="../files.staging.peachworlds.com/website/33a39fb5-d04e-4dcd-a249-c99fd8d78662/slide-3.png" loading="lazy" id="i1j7jnd-3-3-2"></div></div><img class="pw-image-style" src="../files.staging.peachworlds.com/website/fd4515b1-15bf-4e33-8a1c-c104836dd0cd/card-overlay-drak.svg" loading="lazy" id="ikn3uyp-3-5"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/fd072ad2-7a23-463f-b623-8e39daa28f0f/glow-line-dark.svg" loading="lazy" id="ikn3uyp-2-2-6"></div></div><div class="pw-no-class-fix pwb-embed" id="improb-2-2"><style>
-  body {
-    margin: 0;
-    font-family: sans-serif;
-    background: black;
-  }
-
-  .carousel-container {
-    overflow: hidden;
-    width: 100%;
-    background: none;
-  }
-
-  .carousel-track {
-    display: flex;
-    width: max-content;
-    will-change: transform;
-  }
-
-  .carousel-item {
-    display: inline-flex; height: 48px;
-    align-items: center;
-    justify-content: flex-start;
-    background-color: #C2A3FF;
-    padding: 14px 16px;
-    margin-right: 16px;
-    border-radius: 100px;
-    flex-shrink: 0;
-    white-space: nowrap; 
-    box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.35) inset, 0 -1px 0 0 rgba(0, 0, 0, 0.35) inset;
-  }
-
-  .carousel-item img {
-    width: 24px;
-    height: 24px;
-    margin-right: 8px;
-    flex-shrink: 0;
-  }
-
-  .carousel-item span {
-    color: #1E2242;
-    font-size: 18px;
-  }
-</style>
-
-<div class="carousel-container">
-  <div class="carousel-track" id="carousel-track">
-    <!-- Tiles will be added by JS -->
-  </div>
-</div>
-
-<script>
-  const features = [
-    "Carbon Efficient",
-    "Audio",
-    "SIMID",
-    "Audience-Layered",
-    "Contextual",
-    "CTV",
-    "Performance",
-    "Rich Media",
-    "User Session Data",
-    "Demographics",
-    "Sensitive or Regulated",
-    "DOOH",
-    "YouTube"
-  ];
-
-  const icons = [
-  "/files.staging.peachworlds.com/website/264c96f8-d459-4106-b502-c32384bcb721/carbon.svg",
-  "/files.staging.peachworlds.com/website/a9be850d-1451-4f74-b84b-bcd2df9cb09f/audio.svg",
-  "/files.staging.peachworlds.com/website/b088b1f8-a252-49b3-b3dc-adbc4b95b9b3/simid.svg",
-  "/files.staging.peachworlds.com/website/7a4897b3-59ca-4ec8-969d-b4267f45311f/audience.svg",
-  "/files.staging.peachworlds.com/website/3b527dc5-7bce-46b9-913f-d59e59e2673f/context.svg",
-  "/files.staging.peachworlds.com/website/4fad83f3-150e-438b-ad23-91ea19405411/ctv.svg",
-  "/files.staging.peachworlds.com/website/a1e598f8-cfc0-46e7-8448-391e6107eddd/performance.svg",
-  "/files.staging.peachworlds.com/website/f08c2ca2-66ed-4c6f-b863-927e602245bb/media.svg",
-  "/files.staging.peachworlds.com/website/01efcd3e-a0a7-4a00-b1b6-f40a2d8e20a4/user-data.svg",
-  "/files.staging.peachworlds.com/website/15ac20c2-dbe5-4003-90fd-d632ae518918/demographics.svg",
-  "/files.staging.peachworlds.com/website/6b45282e-e7e3-4909-b0b5-83ddc2de0d45/cone.svg",
-  "/files.staging.peachworlds.com/website/03721bce-002b-4552-9371-c414fd142aba/billboard.svg",
-  "/files.staging.peachworlds.com/website/44a66b62-442c-4e47-887d-294a41568766/youtube.svg"
-];
-
-  const track = document.getElementById("carousel-track");
-
-  [...features.entries(), ...features.entries()].forEach(([i, label]) => {
-    const item = document.createElement('div');
-    item.className = 'carousel-item';
-    item.innerHTML = \`
-      <img src="\${icons[i % icons.length]}" alt="\${label}">
-      <span>\${label}</span>
-    \`;
-    track.appendChild(item);
-  });
-
-  let scrollX = 0;
-  const speed = 0.5;
-
-  function animate() {
-    scrollX -= speed;
-    if (Math.abs(scrollX) >= track.scrollWidth / 2) {
-      scrollX = 0;
-    }
-    track.style.transform = \`translateX(\${scrollX}px)\`;
-    requestAnimationFrame(animate);
-  }
-
-  animate();
-</script>
-</div><div class="pw-block-style" id="is4hc3g"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/0912338d-3284-4328-948f-58dd926cc0ba/audience.svg" loading="lazy" id="itrgrjh"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/44a66b62-442c-4e47-887d-294a41568766/youtube.svg" loading="lazy" id="itrgrjh-2"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/01efcd3e-a0a7-4a00-b1b6-f40a2d8e20a4/user-data.svg" loading="lazy" id="itrgrjh-2-2"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/6b45282e-e7e3-4909-b0b5-83ddc2de0d45/cone.svg" loading="lazy" id="itrgrjh-2-2-2"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/f08c2ca2-66ed-4c6f-b863-927e602245bb/media.svg" loading="lazy" id="itrgrjh-2-2-2-2-2"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/b0d555dc-0a4a-4057-92c4-176fbbf4dbb2/performance.svg" loading="lazy" id="itrgrjh-2-2-2-2-2-2"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/05a74c5f-2220-4c23-9141-c1eb22b9c9c9/ctv.svg" loading="lazy" id="itrgrjh-2-2-2-2-2-2-2"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/15ac20c2-dbe5-4003-90fd-d632ae518918/demographics.svg" loading="lazy" id="itrgrjh-2-2-2-2-2-2-2-2-2"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/03721bce-002b-4552-9371-c414fd142aba/billboard.svg" loading="lazy" id="itrgrjh-2-2-2-2-2-2-2-2-2-2"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/13e8e46e-a2f7-48d7-ab51-262ebd3dc1e3/context.svg" loading="lazy" id="itrgrjh-2-2-2-2-2-2-2-2-2-2-2"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/264c96f8-d459-4106-b502-c32384bcb721/carbon.svg" loading="lazy" id="itrgrjh-2-2-2-2-2-2-2-2-2-2-2-2"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/a9be850d-1451-4f74-b84b-bcd2df9cb09f/audio.svg" loading="lazy" id="itrgrjh-2-2-2-2-2-2-2-2-2-2-2-2-2"><img class="pw-image-style" src="../files.staging.peachworlds.com/website/b088b1f8-a252-49b3-b3dc-adbc4b95b9b3/simid.svg" loading="lazy" id="itrgrjh-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2"></div></div></div><div class="pwb-flex-grid-wrap" id="i0loz7-3-2-2-4"></div><div class="pwb-anchor" id="iee4h3-3-2-2-2-2-2-4-3"></div><div class="pwb-flex-grid-wrap" id="i0loz7-3-2-2-4-3"></div><div class="pwb-flex-grid-wrap" id="i0loz7-3-2-2-2"></div><div class="pwb-anchor" id="iee4h3-3-2-2-2-2-2-4-2"></div><div class="pwb-flex-grid-wrap" id="i0loz7-3-2-2-3"></div><div class="pwb-anchor" id="iee4h3-3-2-2-2-2-2-4-2-2"></div><div class="pwb-flex-grid-wrap" id="ibdecd"><div class="pwb-flex-grid-wrap" id="imqgmk-2-2"><div class="pwb-flex-grid-wrap" id="ixycwt-2-2-3"><div id="inm1q-3-2-2-2-2-3"><span id="ijj1lp6"></span><span id="i7xarqz"></span><span id="iwlmp3k"> Start Trading Supply-Side Today</span></div><div class="pwb-flex-grid-wrap" id="irsa34-2-4"><div class="pw-block-style" id="ixnbo71-3-3"><div class="pwb-flex-grid-wrap" id="ioqrg-2-2-2-3-3" data-has-states="1"><div class="framer-1cc0f02" id="imob0j-3-5-2-2-5"></div><div class="pwb-flex-grid-wrap" id="ipavn-2-2-2-2-2-2-2-3-3"><div id="i6wd7-2-2-2-2-2-2-2-3-3"><span id="ic0tx-2-2-2-3-2">Get Started</span> — it's Free</div></div></div></div><div class="pw-block-style" id="ixnbo71-2-2-4"><div class="pwb-flex-grid-wrap" id="ioqrg-2-2-2-2-2-2-3-4" data-has-states="1"><div class="framer-1cc0f02" id="imob0j-3-5-2-5"></div><div class="pwb-flex-grid-wrap" id="ipavn-2-2-2-2-2-2-2-2-2-2-3-4"><div id="i6wd7-2-2-2-2-2-2-2-2-2-2-3-4" data-has-states="1"><font id="i00y82-2-3-4" face="neuehaasdisplayroman">Book a Call</font></div></div></div></div></div><div class="pwb-flex-grid-wrap" id="irsa34-2-3-4-2-2-4"><div class="pw-block-style" id="ixnbo71-3-3-2-2-4"><div class="pwb-flex-grid-wrap" id="ioqrg-2-2-2-3-3-2-2-4" data-has-states="1"><div class="pwb-flex-grid-wrap" id="ipavn-2-2-2-2-2-2-2-3-3-2-2-4"><div id="i6wd7-2-2-2-2-2-2-2-3-3-2-2-4"><span id="ic0tx-2-2-2-3-2-3-2-4">Get started</span> — it's free</div></div></div></div><div class="pw-block-style" id="ixnbo71-2-2-4-2-2-4"><div class="pwb-flex-grid-wrap" id="ioqrg-2-2-2-2-2-2-3-4-2-2-4" data-has-states="1"><div class="framer-1cc0f02" id="imob0j-3-5-2-5-2-2-4"></div><div class="pwb-flex-grid-wrap" id="ipavn-2-2-2-2-2-2-2-2-2-2-3-4-2-2-4"><div id="i6wd7-2-2-2-2-2-2-2-2-2-2-3-4-2-2-4" data-has-states="1"><font id="i00y82-2-3-4-2-2-4" face="neuehaasdisplayroman">Book a Call</font></div></div></div></div></div></div><div class="pwb-flex-grid-wrap" id="i0h78r"><div class="pwb-flex-grid-wrap" id="i3dc64"><div class="pwb-flex-grid-wrap" id="ibblux"><div id="ipsa3o" data-has-states="1">PRODUCT</div><div id="ia6ok2" data-has-states="1">Curation</div><div id="ia6ok2-3" data-has-states="1">Monetization<br id="iftwn7n"></div></div><div class="pwb-flex-grid-wrap" id="ibblux-2"><div id="ipsa3o-2" data-has-states="1">USE CASES</div><div id="ia6ok2-3-8" data-has-states="1">Plants & Fungi<br id="iftwn7n-2"></div><div id="ia6ok2-3-8-2" data-has-states="1">Birds & Wildlife</div><div id="ia6ok2-3-8-2-2" data-has-states="1">Marine & Fish</div><div id="ia6ok2-3-8-2-2-2" data-has-states="1">Insects & Bugs</div></div><div class="pwb-flex-grid-wrap" id="ibblux-2-2-4-2-3"><div id="ipsa3o-2-2-4-2-3" data-has-states="1">CHANNELS</div><div id="ia6ok2-3-8-2-3-2-2-2-2-3-2-3" data-has-states="1">CTV</div><div id="ia6ok2-3-8-2-3-2-5-2-3" data-has-states="1">Display / Native</div><div id="ia6ok2-3-8-2-3-2-2-2-4-2-3" data-has-states="1">DOOH</div><div id="ia6ok2-3-8-2-3-2-2-4-2-3" data-has-states="1">Video / Audio</div><div id="ia6ok2-3-8-2-3-4-2-3" data-has-states="1">YouTube</div></div><div class="pwb-flex-grid-wrap" id="ibblux-2-2-2"><div id="ipsa3o-2-2-2" data-has-states="1">RESOURCES</div><div id="ia6ok2-3-8-2-3-2-3" data-has-states="1">In The Press</div><div id="ia6ok2-3-8-2-3-2-3-6" data-has-states="1">Partner Directory</div><div id="ia6ok2-3-8-2-3-2-3-2" data-has-states="1">Live Chat</div><div id="ia6ok2-3-8-2-3-2-3-2-2" data-has-states="1">System Status</div><div id="ia6ok2-3-8-2-3-2-3-2-2-2" data-has-states="1">Book a Demo</div><div id="ia6ok2-3-8-2-3-2-3-2-2-2-2" data-has-states="1">Documentation</div><div id="ia6ok2-3-8-2-3-2-3-2-2-2-2-2" data-has-states="1">Contact Us</div></div><div class="pwb-flex-grid-wrap" id="ibblux-2-2-2-2"><div id="ipsa3o-2-2-2-2" data-has-states="1">LEGAL</div><div id="ia6ok2-3-8-2-3-2-3-4" data-has-states="1">Website Privacy Policy</div><div id="ia6ok2-3-8-2-3-2-3-4-2" data-has-states="1">Terms of Service</div><div id="ia6ok2-3-8-2-3-2-3-2-2-3" data-has-states="1">Services Privacy Policy</div><div id="ia6ok2-3-8-2-3-2-3-2-2-2-3" data-has-states="1">Consumer Access Request</div><div class="pw-embed-style pwb-embed" id="ie5hjah"><a href="javascript:Didomi.preferences.show()" class="privacy-link padding">
-  Do Not Share or Sell My <br> Personal Information
-</a>
-<br>
-<a href="javascript:Didomi.preferences.show()" class="privacy-link">
-  Opt Out
-</a>
-
-<style>
-  .privacy-link {
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 140%;
-    color: #FFFFFF;
-    text-decoration: none;
-    display: inline-block;
-    transition: opacity 0.3s ease;
-  }
-.padding { padding-bottom: 8px; }
-  .privacy-link:hover {
-    opacity: 0.7;
-  }
-</style>
-
-</div><div id="ia6ok2-3-8-2-3-2-3-2-2-2-2-3" data-has-states="1">Do Not Share or Sell My <br id="iscmq3a">Personal Information</div><div id="ia6ok2-3-8-2-3-2-3-2-2-2-2-3-2" data-has-states="1">Opt Out</div></div></div></div><div class="pwb-flex-grid-wrap" id="i0h78r-2"><div class="pwb-flex-grid-wrap" id="i3dc64-2"><div class="pw-block-style" id="izyght5"><div class="pwb-flex-grid-wrap" id="ibblux-9"><div id="ipsa3o-9" data-has-states="1">PRODUCT</div><div id="ia6ok2-2" data-has-states="1">Curation</div><div id="ia6ok2-3-9" data-has-states="1">Monetization<br id="iftwn7n-3"></div></div><div class="pwb-flex-grid-wrap" id="ibblux-2-2-3"><div id="ipsa3o-2-2-3" data-has-states="1">CHANNELS</div><div id="ia6ok2-3-8-2-3-2-2-2-2-2" data-has-states="1">CTV</div><div id="ia6ok2-3-8-2-3-2-4" data-has-states="1">Display / Native</div><div id="ia6ok2-3-8-2-3-2-2-2-3" data-has-states="1">DOOH</div><div id="ia6ok2-3-8-2-3-2-2-3" data-has-states="1">Video / Audio</div><div id="ia6ok2-3-8-2-3-3" data-has-states="1">YouTube</div></div><div class="pwb-flex-grid-wrap" id="ibblux-2-2-2-2-2"><div id="ipsa3o-2-2-2-2-2" data-has-states="1">LEGAL</div><div id="ia6ok2-3-8-2-3-2-3-4-3" data-has-states="1">Website Privacy Policy</div><div id="ia6ok2-3-8-2-3-2-3-4-2-2" data-has-states="1">Terms of Service</div><div id="ia6ok2-3-8-2-3-2-3-2-2-3-2" data-has-states="1">Services Privacy Policy</div><div id="ia6ok2-3-8-2-3-2-3-2-2-2-3-2" data-has-states="1">Consumer Access Request</div><div class="pw-embed-style pwb-embed" id="ie5hjah-2"><a href="javascript:Didomi.preferences.show()" class="privacy-link padding">
-  Do Not Share or Sell <br> My Personal Information
-</a>
-<br>
-<a href="javascript:Didomi.preferences.show()" class="privacy-link">
-  Opt Out
-</a>
-
-<style>
-  .privacy-link {
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 140%;
-    color: #ffffff;
-    opacity: 1;
-    text-decoration: none;
-    display: inline-block;
-    width: 100%;
-    transition: instant;
-  }
-
-  .padding { 
-    padding-bottom: 8px; 
-  }
-
-  .privacy-link:hover {
-    opacity: 0.6;
-  }
-</style>
-</div></div></div><div class="pw-block-style" id="izyght5-2"><div class="pw-block-style" id="i0e1vxy"><div class="pwb-flex-grid-wrap" id="ibblux-2-3"><div id="ipsa3o-2-3" data-has-states="1">USE CASES</div><div id="ia6ok2-3-8-3" data-has-states="1">Plants & Fungi<br id="iftwn7n-2-2"></div><div id="ia6ok2-3-8-2-4" data-has-states="1">Birds & Wildlife</div><div id="ia6ok2-3-8-2-2-3" data-has-states="1">Marine & Fish</div><div id="ia6ok2-3-8-2-2-2-2" data-has-states="1">Insects & Bugs</div></div><div class="pwb-flex-grid-wrap" id="ibblux-2-2-2-3"><div id="ipsa3o-2-2-2-3" data-has-states="1">RESOURCES</div><div id="ia6ok2-3-8-2-3-2-3-7-6-2-7-2" data-has-states="1">In The Press</div><div id="ia6ok2-3-8-2-3-2-3-3" data-has-states="1">Partner Directory</div><div id="ia6ok2-3-8-2-3-2-3-2-3" data-has-states="1">Live Chat</div><div id="ia6ok2-3-8-2-3-2-3-2-2-4" data-has-states="1">System Status</div><div id="ia6ok2-3-8-2-3-2-3-2-2-2-4" data-has-states="1">Book a Demo</div><div id="ia6ok2-3-8-2-3-2-3-2-2-2-2-4" data-has-states="1">Documentation</div><div id="ia6ok2-3-8-2-3-2-3-2-2-2-2-2-2" data-has-states="1">Contact Us</div></div></div><div class="pw-block-style" id="i7tw2wt-2"><div class="pwb-flex-grid-wrap" id="ivehjk-3"><div class="pwb-flex-grid-wrap" id="itv616-2-5-2-2-3-7-2"><div class="pwb-flex-grid-wrap" id="i56x6r-2-5-2-2-3-7-2" data-has-states="1"><img src="../files.staging.peachworlds.com/website/41608704-5ba8-432c-af38-64178cff8cd6/ico-linked.svg" loading="lazy" id="ihvpmx-2-5-2-2-3-7-2"><div class="framer-1cc0f02" id="imob0j-3-2-2-3-4-4-2-5-2-2-3-7-2"></div></div></div></div><img class="pw-image-style" src="../files.staging.peachworlds.com/website/037a8077-07a0-48e3-a915-55a2e98a6952/logo-iab-1.png" loading="lazy" id="it1ordz-2"></div></div></div></div><div class="pwb-flex-grid-wrap" id="ibblux-3"><div id="ia6ok2-4">Ask AI for a summary of Nature AI</div><div class="pw-block-style" id="i7tw2wt-4"><div class="pwb-flex-grid-wrap" id="ivehjk-2"><div class="pwb-flex-grid-wrap" id="itv616-2-5-2-2-3-7-4"><div class="pwb-flex-grid-wrap" id="i56x6r-2-5-2-2-3-7-4" data-has-states="1"><img src="../files.peachworlds.com/website/cc09f8b5-7a08-4a16-a9da-4c8a14cc2283/svgexport-1-1.png" loading="lazy" id="ihvpmx-2-5-2-2-3-7-4"><div class="framer-1cc0f02" id="imob0j-3-2-2-3-4-4-2-5-2-2-3-7-4"></div></div><div class="pwb-flex-grid-wrap" id="i56x6r-2-5-2-2-3-7-4-2" data-has-states="1"><img src="../files.peachworlds.com/website/911878c3-a992-4980-9b5c-37a25869dc22/g314.png" loading="lazy" id="ihvpmx-2-5-2-2-3-7-4-2"><div class="framer-1cc0f02" id="imob0j-3-2-2-3-4-4-2-5-2-2-3-7-4-2"></div></div><div class="pwb-flex-grid-wrap" id="i56x6r-2-5-2-2-3-7-4-3" data-has-states="1"><img src="../files.peachworlds.com/website/a188cb55-bb56-4d45-b1e8-3f229c9ced63/svgexport-1-3-1.png" loading="lazy" id="ihvpmx-2-5-2-2-3-7-4-3"><div class="framer-1cc0f02" id="imob0j-3-2-2-3-4-4-2-5-2-2-3-7-4-3"></div></div><div class="pwb-flex-grid-wrap" id="i56x6r-2-5-2-2-3-7-4-4" data-has-states="1"><img src="../files.peachworlds.com/website/d6390522-5cd6-4854-af51-e2e155bafe49/vector.png" loading="lazy" id="ihvpmx-2-5-2-2-3-7-4-4"><div class="framer-1cc0f02" id="imob0j-3-2-2-3-4-4-2-5-2-2-3-7-4-4"></div></div><div class="pwb-flex-grid-wrap" id="i56x6r-2-5-2-2-3-7-4-5" data-has-states="1"><img src="../files.peachworlds.com/website/ac4dbe47-e28b-4245-9a0f-bc79db749515/svgexport-1-4-1.png" loading="lazy" id="ihvpmx-2-5-2-2-3-7-4-5"><div class="framer-1cc0f02" id="imob0j-3-2-2-3-4-4-2-5-2-2-3-7-4-5"></div></div></div></div></div></div><div class="pw-block-style" id="i7tw2wt"><div class="pwb-flex-grid-wrap" id="ivehjk"><div class="pwb-flex-grid-wrap" id="itv616-2-5-2-2-3-7"><div class="pwb-flex-grid-wrap" id="i56x6r-2-5-2-2-3-7" data-has-states="1"><img src="../files.staging.peachworlds.com/website/41608704-5ba8-432c-af38-64178cff8cd6/ico-linked.svg" loading="lazy" id="ihvpmx-2-5-2-2-3-7"><div class="framer-1cc0f02" id="imob0j-3-2-2-3-4-4-2-5-2-2-3-7"></div></div></div></div><img class="pw-image-style" src="../files.staging.peachworlds.com/website/037a8077-07a0-48e3-a915-55a2e98a6952/logo-iab-1.png" loading="lazy" id="it1ordz"></div><div class="pw-block-style" id="i743mek"><div id="ijn8ii-2-2"><span id="i4jt91y">©2026 <span id="i1k927h" data-has-states="1">Nature AI</span>: Deep Minded Services Limited.</span></div></div><div class="pwb-flex-grid-wrap" id="ixlw3c-2-2-2-2-2-2-2-2-3"></div><img src="../files.staging.peachworlds.com/website/6b1d80ee-cc80-48cb-965f-4b3e8feec214/gradient.png" loading="lazy" id="i9m2ahj"></div></div><div class="pwb-anchor" id="iee4h3-3-2-2-2-2-2-2"></div></div></div>
-        </div>
-        <div id="pwb-loading-wrap"><div class="pwb-flex-grid-wrap" id="im2i"><div class="pwb-flex-grid-wrap" id="ifbapuu"></div><div class="pwb-flex-grid-wrap" id="if489kl"><img src="/files.staging.peachworlds.com/website/66551738-8570-460c-a065-5081968cd019/curated-logo.svg" loading="eager" id="ixe4zkj"><div class="pw-no-class-fix pwb-embed" id="ixbkdz"><div style="
-  position: relative;
-  overflow: hidden;
-  height: 28px;
-  text-align: center;
-  font-family: 'Inter', sans-serif;
-  font-weight: 300;
-  font-size: 16px;
-  color: white;
-  line-height: 28px;
-">
-  <div style="height:28px; overflow:hidden;">
-  <div style="
-    display:flex;
-    flex-direction:column;
-    animation:smoothRoll 12s infinite ease-in-out;
-    will-change: transform;
-  ">
-    <div style="height:28px;">Initializing Nature AI Engine…</div>
-    <div style="height:28px;">Optimizing Supply Pathways…</div>
-    <div style="height:28px;">Configuring Real-Time Optimizations...</div>
-    <div style="height:28px;">Activating Smart Buying Signals…</div>
-  </div>
-</div>
-
-<style>
-@keyframes smoothRoll {
-  0%, 20%   { transform: translateY(0%); }
-  25%, 45%  { transform: translateY(-25%); }
-  50%, 70%  { transform: translateY(-50%); }
-  75%, 95%  { transform: translateY(-75%); }
-  100%      { transform: translateY(0%); }
-}
-</style>
-</div>
-</div><div class="pw-no-class-fix pwb-embed" id="ixbkdz-2"><div style="
-  position: relative;
-  overflow: hidden;
-  height: 28 px;
-  text-align: center;
-  font-family: 'Inter', sans-serif;
-  font-weight: 300;
-  font-size: 28px;
-  color: white;
-  line-height: 28px;
-">
-  <div style="height:30px; overflow:hidden;">
-  <div style="
-    display:flex;
-    flex-direction:column;
-    animation:smoothRoll 12s infinite ease-in-out;
-    will-change: transform;
-  ">
-    <div style="height:30px;">Initializing Nature AI Engine…</div>
-    <div style="height:30px;">Optimizing Supply Pathways…</div>
-    <div style="height:30px;">Configuring Real-Time Optimizations...</div>
-    <div style="height:30px;">Activating Smart Buying Signals…</div>
-  </div>
-</div>
-
-<style>
-@keyframes smoothRoll {
-  0%, 20%   { transform: translateY(0%); }
-  25%, 45%  { transform: translateY(-25%); }
-  50%, 70%  { transform: translateY(-50%); }
-  75%, 95%  { transform: translateY(-75%); }
-  100%      { transform: translateY(0%); }
-}
-</style>
-</div>
-</div></div></div></div>
-        
-
-       <!-- Waterfall optimization -->
-        <script type="text/javascript">
-          window._pwPreviewResourceUrls = [];
-          (function waterfallOptimizationScript(){window._pwPreviewResourceUrls=window._pwPreviewResourceUrls||[];if(!window._pwLoadFileRequestsCache)window._pwLoadFileRequestsCache=new Map;if(!window._pwLoadFileResolveFnCache)window._pwLoadFileResolveFnCache=new Map;window._pwSetFileCache=(fileUrl,blob)=>{if(!window._pwLoadFileResolveFnCache)throw new Error(\`Variable "_pwLoadFileResolveFnCache" is undefined.\`);const blobUrl=(window.URL||window.webkitURL).createObjectURL(blob);const resolveFn=window._pwLoadFileResolveFnCache.get(fileUrl);if(!resolveFn)throw new Error(\`Resolve function for file "\${fileUrl}" not found.\`);resolveFn(blobUrl)};window._pwWaitForExplicitFileResolve=fileUrl=>{if(!window._pwLoadFileResolveFnCache)throw new Error(\`Variable "_pwLoadFileResolveFnCache" is undefined.\`);if(!window._pwLoadFileRequestsCache)throw new Error(\`Variable "_pwLoadFileRequestsCache" is undefined.\`);if(window._pwLoadFileResolveFnCache.has(fileUrl)&&window._pwLoadFileRequestsCache.has(fileUrl))return;let resolveFn=void 0;const explicitWaitPromise=new Promise(resolve=>{resolveFn=resolve});window._pwLoadFileResolveFnCache.set(fileUrl,resolveFn);window._pwLoadFileRequestsCache.set(fileUrl,explicitWaitPromise)};window._pwLoadFileFromCacheHelper=async fileUrl=>{if(!fileUrl)return void 0;try{const response=await fetch(fileUrl);if(!response.ok)return void 0;const blob=await response.blob();const blobUrl=(window.URL||window.webkitURL).createObjectURL(blob);return blobUrl}catch(error){return void 0}};window._pwLoadFileFromCache=async fileUrl=>{if(!fileUrl)return void 0;if(!window._pwLoadFileRequestsCache)throw new Error(\`Variable "_pwLoadFileRequestsCache" is undefined.\`);let requestPromise=window._pwLoadFileRequestsCache.get(fileUrl);if(!requestPromise){if(!window._pwLoadFileFromCacheHelper)throw new Error(\`Function "_pwLoadFileFromCacheHelper" is undefined.\`);requestPromise=window._pwLoadFileFromCacheHelper(fileUrl);window._pwLoadFileRequestsCache.set(fileUrl,requestPromise)}return await requestPromise};for(const explicitResourceUrl of window._pwPreviewResourceUrls)window._pwWaitForExplicitFileResolve(explicitResourceUrl)})();
-        </script>
-
-        <script type="text/javascript">
-          window._pwExecLoadingPageJavascript = () => {
-            
-          };
-          window._pwExecLoadingPageJavascript();
-        </script>
-
-        <style>
-  .loader {
-    width: 60px;
-    height: 60px;
-    border: 4px dotted #fff;
-    border-radius: 50%;
-    display: inline-block;
-    position: relative;
-    box-sizing: border-box;
-    animation: rotation 3.5s linear infinite;
-  }
-
-  @media (max-width: 480px) {
-    .loader {
-      width: 48px;
-      height: 48px;
-      animation: rotation 2s linear infinite;
-    }
-  }
-
-  @keyframes rotation {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-</style>
-<script>
-  document.querySelectorAll("#ifbapuu").forEach(function (el) {
-    el.innerHTML = "<span class='loader'></span>";
-  });
-</script>
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-
-  function enableDidomiScroll() {
-    const popup = document.querySelector('#didomi-host');
-    const dialog = document.querySelector('.didomi-consent-popup__dialog');
-    const backdrop = document.querySelector('.didomi-consent-popup__backdrop');
-    const canvasBlock = document.getElementById('ip9j');
-    const cookieBanner = document.querySelector('.didomi-notice');  /* 🍪 Cookie banner */
-
-    if (!dialog || !popup) return;
-
-    /* ✅ Make Didomi scrollable inside */
-    Object.assign(dialog.style, {
-      display: 'block',
-      position: 'relative',
-      maxHeight: '100vh',
-      overflowY: 'auto',
-      overflowX: 'hidden',
-      webkitOverflowScrolling: 'touch',
-      touchAction: 'pan-y',
-      pointerEvents: 'auto',
-      zIndex: '2147483647'
-    });
-
-    /* ⭐️ High z-index for the entire Didomi host */
-    Object.assign(popup.style, {
-      position: 'relative',
-      zIndex: '2147483646'
-    });
-
-    /* Fix backdrop layout */
-    if (backdrop) {
-      Object.assign(backdrop.style, {
-        alignItems: 'flex-start',
-        justifyContent: 'center',
-        overflow: 'hidden',
-        zIndex: '2147483645'
-      });
-    }
-
-    /* 🍪 Force cookie banner BELOW popup & backdrop */
-    if (cookieBanner) {
-      cookieBanner.style.setProperty('z-index', '2147483644', 'important'); /* 🔥 force override */
-      cookieBanner.style.setProperty('pointer-events', 'none', 'important');
-      cookieBanner.style.setProperty('opacity', '0.7', 'important');
-    }
-
-    /* 🚫 Lock 3D canvas and body scroll */
-    if (canvasBlock) {
-      canvasBlock.style.overflow = 'hidden';
-      canvasBlock.style.pointerEvents = 'none';
-    }
-    document.body.style.overflow = 'hidden';
-
-    /* 🧠 Stop smooth scroll scripts from stealing input */
-    ['wheel','touchmove'].forEach(evt => {
-      popup.addEventListener(evt, e => e.stopPropagation(), { passive: false });
-    });
-  }
-
-  function disableDidomiScroll() {
-    const canvasBlock = document.getElementById('ip9j');
-    const cookieBanner = document.querySelector('.didomi-notice');
-    if (canvasBlock) {
-      canvasBlock.style.overflow = '';
-      canvasBlock.style.pointerEvents = '';
-    }
-    if (cookieBanner) {
-      cookieBanner.style.removeProperty('z-index');
-      cookieBanner.style.removeProperty('pointer-events');
-      cookieBanner.style.removeProperty('opacity');
-    }
-    document.body.style.overflow = '';
-  }
-
-  /* 🕵️ Watch for Didomi popup and re-apply hierarchy */
-  const observer = new MutationObserver(() => {
-    const dialogVisible = document.querySelector('.didomi-consent-popup__dialog');
-    if (dialogVisible && dialogVisible.offsetParent !== null) {
-      enableDidomiScroll();
-    } else {
-      disableDidomiScroll();
-    }
-  });
-
-  observer.observe(document.body, { childList: true, subtree: true });
-});
-</script>
-
-        
-      
-    ` }} />
+` }} />
     </div>
   );
 }
