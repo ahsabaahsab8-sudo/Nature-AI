@@ -782,48 +782,49 @@
             innerText.style.setProperty('margin-right', '0', 'important');
             innerText.style.setProperty('padding', '0 4px', 'important'); // Perfect equal spacing
           }
-          // Navigate to page or redirect CTA to Play Store
+          // Navigate to page in the top window
           el.addEventListener('click', function(e) {
             e.preventDefault();
             e.stopPropagation();
             var routeMap = {
-              'ipavn': 'home',
-              'ipavn-2': 'scanner-hub',
-              'ipavn-2-3': 'developer-core',
-              'ipavn-2-2': 'bird-identify',
-              'ipavn-2-2-fish': 'fish-identify',
-              'ipavn-2-2-insect': 'insect-identify',
-              'ipavn-6': 'home',
-              'ipavn-2-3-4': 'scanner-hub',
-              'ipavn-2-6': 'developer-core',
-              'ipavn-2-2-4': 'bird-identify',
-              'ipavn-2-2-4-fish': 'fish-identify',
-              'ipavn-2-2-4-insect': 'insect-identify'
+              'ipavn': '/',
+              'ipavn-2': '/scanner-hub/',
+              'ipavn-2-3': '/developer-core',
+              'ipavn-2-2': '/bird-identify/',
+              'ipavn-2-2-fish': '/fish-identify',
+              'ipavn-2-2-insect': '/identify-insect/',
+              'ipavn-6': '/',
+              'ipavn-2-3-4': '/scanner-hub/',
+              'ipavn-2-6': '/developer-core',
+              'ipavn-2-2-4': '/bird-identify/',
+              'ipavn-2-2-4-fish': '/fish-identify',
+              'ipavn-2-2-4-insect': '/identify-insect/'
             };
-            var route = routeMap[el.id];
-            if (route && window.parent && window.parent !== window) {
-              window.parent.postMessage({ type: 'navigate', route: route }, '*');
+            var path = routeMap[el.id];
+            if (path) {
+              window.top.location.href = path;
             }
           }, true);
         });
 
         // --- Redirect CTA buttons and any curated/peachworlds links to Play Store ---
         document.body.addEventListener('click', function(e) {
+          // Skip if click is on or inside a navigation menu item
+          var checkTarget = e.target;
+          while (checkTarget && checkTarget !== document.body) {
+            var checkId = (checkTarget.id || '');
+            if (checkId.indexOf('ipavn') === 0) return;
+            checkTarget = checkTarget.parentNode;
+          }
+
           var target = e.target;
           while (target && target !== document.body) {
             var text = (target.textContent || '').toLowerCase();
             var href = (target.getAttribute('href') || '').toLowerCase();
             var id = (target.id || '').toLowerCase();
             
-            // Check if text indicates it's one of the CTA buttons
-            var isCTA = text.includes('get started') || 
-                        text.includes('its free') || 
-                        text.includes('it\'s free') || 
-                        text.includes('researchers') || 
-                        text.includes('book a call') || 
-                        text.includes('book a demo') ||
-                        text.includes('login') ||
-                        id.includes('iho6tu9') || 
+            // Check if text indicates it's one of the CTA buttons - ONLY check the clicked element, not parents
+            var isCTA = id.includes('iho6tu9') || 
                         id.includes('i1edxg1') || 
                         id.includes('ibefj6z') || 
                         id.includes('i6pdkmg');
@@ -837,17 +838,29 @@
             if (isCTA || isOldDomain) {
               // Ignore if it's one of the AI search/chat buttons (ChatGPT/Claude/Gemini)
               if (text.includes('chatgpt') || text.includes('claude') || text.includes('gemini') || text.includes('perplexity') || text.includes('grok')) {
-                // Do not intercept AI buttons
                 target = target.parentNode;
                 continue;
               }
               
               e.preventDefault();
               e.stopPropagation();
-              window.open('https://play.google.com/store/apps/details?id=com.nature.ai', '_blank');
+              window.top.open('https://play.google.com/store/apps/details?id=com.nature.ai', '_blank');
               return;
             }
             target = target.parentNode;
+          }
+
+          // CTAs detected by text content - only trigger on exact element text, not parent containers
+          var clickedText = (e.target.textContent || '').toLowerCase().trim();
+          if (clickedText.includes('get started') || 
+              clickedText.includes('its free') || 
+              clickedText.includes("it's free") || 
+              clickedText.includes('book a call') || 
+              clickedText.includes('book a demo') ||
+              clickedText.includes('login')) {
+            e.preventDefault();
+            e.stopPropagation();
+            window.top.open('https://play.google.com/store/apps/details?id=com.nature.ai', '_blank');
           }
         }, true); // Use capture phase to intercept before PeachWorlds handles it
       });

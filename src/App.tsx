@@ -150,14 +150,7 @@ export default function App() {
           </main>
         </>
       ) : (
-        <ClonedHome
-          onHome={handleBack}
-          onScannerHub={openPremiumFeatures}
-          onDevCore={openDeveloperCore}
-          onFishIdentify={openFishIdentifySection}
-          onBirdIdentify={openBirdIdentifySection}
-          onInsectIdentify={openInsectIdentifySection}
-        />
+        <ClonedHome />
       )}
     </div>
   );
