@@ -133,95 +133,21 @@ export default function App() {
         <TermsOfService onBack={handleBack} />
       ) : currentPage === 'fish-identify' ? (
         <>
-          <RedesignedNavbar
-            onHome={handleBack}
-            onScannerHub={openPremiumFeatures}
-            onDevCore={openDeveloperCore}
-            onFishIdentify={openFishIdentifySection}
-            onBirdIdentify={openBirdIdentifySection}
-            onInsectIdentify={openInsectIdentifySection}
-            onGlobalReach={handleBack}
-            onSystemCore={openDeveloperCore}
-            onPremiumMode={openPremiumFeatures}
-          />
-          <main className="w-full bg-black min-h-screen pt-24 px-4 md:px-8">
-            <div className="max-w-7xl mx-auto">
-              <FishIdentifySection />
-            </div>
+          <main className="w-full bg-black min-h-screen">
+            <FishIdentifySection />
           </main>
-          <footer className="relative z-10 bg-black py-10 border-t border-white/5 select-none text-center text-xs text-white/40 font-body">
-            <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-              <p>&copy; 2026 Nature AI. All rights reserved.</p>
-              <div className="flex items-center gap-6">
-                <button onClick={openPrivacyPolicy} className="hover:text-white/80 transition-colors cursor-pointer">
-                  Privacy Policy
-                </button>
-                <button onClick={openTermsOfService} className="hover:text-white/80 transition-colors cursor-pointer">
-                  Terms of Service
-                </button>
-              </div>
-            </div>
-          </footer>
         </>
       ) : currentPage === 'bird-identify' ? (
         <>
-          <RedesignedNavbar
-            onHome={handleBack}
-            onScannerHub={openPremiumFeatures}
-            onDevCore={openDeveloperCore}
-            onFishIdentify={openFishIdentifySection}
-            onBirdIdentify={openBirdIdentifySection}
-            onInsectIdentify={openInsectIdentifySection}
-            onGlobalReach={handleBack}
-            onSystemCore={openDeveloperCore}
-            onPremiumMode={openPremiumFeatures}
-          />
-          <main className="w-full bg-black min-h-screen pt-20">
+          <main className="w-full bg-black min-h-screen">
             <BirdIdentifySection />
           </main>
-          <footer className="relative z-10 bg-black py-10 border-t border-white/5 select-none text-center text-xs text-white/40 font-body">
-            <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-              <p>&copy; 2026 Nature AI. All rights reserved.</p>
-              <div className="flex items-center gap-6">
-                <button onClick={openPrivacyPolicy} className="hover:text-white/80 transition-colors cursor-pointer">
-                  Privacy Policy
-                </button>
-                <button onClick={openTermsOfService} className="hover:text-white/80 transition-colors cursor-pointer">
-                  Terms of Service
-                </button>
-              </div>
-            </div>
-          </footer>
         </>
       ) : currentPage === 'insect-identify' ? (
         <>
-          <RedesignedNavbar
-            onHome={handleBack}
-            onScannerHub={openPremiumFeatures}
-            onDevCore={openDeveloperCore}
-            onFishIdentify={openFishIdentifySection}
-            onBirdIdentify={openBirdIdentifySection}
-            onInsectIdentify={openInsectIdentifySection}
-            onGlobalReach={handleBack}
-            onSystemCore={openDeveloperCore}
-            onPremiumMode={openPremiumFeatures}
-          />
-          <main className="w-full bg-black min-h-screen pt-20">
+          <main className="w-full bg-black min-h-screen">
             <InsectIdentifySection />
           </main>
-          <footer className="relative z-10 bg-black py-10 border-t border-white/5 select-none text-center text-xs text-white/40 font-body">
-            <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-              <p>&copy; 2026 Nature AI. All rights reserved.</p>
-              <div className="flex items-center gap-6">
-                <button onClick={openPrivacyPolicy} className="hover:text-white/80 transition-colors cursor-pointer">
-                  Privacy Policy
-                </button>
-                <button onClick={openTermsOfService} className="hover:text-white/80 transition-colors cursor-pointer">
-                  Terms of Service
-                </button>
-              </div>
-            </div>
-          </footer>
         </>
       ) : (
         <ClonedHome

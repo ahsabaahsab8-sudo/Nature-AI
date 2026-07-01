@@ -139,23 +139,23 @@ export function ClonedHome({
 
     runMenuCloning();
 
-    // 4. Setup Navigation Menu Click Handlers
+    // 4. Setup Navigation Menu Click Handlers - navigate directly to standalone pages
     const setupMenuClicks = () => {
       const menuClicks: { [id: string]: () => void } = {
-        'ipavn': onHome,
-        'ipavn-2': onScannerHub,
+        'ipavn': () => { window.location.href = '/'; },
+        'ipavn-2': () => { window.location.href = '/scanner-hub/'; },
         'ipavn-2-3': onDevCore,
-        'ipavn-2-2': onBirdIdentify,
+        'ipavn-2-2': () => { window.location.href = '/bird-identify/'; },
         'ipavn-2-2-fish': onFishIdentify,
-        'ipavn-2-2-insect': onInsectIdentify,
+        'ipavn-2-2-insect': () => { window.location.href = '/identify-insect/'; },
 
         // Mobile
-        'ipavn-6': onHome,
-        'ipavn-2-3-4': onScannerHub,
+        'ipavn-6': () => { window.location.href = '/'; },
+        'ipavn-2-3-4': () => { window.location.href = '/scanner-hub/'; },
         'ipavn-2-6': onDevCore,
-        'ipavn-2-2-4': onBirdIdentify,
+        'ipavn-2-2-4': () => { window.location.href = '/bird-identify/'; },
         'ipavn-2-2-4-fish': onFishIdentify,
-        'ipavn-2-2-4-insect': onInsectIdentify
+        'ipavn-2-2-4-insect': () => { window.location.href = '/identify-insect/'; }
       };
 
       for (const id in menuClicks) {
