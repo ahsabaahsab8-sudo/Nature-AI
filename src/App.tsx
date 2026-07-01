@@ -16,6 +16,7 @@ import PremiumFeatures from './components/PremiumFeatures';
 import DeveloperCore from './components/DeveloperCore';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsOfService from './components/TermsOfService';
+import { ClonedHome } from './components/ClonedHome';
 
 // Suppress Framer Motion list key warnings and other benign logs
 if (typeof window !== 'undefined') {
@@ -223,62 +224,14 @@ export default function App() {
           </footer>
         </>
       ) : (
-        <>
-          <RedesignedNavbar
-            onHome={handleBack}
-            onScannerHub={openPremiumFeatures}
-            onDevCore={openDeveloperCore}
-            onFishIdentify={openFishIdentifySection}
-            onBirdIdentify={openBirdIdentifySection}
-            onInsectIdentify={openInsectIdentifySection}
-            onGlobalReach={() => {
-              const el = document.getElementById('capabilities');
-              if (el) el.scrollIntoView({ behavior: 'smooth' });
-            }}
-            onSystemCore={openDeveloperCore}
-            onPremiumMode={openPremiumFeatures}
-          />
-          <main className="w-full bg-black min-h-screen">
-            <RedesignedHero
-              onOpenPremium={openPremiumFeatures}
-              onOpenDevCore={openDeveloperCore}
-              onOpenPrivacy={openPrivacyPolicy}
-              onOpenTerms={openTermsOfService}
-            />
-            <RedesignedCapabilities />
-            <PlantScrollSection />
-            
-            {/* Premium visual spacer separating PlantScrollSection (Section 3) and ResearchDatabaseSection (Section 4) */}
-            <div className="w-full bg-black py-20 flex items-center justify-center relative z-20 border-t border-b border-white/5">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(99,102,241,0.05)_0%,transparent_70%)] pointer-events-none" />
-              <div className="w-full max-w-7xl mx-auto px-6 flex items-center justify-between">
-                <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent to-white/10" />
-                <span className="mx-6 text-[10px] font-mono tracking-[0.3em] text-white/30 uppercase flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#d4b411]/50 animate-pulse" />
-                  TRANSITIONING SYSTEM CORES
-                  <span className="w-1.5 h-1.5 rounded-full bg-cyan-500/50 animate-pulse" />
-                </span>
-                <div className="h-[1px] flex-1 bg-gradient-to-l from-transparent to-white/10" />
-              </div>
-            </div>
-
-            <ResearchDatabaseSection />
-          </main>
-          
-          <footer className="relative z-10 bg-black py-10 border-t border-white/5 select-none text-center text-xs text-white/40 font-body">
-            <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-              <p>&copy; 2026 Nature AI. All rights reserved.</p>
-              <div className="flex items-center gap-6">
-                <button onClick={openPrivacyPolicy} className="hover:text-white/80 transition-colors cursor-pointer">
-                  Privacy Policy
-                </button>
-                <button onClick={openTermsOfService} className="hover:text-white/80 transition-colors cursor-pointer">
-                  Terms of Service
-                </button>
-              </div>
-            </div>
-          </footer>
-        </>
+        <ClonedHome
+          onHome={handleBack}
+          onScannerHub={openPremiumFeatures}
+          onDevCore={openDeveloperCore}
+          onFishIdentify={openFishIdentifySection}
+          onBirdIdentify={openBirdIdentifySection}
+          onInsectIdentify={openInsectIdentifySection}
+        />
       )}
     </div>
   );
